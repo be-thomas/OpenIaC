@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/squidfunk/api-gateway-enable-cors/0.3.3",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squidfunk/api-gateway-enable-cors/aws/0.3.3",
+    "ref": "0.3.3",
+    "path": ".",
+    "archiveSha256": "a96dbae71ab410b39224bb1cb4cd0aded482f227ea2c850fcec87c72e0d13e74",
+    "inputSha256": "9b4bb0c5e291fdd1331fbf223af2190c198b3fa04b98f2e948c8ed7f97fd4609"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "depends_on",
+    "functions",
+    "interpolation",
+    "locals",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

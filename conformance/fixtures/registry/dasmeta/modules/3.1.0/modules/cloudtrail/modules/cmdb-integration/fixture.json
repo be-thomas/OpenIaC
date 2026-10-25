@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/dasmeta/modules/3.1.0/modules/cloudtrail/modules/cmdb-integration",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
+    "ref": "3.1.0",
+    "path": "modules/cloudtrail/modules/cmdb-integration",
+    "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
+    "inputSha256": "69d71507b025d0f194996b4ee900d8a0e496d0c87bd36e54fdb2a8eb85cda804"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "depends_on",
+    "interpolation",
+    "modules",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

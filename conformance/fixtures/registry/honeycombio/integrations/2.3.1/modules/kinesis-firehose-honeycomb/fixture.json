@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/honeycombio/integrations/2.3.1/modules/kinesis-firehose-honeycomb",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/honeycombio/integrations/aws/2.3.1",
+    "ref": "2.3.1",
+    "path": "modules/kinesis-firehose-honeycomb",
+    "archiveSha256": "5858b504b151c7194de18de77c4eedb7111cb033aa8d1f6babd5975ebcbcd834",
+    "inputSha256": "7e348b45499bb42c0456205d1d0ec3fedc013bf3b23e4701042113e568845c5d"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

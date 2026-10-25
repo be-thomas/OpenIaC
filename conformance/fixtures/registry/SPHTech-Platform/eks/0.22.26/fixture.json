@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/eks/0.22.26",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/eks/aws/0.22.26",
+    "ref": "0.22.26",
+    "path": ".",
+    "archiveSha256": "9347bb5feaea13afb18d2cd2da0a0ddd8d63b3051e737f158b9880d3d71c346d",
+    "inputSha256": "c207f4a29698467d0cb80e010e9641387a83c2ad85c601f60fcfeaef0bf322f8"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "helm",
+    "kubectl",
+    "kubernetes"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

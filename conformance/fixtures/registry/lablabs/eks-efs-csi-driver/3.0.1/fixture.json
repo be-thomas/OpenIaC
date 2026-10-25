@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/lablabs/eks-efs-csi-driver/3.0.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lablabs/eks-efs-csi-driver/aws/3.0.1",
+    "ref": "3.0.1",
+    "path": ".",
+    "archiveSha256": "ebfb623d1511bcf66f42bbe7b5f213c4867c9ee52b2ec8d81dd5e4b83bd3ff33",
+    "inputSha256": "56c953b07e01f8078c014c25e4b3e00faf5ab93859b17c6df6365184fbe75494"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "utils"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

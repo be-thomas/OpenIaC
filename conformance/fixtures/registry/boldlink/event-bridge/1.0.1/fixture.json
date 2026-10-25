@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/event-bridge/1.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/event-bridge/aws/1.0.1",
+    "ref": "1.0.1",
+    "path": ".",
+    "archiveSha256": "e4fe1f47e447cd9b97166f962b637c4cf9b7098f6c23227fd297720d818f9a72",
+    "inputSha256": "de6dce10d79736d2f4fe1b021865d75be5b14ef991d9f65413640afc382ac169"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

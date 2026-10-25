@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "github/aws-ia/terraform-aws-eks-blueprints/fc40e646/patterns/blue-green-upgrade/modules/eks_cluster",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
+    "ref": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "path": "patterns/blue-green-upgrade/modules/eks_cluster",
+    "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
+    "inputSha256": "1ea8463838909c269ef805f2133460e232757756d72d3acb855cf1edcb25e934"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "kubernetes"
+  ],
+  "features": [
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

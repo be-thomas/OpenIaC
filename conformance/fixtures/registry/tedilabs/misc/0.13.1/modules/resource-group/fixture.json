@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/tedilabs/misc/0.13.1/modules/resource-group",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/tedilabs/misc/aws/0.13.1",
+    "ref": "0.13.1",
+    "path": "modules/resource-group",
+    "archiveSha256": "83eb05e17c3da5269734507c5b00e1c7816167e51a94e9a9039b9f644b9b55fa",
+    "inputSha256": "0fdff45606cbe51413d67bd29e63568a0a9f8f182338009139222f54906e2948"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "check",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

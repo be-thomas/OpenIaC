@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/lgallard/cognito-user-pool/5.1.4",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lgallard/cognito-user-pool/aws/5.1.4",
+    "ref": "5.1.4",
+    "path": ".",
+    "archiveSha256": "e7f534586d752fc409dff622ade77c4d196de4ab9d10b74e100027d8d50d2d6e",
+    "inputSha256": "397aa584d190fdfa8ed712ff785e8268597ecbe981d0a3c19a5f948945ddbe89"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

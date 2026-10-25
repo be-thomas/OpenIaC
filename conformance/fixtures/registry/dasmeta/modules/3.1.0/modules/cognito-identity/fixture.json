@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "id": "registry/dasmeta/modules/3.1.0/modules/cognito-identity",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
+    "ref": "3.1.0",
+    "path": "modules/cognito-identity",
+    "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
+    "inputSha256": "1305cba197261826e6691f327402358466c243d45bb6e52d4679f367b528a44b"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "dynamic",
+    "for_each",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

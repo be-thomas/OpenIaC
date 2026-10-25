@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/cloudwatch/5.7.3/modules/log-anomaly-detector",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/cloudwatch/aws/5.7.3",
+    "ref": "5.7.3",
+    "path": "modules/log-anomaly-detector",
+    "archiveSha256": "41456bc59ae8bbf47eb50185ae7b90a38c78e7f43ac091e90a14d885f455b701",
+    "inputSha256": "08688e6d5a10eccd009e06fbac0bb69692e620e75d81006246fc6da8ba489f8d"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

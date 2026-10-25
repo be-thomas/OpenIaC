@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "github/aws-ia/terraform-aws-eks-blueprints/fc40e646/patterns/multi-node-vllm",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
+    "ref": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "path": "patterns/multi-node-vllm",
+    "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
+    "inputSha256": "c48b026bd3fe28ac0d78c7c98f129c8a786e097a1b5fbadd0f454843c5308458"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm",
+    "kubectl",
+    "local"
+  ],
+  "features": [
+    "data",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

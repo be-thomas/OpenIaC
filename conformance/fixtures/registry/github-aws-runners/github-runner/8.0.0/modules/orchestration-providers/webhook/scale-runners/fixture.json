@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/github-aws-runners/github-runner/8.0.0/modules/orchestration-providers/webhook/scale-runners",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/github-aws-runners/github-runner/aws/8.0.0",
+    "ref": "8.0.0",
+    "path": "modules/orchestration-providers/webhook/scale-runners",
+    "archiveSha256": "6bf9e0bdb6a557aae674779cf84ebad97d46b147d9cc9db5938770339ece2f98",
+    "inputSha256": "fd5315f1b34be05b7f8611e48108baa966b9bbb847557661770e58b745756950"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "terraform"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/elasticache/1.11.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/elasticache/aws/1.11.2",
+    "ref": "1.11.2",
+    "path": ".",
+    "archiveSha256": "0dd16c86df50a647b2dd851f5ab9a3b1ff40058c6931499ff35d835c12d27513",
+    "inputSha256": "395fd23003f422bca244b71a7d88d47d796cea291e7441f366eec61d21a52fd5"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

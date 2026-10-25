@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/nozaq/secure-baseline/2.1.0/modules/ebs-baseline",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/nozaq/secure-baseline/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": "modules/ebs-baseline",
+    "archiveSha256": "79259b5d0fb638654503c184994b1e01f9f1b64ccdd89231aa748163073e1c2d",
+    "inputSha256": "a38f99ed485f53e791445d024979e6f12b80673ae55c1c9b472fcc03a71a600f"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "moved",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/alb-target-group-cloudwatch-sns-alarms/0.17.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/alb-target-group-cloudwatch-sns-alarms/aws/0.17.0",
+    "ref": "0.17.0",
+    "path": ".",
+    "archiveSha256": "50acabe230d1247018d34ab8a7b3cefadd26bd4b3813aa23e3e9b6c3d1cb0934",
+    "inputSha256": "9d4447cf1b870897f63b6d16d7bac8d3d4641c315c16dabe9dcb7246f1da60d6"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

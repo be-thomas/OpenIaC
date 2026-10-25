@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "registry/wandb/wandb/8.0.0/modules/endpoint",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/wandb/wandb/aws/8.0.0",
+    "ref": "8.0.0",
+    "path": "modules/endpoint",
+    "archiveSha256": "1ec2e8ca251b3f6dfd37e034a18342617c0d24653fe304e41cdabfecaee8c558",
+    "inputSha256": "d6afb4d613dec4b9a5a5505fbd6f55a1f34e75d5ee3521d7e3be644a712bd0dd"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "heredoc",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

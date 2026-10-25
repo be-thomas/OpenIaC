@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/dynamic-subnets/3.1.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/dynamic-subnets/aws/3.1.1",
+    "ref": "3.1.1",
+    "path": ".",
+    "archiveSha256": "542c2b5f9f2fe4c954570c621043cbc418c032e38ee160d1661a2a2d00c56ca0",
+    "inputSha256": "5851689facb03e1e29252b895588b4d8bfd384a0096c48450706af2a25d4e449"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/github-aws-runners/github-runner/8.0.0/examples/base",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/github-aws-runners/github-runner/aws/8.0.0",
+    "ref": "8.0.0",
+    "path": "examples/base",
+    "archiveSha256": "6bf9e0bdb6a557aae674779cf84ebad97d46b147d9cc9db5938770339ece2f98",
+    "inputSha256": "edd5c90c0173b0a88864f83e7b1f535a9ea9b000ffcffd0577d2c2b0f0ee88db"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "interpolation",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/kms/4.2.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/kms/aws/4.2.2",
+    "ref": "4.2.2",
+    "path": ".",
+    "archiveSha256": "5bf317e5726cb34406b36d9502fe789fa30dfec3facbda8b536bb36cfdd12af7",
+    "inputSha256": "cdbae85fc86c594e27c12583be66788009b2a946d2727b9046935c0962f48539"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

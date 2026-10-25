@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/jmgreg31/cloudfront/5.0.1/cloudfront",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/jmgreg31/cloudfront/aws/5.0.1",
+    "ref": "5.0.1",
+    "path": "cloudfront",
+    "archiveSha256": "0834598b4aadfa784d7706bb600826550136eb43707e4609310eab4113f2ef33",
+    "inputSha256": "dad859d2278bcc8a3ee56433cc6d62169c82338b5af16f289acba0b5b4db77e8"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

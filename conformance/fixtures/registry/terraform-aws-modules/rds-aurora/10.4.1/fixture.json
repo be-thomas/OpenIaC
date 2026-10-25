@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/rds-aurora/10.4.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/rds-aurora/aws/10.4.1",
+    "ref": "10.4.1",
+    "path": ".",
+    "archiveSha256": "988888a03e689a47731c48e9c61461ef4b7015ff0c6f73047ccadc1121ce3ca7",
+    "inputSha256": "1c276a519e86d97ba8c671e0a7665a47f46bf0e5c25a2300c2a81a8057382c40"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

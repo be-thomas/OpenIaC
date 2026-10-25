@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "id": "registry/ViktorUJ/vpc/1.1.0/examples/nat_gateway_single",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/ViktorUJ/vpc/aws/1.1.0",
+    "ref": "1.1.0",
+    "path": "examples/nat_gateway_single",
+    "archiveSha256": "d7a6f550764daf614e20d89657a3c1cbd0f91de44c1e9e52ea7cc2d93a625648",
+    "inputSha256": "83685b530d6ea36dc81a2b084340c3d97b666ca98cf82b446b62d212a2d25357"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "outputs"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

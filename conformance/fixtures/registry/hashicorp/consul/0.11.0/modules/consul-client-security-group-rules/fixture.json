@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/hashicorp/consul/0.11.0/modules/consul-client-security-group-rules",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/hashicorp/consul/aws/0.11.0",
+    "ref": "0.11.0",
+    "path": "modules/consul-client-security-group-rules",
+    "archiveSha256": "400ac184d6e5fc1f23cb081c44bd8bd35c72d5cecf36ac5f20946c1b5c2eb62c",
+    "inputSha256": "4b7ac093c6b99437a475431eb857e035a6d1fb615fe65c63c67a0c45ed5d688b"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

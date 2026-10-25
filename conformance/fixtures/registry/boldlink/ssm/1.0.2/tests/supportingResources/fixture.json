@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/ssm/1.0.2/tests/supportingResources",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/ssm/aws/1.0.2",
+    "ref": "1.0.2",
+    "path": "tests/supportingResources",
+    "archiveSha256": "7af0edb22f889a68c6bc361c8d99de27502251cc841e756701051a2abd8841dc",
+    "inputSha256": "9a2e3b1a93bdaa46887aed1bd086f6176061540a221e2b8ff59199d055bcf92b"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "functions",
+    "locals",
+    "modules",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

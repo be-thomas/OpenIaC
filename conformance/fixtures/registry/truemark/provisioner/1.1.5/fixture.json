@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/truemark/provisioner/1.1.5",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/truemark/provisioner/aws/1.1.5",
+    "ref": "1.1.5",
+    "path": ".",
+    "archiveSha256": "1d9c925272040c8edcfa099c95e38f395328341aa8cfdc4590b6f0f52645095f",
+    "inputSha256": "77122c66234810c877c68fa20da92c4bef7b6354d50e716ab0d67c328fc7c3a2"
+  },
+  "license": "BSD-3-Clause",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

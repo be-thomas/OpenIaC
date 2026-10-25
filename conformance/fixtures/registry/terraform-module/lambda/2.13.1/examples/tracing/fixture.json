@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-module/lambda/2.13.1/examples/tracing",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-module/lambda/aws/2.13.1",
+    "ref": "2.13.1",
+    "path": "examples/tracing",
+    "archiveSha256": "6f7617473f96760b33728a9425b9988b1a1ff1992dcdf29fc65797ef1d36f391",
+    "inputSha256": "cfdc6ab392e252b22dfee8a440cc6650e18f9c5221b093ebc0a6e653ed2ff95a"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "heredoc",
+    "locals",
+    "outputs",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

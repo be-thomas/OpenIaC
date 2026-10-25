@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/scribd/datadog/4.0.0/examples/full_integration",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/scribd/datadog/aws/4.0.0",
+    "ref": "4.0.0",
+    "path": "examples/full_integration",
+    "archiveSha256": "1b9c8d96e0eeb5f02fafc9e7b9e4796c809fe1d0b8d58d18a9c6a4d648495bfb",
+    "inputSha256": "01ac8b1b3f3abb04273aa4169c8d636b4fa67e02f0d78a8f3fc9fa094e76d4cb"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "datadog"
+  ],
+  "features": [
+    "data",
+    "modules",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

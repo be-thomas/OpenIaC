@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/apigw/0.5.8/modules/usage_plan",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/apigw/aws/0.5.8",
+    "ref": "0.5.8",
+    "path": "modules/usage_plan",
+    "archiveSha256": "b1e504a7cda7699790e368f94aa8deab49f045a83e9d6d23c05a48942c86651a",
+    "inputSha256": "a537ab9230573cfde0187fe5e38de5882224e5a4200213ee8739281706d1a61e"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "dynamic",
+    "for_each",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,12 @@
+# IMPORTANT: Add addon specific variables here
+variable "policy_allowed_zone_ids" {
+  type        = list(string)
+  default     = ["*"]
+  description = "List of the Route53 zone ids for service account IAM role access"
+}
+
+variable "aws_partition" {
+  type        = string
+  default     = "aws"
+  description = "AWS partition in which the resources are located. Avaliable values are `aws`, `aws-cn`, `aws-us-gov`"
+}

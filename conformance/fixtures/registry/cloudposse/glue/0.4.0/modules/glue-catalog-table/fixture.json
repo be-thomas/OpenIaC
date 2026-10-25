@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/glue/0.4.0/modules/glue-catalog-table",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/glue/aws/0.4.0",
+    "ref": "0.4.0",
+    "path": "modules/glue-catalog-table",
+    "archiveSha256": "a27cd6f975ffa8496f2d0a5a25d7dbc6ddc7b3a6e12e103942f104190a75b220",
+    "inputSha256": "ff1353b7c8d16b17f01b4502c199af2e5a3de3d190c263ac932869fc0c7b91be"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

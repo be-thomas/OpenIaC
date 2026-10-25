@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/draios/secure-for-cloud/0.10.29/modules/services/agentless-scanning",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/draios/secure-for-cloud/aws/0.10.29",
+    "ref": "0.10.29",
+    "path": "modules/services/agentless-scanning",
+    "archiveSha256": "60eb102e56ed24aa070de12ca9f7b1d7bf6c18c539f02253af4df0e4dbf4f80c",
+    "inputSha256": "9c3773dca220ffac594840bb8bc0bafaeaa2729b78a0233614249be0c2108ac8"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

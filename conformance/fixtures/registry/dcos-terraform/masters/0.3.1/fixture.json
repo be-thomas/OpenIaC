@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/masters/0.3.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/masters/aws/0.3.1",
+    "ref": "0.3.1",
+    "path": ".",
+    "archiveSha256": "6466742b575158ae5645712a6d4a62266ca65a21170e46c60104cfaa930c9e9d",
+    "inputSha256": "3df16be94042c262f9fd90715b6bd1c152cb6f201614ba57e9c62593349556fa"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "outputs",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

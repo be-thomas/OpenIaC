@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/cloudwatch-events/0.10.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/cloudwatch-events/aws/0.10.0",
+    "ref": "0.10.0",
+    "path": ".",
+    "archiveSha256": "488906d8bb7583864037b9a372275a174d1be98ce2cc9ba49c0c94570344a51d",
+    "inputSha256": "d4928999784f63677b948989c50c6acf03edada0f2f9586270b30b53673cb756"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

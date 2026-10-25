@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/ecs/7.6.1/modules/container-definition",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/ecs/aws/7.6.1",
+    "ref": "7.6.1",
+    "path": "modules/container-definition",
+    "archiveSha256": "1af3f3f6c60fafc5efa587d10204bd7e033a5c6c36163a2cb9e25fc590fddc08",
+    "inputSha256": "19275f4173e163a300dc2d4fdbb55a20411a553239b7950e91f3a0d1fbda33b1"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

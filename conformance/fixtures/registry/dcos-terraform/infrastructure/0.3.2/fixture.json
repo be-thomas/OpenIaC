@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/infrastructure/0.3.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/infrastructure/aws/0.3.2",
+    "ref": "0.3.2",
+    "path": ".",
+    "archiveSha256": "c3ca5d2c97e2c8124b0af6fb8276b7694c7f4578dc783f99896c5e6620b6259b",
+    "inputSha256": "2a0bcd8d65d30604fa3f282a382e5af998b985b4d63474bb5ac6f696e88c3b56"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "null",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

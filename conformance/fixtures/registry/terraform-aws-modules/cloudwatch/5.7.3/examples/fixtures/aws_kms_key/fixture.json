@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/cloudwatch/5.7.3/examples/fixtures/aws_kms_key",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/cloudwatch/aws/5.7.3",
+    "ref": "5.7.3",
+    "path": "examples/fixtures/aws_kms_key",
+    "archiveSha256": "41456bc59ae8bbf47eb50185ae7b90a38c78e7f43ac091e90a14d885f455b701",
+    "inputSha256": "d551349ea02b70c5c0b54982fbf521fc5d01b9a43b6c48d20bf19ee41ac2c902"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/guardduty/1.0.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/guardduty/aws/1.0.0",
+    "ref": "1.0.0",
+    "path": ".",
+    "archiveSha256": "9c0e60a9dbf0f092056d6096d6161ea7066cbeefc11c5597c3bed1d3b06e7679",
+    "inputSha256": "c22916778517de450839b1a2e72af8a0f33138ad2e9e23c99f2602a35f8ed6da"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

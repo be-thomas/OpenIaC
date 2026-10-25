@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/ecs/0.2.24/modules/iam",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/ecs/aws/0.2.24",
+    "ref": "0.2.24",
+    "path": "modules/iam",
+    "archiveSha256": "b5270503f3fa0b88fcae2ec6a56a3acca1425d12fbc6deea61580fec96bdcb4e",
+    "inputSha256": "5b022220861073e4f84dff5628012bdcdba09050895c9febf39c553cf6d9d2fe"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "functions",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

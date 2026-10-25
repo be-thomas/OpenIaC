@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-redhat/rosa-sts/0.0.16",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-redhat/rosa-sts/aws/0.0.16",
+    "ref": "0.0.16",
+    "path": ".",
+    "archiveSha256": "10419f77c2a4e761e0f2f5851fec4c8e84fb251410d86ccfce7693a8860b3869",
+    "inputSha256": "090d808f04fef34419ea51f74c57ca2ad3f874bf04c7505ad59b922efb311e5a"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "null",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

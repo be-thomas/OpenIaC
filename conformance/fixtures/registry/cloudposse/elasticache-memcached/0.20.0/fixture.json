@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/elasticache-memcached/0.20.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/elasticache-memcached/aws/0.20.0",
+    "ref": "0.20.0",
+    "path": ".",
+    "archiveSha256": "9436f2ebaf85f2ee9c06cd4dd20a38cf6cddfdc98a706023df326c34423287cf",
+    "inputSha256": "11de07f4f1ac978b50a70830fa9546e5d4725d7822085ad9a528cb928cc47889"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "null"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

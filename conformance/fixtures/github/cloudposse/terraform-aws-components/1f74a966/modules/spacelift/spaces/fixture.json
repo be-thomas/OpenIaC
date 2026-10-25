@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "github/cloudposse/terraform-aws-components/1f74a966/modules/spacelift/spaces",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/cloudposse/terraform-aws-components",
+    "ref": "1f74a966a0b40ce7e5cae5baec690e5356cf46b8",
+    "path": "modules/spacelift/spaces",
+    "archiveSha256": "97bfd2e9c947b2ae0a7fe6754f377cdc389f3397de7eba4d935c82a8aaf2ab4c",
+    "inputSha256": "91e2ec346bfc2bad089558390cb83fead8bdbacb9712155c919278b8c45486c8"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "spacelift"
+  ],
+  "features": [
+    "conditionals",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

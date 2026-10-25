@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/eks/21.29.0/modules/karpenter",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/21.29.0",
+    "ref": "21.29.0",
+    "path": "modules/karpenter",
+    "archiveSha256": "826eab00c4da2b013b0170cb13389fddb0eee39e79cbfa74381e5160f2e81676",
+    "inputSha256": "775d321cbabe5c3e27be299828e31c2a518efb5c45cd8d0da75992edf8e6fcf5"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

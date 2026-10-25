@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/moritzzimmer/lambda/8.6.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/moritzzimmer/lambda/aws/8.6.0",
+    "ref": "8.6.0",
+    "path": ".",
+    "archiveSha256": "d2ff2743f0f8297dfce8945d88e8790118df9b1b36e9ad720ac8296a7256e879",
+    "inputSha256": "c747625d92a0e80f56827a0d3720d3cc80bc89b39fd42a68146fa31092efee00"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

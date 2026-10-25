@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/babbel/secretsmanager-for-database-url/2.1.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/babbel/secretsmanager-for-database-url/aws/2.1.2",
+    "ref": "2.1.2",
+    "path": ".",
+    "archiveSha256": "150a80b80b3367289980f38665b110ecfa2d4daefd4249042272e745fd266f3b",
+    "inputSha256": "162590cde36e0bb589d02cc7ffd1d3471ebfa558d9cb47e1c55770fc63447500"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/fpco/foundation/0.9.16/modules/rds",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
+    "ref": "0.9.16",
+    "path": "modules/rds",
+    "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
+    "inputSha256": "13e234a6bc0de447c4820ac163b29f8a00fda857b36296dcf07ff46d5ac852e1"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

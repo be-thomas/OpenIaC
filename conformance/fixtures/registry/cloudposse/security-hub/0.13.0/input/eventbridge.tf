@@ -1,0 +1,126 @@
+#-----------------------------------------------------------------------------------------------------------------------
+# Optionally configure Event Bridge (formerly CloudWatchEvents) Rules and SNS subscriptions
+# We would like the SNS Topic to be encrypted, and EventBridge requires sufficient permissions for the KMS key
+# https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cwe-integration-types.html
+# https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html
+#-----------------------------------------------------------------------------------------------------------------------
+
+module "sns_kms_key_label" {
+  source  = "cloudposse/label/null"
+  version = "0.25.0"
+  count   = local.create_sns_topic ? 1 : 0
+
+  attributes = ["securityhub"]
+  context    = module.this.context
+}
+
+module "sns_kms_key" {
+  source  = "cloudposse/kms-key/aws"
+  version = "0.12.2"
+  count   = local.create_sns_topic ? 1 : 0
+
+  name                = local.create_sns_topic ? module.sns_kms_key_label[0].id : ""
+  description         = "KMS key for the security-hub Imported Findings SNS topic"
+  enable_key_rotation = true
+  alias               = "alias/security-hub-sns"
+  policy              = local.create_sns_topic ? data.aws_iam_policy_document.sns_kms_key_policy[0].json : ""
+
+  context = module.this.context
+}
+
+data "aws_iam_policy_document" "sns_kms_key_policy" {
+  count = local.create_sns_topic ? 1 : 0
+
+  policy_id = "EventBridgeEncryptUsingKey"
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "kms:*"
+    ]
+    resources = ["*"]
+
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:${one(data.aws_partition.this[*].partition)}:iam::${one(data.aws_caller_identity.this[*].account_id)}:root"]
+    }
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "kms:Decrypt",
+      "kms:GenerateDataKey"
+    ]
+    resources = ["*"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["events.amazonaws.com"]
+    }
+  }
+}
+
+module "sns_topic" {
+  source  = "cloudposse/sns-topic/aws"
+  version = "0.21.0"
+  count   = local.create_sns_topic ? 1 : 0
+
+  attributes        = ["securityhub"]
+  subscribers       = var.subscribers
+  sqs_dlq_enabled   = false
+  kms_master_key_id = local.create_sns_topic ? module.sns_kms_key[0].alias_name : ""
+
+  allowed_aws_services_for_sns_published = ["events.amazonaws.com"]
+
+  context = module.this.context
+}
+
+module "imported_findings_label" {
+  source  = "cloudposse/label/null"
+  version = "0.25.0"
+
+  attributes = ["securityhub-imported-findings"]
+  context    = module.this.context
+}
+
+resource "aws_cloudwatch_event_rule" "imported_findings" {
+  count       = local.enable_notifications ? 1 : 0
+  name        = module.imported_findings_label.id
+  description = "SecurityHubEvent - Imported Findings"
+  tags        = module.this.tags
+
+  # When `finding_severity_labels` is set, additionally filter on the finding
+  # severity so only matching findings are forwarded. `findings` is an array;
+  # EventBridge applies the nested pattern to each element and matches when any
+  # element satisfies it. Left empty (the default), the `detail` block is
+  # omitted entirely and all findings matching the detail-type are forwarded,
+  # preserving prior behavior.
+  event_pattern = jsonencode(
+    merge(
+      {
+        "source" : [
+          "aws.securityhub"
+        ],
+        "detail-type" : [
+          var.cloudwatch_event_rule_pattern_detail_type
+        ]
+      },
+      length(var.finding_severity_labels) > 0 ? {
+        "detail" : {
+          "findings" : {
+            "Severity" : {
+              "Label" : var.finding_severity_labels
+            }
+          }
+        }
+      } : {}
+    )
+  )
+}
+
+resource "aws_cloudwatch_event_target" "imported_findings" {
+  count = local.enable_notifications ? 1 : 0
+  rule  = aws_cloudwatch_event_rule.imported_findings[0].name
+  arn   = local.imported_findings_notification_arn
+}

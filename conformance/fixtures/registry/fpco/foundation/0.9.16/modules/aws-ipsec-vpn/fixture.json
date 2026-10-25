@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/fpco/foundation/0.9.16/modules/aws-ipsec-vpn",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
+    "ref": "0.9.16",
+    "path": "modules/aws-ipsec-vpn",
+    "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
+    "inputSha256": "dbf241b6e4baef2a1051fd8d916f8b7ec9af7076bcd36260997d53ef6124606f"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "functions",
+    "outputs",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

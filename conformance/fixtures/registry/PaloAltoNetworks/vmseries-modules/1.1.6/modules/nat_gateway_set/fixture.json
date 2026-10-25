@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/PaloAltoNetworks/vmseries-modules/1.1.6/modules/nat_gateway_set",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/PaloAltoNetworks/vmseries-modules/aws/1.1.6",
+    "ref": "1.1.6",
+    "path": "modules/nat_gateway_set",
+    "archiveSha256": "d1f8addda811aa7a48837401f3bb3eda1903e3796a5a5f25280366499d4248d4",
+    "inputSha256": "6ac0f42fc53855bbef95535b9127699abe89adb448579c0b25de865885e9b5fd"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

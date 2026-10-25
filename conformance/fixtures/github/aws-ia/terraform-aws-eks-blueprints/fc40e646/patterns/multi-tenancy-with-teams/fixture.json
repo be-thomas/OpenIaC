@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "github/aws-ia/terraform-aws-eks-blueprints/fc40e646/patterns/multi-tenancy-with-teams",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
+    "ref": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "path": "patterns/multi-tenancy-with-teams",
+    "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
+    "inputSha256": "f3cbdc18ca79342fc102d188393e8f9a910e791770a24aa3a409a15e9569d3f5"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "kubernetes"
+  ],
+  "features": [
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

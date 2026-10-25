@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/observeinc/collection/4.2.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/observeinc/collection/aws/4.2.0",
+    "ref": "4.2.0",
+    "path": ".",
+    "archiveSha256": "34d5830e7e6e5dcbc53416313bcc1da6d9583a13346f0ac649799eaee2958ed0",
+    "inputSha256": "0fffcc67e447b31792d0dc3876536ee86215368a2b79e89535fde1a983435c88"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

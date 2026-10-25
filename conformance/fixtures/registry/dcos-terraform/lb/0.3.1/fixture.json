@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/lb/0.3.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/lb/aws/0.3.1",
+    "ref": "0.3.1",
+    "path": ".",
+    "archiveSha256": "1236c912156ce5c26f1057057754ca8b8f1aaa46ae3e7d0800c463cc9b804fb2",
+    "inputSha256": "cbec61380f8fcd77c8eed7dfd773c4d481789a419cd11c70aaeeee2b236a7273"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "tls"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/hashicorp/vault/0.17.0/modules/vault-security-group-rules",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/hashicorp/vault/aws/0.17.0",
+    "ref": "0.17.0",
+    "path": "modules/vault-security-group-rules",
+    "archiveSha256": "aa4b30c9c7ee26d1fd2473e156100780ff259623a99b10a90edcd4a7d6d3bffd",
+    "inputSha256": "f9c868b7bc58d3b693464e13e61e2995955f44d3c25ad07a83d4931ebcbbc7bd"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

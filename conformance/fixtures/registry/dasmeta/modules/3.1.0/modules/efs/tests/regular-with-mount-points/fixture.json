@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "id": "registry/dasmeta/modules/3.1.0/modules/efs/tests/regular-with-mount-points",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
+    "ref": "3.1.0",
+    "path": "modules/efs/tests/regular-with-mount-points",
+    "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
+    "inputSha256": "356f6dae6dfc0f4a342df19b02491234e6bb0ca817c885a6f0be139e05328b3b"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "resources"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

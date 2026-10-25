@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/honeycombio/integrations/2.3.1/modules/s3-logfile",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/honeycombio/integrations/aws/2.3.1",
+    "ref": "2.3.1",
+    "path": "modules/s3-logfile",
+    "archiveSha256": "5858b504b151c7194de18de77c4eedb7111cb033aa8d1f6babd5975ebcbcd834",
+    "inputSha256": "054c1089dbd80ac5e9c990aff0fa14290a6c618949040131589b517ca7c51b2e"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

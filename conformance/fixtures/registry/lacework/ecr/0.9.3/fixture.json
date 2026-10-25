@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/lacework/ecr/0.9.3",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lacework/ecr/aws/0.9.3",
+    "ref": "0.9.3",
+    "path": ".",
+    "archiveSha256": "33fbb45a5918922bda9cd41480ceb7b863297a8d892228c82260a301f09e9359",
+    "inputSha256": "657f665f0bd66f969f4efa8dec56701d7b3b611bcaf668c1e21f431be9882bae"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "lacework",
+    "time"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

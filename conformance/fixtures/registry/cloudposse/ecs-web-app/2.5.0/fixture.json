@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ecs-web-app/2.5.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ecs-web-app/aws/2.5.0",
+    "ref": "2.5.0",
+    "path": ".",
+    "archiveSha256": "a4222e015756002e9e41cc69b0073ef388fea28f0325574fadda9caad9be49c9",
+    "inputSha256": "7246a1935f4263e41dc3e6918fa633323c4bed97c7d840d3b55227542f184fae"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

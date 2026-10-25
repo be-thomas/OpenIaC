@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/mwaa/0.0.8",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/mwaa/aws/0.0.8",
+    "ref": "0.0.8",
+    "path": ".",
+    "archiveSha256": "46da480d6690893f411c7ca6dae80a71acb974644b9c2cb46993d7ad934d790c",
+    "inputSha256": "908d580d18a5ae0e21d9a26bec75dc0720f0f06ceede77f36e7ef870c2f02fb8"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

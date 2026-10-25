@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/lb-controller/2.0.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/lb-controller/aws/2.0.1",
+    "ref": "2.0.1",
+    "path": ".",
+    "archiveSha256": "5ebcefb5c93a35c3421344065e85ec5b071c7360de9401e763996e67c616ea76",
+    "inputSha256": "bb29b02b3853d2904c1109084c709157e661576a1acc8d51b2f18f3656a9033b"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "depends_on",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

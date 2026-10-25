@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/eks-bootstrap/3.1.1/addons/efs",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/eks-bootstrap/aws/3.1.1",
+    "ref": "3.1.1",
+    "path": "addons/efs",
+    "archiveSha256": "684cc627c3d59f17711fb2ea67655b98897dc07dca952a8fb227c621105f7476",
+    "inputSha256": "dd1d9a69bb681538afd09eeec4088842bb249f0969fdc17e38345095a044bd7d"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "kubernetes"
+  ],
+  "features": [
+    "data",
+    "depends_on",
+    "functions",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

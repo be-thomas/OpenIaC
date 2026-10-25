@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/HENNGE/ecs/5.6.0/modules/core/ecs-autoscaling-target",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/HENNGE/ecs/aws/5.6.0",
+    "ref": "5.6.0",
+    "path": "modules/core/ecs-autoscaling-target",
+    "archiveSha256": "07fa8f746538cd1175f47c640f1fb7b98150e8a17f5940b223f755ba29e6cbb9",
+    "inputSha256": "aba87e3ecebf6d0fd4d37d222a16e59e0cf83bcbaf6aee23e913288d4caf0d09"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/rallyware/eks-iam-role/0.3.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/rallyware/eks-iam-role/aws/0.3.0",
+    "ref": "0.3.0",
+    "path": ".",
+    "archiveSha256": "5dff7af770aee3531423b20ca98b526b6ea576b3ac06ab5de02cbe914afb5ca3",
+    "inputSha256": "5394260e84c591dd0b00e4a21924843b7b6e85e84a0572b721fbaa561be2baa7"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

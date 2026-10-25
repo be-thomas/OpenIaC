@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/cloudwatch/5.7.3/examples/fixtures/aws_lambda_function",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/cloudwatch/aws/5.7.3",
+    "ref": "5.7.3",
+    "path": "examples/fixtures/aws_lambda_function",
+    "archiveSha256": "41456bc59ae8bbf47eb50185ae7b90a38c78e7f43ac091e90a14d885f455b701",
+    "inputSha256": "2304bcc95dde0713c5f1f8fb20dd5b595b319a022e65c9798a6724b7b2685da7"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "archive",
+    "aws",
+    "random"
+  ],
+  "features": [
+    "data",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

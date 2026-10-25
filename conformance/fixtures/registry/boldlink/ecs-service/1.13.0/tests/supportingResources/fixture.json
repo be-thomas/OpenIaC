@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/ecs-service/1.13.0/tests/supportingResources",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/ecs-service/aws/1.13.0",
+    "ref": "1.13.0",
+    "path": "tests/supportingResources",
+    "archiveSha256": "5c6d537b5513eb55f10976a1b55a0c9c49c1dd51faa6dae01d60d8fed764622b",
+    "inputSha256": "77bacee62a5770a6eb548aba4ec6d8f27fe9a4a50be2ae6cbfb99ba622721675"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

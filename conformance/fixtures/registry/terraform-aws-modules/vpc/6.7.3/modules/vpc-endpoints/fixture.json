@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/vpc/6.7.3/modules/vpc-endpoints",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/6.7.3",
+    "ref": "6.7.3",
+    "path": "modules/vpc-endpoints",
+    "archiveSha256": "d0404d99e1d2fb585c44b0eb099b8bd3396cdc647611579b40bc83424a91db6d",
+    "inputSha256": "bf60146b45737d161cde4d0fb111363d41dfaca4827a0b117ad21efab7b4697b"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

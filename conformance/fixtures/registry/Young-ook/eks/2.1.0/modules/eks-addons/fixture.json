@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/Young-ook/eks/2.1.0/modules/eks-addons",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/Young-ook/eks/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": "modules/eks-addons",
+    "archiveSha256": "ee277c5b0e074f97bdd688fd431570225958a51321c3423a87b764193c6be0d1",
+    "inputSha256": "33de56994352c539c56515df1d3a92a62ac95896dac1b7b6792af398afc0ce94"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "locals",
+    "modules",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

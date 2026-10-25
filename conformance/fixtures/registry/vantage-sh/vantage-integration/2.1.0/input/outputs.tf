@@ -1,0 +1,24 @@
+output "vantage_cross_account_connection_role_arn" {
+  description = "The Vantage cross account connection IAM role ARN"
+  value       = aws_iam_role.vantage_cross_account_connection.arn
+}
+
+output "vantage_cost_and_usage_report_arn" {
+  description = "The Vantage CUR report ARN"
+  value       = try(var.upgrade_to_cur_2 ? aws_bcmdataexports_export.vantage_cost_and_usage_reports[0].export[0].export_arn : aws_cur_report_definition.vantage_cost_and_usage_reports[0].arn, null)
+}
+
+output "vantage_cost_and_usage_report_name" {
+  description = "The Vantage CUR report name"
+  value       = try(var.upgrade_to_cur_2 ? aws_bcmdataexports_export.vantage_cost_and_usage_reports[0].export[0].name : aws_cur_report_definition.vantage_cost_and_usage_reports[0].report_name, null)
+}
+
+output "vantage_cost_and_usage_reports_bucket_arn" {
+  description = "The Vantage CUR bucket ARN"
+  value       = local.cur_bucket_arn
+}
+
+output "vantage_cost_and_usage_reports_bucket_id" {
+  description = "The Vantage CUR bucket ID"
+  value       = local.cur_bucket_id
+}

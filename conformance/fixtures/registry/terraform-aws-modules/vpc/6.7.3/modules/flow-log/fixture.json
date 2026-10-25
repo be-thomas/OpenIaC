@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/vpc/6.7.3/modules/flow-log",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/6.7.3",
+    "ref": "6.7.3",
+    "path": "modules/flow-log",
+    "archiveSha256": "d0404d99e1d2fb585c44b0eb099b8bd3396cdc647611579b40bc83424a91db6d",
+    "inputSha256": "20b97fe765ad8fd836e80aa2848097cf697714d541487909bc6216e421e9aa94"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

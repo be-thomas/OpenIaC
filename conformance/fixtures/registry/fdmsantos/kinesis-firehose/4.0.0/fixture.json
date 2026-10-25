@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/fdmsantos/kinesis-firehose/4.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fdmsantos/kinesis-firehose/aws/4.0.0",
+    "ref": "4.0.0",
+    "path": ".",
+    "archiveSha256": "5b697778d9c43ebf012cf197aae66228420627a7d3c02375c8023cb04dd3cf2c",
+    "inputSha256": "5afa60b2ae93b114c8e50afe15c5ba7857cbcb5a5ceb4036f03c79a772047b79"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

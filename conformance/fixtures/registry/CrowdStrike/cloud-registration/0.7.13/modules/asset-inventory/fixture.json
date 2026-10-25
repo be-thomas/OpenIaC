@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/CrowdStrike/cloud-registration/0.7.13/modules/asset-inventory",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/CrowdStrike/cloud-registration/aws/0.7.13",
+    "ref": "0.7.13",
+    "path": "modules/asset-inventory",
+    "archiveSha256": "9c33a02d03ae3fab7a6108b528c724ad9af5512fec975753745466bc1cd0419a",
+    "inputSha256": "dcd9ec5c27da036b72368eb4b3cd82d434cc41090e1a9d86ffd56b4b0c285059"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

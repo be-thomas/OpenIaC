@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "id": "registry/wandb/wandb/8.0.0/examples/byob-sse-s3",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/wandb/wandb/aws/8.0.0",
+    "ref": "8.0.0",
+    "path": "examples/byob-sse-s3",
+    "archiveSha256": "1ec2e8ca251b3f6dfd37e034a18342617c0d24653fe304e41cdabfecaee8c558",
+    "inputSha256": "0e1bf43b5db731fc6a4b197a38aa141b438fdc65ae18e59bea1eaa309bcac640"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

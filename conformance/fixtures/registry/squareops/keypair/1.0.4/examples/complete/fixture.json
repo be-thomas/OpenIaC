@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/keypair/1.0.4/examples/complete",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/keypair/aws/1.0.4",
+    "ref": "1.0.4",
+    "path": "examples/complete",
+    "archiveSha256": "cc93bbf6c558e630e6724941860abe8c5daf107c0cd469fbf68507d6a4a8062e",
+    "inputSha256": "d8d83be324c953539b6ef48f8a9c291c46e53743f4b88cf534de4d4e63ac8f32"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/route53/6.5.1/modules/delegation-sets",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/route53/aws/6.5.1",
+    "ref": "6.5.1",
+    "path": "modules/delegation-sets",
+    "archiveSha256": "f16ba358b9e87dd24d37d86bcea25f2e1d14082841382cc2814e3d32ddc024b3",
+    "inputSha256": "cb0a7ad3eb275eef62c5275be6f7a3294fe9325cce296f139d8ac16878fc1ed1"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "for_each",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

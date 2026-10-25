@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/notify-slack/7.5.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/notify-slack/aws/7.5.2",
+    "ref": "7.5.2",
+    "path": ".",
+    "archiveSha256": "e06b33cb0189a8538e2bc8afba821bc7c2fea00cea95c9a43b50839b9d0ed843",
+    "inputSha256": "b33b85576476fb7f717d41cf5a8c8579f683d7c5fafa4752d5069955f3c5f2f7"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/babbel/sns-to-rollbar/2.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/babbel/sns-to-rollbar/aws/2.0.1",
+    "ref": "2.0.1",
+    "path": ".",
+    "archiveSha256": "25d82e3eba927bab73796bae03e145d9e052b7904cc9bdf27e53d232008f6b6a",
+    "inputSha256": "5f3c70f1f79388ed3ffa6139b5cc92db124f05c63d59c4baa1f76e31e8df2c0e"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "depends_on",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

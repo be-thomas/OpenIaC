@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/hashicorp/hashicorp-vault-eks-addon/1.0.0-rc2/blueprints/getting-started",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/hashicorp/hashicorp-vault-eks-addon/aws/1.0.0-rc2",
+    "ref": "1.0.0-rc2",
+    "path": "blueprints/getting-started",
+    "archiveSha256": "095ba751efa1d80bb78b29f882163086c227e55477961f367dfa579768f8a6f4",
+    "inputSha256": "29e9998234b232365f5bba5ccee74112008c2ea7b09ab049c74a81a172aecc4f"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm",
+    "kubernetes"
+  ],
+  "features": [
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

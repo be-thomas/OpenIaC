@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/rad-security/rad-security-connect/0.11.0/examples/basic",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/rad-security/rad-security-connect/aws/0.11.0",
+    "ref": "0.11.0",
+    "path": "examples/basic",
+    "archiveSha256": "77fe7bc8496fba6cd3a611e0f508ec8c9138dedd6f16f5b730b330614b67ac5d",
+    "inputSha256": "3519f435a614f3fffce5d528254a13463abe75e55c79b8ed5c26345b8d7aedbd"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

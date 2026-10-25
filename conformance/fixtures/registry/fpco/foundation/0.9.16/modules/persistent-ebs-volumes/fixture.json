@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/fpco/foundation/0.9.16/modules/persistent-ebs-volumes",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
+    "ref": "0.9.16",
+    "path": "modules/persistent-ebs-volumes",
+    "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
+    "inputSha256": "957cc403f6479daca95f7d7cb4939a121fff6dceabdfa491e51b442e933a0447"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "template"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

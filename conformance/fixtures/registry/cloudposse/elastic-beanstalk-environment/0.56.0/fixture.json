@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/elastic-beanstalk-environment/0.56.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/elastic-beanstalk-environment/aws/0.56.0",
+    "ref": "0.56.0",
+    "path": ".",
+    "archiveSha256": "b1a82c324113bbd6c79159a4d798e3473558549c962487d4e87d625140ff9825",
+    "inputSha256": "c10361ba7efbf43f39c91e281763f1ed9af7ba3090b7c7ec1e218333a72717bf"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

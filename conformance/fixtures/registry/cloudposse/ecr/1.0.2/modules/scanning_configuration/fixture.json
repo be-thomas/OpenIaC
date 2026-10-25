@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ecr/1.0.2/modules/scanning_configuration",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ecr/aws/1.0.2",
+    "ref": "1.0.2",
+    "path": "modules/scanning_configuration",
+    "archiveSha256": "a9802fc145a955f9760d7cf8a2cc9fe607e9feedd33bcb4b03f16561534bcebc",
+    "inputSha256": "89ed1ccbf060c588e28e274ed0ed139fed55133f9066533db97f6813140ca068"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

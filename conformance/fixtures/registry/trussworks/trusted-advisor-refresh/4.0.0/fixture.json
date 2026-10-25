@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/trussworks/trusted-advisor-refresh/4.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/trussworks/trusted-advisor-refresh/aws/4.0.0",
+    "ref": "4.0.0",
+    "path": ".",
+    "archiveSha256": "53cab7588b97189559229149c29869213c28768a69c974410ba6279862286ef1",
+    "inputSha256": "9a174a4f4f112798494a5680ab3b2309dac47535fd8375533cea6e39a0d60788"
+  },
+  "license": "BSD-3-Clause",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "depends_on",
+    "interpolation",
+    "locals",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

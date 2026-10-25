@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "id": "registry/ViktorUJ/vpc/1.1.0/examples/nacl_subnet",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/ViktorUJ/vpc/aws/1.1.0",
+    "ref": "1.1.0",
+    "path": "examples/nacl_subnet",
+    "archiveSha256": "d7a6f550764daf614e20d89657a3c1cbd0f91de44c1e9e52ea7cc2d93a625648",
+    "inputSha256": "72d3e07d377bbad9ce41f12987a34014eeb2737cd85c6f771be617fa0278e0f1"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "outputs"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/Young-ook/eks/2.1.0/modules/irsa",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/Young-ook/eks/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": "modules/irsa",
+    "archiveSha256": "ee277c5b0e074f97bdd688fd431570225958a51321c3423a87b764193c6be0d1",
+    "inputSha256": "c4ddb9f784350de987245baadebd9002eb2f11e2f91de88cb9e8e158c0c31992"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "for_each",
+    "functions",
+    "locals",
+    "modules",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

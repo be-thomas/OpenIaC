@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/github-aws-runners/github-runner/8.0.0/modules/runner-binaries-syncer",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/github-aws-runners/github-runner/aws/8.0.0",
+    "ref": "8.0.0",
+    "path": "modules/runner-binaries-syncer",
+    "archiveSha256": "6bf9e0bdb6a557aae674779cf84ebad97d46b147d9cc9db5938770339ece2f98",
+    "inputSha256": "0e78e251b02e01c8316fab012737fe7fbba36da96d7224c13fca6a8a63639979"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

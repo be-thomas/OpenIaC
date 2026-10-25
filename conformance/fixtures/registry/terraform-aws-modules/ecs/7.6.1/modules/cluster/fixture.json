@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/ecs/7.6.1/modules/cluster",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/ecs/aws/7.6.1",
+    "ref": "7.6.1",
+    "path": "modules/cluster",
+    "archiveSha256": "1af3f3f6c60fafc5efa587d10204bd7e033a5c6c36163a2cb9e25fc590fddc08",
+    "inputSha256": "114c63cc389d81c00a784f028b8283ab8ecffed2480b2b1a72082e4bd22dd6c5"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "time"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

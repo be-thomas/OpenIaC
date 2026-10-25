@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/elasticache-redis/2.1.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/elasticache-redis/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": ".",
+    "archiveSha256": "b568a36388e3e95a7430d8d90051814f95435b12db28963163cf93aa148da67e",
+    "inputSha256": "afa1325ca25d68682e3f6716fc057cf727792630524e9fc980f6012314d066f2"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

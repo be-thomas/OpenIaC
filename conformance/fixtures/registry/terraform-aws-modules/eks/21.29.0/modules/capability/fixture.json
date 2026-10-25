@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/eks/21.29.0/modules/capability",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/21.29.0",
+    "ref": "21.29.0",
+    "path": "modules/capability",
+    "archiveSha256": "826eab00c4da2b013b0170cb13389fddb0eee39e79cbfa74381e5160f2e81676",
+    "inputSha256": "838eb6ca4daf3683fbbfb13c1ca3a0d741a35a951443d4be27c1754dfae54807"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "time"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

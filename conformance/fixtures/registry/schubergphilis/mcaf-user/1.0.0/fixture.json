@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/schubergphilis/mcaf-user/1.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/schubergphilis/mcaf-user/aws/1.0.0",
+    "ref": "1.0.0",
+    "path": ".",
+    "archiveSha256": "de2ee235afc26062d444df554c28b66645528b35071c397f74cd097ef24fe340",
+    "inputSha256": "61bd83791955dd773b03ddf01338918d44d8f74c361db1321628d05617bc4320"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

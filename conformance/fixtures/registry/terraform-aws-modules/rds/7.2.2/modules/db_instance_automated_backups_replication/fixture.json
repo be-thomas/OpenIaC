@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/rds/7.2.2/modules/db_instance_automated_backups_replication",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/7.2.2",
+    "ref": "7.2.2",
+    "path": "modules/db_instance_automated_backups_replication",
+    "archiveSha256": "a7ee48a84b1f0a42ba303ed874b05fcd53121441ee79c7c8a13c4819bbf0ed93",
+    "inputSha256": "fd49831dda4fe10af02ed080b37f1c04dcd65c46eb92347c48197014e777423c"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

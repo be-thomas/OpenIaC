@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/philips-labs/github-runner/6.1.0/modules/webhook",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/philips-labs/github-runner/aws/6.1.0",
+    "ref": "6.1.0",
+    "path": "modules/webhook",
+    "archiveSha256": "d51d373679290fa85b7577e9d687025cc26a745c6522542bdec788c1fa12dd87",
+    "inputSha256": "7616848c34417f26722de5a249c0f8ed5acff2e4b69907ec3c6617ea5375e179"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "null"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

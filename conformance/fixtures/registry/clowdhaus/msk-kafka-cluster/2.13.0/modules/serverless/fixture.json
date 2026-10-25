@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/clowdhaus/msk-kafka-cluster/2.13.0/modules/serverless",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/clowdhaus/msk-kafka-cluster/aws/2.13.0",
+    "ref": "2.13.0",
+    "path": "modules/serverless",
+    "archiveSha256": "819cdce96c6c91b77f3e8ed3dc849c0a08fe1212518219e2c6a270fa6ced9caa",
+    "inputSha256": "0645560be861b4a74817dcf7a604de2ad22c5b0dd5d1cfd1fe75959466034fc5"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/DataDog/lambda-datadog/4.9.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/DataDog/lambda-datadog/aws/4.9.0",
+    "ref": "4.9.0",
+    "path": ".",
+    "archiveSha256": "d1c7f2677f003207bff218d49ae8c11bb8e20e75b77ef936ad9e6e3d2d8ee5e2",
+    "inputSha256": "86e327ef7d790437e4d722a24eb27fd6adf109546d6736ee441d269b95aa0e78"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "check",
+    "conditionals",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

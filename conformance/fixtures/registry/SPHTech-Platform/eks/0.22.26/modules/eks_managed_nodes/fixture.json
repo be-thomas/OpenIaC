@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/eks/0.22.26/modules/eks_managed_nodes",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/eks/aws/0.22.26",
+    "ref": "0.22.26",
+    "path": "modules/eks_managed_nodes",
+    "archiveSha256": "9347bb5feaea13afb18d2cd2da0a0ddd8d63b3051e737f158b9880d3d71c346d",
+    "inputSha256": "03fe0c8594d924dc0da8948680bd127c954c8bb1fda65914d92752d748d1ebdf"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

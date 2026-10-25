@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/diodonfrost/lambda-scheduler-stop-start/4.5.0/examples/autoscaling-scheduler/test-execution",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/diodonfrost/lambda-scheduler-stop-start/aws/4.5.0",
+    "ref": "4.5.0",
+    "path": "examples/autoscaling-scheduler/test-execution",
+    "archiveSha256": "a35cc894472c33376d6744089d04071d3997672c7532c9d8d6d2d712406a7c42",
+    "inputSha256": "4a86f0289834063f243f94306f7bd8fc66cf37336d2efc8820a429d04ade790d"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "time"
+  ],
+  "features": [
+    "data",
+    "depends_on",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

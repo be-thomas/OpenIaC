@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/avlcloudtechnologies/sso/0.5.0/examples/simple",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/avlcloudtechnologies/sso/aws/0.5.0",
+    "ref": "0.5.0",
+    "path": "examples/simple",
+    "archiveSha256": "b80a5bb4b801e53aacead2f988b484fa0e0448ad4dc1770bfe1cb3c2b6e5e5bf",
+    "inputSha256": "d984ce688fbcc43b06545ce401c1b67d3fc25d6c37b729bb4f11a216d8ba4433"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "for_expressions",
+    "functions",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

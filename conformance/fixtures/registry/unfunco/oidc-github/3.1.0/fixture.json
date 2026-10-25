@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/unfunco/oidc-github/3.1.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/unfunco/oidc-github/aws/3.1.0",
+    "ref": "3.1.0",
+    "path": ".",
+    "archiveSha256": "80d8559b446241df4eb641c2241e3924b9bcea242e11adc7366310dfc018173b",
+    "inputSha256": "e4795eb82d8a499943c27c4a9a6b355b708f0fab1a210e3f190c96ec70282c03"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "tls"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

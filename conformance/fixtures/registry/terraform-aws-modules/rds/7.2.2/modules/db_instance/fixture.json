@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/rds/7.2.2/modules/db_instance",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/7.2.2",
+    "ref": "7.2.2",
+    "path": "modules/db_instance",
+    "archiveSha256": "a7ee48a84b1f0a42ba303ed874b05fcd53121441ee79c7c8a13c4819bbf0ed93",
+    "inputSha256": "1703205db7f54f129eb18d19f7eb9103cc3cc791ccb1e51222f9a429e2eeb95c"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

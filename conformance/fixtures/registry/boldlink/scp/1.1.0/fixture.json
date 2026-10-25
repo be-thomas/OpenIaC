@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/scp/1.1.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/scp/aws/1.1.0",
+    "ref": "1.1.0",
+    "path": ".",
+    "archiveSha256": "e17b8ae224e72b308f4b42c6675402de464415aee8172903d3b6523ac5bb7891",
+    "inputSha256": "bdc6b5a52e524ce62aa2078298080dffec37cb6a36868dceab9f2ad1702f92fc"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

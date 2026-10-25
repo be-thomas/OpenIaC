@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/iam/0.3.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/iam/aws/0.3.0",
+    "ref": "0.3.0",
+    "path": ".",
+    "archiveSha256": "674303049c67494118372c4607b346f0fd7ad769c549405069d26e813d666779",
+    "inputSha256": "eb0451a58831a8cf72bcdf8a40ed0fdaabefd2df643f232a7c35c7ad84ae65d1"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

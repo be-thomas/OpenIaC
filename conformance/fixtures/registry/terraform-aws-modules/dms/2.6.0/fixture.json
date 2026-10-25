@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/dms/2.6.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/dms/aws/2.6.0",
+    "ref": "2.6.0",
+    "path": ".",
+    "archiveSha256": "d01389d579099913833fb6ef5ec2366ac02e77203932a8c5446dcbdd71e0a592",
+    "inputSha256": "908e920f5732d796f26d02fb9a60956164dd4fc7f5df98c04adde73a7d6a7ee8"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "time"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

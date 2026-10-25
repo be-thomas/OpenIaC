@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "registry": {
+    "provider": "aws",
+    "maxPages": 100,
+    "minDownloads": 1000,
+    "maxModules": 400,
+    "namespaces": [
+      "terraform-aws-modules",
+      "cloudposse",
+      "aws-ia",
+      "hashicorp"
+    ],
+    "modules": [
+      "terraform-aws-modules/vpc/aws",
+      "terraform-aws-modules/eks/aws",
+      "terraform-aws-modules/security-group/aws",
+      "terraform-aws-modules/rds/aws",
+      "terraform-aws-modules/s3-bucket/aws",
+      "terraform-aws-modules/iam/aws",
+      "terraform-aws-modules/alb/aws",
+      "terraform-aws-modules/lambda/aws"
+    ],
+    "maxFixturesPerRepo": 50
+  },
+  "github": [
+    {
+      "repo": "cloudposse/terraform-aws-components",
+      "ref": "main",
+      "include": [
+        "modules/**"
+      ],
+      "maxFixtures": 120
+    },
+    {
+      "repo": "aws-ia/terraform-aws-eks-blueprints",
+      "ref": "main",
+      "include": [
+        "patterns/**"
+      ],
+      "maxFixtures": 50
+    }
+  ],
+  "limits": {
+    "maxArchiveBytes": 41943040,
+    "maxArchiveTextBytes": 83886080,
+    "maxFixtureBytes": 524288,
+    "maxFixtureFiles": 200,
+    "maxTotalBytes": 104857600,
+    "maxFileBytes": 1048576,
+    "maxCandidatesPerRepo": 50
+  },
+  "licenses": [
+    "Apache-2.0",
+    "MIT",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "MPL-2.0",
+    "Unlicense",
+    "CC0-1.0"
+  ]
+}

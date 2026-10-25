@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/lablabs/eks-kube-state-metrics/4.0.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lablabs/eks-kube-state-metrics/aws/4.0.1",
+    "ref": "4.0.1",
+    "path": ".",
+    "archiveSha256": "f6a6317cfdb76ad4c6895ea6ff93578eae6f8818bebaf79294809d4bfdfebb22",
+    "inputSha256": "ffdd01830cfb48fd9bc6792a50a3265d2ace69c8e8d9c54fe757ab682593636c"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "utils"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "functions",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

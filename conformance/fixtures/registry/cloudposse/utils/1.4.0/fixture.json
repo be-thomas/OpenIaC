@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/utils/1.4.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/utils/aws/1.4.0",
+    "ref": "1.4.0",
+    "path": ".",
+    "archiveSha256": "012f089039ea2719da11909a2334c3075bc665733c94316ba7a4844899f1a30d",
+    "inputSha256": "a6cab8d1e4b8fc465bf44067456d6d5d48e929c205ebffd3a4bdc64505f30b71"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/umotif-public/elasticache-redis/3.5.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/umotif-public/elasticache-redis/aws/3.5.0",
+    "ref": "3.5.0",
+    "path": ".",
+    "archiveSha256": "742f00a87666ca75a10e86828f79c3067bb35e302e9154fb0dcbac957ef50bab",
+    "inputSha256": "04789b7ca78daad54c43fcf88bb6168ea07a39a67ab1a837fae391ecf2fd5881"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "id": "registry/HENNGE/ecs/5.6.0/modules/autoscaling/ecs-scheduled",
+  "tier": "smoke",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/HENNGE/ecs/aws/5.6.0",
+    "ref": "5.6.0",
+    "path": "modules/autoscaling/ecs-scheduled",
+    "archiveSha256": "07fa8f746538cd1175f47c640f1fb7b98150e8a17f5940b223f755ba29e6cbb9",
+    "inputSha256": "651bc1ebbdc1271385cad720e8f8a556d301785ca9da3e35deb51264fb4b9c31"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "full"
+}

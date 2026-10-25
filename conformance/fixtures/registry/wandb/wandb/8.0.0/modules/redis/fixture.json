@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/wandb/wandb/8.0.0/modules/redis",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/wandb/wandb/aws/8.0.0",
+    "ref": "8.0.0",
+    "path": "modules/redis",
+    "archiveSha256": "1ec2e8ca251b3f6dfd37e034a18342617c0d24653fe304e41cdabfecaee8c558",
+    "inputSha256": "f5bcca0752e681decc10c4841a8d76a0f3c7c606ed64d351430bda7a74925251"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "interpolation",
+    "locals",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

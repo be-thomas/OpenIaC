@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/nozaq/secure-baseline/2.1.0/modules/config-baseline",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/nozaq/secure-baseline/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": "modules/config-baseline",
+    "archiveSha256": "79259b5d0fb638654503c184994b1e01f9f1b64ccdd89231aa748163073e1c2d",
+    "inputSha256": "4a888e300168b0cc08996fed7a5a4e3f82eb0a99dd1340cca34e9f4fd18dfc04"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "depends_on",
+    "interpolation",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

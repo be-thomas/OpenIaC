@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/CrowdStrike/cloud-registration/0.7.13/modules/agentless-scanning-environments",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/CrowdStrike/cloud-registration/aws/0.7.13",
+    "ref": "0.7.13",
+    "path": "modules/agentless-scanning-environments",
+    "archiveSha256": "9c33a02d03ae3fab7a6108b528c724ad9af5512fec975753745466bc1cd0419a",
+    "inputSha256": "79014811df2221636e54eaa156cb2529e7de2b2cd1469ab53e46300ab90b5cd1"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

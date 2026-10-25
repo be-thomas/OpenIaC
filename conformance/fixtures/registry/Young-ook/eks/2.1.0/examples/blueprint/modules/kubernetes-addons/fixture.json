@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/Young-ook/eks/2.1.0/examples/blueprint/modules/kubernetes-addons",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/Young-ook/eks/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": "examples/blueprint/modules/kubernetes-addons",
+    "archiveSha256": "ee277c5b0e074f97bdd688fd431570225958a51321c3423a87b764193c6be0d1",
+    "inputSha256": "c3d8500f8aff2478955124c3ab8b410f26ee9d3de54170228f418d9849127894"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "local"
+  ],
+  "features": [
+    "conditionals",
+    "depends_on",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

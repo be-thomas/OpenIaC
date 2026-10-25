@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/baikonur-oss/iam-nofile/2.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/baikonur-oss/iam-nofile/aws/2.0.0",
+    "ref": "2.0.0",
+    "path": ".",
+    "archiveSha256": "a8718d0cdfadb9c9c650cdfa3aff23f866282f060b70be66fbd27911567df0ab",
+    "inputSha256": "c36a73e417aa18f4458674580ece42a4944f5f60e159253905bcdb63133fc735"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

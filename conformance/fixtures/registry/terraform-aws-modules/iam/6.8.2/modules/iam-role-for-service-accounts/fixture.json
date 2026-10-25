@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/iam/6.8.2/modules/iam-role-for-service-accounts",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/6.8.2",
+    "ref": "6.8.2",
+    "path": "modules/iam-role-for-service-accounts",
+    "archiveSha256": "258ce47e665691465db44db722411230850130fb5d15e1bcaa0d6465c2fdfd54",
+    "inputSha256": "bbeddcb7eb46b977e7dd8490983a2d56286dc1d5bcfb1f98bc38344d0ff10538"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

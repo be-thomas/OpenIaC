@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/Young-ook/eks/2.1.0/modules/helm-addons",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/Young-ook/eks/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": "modules/helm-addons",
+    "archiveSha256": "ee277c5b0e074f97bdd688fd431570225958a51321c3423a87b764193c6be0d1",
+    "inputSha256": "73ff8f5451a1e22d012aabe45d4db7553a4fdc3a382ac7a11bfb44c832db263a"
+  },
+  "license": "MIT",
+  "providers": [
+    "helm"
+  ],
+  "features": [
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

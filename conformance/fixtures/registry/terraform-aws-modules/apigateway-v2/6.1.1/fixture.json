@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/apigateway-v2/6.1.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/apigateway-v2/aws/6.1.1",
+    "ref": "6.1.1",
+    "path": ".",
+    "archiveSha256": "c467fa6fd5642860f5193ff8a53920b9663eea184538f790d682d0bdbf9b3e0e",
+    "inputSha256": "ec7c9a451fd91badf5d1bd9e9989afea4154bb1669d1bfd75510c3385c8c20fa"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

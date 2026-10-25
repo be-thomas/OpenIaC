@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/dasmeta/modules/3.1.0/modules/external-secret-store",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
+    "ref": "3.1.0",
+    "path": "modules/external-secret-store",
+    "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
+    "inputSha256": "2f17a5e5aa8116eb8635704f595b229189fd6cbd5b2bbe88bb72ef65f8855790"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "kubectl"
+  ],
+  "features": [
+    "data",
+    "depends_on",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/acm-request-certificate/0.18.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/acm-request-certificate/aws/0.18.1",
+    "ref": "0.18.1",
+    "path": ".",
+    "archiveSha256": "4b7bc88d661c771ff52c1e59aaf2d095c55e4fb62a6eeb89698fd4cae5ac3c96",
+    "inputSha256": "e3f31793b1cbff29041780dd64c12241d00ed16d24fa148707d10a3ebe39d168"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

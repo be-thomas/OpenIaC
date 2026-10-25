@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/service-control-policies/0.16.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/service-control-policies/aws/0.16.0",
+    "ref": "0.16.0",
+    "path": ".",
+    "archiveSha256": "32ddd38122938a9014ccac646c5d94ad54910a89afc312a92a140169d4742ded",
+    "inputSha256": "2a78eeabd46bcfc2e70193f316f87ac10eaa35c09543e83d89e5d20e5d397f34"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

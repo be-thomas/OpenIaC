@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/vpc/3.4.1/examples/simple-vpc",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/vpc/aws/3.4.1",
+    "ref": "3.4.1",
+    "path": "examples/simple-vpc",
+    "archiveSha256": "03661d003b3f549d2f166e7c5e4249776105d93a744533e48f7435d6e0aa8652",
+    "inputSha256": "156831fc9149e519f28be9eeeb4030c781b7bf5d936df86db495104c73bdc4b2"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "locals",
+    "modules",
+    "outputs"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

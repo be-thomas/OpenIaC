@@ -1,7 +1,7 @@
 # Conformance Process
 
-> **Status:** design. The harness, corpus and gates below are not implemented
-> yet. This document is the contract to build against.
+> **Status:** inputs phase. The collector and committed fixture tree exist.
+> The L1–L4 harness, goldens and CI gates below are still to be built.
 
 Conformance answers one question: **does OpenIaC preserve the meaning of real
 Terraform when it emits AWS CDK or Pulumi?** Coverage alone cannot answer that,
@@ -22,6 +22,32 @@ There is no reliable public corpus of Terraform → CDK/Pulumi *pairs*. AWS
 publishes the two kinds of examples separately. The plan is therefore: collect
 real Terraform inputs, then derive expected behaviour from tools that can
 validate or execute them independently.
+
+## Inputs phase
+
+The first implementation step is the corpus itself. `cmd/openiac-conformance`
+crawls the Terraform Registry for AWS modules, resolves every module version to
+an immutable GitHub commit, downloads the archive and writes the accepted module
+roots under `conformance/fixtures/`. Configured GitHub seeds add monorepos that
+contain many local modules. The source list, caps and license allowlist live in
+[`conformance/collection/sources.json`](../conformance/collection/sources.json).
+
+```bash
+make conformance-inputs
+# or
+go run ./cmd/openiac-conformance collect -v
+```
+
+The collector is intentionally conservative. It keeps only `.tf` and
+`.tf.json` files, rejects provisioners, external data sources and credential
+literals, requires a recognized permissive root license, and skips a module that
+references a local path outside its own fixture root. Local modules referenced
+inside the root are copied in, so the fixture is self-contained. The full rules
+and the regeneration workflow are in
+[`conformance/README.md`](../conformance/README.md).
+
+No expected IR, warnings, CDK or Pulumi output is generated in this phase. The
+L0–L4 layers below remain the contract for the next phase.
 
 ## Conformance layers
 
@@ -92,6 +118,12 @@ The corpus is **committed to this repository** under `conformance/fixtures/`.
 One clone gives a contributor the compiler, the fixtures and the expectations at
 the same revision. There is no second repository, submodule or release artifact
 for inputs.
+
+Snapshot at 2026-10-26: **918 fixtures**, 6,934 files, 25,173,266 bytes; 867
+from the Terraform Registry and 51 from GitHub seeds. Tiers: 20 `smoke`, 4
+`core`, 497 `advanced` and 397 `modules`. Licenses: 701 Apache-2.0, 208 MIT and
+9 BSD-3-Clause. The generated [`corpus.lock.json`](../conformance/corpus.lock.json)
+is authoritative.
 
 Provider, CloudFormation and Pulumi schemas are dependencies rather than source:
 they are pinned by lockfile and cached outside the tree.
@@ -181,6 +213,7 @@ registry/terraform-aws-modules/vpc/5.1.0/
 │   ├── cdk/index.ts
 │   └── pulumi/index.ts
 ├── LICENSE                           # vendored fixtures only
+├── NOTICE                            # upstream notice, when present
 └── NOTES.md                          # optional
 ```
 
@@ -231,9 +264,9 @@ the only aggregate, and CI regenerates it and fails if it differs.
 
 | Rule | Reason |
 |:--|:--|
-| Commit text only: `.tf`, `.tf.json`, `LICENSE*`, `NOTES.md` | Keeps clones and diffs reviewable |
+| Commit text only: `.tf`, `.tf.json`, `LICENSE*`, `NOTICE*`, `fixture.json`, `NOTES.md` | Keeps clones and diffs reviewable |
 | Prune binaries, `.terraform/`, state, lock files and examples/tests outside the selected module | Nothing else is used by the harness |
-| Cap each fixture at 256 KiB and 100 files | Bounds worst-case input |
+| Cap each fixture at 512 KiB and 200 files | Bounds worst-case input |
 | Keep the whole `conformance/fixtures/` tree under 100 MB | Keeps the monorepo cloneable; CI fails above budget |
 | Never reformat or patch upstream files | The fixture must remain what upstream published |
 | Copy the license text into the fixture and record its SPDX identifier | Attribution travels with the code |
@@ -261,8 +294,9 @@ conformance/fixtures/
 ### Runner layout
 
 ```text
-cmd/openiac-conformance/          # CLI: discover, lock, run, report
+cmd/openiac-conformance/          # CLI: collect, discover, lock, run, report
 internal/conformance/
+├── collect/                       # registry/GitHub ingest and fixture writing
 ├── corpus/                       # discover, verify, classify, lock
 ├── layer0/ … layer4/             # one package per oracle
 ├── compare/                      # normalization and diff engine

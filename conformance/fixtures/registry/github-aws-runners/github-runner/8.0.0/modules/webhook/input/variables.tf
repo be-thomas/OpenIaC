@@ -1,0 +1,267 @@
+variable "lambda_subnet_ids" {
+  description = "List of subnets in which the action runners will be launched, the subnets needs to be subnets in the `vpc_id`."
+  type        = list(string)
+  default     = []
+}
+
+variable "lambda_security_group_ids" {
+  description = "List of security group IDs associated with the Lambda function."
+  type        = list(string)
+  default     = []
+}
+
+variable "prefix" {
+  description = "The prefix used for naming resources"
+  type        = string
+  default     = "github-actions"
+}
+
+variable "tags" {
+  description = "Map of tags that will be added to created resources. By default resources will be tagged with name and environment."
+  type        = map(string)
+  default     = {}
+}
+
+variable "runner_matcher_config" {
+  description = "SQS queue to publish accepted build events based on the runner type. `computeProvider` defaults to `ec2`; EC2 is the only provider currently implemented. When exact match is disabled the webhook accepts the event if one of the workflow job labels is part of the matcher. The priority defines the order the matchers are applied. Optional `matcherConfig.enableDynamicLabels` and `matcherConfig.awsDynamicLabelsPolicy` are evaluated by the dispatcher to gate provider dynamic labels per runner. The policy supports `allowed_keys = [<key>]`, `blocked_keys = [<key>]` (cannot be used together with `allowed_keys`), and `restricted_keys = { <key> = { allowed = [globs], denied = [globs], max = number|string } }`; keys use the provider dynamic label suffix form, for example `instance-type` for `ghr-ec2-instance-type`."
+  type = map(object({
+    arn             = string
+    id              = string
+    computeProvider = optional(string, "ec2")
+    matcherConfig = object({
+      labelMatchers           = list(list(string))
+      exactMatch              = bool
+      bidirectionalLabelMatch = optional(bool, false)
+      priority                = optional(number, 999)
+      enableDynamicLabels     = optional(bool, false)
+      awsDynamicLabelsPolicy = optional(object({
+        allowed_keys = optional(list(string), [])
+        blocked_keys = optional(list(string), [])
+        restricted_keys = optional(map(object({
+          allowed = optional(list(string), [])
+          denied  = optional(list(string), [])
+          max     = optional(string, null)
+        })), {})
+      }), null)
+    })
+  }))
+  validation {
+    condition     = try(var.runner_matcher_config.matcherConfig.priority, 999) >= 0 && try(var.runner_matcher_config.matcherConfig.priority, 999) < 1000
+    error_message = "The priority of the matcher must be between 0 and 999."
+  }
+  validation {
+    condition = alltrue([
+      for config in values(var.runner_matcher_config) :
+      lower(trimspace(config.computeProvider)) == "ec2"
+    ])
+    error_message = "computeProvider must be ec2."
+  }
+  validation {
+    condition = alltrue([
+      for config in values(var.runner_matcher_config) : !(
+        try(length(config.matcherConfig.awsDynamicLabelsPolicy.allowed_keys), 0) > 0 &&
+        try(length(config.matcherConfig.awsDynamicLabelsPolicy.blocked_keys), 0) > 0
+      )
+    ])
+    error_message = "runner_matcher_config: allowed_keys and blocked_keys cannot both be set in awsDynamicLabelsPolicy."
+  }
+}
+
+variable "lambda_zip" {
+  description = "File location of the lambda zip file."
+  type        = string
+  default     = null
+}
+
+variable "lambda_memory_size" {
+  description = "Memory size limit in MB for lambda."
+  type        = number
+  default     = 256
+}
+
+variable "lambda_timeout" {
+  description = "Time out of the lambda in seconds."
+  type        = number
+  default     = 10
+}
+
+variable "role_permissions_boundary" {
+  description = "Permissions boundary that will be added to the created role for the lambda."
+  type        = string
+  default     = null
+}
+
+variable "role_path" {
+  description = "The path that will be added to the role; if not set, the environment name will be used."
+  type        = string
+  default     = null
+}
+
+variable "logging_retention_in_days" {
+  description = "Specifies the number of days you want to retain log events for the lambda log group. Possible values are: 0, 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653."
+  type        = number
+  default     = 180
+}
+
+variable "logging_kms_key_id" {
+  description = "Specifies the kms key id to encrypt the logs with"
+  type        = string
+  default     = null
+}
+
+variable "log_class" {
+  description = "The log class of the CloudWatch log group. Valid values are `STANDARD` or `INFREQUENT_ACCESS`."
+  type        = string
+  default     = "STANDARD"
+
+  validation {
+    condition     = contains(["STANDARD", "INFREQUENT_ACCESS"], var.log_class)
+    error_message = "`log_class` must be either `STANDARD` or `INFREQUENT_ACCESS`."
+  }
+}
+
+variable "lambda_s3_bucket" {
+  description = "S3 bucket from which to specify lambda functions. This is an alternative to providing local files directly."
+  type        = string
+  default     = null
+}
+
+variable "webhook_lambda_s3_key" {
+  description = "S3 key for webhook lambda function. Required if using S3 bucket to specify lambdas."
+  type        = string
+  default     = null
+}
+
+variable "webhook_lambda_s3_object_version" {
+  description = "S3 object version for webhook lambda function. Useful if S3 versioning is enabled on source bucket."
+  type        = string
+  default     = null
+}
+
+variable "webhook_lambda_apigateway_access_log_settings" {
+  description = "Access log settings for webhook API gateway."
+  type = object({
+    destination_arn = string
+    format          = string
+  })
+  default = null
+}
+
+variable "repository_white_list" {
+  description = "List of github repository full names (owner/repo_name) that will be allowed to use the github app. Leave empty for no filtering."
+  type        = list(string)
+  default     = []
+}
+
+variable "queue_selection_strategy" {
+  description = "Strategy used to pick a queue when multiple runner configurations match a job equally well. `first` keeps the historical deterministic behaviour (the first matching queue by priority). `random` spreads jobs across the matching queues to avoid concentrating load on a single one. `all` scales up one runner per matching queue and lets the first to become available take the job (favouring speed over cost; this multiplies instance launches and runner registrations per job)."
+  type        = string
+  default     = "first"
+  validation {
+    condition     = contains(["first", "random", "all"], var.queue_selection_strategy)
+    error_message = "`queue_selection_strategy` value not valid. Valid values are 'first', 'random', 'all'."
+  }
+}
+
+variable "log_level" {
+  description = "Logging level for lambda logging. Valid values are  'silly', 'trace', 'debug', 'info', 'warn', 'error', 'fatal'."
+  type        = string
+  default     = "info"
+  validation {
+    condition = anytrue([
+      var.log_level == "debug",
+      var.log_level == "info",
+      var.log_level == "warn",
+      var.log_level == "error",
+    ])
+    error_message = "`log_level` value not valid. Valid values are 'debug', 'info', 'warn', 'error'."
+  }
+  validation {
+    condition     = !contains(["silly", "trace", "fatal"], var.log_level)
+    error_message = "PLEASE MIGRATE: The following log levels: 'silly', 'trace' and 'fatal' are not longer supported."
+  }
+}
+
+variable "lambda_runtime" {
+  description = "AWS Lambda runtime."
+  type        = string
+  default     = "nodejs24.x"
+}
+
+variable "aws_partition" {
+  description = "(optional) partition for the base arn if not 'aws'"
+  type        = string
+  default     = "aws"
+}
+
+variable "lambda_architecture" {
+  description = "AWS Lambda architecture. Lambda functions using Graviton processors ('arm64') tend to have better price/performance than 'x86_64' functions. "
+  type        = string
+  default     = "arm64"
+  validation {
+    condition     = contains(["arm64", "x86_64"], var.lambda_architecture)
+    error_message = "`lambda_architecture` value is not valid, valid values are: `arm64` and `x86_64`."
+  }
+}
+
+variable "github_app_parameters" {
+  description = "Parameter Store for GitHub App Parameters."
+  type = object({
+    webhook_secret = map(string)
+  })
+}
+
+variable "tracing_config" {
+  description = "Configuration for lambda tracing."
+  type = object({
+    mode                  = optional(string, null)
+    capture_http_requests = optional(bool, false)
+    capture_error         = optional(bool, false)
+  })
+  default = {}
+}
+
+variable "lambda_tags" {
+  description = "Map of tags that will be added to all the lambda function resources. Note these are additional tags to the default tags."
+  type        = map(string)
+  default     = {}
+}
+
+variable "matcher_config_parameter_store_tier" {
+  description = "The tier of the parameter store for the matcher configuration. Valid values are `Standard`, and `Advanced`."
+  type        = string
+  default     = "Standard"
+  validation {
+    condition     = contains(["Standard", "Advanced"], var.matcher_config_parameter_store_tier)
+    error_message = "`matcher_config_parameter_store_tier` value is not valid, valid values are: `Standard`, and `Advanced`."
+  }
+}
+
+variable "storage_provider" {
+  description = "Storage-provider configuration used by the webhook resources."
+  type = object({
+    aws = object({
+      kms_key_id = optional(string, null)
+      ssm = object({
+        paths = object({
+          root    = string
+          webhook = string
+        })
+      })
+    })
+  })
+  nullable = false
+}
+
+variable "eventbridge" {
+  description = <<EOF
+    Enable the use of EventBridge by the module. By enabling this feature events will be put on the EventBridge by the webhook instead of directly dispatching to queues for scaling.
+
+    `enable`: Enable the EventBridge feature.
+    `accept_events`: List can be used to only allow specific events to be putted on the EventBridge. By default all events, empty list will be be interpreted as all events.
+EOF
+  type = object({
+    enable        = optional(bool, false)
+    accept_events = optional(list(string), null)
+  })
+}

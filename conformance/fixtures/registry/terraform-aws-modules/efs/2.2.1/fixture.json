@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/efs/2.2.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/efs/aws/2.2.1",
+    "ref": "2.2.1",
+    "path": ".",
+    "archiveSha256": "cc590f61ee6ffdd4f99d65de3cb0f3996a6c38ca6ec7d054a6375c27d7afbe83",
+    "inputSha256": "e0b57e091e932d4a716e3cce1a3c2b2fb8636803deb6d45e200b174fe6d73e2b"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

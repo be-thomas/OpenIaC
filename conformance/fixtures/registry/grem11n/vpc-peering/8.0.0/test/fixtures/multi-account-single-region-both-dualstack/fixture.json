@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/grem11n/vpc-peering/8.0.0/test/fixtures/multi-account-single-region-both-dualstack",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/grem11n/vpc-peering/aws/8.0.0",
+    "ref": "8.0.0",
+    "path": "test/fixtures/multi-account-single-region-both-dualstack",
+    "archiveSha256": "a6f4a8df77a1ea2e8195a25636cca3b3919fe6c360d31bb00aace795d968242e",
+    "inputSha256": "03afa5c9d2380f647a1dc906506cb314ab55548efb3e16d5110e1010545155a9"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "for_each",
+    "functions",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

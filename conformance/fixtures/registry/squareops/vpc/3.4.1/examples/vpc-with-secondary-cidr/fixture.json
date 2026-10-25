@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/vpc/3.4.1/examples/vpc-with-secondary-cidr",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/vpc/aws/3.4.1",
+    "ref": "3.4.1",
+    "path": "examples/vpc-with-secondary-cidr",
+    "archiveSha256": "03661d003b3f549d2f166e7c5e4249776105d93a744533e48f7435d6e0aa8652",
+    "inputSha256": "ee920fb28b4cb0e8939edd6fd89f5311563b9509367f73a0bdc89aed3827c978"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "locals",
+    "modules",
+    "outputs"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

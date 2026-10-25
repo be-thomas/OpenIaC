@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/DNXLabs/eks-lb-controller/0.11.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/DNXLabs/eks-lb-controller/aws/0.11.0",
+    "ref": "0.11.0",
+    "path": ".",
+    "archiveSha256": "f6501e8c37dd9f475c23ec7ea5752a27bb514bb2f6d3b951c79eeb9419868dd4",
+    "inputSha256": "cf3d8cbaabe57ff267f053e0bc8f2c15f7fdf85dd72c5ba6bb3a5f8dd82d6968"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm",
+    "kubectl",
+    "kubernetes"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

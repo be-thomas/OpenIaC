@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/vpc-endpoints/1.0.3/tests/supportingResources",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/vpc-endpoints/aws/1.0.3",
+    "ref": "1.0.3",
+    "path": "tests/supportingResources",
+    "archiveSha256": "b80c85faa3929a30a705b3087f866fe76cbed16e75a2c4eddb7fe92cd8ce0f03",
+    "inputSha256": "cc38d86796aff79ec7877ce8c1838b4b56bdadb52bcdd808b4846b2d6dec6d23"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "functions",
+    "locals",
+    "modules",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

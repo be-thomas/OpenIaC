@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "github/cloudposse/terraform-aws-components/1f74a966/modules/aurora-mysql-resources/modules/mysql-user",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/cloudposse/terraform-aws-components",
+    "ref": "1f74a966a0b40ce7e5cae5baec690e5356cf46b8",
+    "path": "modules/aurora-mysql-resources/modules/mysql-user",
+    "archiveSha256": "97bfd2e9c947b2ae0a7fe6754f377cdc389f3397de7eba4d935c82a8aaf2ab4c",
+    "inputSha256": "3896870b1d9ba33ea836e3ced528e63603df36ed450cf7c16ed8047d68701c01"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "mysql",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

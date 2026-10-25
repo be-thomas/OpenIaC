@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "id": "registry/grem11n/vpc-peering/8.0.0/test/fixtures/associated-cidr",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/grem11n/vpc-peering/aws/8.0.0",
+    "ref": "8.0.0",
+    "path": "test/fixtures/associated-cidr",
+    "archiveSha256": "a6f4a8df77a1ea2e8195a25636cca3b3919fe6c360d31bb00aace795d968242e",
+    "inputSha256": "25a7ee82bfd1294a6d2dfe12de68ee23d10bf017dff33e034fda72af8ed78a03"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "outputs"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

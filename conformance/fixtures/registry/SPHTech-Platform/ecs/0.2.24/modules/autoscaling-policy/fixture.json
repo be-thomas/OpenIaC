@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/ecs/0.2.24/modules/autoscaling-policy",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/ecs/aws/0.2.24",
+    "ref": "0.2.24",
+    "path": "modules/autoscaling-policy",
+    "archiveSha256": "b5270503f3fa0b88fcae2ec6a56a3acca1425d12fbc6deea61580fec96bdcb4e",
+    "inputSha256": "97475d4f8d30079b50977580d32afff19ed12b7c5a9291980e3ed076595b2604"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

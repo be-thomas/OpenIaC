@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/eks-data-addons/1.38.0/irsa",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/eks-data-addons/aws/1.38.0",
+    "ref": "1.38.0",
+    "path": "irsa",
+    "archiveSha256": "ddb7794878ce9b85a38303688a7ab0cc5f119121fdc5f70b9034325ab99949ff",
+    "inputSha256": "3f4ff57d1c99b7b3cac22e54624712b6d15290c1d0c8e0551ebd4cdd7e35016b"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

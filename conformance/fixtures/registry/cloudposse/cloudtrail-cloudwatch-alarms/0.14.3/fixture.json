@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/cloudtrail-cloudwatch-alarms/0.14.3",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/cloudtrail-cloudwatch-alarms/aws/0.14.3",
+    "ref": "0.14.3",
+    "path": ".",
+    "archiveSha256": "07d62fc6b7e72cf874b936c7bcfa7066fb72da68ac72813dd863dba074d46fb7",
+    "inputSha256": "ca37c2845b6cacad62b8c42cb40238c4d9c28103c4c072bdc6bafe0800692472"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

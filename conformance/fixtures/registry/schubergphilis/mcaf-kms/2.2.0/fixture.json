@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/schubergphilis/mcaf-kms/2.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/schubergphilis/mcaf-kms/aws/2.2.0",
+    "ref": "2.2.0",
+    "path": ".",
+    "archiveSha256": "52471464733100809f3a954577b7d899d0f4a23bbcc4efe402950ebd4d0db914",
+    "inputSha256": "3fa90995362b162af136aae8548877cef5cd763b40b49aa0c62c77fc7dbca31e"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

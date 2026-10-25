@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/sso/1.2.1/modules/account-assignments",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/sso/aws/1.2.1",
+    "ref": "1.2.1",
+    "path": "modules/account-assignments",
+    "archiveSha256": "7d7939b504f4160a7bb6f9e19ac57c45f677fcd1b270f19d2347257e681fac1c",
+    "inputSha256": "f7f75bd9c389bd338e0d1717c7f9ae3d946f1b3a9a567510b9f84856925cc55b"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "null"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "depends_on",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

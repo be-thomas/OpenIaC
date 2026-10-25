@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/datadog-forwarders/7.2.0/modules/vpc_flow_log_forwarder",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/datadog-forwarders/aws/7.2.0",
+    "ref": "7.2.0",
+    "path": "modules/vpc_flow_log_forwarder",
+    "archiveSha256": "3a3799e86bcf70ee8fa2bc7f4679de9bed29a1f249c46d65fc85ee43e4b3241c",
+    "inputSha256": "a82dd1a9c23959a6e16fe5030d1d55ba0a371785da617a8def58a85d16dd0e03"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

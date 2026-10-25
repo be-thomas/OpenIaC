@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/babbel/athena/4.1.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/babbel/athena/aws/4.1.1",
+    "ref": "4.1.1",
+    "path": ".",
+    "archiveSha256": "473fb32f27baefcbc45e9ba51f307e3dd07259d5388800ff02cbe18e9f7a20f1",
+    "inputSha256": "b3d10077c6fd953a8a2694528269ce340be4a991ed78ff1a711c5b5acf2b3417"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

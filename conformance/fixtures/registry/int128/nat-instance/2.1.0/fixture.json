@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/int128/nat-instance/2.1.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/int128/nat-instance/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": ".",
+    "archiveSha256": "96a25f3a69b12e8b0b4b09a2beb0cee4e114003ba0a17bf8a7f6ebeb6d487741",
+    "inputSha256": "07243cdf31a5c826860e5812c74f52f3272f0e255bd91a7e62070678f413879f"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

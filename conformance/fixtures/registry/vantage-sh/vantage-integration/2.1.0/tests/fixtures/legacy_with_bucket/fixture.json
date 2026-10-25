@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/vantage-sh/vantage-integration/2.1.0/tests/fixtures/legacy_with_bucket",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": "tests/fixtures/legacy_with_bucket",
+    "archiveSha256": "8cbd238ec0983e045a658ec5da95cf973e58864cfc341f16702ec7d936e89982",
+    "inputSha256": "599032fc9ef69e4c2719eb3855cc8e9ef0198b26cf483365e0cd1f77f49bcdf0"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "vantage"
+  ],
+  "features": [
+    "count",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

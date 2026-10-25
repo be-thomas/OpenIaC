@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/diodonfrost/lambda-scheduler-stop-start/4.5.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/diodonfrost/lambda-scheduler-stop-start/aws/4.5.0",
+    "ref": "4.5.0",
+    "path": ".",
+    "archiveSha256": "a35cc894472c33376d6744089d04071d3997672c7532c9d8d6d2d712406a7c42",
+    "inputSha256": "d0146f88975b9a3066dfda6f0463ebc29d4853cb2af56b8f4e55bc3588f4ae1d"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "archive",
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

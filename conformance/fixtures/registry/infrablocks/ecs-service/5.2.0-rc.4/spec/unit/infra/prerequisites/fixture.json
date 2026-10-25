@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/infrablocks/ecs-service/5.2.0-rc.4/spec/unit/infra/prerequisites",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/infrablocks/ecs-service/aws/5.2.0-rc.4",
+    "ref": "5.2.0-rc.4",
+    "path": "spec/unit/infra/prerequisites",
+    "archiveSha256": "216ab993578cb27e6e741259cd7d4e63d1a5f2cf6c33d14f976643432209f8af",
+    "inputSha256": "a1175785df1419e8dfe9480abe181408e54c74a564045b046b57867839b349b8"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "depends_on",
+    "interpolation",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

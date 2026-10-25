@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/helm-release/0.10.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/helm-release/aws/0.10.1",
+    "ref": "0.10.1",
+    "path": ".",
+    "archiveSha256": "a62c529d790b9b9d5d70b6232d7f4233e097ad5e20a482eaac1ea51ad26d211b",
+    "inputSha256": "5bca5c48e6c606b638f283a86bbd1336fae12033c5bad431be57246f084427f7"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "helm",
+    "kubernetes"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

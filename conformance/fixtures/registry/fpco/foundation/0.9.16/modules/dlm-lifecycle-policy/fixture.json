@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/fpco/foundation/0.9.16/modules/dlm-lifecycle-policy",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
+    "ref": "0.9.16",
+    "path": "modules/dlm-lifecycle-policy",
+    "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
+    "inputSha256": "ef9d59cf016564f16e2f93a23833e344ec7c79db1b9bb9e1aeda02afb7449d0b"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "heredoc",
+    "interpolation",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

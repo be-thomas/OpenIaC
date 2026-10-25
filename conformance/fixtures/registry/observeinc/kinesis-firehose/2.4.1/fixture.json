@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/observeinc/kinesis-firehose/2.4.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/observeinc/kinesis-firehose/aws/2.4.1",
+    "ref": "2.4.1",
+    "path": ".",
+    "archiveSha256": "dc0e81ee51dcbb3f40a75e6121673d8c0dea3e4cd65f50294e9b587d5aaaef67",
+    "inputSha256": "1f3f57996c122e62af75a4d1deaff8554a7dc9c744f3cee8c88c112df063d237"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

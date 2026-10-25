@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/security-group/2.2.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/security-group/aws/2.2.0",
+    "ref": "2.2.0",
+    "path": ".",
+    "archiveSha256": "bc52f41b10b01d578fe6771b84428b59565f5769c2a8709da2ccb80a1d16b483",
+    "inputSha256": "1faeb5f2b8944dcfe32083b12bf7d965e51daf463f9e3fc01e44076e962d5e3b"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "null",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

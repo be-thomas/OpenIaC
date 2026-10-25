@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/cloudfront-s3-cdn/2.1.1/modules/lambda@edge",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/cloudfront-s3-cdn/aws/2.1.1",
+    "ref": "2.1.1",
+    "path": "modules/lambda@edge",
+    "archiveSha256": "5e6edc41da113781bbea4b251b3a53543775f121d33c2eb653b5c7a61f355496",
+    "inputSha256": "45e366c7005d19040b37e3220f6ecc46970a0e4fc98f8c74fe53082b475041ce"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "archive",
+    "aws",
+    "local",
+    "time"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

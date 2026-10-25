@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/iam/6.8.2/modules/iam-policy",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/6.8.2",
+    "ref": "6.8.2",
+    "path": "modules/iam-policy",
+    "archiveSha256": "258ce47e665691465db44db722411230850130fb5d15e1bcaa0d6465c2fdfd54",
+    "inputSha256": "45263198c5890c57652831c555707a41f86dfe1f58228593778d911cba887c70"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

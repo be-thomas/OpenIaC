@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/babbel/wafv2-dashboard/1.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/babbel/wafv2-dashboard/aws/1.2.0",
+    "ref": "1.2.0",
+    "path": ".",
+    "archiveSha256": "3661f97e5a48fe8028383b027076100c922242a9bf950574a90633cf68cfeba7",
+    "inputSha256": "c89fe7a3b6cc05d6e23a3bca7886241f9d489a86808720164a3043b0b234303a"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "data",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

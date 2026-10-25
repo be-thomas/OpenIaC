@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/clowdhaus/msk-kafka-cluster/2.13.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/clowdhaus/msk-kafka-cluster/aws/2.13.0",
+    "ref": "2.13.0",
+    "path": ".",
+    "archiveSha256": "819cdce96c6c91b77f3e8ed3dc849c0a08fe1212518219e2c6a270fa6ced9caa",
+    "inputSha256": "41da400cb6d0ef9ad9b394e884a24dccfba4e6838015ca19580b9f9fc76c218c"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

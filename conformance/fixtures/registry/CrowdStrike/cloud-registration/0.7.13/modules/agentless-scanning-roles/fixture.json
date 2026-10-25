@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/CrowdStrike/cloud-registration/0.7.13/modules/agentless-scanning-roles",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/CrowdStrike/cloud-registration/aws/0.7.13",
+    "ref": "0.7.13",
+    "path": "modules/agentless-scanning-roles",
+    "archiveSha256": "9c33a02d03ae3fab7a6108b528c724ad9af5512fec975753745466bc1cd0419a",
+    "inputSha256": "a1499c3570be3f5290498788ebd19f95c7c2485450752b356a379cbdd07611f7"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

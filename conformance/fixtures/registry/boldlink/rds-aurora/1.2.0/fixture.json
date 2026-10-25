@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/rds-aurora/1.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/rds-aurora/aws/1.2.0",
+    "ref": "1.2.0",
+    "path": ".",
+    "archiveSha256": "5b0b94275b6e02b8cc9571ea9040031f8e32e75a38f14be7e960482590444e7e",
+    "inputSha256": "df28c082fea3af867f7743b46a8fa00f247354a834346f05ab1b7aef8404d3e9"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

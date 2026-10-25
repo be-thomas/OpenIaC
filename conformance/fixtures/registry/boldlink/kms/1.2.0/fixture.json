@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/kms/1.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/kms/aws/1.2.0",
+    "ref": "1.2.0",
+    "path": ".",
+    "archiveSha256": "4bf149a7d489ad75df3bd9cccc92cd135e5169974ee864606c40a7412d5497cc",
+    "inputSha256": "a859613b52f6d8bb79835ac0cd8a7803363c3933b6ee8840b31e51ad70ba7430"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

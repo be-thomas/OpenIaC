@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/eks/5.4.4/modules/managed-nodegroup",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/eks/aws/5.4.4",
+    "ref": "5.4.4",
+    "path": "modules/managed-nodegroup",
+    "archiveSha256": "0ea30548957f2c895c4eec1c775f4a6413aae1db41a52c3a9e12d332eacfd302",
+    "inputSha256": "f6c74f8d270fec60f86663d42854c97fad938cbb14a9bfef045b8e05bfeecdf5"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "template"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

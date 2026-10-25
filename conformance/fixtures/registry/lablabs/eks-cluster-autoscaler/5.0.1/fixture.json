@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/lablabs/eks-cluster-autoscaler/5.0.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lablabs/eks-cluster-autoscaler/aws/5.0.1",
+    "ref": "5.0.1",
+    "path": ".",
+    "archiveSha256": "967f92be6398232d0242dbccbc173d795852c489ec4731f27cfcf4f99d42949a",
+    "inputSha256": "20bdaa6b9ef2ee5651cedb64e72c4d498070ad858192532ed7bc807a39b110fd"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "utils"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

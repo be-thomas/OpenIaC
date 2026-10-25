@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/mwaa/0.16.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/mwaa/aws/0.16.0",
+    "ref": "0.16.0",
+    "path": ".",
+    "archiveSha256": "8995f4ad298e19cc08220847c2c9e797355809e2fb280162f9298019c42211c9",
+    "inputSha256": "de9a03b18ae68086c412950ad94e25d2203b57d7a3d512ad99f7a6216f309016"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

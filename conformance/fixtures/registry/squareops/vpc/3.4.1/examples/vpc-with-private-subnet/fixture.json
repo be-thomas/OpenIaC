@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/vpc/3.4.1/examples/vpc-with-private-subnet",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/vpc/aws/3.4.1",
+    "ref": "3.4.1",
+    "path": "examples/vpc-with-private-subnet",
+    "archiveSha256": "03661d003b3f549d2f166e7c5e4249776105d93a744533e48f7435d6e0aa8652",
+    "inputSha256": "d1309c164836249c3671c96b8ef847c4b7457dc7e5397be8b4058427180b9cf5"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "locals",
+    "modules",
+    "outputs"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

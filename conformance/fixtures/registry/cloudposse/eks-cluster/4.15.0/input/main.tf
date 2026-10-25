@@ -1,0 +1,352 @@
+locals {
+  enabled = module.this.enabled
+
+  use_ipv6 = var.kubernetes_network_ipv6_enabled
+
+  eks_cluster_id = one(aws_eks_cluster.default[*].id)
+
+  cluster_encryption_config = {
+    resources = var.cluster_encryption_config_resources
+
+    provider_key_arn = local.enabled && var.cluster_encryption_config_enabled && var.cluster_encryption_config_kms_key_id == "" ? (
+      one(aws_kms_key.cluster[*].arn)
+    ) : var.cluster_encryption_config_kms_key_id
+  }
+
+  cloudwatch_log_group_name = "/aws/eks/${module.label.id}/cluster"
+
+  # EKS Auto Mode
+  auto_mode_flags = [
+    var.auto_mode_compute_config.enabled,
+    var.auto_mode_storage_config.block_storage.enabled,
+    var.auto_mode_elastic_load_balancing.enabled,
+  ]
+  auto_mode_all_enabled  = alltrue(local.auto_mode_flags)
+  auto_mode_all_disabled = !anytrue(local.auto_mode_flags)
+
+  # Auto-set bootstrap_self_managed_addons to false when Auto Mode is enabled, unless overridden
+  # When user provides an explicit value, use it; otherwise default to false for Auto Mode, null otherwise
+  effective_bootstrap_self_managed_addons = var.bootstrap_self_managed_addons_enabled != null ? var.bootstrap_self_managed_addons_enabled : (
+    local.auto_mode_all_enabled ? false : null
+  )
+}
+
+check "auto_mode_consistency" {
+  assert {
+    condition     = local.auto_mode_all_enabled || local.auto_mode_all_disabled
+    error_message = "compute_config.enabled, storage_config.block_storage.enabled, and elastic_load_balancing.enabled must all be true or all be false."
+  }
+}
+
+module "label" {
+  source  = "cloudposse/label/null"
+  version = "0.25.0"
+
+  attributes = var.cluster_attributes
+
+  context = module.this.context
+}
+
+data "aws_partition" "current" {
+  count = local.enabled ? 1 : 0
+}
+
+resource "aws_cloudwatch_log_group" "default" {
+  count             = local.enabled && length(var.enabled_cluster_log_types) > 0 ? 1 : 0
+  name              = local.cloudwatch_log_group_name
+  retention_in_days = var.cluster_log_retention_period
+  kms_key_id        = var.cloudwatch_log_group_kms_key_id
+  tags              = module.label.tags
+  log_group_class   = var.cloudwatch_log_group_class
+}
+
+resource "aws_kms_key" "cluster" {
+  count                   = local.enabled && var.cluster_encryption_config_enabled && var.cluster_encryption_config_kms_key_id == "" ? 1 : 0
+  description             = "EKS Cluster ${module.label.id} Encryption Config KMS Key"
+  enable_key_rotation     = var.cluster_encryption_config_kms_key_enable_key_rotation
+  deletion_window_in_days = var.cluster_encryption_config_kms_key_deletion_window_in_days
+  policy                  = var.cluster_encryption_config_kms_key_policy
+  tags                    = module.label.tags
+}
+
+resource "aws_kms_alias" "cluster" {
+  count         = local.enabled && var.cluster_encryption_config_enabled && var.cluster_encryption_config_kms_key_id == "" ? 1 : 0
+  name          = format("alias/%v", module.label.id)
+  target_key_id = one(aws_kms_key.cluster[*].key_id)
+}
+
+resource "aws_eks_cluster" "default" {
+  #bridgecrew:skip=BC_AWS_KUBERNETES_1:Allow permissive security group for public access, difficult to restrict without a VPN
+  #bridgecrew:skip=BC_AWS_KUBERNETES_4:Let user decide on control plane logging, not necessary in non-production environments
+  count                         = local.enabled ? 1 : 0
+  name                          = module.label.id
+  tags                          = module.label.tags
+  role_arn                      = local.eks_service_role_arn
+  version                       = var.kubernetes_version
+  force_update_version          = var.force_update_version
+  enabled_cluster_log_types     = var.enabled_cluster_log_types
+  bootstrap_self_managed_addons = local.effective_bootstrap_self_managed_addons
+  deletion_protection           = var.deletion_protection_enabled
+
+  access_config {
+    authentication_mode                         = var.access_config.authentication_mode
+    bootstrap_cluster_creator_admin_permissions = var.access_config.bootstrap_cluster_creator_admin_permissions
+  }
+
+  lifecycle {
+    # bootstrap_cluster_creator_admin_permissions is documented as only applying
+    # to the initial creation of the cluster, and being unreliable afterward,
+    # so we want to ignore it except at cluster creation time.
+    ignore_changes = [access_config[0].bootstrap_cluster_creator_admin_permissions]
+  }
+
+  dynamic "encryption_config" {
+    #bridgecrew:skip=BC_AWS_KUBERNETES_3:Let user decide secrets encryption, mainly because changing this value requires completely destroying the cluster
+    for_each = var.cluster_encryption_config_enabled ? [local.cluster_encryption_config] : []
+    content {
+      resources = encryption_config.value.resources
+      provider {
+        key_arn = encryption_config.value.provider_key_arn
+      }
+    }
+  }
+
+  vpc_config {
+    security_group_ids      = var.associated_security_group_ids
+    subnet_ids              = var.subnet_ids
+    endpoint_private_access = var.endpoint_private_access
+    #bridgecrew:skip=BC_AWS_KUBERNETES_2:Let user decide on public access
+    endpoint_public_access = var.endpoint_public_access
+    public_access_cidrs    = var.public_access_cidrs
+  }
+
+  # IPv4 kubernetes_network_config: render when service_ipv4_cidr is set or ELB is enabled (and not IPv6)
+  dynamic "kubernetes_network_config" {
+    for_each = !local.use_ipv6 && (var.service_ipv4_cidr != null || var.auto_mode_elastic_load_balancing.enabled) ? [true] : []
+    content {
+      service_ipv4_cidr = var.service_ipv4_cidr
+
+      dynamic "elastic_load_balancing" {
+        for_each = var.auto_mode_elastic_load_balancing.enabled ? [true] : []
+        content {
+          enabled = true
+        }
+      }
+    }
+  }
+
+  # IPv6 kubernetes_network_config
+  dynamic "kubernetes_network_config" {
+    for_each = local.use_ipv6 ? [true] : []
+    content {
+      ip_family = "ipv6"
+
+      dynamic "elastic_load_balancing" {
+        for_each = var.auto_mode_elastic_load_balancing.enabled ? [true] : []
+        content {
+          enabled = true
+        }
+      }
+    }
+  }
+
+  dynamic "remote_network_config" {
+    for_each = var.remote_network_config != null ? [var.remote_network_config] : []
+
+    content {
+      dynamic "remote_node_networks" {
+        for_each = [remote_network_config.value.remote_node_networks_cidrs]
+
+        content {
+          cidrs = remote_network_config.value.remote_node_networks_cidrs
+        }
+      }
+
+      dynamic "remote_pod_networks" {
+        for_each = remote_network_config.value.remote_pod_networks_cidrs != null ? [remote_network_config.value.remote_pod_networks_cidrs] : []
+
+        content {
+          cidrs = remote_network_config.value.remote_pod_networks_cidrs
+        }
+      }
+    }
+  }
+
+  dynamic "upgrade_policy" {
+    for_each = var.upgrade_policy != null ? [var.upgrade_policy] : []
+    content {
+      support_type = upgrade_policy.value.support_type
+    }
+  }
+
+  dynamic "zonal_shift_config" {
+    for_each = var.zonal_shift_config != null ? [var.zonal_shift_config] : []
+    content {
+      enabled = zonal_shift_config.value.enabled
+    }
+  }
+
+  # EKS Auto Mode configuration
+  dynamic "compute_config" {
+    for_each = var.auto_mode_compute_config.enabled ? [var.auto_mode_compute_config] : []
+    content {
+      enabled       = true
+      node_pools    = compute_config.value.node_pools
+      node_role_arn = compute_config.value.node_role_arn
+    }
+  }
+
+  dynamic "control_plane_scaling_config" {
+    for_each = var.control_plane_scaling_config != null ? [var.control_plane_scaling_config] : []
+    content {
+      tier = control_plane_scaling_config.value.tier
+    }
+  }
+
+  dynamic "kube_api_server_config" {
+    for_each = var.kube_api_server_config != null ? [var.kube_api_server_config] : []
+    content {
+      event_ttl = kube_api_server_config.value.event_ttl
+
+      dynamic "service_node_port_range" {
+        for_each = kube_api_server_config.value.service_node_port_range != null ? [kube_api_server_config.value.service_node_port_range] : []
+        content {
+          min_port = service_node_port_range.value.min_port
+          max_port = service_node_port_range.value.max_port
+        }
+      }
+    }
+  }
+
+  dynamic "kube_controller_manager_config" {
+    for_each = var.kube_controller_manager_config != null ? [var.kube_controller_manager_config] : []
+    content {
+      dynamic "horizontal_pod_autoscaler_controller_config" {
+        for_each = kube_controller_manager_config.value.horizontal_pod_autoscaler_controller_config != null ? [kube_controller_manager_config.value.horizontal_pod_autoscaler_controller_config] : []
+        content {
+          horizontal_pod_autoscaler_sync_period = horizontal_pod_autoscaler_controller_config.value.horizontal_pod_autoscaler_sync_period
+        }
+      }
+    }
+  }
+
+  dynamic "kube_scheduler_config" {
+    for_each = var.kube_scheduler_config != null ? [var.kube_scheduler_config] : []
+    content {
+      dynamic "node_resources_fit" {
+        for_each = kube_scheduler_config.value.node_resources_fit != null ? [kube_scheduler_config.value.node_resources_fit] : []
+        content {
+          dynamic "scoring_strategy" {
+            for_each = node_resources_fit.value.scoring_strategy != null ? [node_resources_fit.value.scoring_strategy] : []
+            content {
+              type = scoring_strategy.value.type
+
+              dynamic "resource" {
+                for_each = scoring_strategy.value.resources != null ? scoring_strategy.value.resources : []
+                content {
+                  name   = resource.value.name
+                  weight = resource.value.weight
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  dynamic "storage_config" {
+    for_each = var.auto_mode_storage_config.block_storage.enabled ? [var.auto_mode_storage_config] : []
+    content {
+      block_storage {
+        enabled = true
+      }
+    }
+  }
+
+  depends_on = [
+    aws_iam_role.default,
+    aws_iam_role_policy_attachment.cluster_elb_service_role,
+    aws_iam_role_policy_attachment.amazon_eks_cluster_policy,
+    aws_iam_role_policy_attachment.amazon_eks_service_policy,
+    aws_iam_role_policy_attachment.additional,
+    aws_kms_alias.cluster,
+    aws_cloudwatch_log_group.default,
+    var.associated_security_group_ids,
+    var.cluster_depends_on,
+    var.subnet_ids,
+  ]
+}
+
+# Enabling IAM Roles for Service Accounts in Kubernetes cluster
+#
+# From official docs:
+# The IAM roles for service accounts feature is available on new Amazon EKS Kubernetes version 1.14 clusters,
+# and clusters that were updated to versions 1.14 or 1.13 on or after September 3rd, 2019.
+#
+# https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html
+# https://medium.com/@marcincuber/amazon-eks-with-oidc-provider-iam-roles-for-kubernetes-services-accounts-59015d15cb0c
+#
+
+data "tls_certificate" "cluster" {
+  count = local.enabled && var.oidc_provider_enabled ? 1 : 0
+  url   = one(aws_eks_cluster.default[*].identity[0].oidc[0].issuer)
+}
+
+resource "aws_iam_openid_connect_provider" "default" {
+  count = local.enabled && var.oidc_provider_enabled ? 1 : 0
+  url   = one(aws_eks_cluster.default[*].identity[0].oidc[0].issuer)
+  tags  = module.label.tags
+
+  client_id_list  = ["sts.amazonaws.com"]
+  thumbprint_list = [one(data.tls_certificate.cluster[*].certificates[0].sha1_fingerprint)]
+}
+
+resource "aws_eks_addon" "cluster" {
+  for_each = local.enabled ? {
+    for addon in var.addons :
+    addon.addon_name => addon
+  } : {}
+
+  cluster_name                = one(aws_eks_cluster.default[*].name)
+  addon_name                  = each.key
+  addon_version               = lookup(each.value, "addon_version", null)
+  configuration_values        = lookup(each.value, "configuration_values", null)
+  resolve_conflicts_on_create = lookup(each.value, "resolve_conflicts_on_create", try(replace(each.value.resolve_conflicts, "PRESERVE", "NONE"), null))
+  resolve_conflicts_on_update = lookup(each.value, "resolve_conflicts_on_update", lookup(each.value, "resolve_conflicts", null))
+  service_account_role_arn    = lookup(each.value, "service_account_role_arn", null)
+  preserve                    = lookup(each.value, "preserve", null)
+
+  dynamic "namespace_config" {
+    for_each = lookup(each.value, "namespace", null) != null ? [each.value.namespace] : []
+
+    content {
+      namespace = namespace_config.value
+    }
+  }
+
+  dynamic "pod_identity_association" {
+    for_each = merge({}, lookup(each.value, "pod_identity_association", {}))
+
+    content {
+      service_account = pod_identity_association.key
+      role_arn        = pod_identity_association.value
+    }
+  }
+
+  tags = merge(module.label.tags, each.value.additional_tags)
+
+  depends_on = [
+    var.addons_depends_on,
+    aws_eks_cluster.default,
+    # OIDC provider is prerequisite for some addons. See, for example,
+    # https://docs.aws.amazon.com/eks/latest/userguide/managing-vpc-cni.html
+    aws_iam_openid_connect_provider.default,
+  ]
+
+  timeouts {
+    create = each.value.create_timeout
+    update = each.value.update_timeout
+    delete = each.value.delete_timeout
+  }
+}

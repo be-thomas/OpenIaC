@@ -1,0 +1,178 @@
+variable "bucket_name" {
+  type        = string
+  description = "The name of the S3 bucket to create"
+}
+
+variable "bucket_object_ownership" {
+  type        = string
+  description = "The setting used to define ownership of bucket objects. Defaults to 'BucketOwnerEnforced', which is the recommended setting. Can be changed in situations where less secure settings are required e.g. to allow CloudFront to deliver standard logs to the bucket, which requires 'BucketOwnerPreferred'."
+  default     = "BucketOwnerEnforced"
+}
+
+variable "versioning_enabled" {
+  type        = bool
+  description = "When true the s3 bucket contents will be versioned"
+  default     = true
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "Additional tags to apply to the bucket"
+  default     = {}
+}
+
+variable "force_destroy" {
+  type    = bool
+  default = false
+}
+
+variable "data_sensitivity" {
+  type        = string
+  description = "For buckets with PII or other sensitive data, the tag data_sensitivity: high must be applied."
+
+  validation {
+    condition     = var.data_sensitivity == "high" || var.data_sensitivity == "low"
+    error_message = "The data_sensitivity value must be \"high\" or \"low\"."
+  }
+}
+
+variable "log_bucket_id" {
+  type        = string
+  description = "The name of the access logs bucket"
+}
+
+variable "data_expiry" {
+  type        = string
+  description = "1-day, 1-week, 1-month, 90-days, 6-months, 1-year, 18-months, 7-years, 10-years or forever-config-only"
+
+  validation {
+    condition     = var.data_expiry == "1-day" || var.data_expiry == "1-week" || var.data_expiry == "1-month" || var.data_expiry == "90-days" || var.data_expiry == "6-months" || var.data_expiry == "1-year" || var.data_expiry == "18-months" || var.data_expiry == "7-years" || var.data_expiry == "10-years" || var.data_expiry == "forever-config-only"
+    error_message = "The data_expiry value must be \"1-day\", \"1-week\", \"1-month\", \"90-days\", \"6-months\", \"1-year\", \"18  -months\", \"7-years\", \"10-years\" or \"forever-config-only\"."
+  }
+}
+
+variable "kms_key_policy" {
+  description = "The KMS key policy to attach when creating a KMS key"
+  type        = string
+}
+
+variable "kms_rotation_period_in_days" {
+  type        = number
+  description = "Custom KMS rotation interval; must be between 90 and 2560 days"
+  default     = 90
+  validation {
+    condition     = var.kms_rotation_period_in_days >= 90 && var.kms_rotation_period_in_days <= 2560
+    error_message = "KMS rotation period in days must be between 90 and 2560 (inclusive)."
+  }
+}
+
+variable "transition_to_glacier_days" {
+  description = "The number of days after object creation when the object will transition to Glacier storage; if 0, Glacier transition is disabled"
+  type        = number
+  default     = 0
+}
+
+variable "transition_to_standard_ia_days" {
+  description = "Days after object creation to transition to STANDARD_IA; 0 disables the transition"
+  type        = number
+  default     = 0
+
+  validation {
+    condition = var.transition_to_standard_ia_days == null ? false : (
+      floor(var.transition_to_standard_ia_days) == var.transition_to_standard_ia_days &&
+      (var.transition_to_standard_ia_days == 0 || var.transition_to_standard_ia_days >= 30)
+    )
+    error_message = "The transition_to_standard_ia_days value must be 0 (disabled) or a whole number of at least 30 days."
+  }
+}
+
+variable "transition_to_onezone_ia_days" {
+  description = "Days after object creation to transition to ONEZONE_IA; 0 disables the transition"
+  type        = number
+  default     = 0
+
+  validation {
+    condition = var.transition_to_onezone_ia_days == null ? false : (
+      floor(var.transition_to_onezone_ia_days) == var.transition_to_onezone_ia_days &&
+      (var.transition_to_onezone_ia_days == 0 || var.transition_to_onezone_ia_days >= 30)
+    )
+    error_message = "The transition_to_onezone_ia_days value must be 0 (disabled) or a whole number of at least 30 days."
+  }
+}
+
+variable "transition_to_intelligent_tiering_days" {
+  description = "Days after object creation to transition to INTELLIGENT_TIERING; 0 disables the transition"
+  type        = number
+  default     = 0
+
+  validation {
+    condition = var.transition_to_intelligent_tiering_days == null ? false : (
+      var.transition_to_intelligent_tiering_days >= 0 &&
+      floor(var.transition_to_intelligent_tiering_days) == var.transition_to_intelligent_tiering_days
+    )
+    error_message = "The transition_to_intelligent_tiering_days value must be a non-negative whole number; 0 disables the transition."
+  }
+}
+
+variable "transition_to_glacier_ir_days" {
+  description = "Days after object creation to transition to GLACIER_IR; 0 disables the transition"
+  type        = number
+  default     = 0
+
+  validation {
+    condition = var.transition_to_glacier_ir_days == null ? false : (
+      var.transition_to_glacier_ir_days >= 0 &&
+      floor(var.transition_to_glacier_ir_days) == var.transition_to_glacier_ir_days
+    )
+    error_message = "The transition_to_glacier_ir_days value must be a non-negative whole number; 0 disables the transition."
+  }
+}
+
+variable "transition_to_deep_archive_days" {
+  description = "Days after object creation to transition to DEEP_ARCHIVE; 0 disables the transition"
+  type        = number
+  default     = 0
+
+  validation {
+    condition = var.transition_to_deep_archive_days == null ? false : (
+      var.transition_to_deep_archive_days >= 0 &&
+      floor(var.transition_to_deep_archive_days) == var.transition_to_deep_archive_days
+    )
+    error_message = "The transition_to_deep_archive_days value must be a non-negative whole number; 0 disables the transition."
+  }
+}
+
+variable "use_default_encryption" {
+  description = "Specify whether to use default encryption or generate a customer managed KMS key"
+  type        = bool
+  default     = false
+}
+
+variable "object_lock" {
+  description = "Specify whether to lock objects on the bucket to prevent modification"
+  type        = bool
+  default     = false
+}
+
+variable "object_lock_mode" {
+  type        = string
+  description = "COMPLIANCE or GOVERNANCE"
+  default     = "COMPLIANCE"
+
+  validation {
+    condition     = var.object_lock_mode == "COMPLIANCE" || var.object_lock_mode == "GOVERNANCE"
+    error_message = "The object_lock_mode must be \"COMPLIANCE\" or \"GOVERNANCE\"."
+  }
+}
+
+variable "bucket_key_enabled" {
+  type        = bool
+  description = "Specify whether to enable bucket key for server-side encryption."
+  default     = false
+}
+
+variable "blocked_encryption_types" {
+  type        = list(string)
+  description = "Specify the encryption types to block for server-side encryption. SSE-C is blocked by default."
+  default     = ["SSE-C"]
+}

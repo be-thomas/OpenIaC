@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-redhat/rosa-sts/0.0.16/operator_roles_creation/operator_roles",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-redhat/rosa-sts/aws/0.0.16",
+    "ref": "0.0.16",
+    "path": "operator_roles_creation/operator_roles",
+    "archiveSha256": "10419f77c2a4e761e0f2f5851fec4c8e84fb251410d86ccfce7693a8860b3869",
+    "inputSha256": "5625714ef16cbad55cdc61b709ca2d17ca25f069b529a9fc1e7acd35654e5538"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "functions",
+    "interpolation",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

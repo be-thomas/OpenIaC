@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/client-vpn/1.0.3",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/client-vpn/aws/1.0.3",
+    "ref": "1.0.3",
+    "path": ".",
+    "archiveSha256": "633cf98227eefa12d2320d84ca32379590cb45035759f93aad9d5bef533310bc",
+    "inputSha256": "b48cd4764f573791d42aa3dd5197cb6008a614eeee27edd36b7a6e2ab94393c6"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "tls"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

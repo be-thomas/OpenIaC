@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ecs-cloudwatch-autoscaling/1.0.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ecs-cloudwatch-autoscaling/aws/1.0.0",
+    "ref": "1.0.0",
+    "path": ".",
+    "archiveSha256": "ec714dde4a9a3cd94d64eb895ae6617c9dea99a6669114ed8265e4413f5923fb",
+    "inputSha256": "a6731ae753d37dc7910fe0d951a613c09dddef792adcc69634164764346c9210"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

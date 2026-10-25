@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/inspector/0.4.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/inspector/aws/0.4.0",
+    "ref": "0.4.0",
+    "path": ".",
+    "archiveSha256": "97505174ecb38b1b6cd38b2d3065dc50cefab0278b6821d2c34f944ec8d930b3",
+    "inputSha256": "a13c3f4c8f1863193422b89eece86190c75bd0a2e32b38a38287cf616d9a72ba"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

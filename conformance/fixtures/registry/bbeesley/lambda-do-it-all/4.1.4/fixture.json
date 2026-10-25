@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/bbeesley/lambda-do-it-all/4.1.4",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/bbeesley/lambda-do-it-all/aws/4.1.4",
+    "ref": "4.1.4",
+    "path": ".",
+    "archiveSha256": "f45cea0d17a6548401eda17138ada6785f00afea8d81cf8756fe80e161d9e06d",
+    "inputSha256": "5f77101a747d6b8d4db5376c458e60b90d05d7b2aa9ac50dec2d0d71d543ec8b"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "github/cloudposse/terraform-aws-components/1f74a966/modules/aws-saml/modules/okta-user",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/cloudposse/terraform-aws-components",
+    "ref": "1f74a966a0b40ce7e5cae5baec690e5356cf46b8",
+    "path": "modules/aws-saml/modules/okta-user",
+    "archiveSha256": "97bfd2e9c947b2ae0a7fe6754f377cdc389f3397de7eba4d935c82a8aaf2ab4c",
+    "inputSha256": "17ccd3e38e60b8bcf511bebb53e5f97e3dbc5ef7fffe661059a954ae74626a9e"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

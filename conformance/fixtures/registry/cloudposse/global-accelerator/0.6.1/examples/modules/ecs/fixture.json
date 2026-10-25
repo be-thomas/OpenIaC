@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/global-accelerator/0.6.1/examples/modules/ecs",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/global-accelerator/aws/0.6.1",
+    "ref": "0.6.1",
+    "path": "examples/modules/ecs",
+    "archiveSha256": "44d41e8dd885247829113c37229f70ad815c091b6f15b7557ed175fba7c86208",
+    "inputSha256": "f7627654a34336ea0605b5db57ec34099624f94c6d43a30d04c8ffb3a8a43f76"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "functions",
+    "heredoc",
+    "modules",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

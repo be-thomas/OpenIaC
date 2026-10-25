@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/config/2.0.0/modules/cis-1-2-rules",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/config/aws/2.0.0",
+    "ref": "2.0.0",
+    "path": "modules/cis-1-2-rules",
+    "archiveSha256": "4b1a8909f2626393d91104a259b4364cece15fb4e576d79c193ed307f9bbda9f",
+    "inputSha256": "913153ddb33d5524066627b372f87e8abe97121d363efb8f50ab79a48e18d877"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

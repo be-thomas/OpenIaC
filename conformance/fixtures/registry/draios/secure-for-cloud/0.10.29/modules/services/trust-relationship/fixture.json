@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/draios/secure-for-cloud/0.10.29/modules/services/trust-relationship",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/draios/secure-for-cloud/aws/0.10.29",
+    "ref": "0.10.29",
+    "path": "modules/services/trust-relationship",
+    "archiveSha256": "60eb102e56ed24aa070de12ca9f7b1d7bf6c18c539f02253af4df0e4dbf4f80c",
+    "inputSha256": "15d800922c824eb048b67c191ea51b56aa9f70440fe8df3c83b7e78b452c73b5"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_expressions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

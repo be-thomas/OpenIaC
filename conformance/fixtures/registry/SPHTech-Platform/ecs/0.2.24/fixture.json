@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/ecs/0.2.24",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/ecs/aws/0.2.24",
+    "ref": "0.2.24",
+    "path": ".",
+    "archiveSha256": "b5270503f3fa0b88fcae2ec6a56a3acca1425d12fbc6deea61580fec96bdcb4e",
+    "inputSha256": "aa8c30570d5457245af155a91d88c43f56f1f095df411b73eb78f088e9558cef"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/scribd/datadog/4.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/scribd/datadog/aws/4.0.0",
+    "ref": "4.0.0",
+    "path": ".",
+    "archiveSha256": "1b9c8d96e0eeb5f02fafc9e7b9e4796c809fe1d0b8d58d18a9c6a4d648495bfb",
+    "inputSha256": "4628a2f1a9f13342e71d44d9ef0e4ef22ccc72c44d2941cb430705368ee37bcd"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "datadog"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

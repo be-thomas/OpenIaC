@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/SweetOps/secretsmanager/0.6.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SweetOps/secretsmanager/aws/0.6.0",
+    "ref": "0.6.0",
+    "path": ".",
+    "archiveSha256": "5d4b079c27fb62659341c549418dcc9a198bce8226c53683e0ce740d72a550bc",
+    "inputSha256": "7227bc32f7b74c2f3cd28abc7167d1c4f8fc808ff1c214acc41dfd2ee7241ea9"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

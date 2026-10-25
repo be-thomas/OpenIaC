@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/philips-labs/github-runner/6.1.0/modules/runners/pool",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/philips-labs/github-runner/aws/6.1.0",
+    "ref": "6.1.0",
+    "path": "modules/runners/pool",
+    "archiveSha256": "d51d373679290fa85b7577e9d687025cc26a745c6522542bdec788c1fa12dd87",
+    "inputSha256": "506ee9517fedf100e5ea81ff996ee4b0ca58e5b15cef763298332fb6ae2ff4ac"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

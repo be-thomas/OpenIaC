@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/cloudtrail-s3-bucket/0.33.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/cloudtrail-s3-bucket/aws/0.33.0",
+    "ref": "0.33.0",
+    "path": ".",
+    "archiveSha256": "3498b0cf458e6ffffd93056f313f84d4f2921d46e395d9b081199045732fcf23",
+    "inputSha256": "5f1a79e6281cf272d6c3174b0339118636f1d063dd8f030178aa553e2b0f6ae6"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

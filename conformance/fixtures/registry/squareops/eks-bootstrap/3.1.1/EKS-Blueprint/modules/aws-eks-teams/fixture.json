@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/eks-bootstrap/3.1.1/EKS-Blueprint/modules/aws-eks-teams",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/eks-bootstrap/aws/3.1.1",
+    "ref": "3.1.1",
+    "path": "EKS-Blueprint/modules/aws-eks-teams",
+    "archiveSha256": "684cc627c3d59f17711fb2ea67655b98897dc07dca952a8fb227c621105f7476",
+    "inputSha256": "2a908014c933e1f553a06c7169233a3d43ebd43cdfba4c00faa98d78b4f9af78"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "kubectl",
+    "kubernetes"
+  ],
+  "features": [
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

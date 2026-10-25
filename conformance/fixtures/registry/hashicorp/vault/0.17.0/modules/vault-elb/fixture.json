@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/hashicorp/vault/0.17.0/modules/vault-elb",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/hashicorp/vault/aws/0.17.0",
+    "ref": "0.17.0",
+    "path": "modules/vault-elb",
+    "archiveSha256": "aa4b30c9c7ee26d1fd2473e156100780ff259623a99b10a90edcd4a7d6d3bffd",
+    "inputSha256": "9b920c6ded011b31c517b6de20861efdb1f298a663f47f2db265802a2e0663b8"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

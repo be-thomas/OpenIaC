@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/key-pair/3.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/key-pair/aws/3.0.1",
+    "ref": "3.0.1",
+    "path": ".",
+    "archiveSha256": "5d8bca51bb85b728b14d0eff475f154c8cf597147e8400084cd466c9b4b24aad",
+    "inputSha256": "271de84e9b6cd2c8bca02e026017d689c29b30662b80d92245dc14f14226bc86"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "tls"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

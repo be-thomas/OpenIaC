@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/cloudfront/6.7.1/modules/trust_store",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/cloudfront/aws/6.7.1",
+    "ref": "6.7.1",
+    "path": "modules/trust_store",
+    "archiveSha256": "30e77886c24b36d8d606dec086d332182b5020baadae6a4b78609d73187c621d",
+    "inputSha256": "a882b0fe2937d0baea6b3d9ec06a5dd41894461e61e225dd690ee7857d34ee38"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

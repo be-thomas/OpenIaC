@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/eks-bootstrap/3.1.1/EKS-Blueprint/modules/aws-eks-fargate-profiles",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/eks-bootstrap/aws/3.1.1",
+    "ref": "3.1.1",
+    "path": "EKS-Blueprint/modules/aws-eks-fargate-profiles",
+    "archiveSha256": "684cc627c3d59f17711fb2ea67655b98897dc07dca952a8fb227c621105f7476",
+    "inputSha256": "79fd48d82b0e3fe79f4db71be044cbbebdae9971a158176c9ab22a54086d5837"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

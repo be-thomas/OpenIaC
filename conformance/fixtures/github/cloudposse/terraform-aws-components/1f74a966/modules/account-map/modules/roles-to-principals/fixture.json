@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "github/cloudposse/terraform-aws-components/1f74a966/modules/account-map/modules/roles-to-principals",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/cloudposse/terraform-aws-components",
+    "ref": "1f74a966a0b40ce7e5cae5baec690e5356cf46b8",
+    "path": "modules/account-map/modules/roles-to-principals",
+    "archiveSha256": "97bfd2e9c947b2ae0a7fe6754f377cdc389f3397de7eba4d935c82a8aaf2ab4c",
+    "inputSha256": "59a5022b7e65c50d7733a498e09f7a3a3d011a7d27f8682ff8d4f42a805b031e"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "conditionals",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

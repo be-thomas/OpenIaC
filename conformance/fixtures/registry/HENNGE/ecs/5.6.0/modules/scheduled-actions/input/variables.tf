@@ -1,0 +1,93 @@
+variable "name" {
+  description = "Name for scheduled action"
+  type        = string
+}
+
+variable "schedule_description" {
+  description = "The description of the rule"
+  default     = "Cloudwatch event rule to invoke ECS Task"
+  type        = string
+}
+
+variable "schedule_rule" {
+  description = "Schedule in cron or rate (see: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html for rules)"
+  type        = string
+}
+
+variable "iam_invoker" {
+  description = "IAM ARN to invoke ECS Task"
+  type        = string
+}
+
+variable "cluster_arn" {
+  description = "ECS Cluster ARN to run ECS Task in"
+  type        = string
+}
+
+variable "task_count" {
+  description = "Desired ECS Task count to run"
+  type        = number
+}
+
+variable "task_definition_arn" {
+  description = "Task definition ARN to run"
+  type        = string
+}
+
+variable "is_fargate" {
+  description = "Task is fargate. Only affects `launch_type`; to attach a network configuration to a non-Fargate `awsvpc` task, use `network_configuration` instead."
+  default     = false
+  type        = bool
+}
+
+variable "network_configuration" {
+  description = "Network configuration for tasks that use the `awsvpc` network mode. Required by RunTask for `awsvpc` under any launch type, not just Fargate. Takes precedence over the `fargate_*` variables. Must be null when the task does not use `awsvpc`, otherwise the task fails."
+  default     = null
+  type = object({
+    subnets          = list(string)
+    security_groups  = optional(list(string), [])
+    assign_public_ip = optional(bool, false)
+  })
+}
+
+variable "fargate_assign_public_ip" {
+  description = "Assign Public IP or not to Fargate task, specify if `is_fargate`. Deprecated: use `network_configuration.assign_public_ip`."
+  default     = false
+  type        = bool
+}
+
+variable "fargate_security_groups" {
+  description = "Security groups to assign to Fargate task, specify if `is_fargate`. Deprecated: use `network_configuration.security_groups`."
+  default     = []
+  type        = list(string)
+}
+
+variable "fargate_subnets" {
+  description = "Subnets to assign to Fargate task, specify if `is_fargate`. Deprecated: use `network_configuration.subnets`."
+  default     = []
+  type        = list(string)
+}
+
+variable "container_overrides" {
+  description = "Overrides options of container. Expecting JSON. See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target#ecs-run-task-with-role-and-task-override-usage"
+  default     = null
+  type        = string
+}
+
+variable "capacity_provider_strategy" {
+  description = "List of map of capacity provider strategies to use for the task. See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target#capacity_provider_strategy"
+  default     = []
+  type        = list(any)
+}
+
+variable "propagate_tags" {
+  description = "Specifies whether to propagate the tags from the task definition to the task."
+  default     = false
+  type        = bool
+}
+
+variable "tags" {
+  description = "A map of tags to assign to ecs resources."
+  default     = null
+  type        = map(string)
+}

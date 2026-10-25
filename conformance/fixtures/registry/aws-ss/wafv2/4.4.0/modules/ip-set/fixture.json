@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ss/wafv2/4.4.0/modules/ip-set",
+  "tier": "core",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ss/wafv2/aws/4.4.0",
+    "ref": "4.4.0",
+    "path": "modules/ip-set",
+    "archiveSha256": "bafd2c53ee9d64075b4b99964e1e7bfeacab694b13418420fab8f62f591b3bd8",
+    "inputSha256": "2b515182edbf42aa3daa3182b70d356ec71016c6d965c6dc48aa0abd04bd4c9a"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "full"
+}

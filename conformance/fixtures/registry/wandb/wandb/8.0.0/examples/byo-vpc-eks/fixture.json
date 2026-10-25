@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/wandb/wandb/8.0.0/examples/byo-vpc-eks",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/wandb/wandb/aws/8.0.0",
+    "ref": "8.0.0",
+    "path": "examples/byo-vpc-eks",
+    "archiveSha256": "1ec2e8ca251b3f6dfd37e034a18342617c0d24653fe304e41cdabfecaee8c558",
+    "inputSha256": "434ccba6ef9e065d24ceaa75e3bf2bca2c08d56db7f614c101f006986f48ae12"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "kubernetes"
+  ],
+  "features": [
+    "backend",
+    "data",
+    "depends_on",
+    "interpolation",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

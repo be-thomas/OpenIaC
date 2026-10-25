@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-redhat/rosa-sts/0.0.16/account_roles_creation",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-redhat/rosa-sts/aws/0.0.16",
+    "ref": "0.0.16",
+    "path": "account_roles_creation",
+    "archiveSha256": "10419f77c2a4e761e0f2f5851fec4c8e84fb251410d86ccfce7693a8860b3869",
+    "inputSha256": "b608ac8edc41487a323833825ad5a763adcee2b8f6c9b67e2bf5add3f2270d76"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "count",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

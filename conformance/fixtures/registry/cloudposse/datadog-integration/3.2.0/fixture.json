@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/datadog-integration/3.2.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/datadog-integration/aws/3.2.0",
+    "ref": "3.2.0",
+    "path": ".",
+    "archiveSha256": "25dcdcc475fe18be8209743e4f8b38b0743f171ce56e8848d42d7c11d7356c2b",
+    "inputSha256": "5986249b8d3274055406359ab95a127785ef5309d73f064210e8cfdbfcfd92fc"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "datadog"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/chime/alternat/0.10.4",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/chime/alternat/aws/0.10.4",
+    "ref": "0.10.4",
+    "path": ".",
+    "archiveSha256": "9921ffdd66009a3b39d1654685698c142d0b0d47ba38f1c0205901da34716c1f",
+    "inputSha256": "3217f789cd0b3eabf63716077f1edd71ade97353693b1e8e29ee772a79981c3d"
+  },
+  "license": "MIT",
+  "providers": [
+    "archive",
+    "aws",
+    "cloudinit"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

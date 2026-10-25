@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/observeinc/kinesis-firehose/2.4.1/modules/cloudwatch_metrics",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/observeinc/kinesis-firehose/aws/2.4.1",
+    "ref": "2.4.1",
+    "path": "modules/cloudwatch_metrics",
+    "archiveSha256": "dc0e81ee51dcbb3f40a75e6121673d8c0dea3e4cd65f50294e9b587d5aaaef67",
+    "inputSha256": "3e7f9820433377efcf33fe870ec1889a62af31c24e0af83c666687c50a94f819"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "dynamic",
+    "for_each",
+    "heredoc",
+    "locals",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

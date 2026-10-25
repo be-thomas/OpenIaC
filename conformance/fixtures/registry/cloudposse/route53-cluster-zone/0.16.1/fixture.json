@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/route53-cluster-zone/0.16.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/route53-cluster-zone/aws/0.16.1",
+    "ref": "0.16.1",
+    "path": ".",
+    "archiveSha256": "c6b41d5190b8af2885856c5dbe9a9b2ec13be055833ca407ea7b26aa6a247db1",
+    "inputSha256": "e77cf13e0e6d69eebb058a487522466cc1936f03ba9013a22a21fab1cd71e374"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

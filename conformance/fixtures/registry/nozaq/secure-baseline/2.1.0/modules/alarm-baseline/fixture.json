@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/nozaq/secure-baseline/2.1.0/modules/alarm-baseline",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/nozaq/secure-baseline/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": "modules/alarm-baseline",
+    "archiveSha256": "79259b5d0fb638654503c184994b1e01f9f1b64ccdd89231aa748163073e1c2d",
+    "inputSha256": "b9d559b169b16ba644399fde5b4c6c7ac72b47de600133e64979e81318266ea2"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

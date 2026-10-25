@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/cloudfront-policies/1.0.0/modules/origin-request",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/cloudfront-policies/aws/1.0.0",
+    "ref": "1.0.0",
+    "path": "modules/origin-request",
+    "archiveSha256": "320bca4ee70aaa3e7ed208858077fc72e92949dfd86a2172a5ad5716605554fa",
+    "inputSha256": "7fdcdf359a02420924a7e17e904c330f41fb67136b14091e876b2d5489cb756f"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "dynamic",
+    "for_each",
+    "heredoc",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

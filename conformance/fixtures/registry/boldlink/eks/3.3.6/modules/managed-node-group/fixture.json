@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/eks/3.3.6/modules/managed-node-group",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/eks/aws/3.3.6",
+    "ref": "3.3.6",
+    "path": "modules/managed-node-group",
+    "archiveSha256": "7b0f7c55c84a1bbe749979cab51b349083324653d553882b6866e0884b9e3365",
+    "inputSha256": "c961a41ecd9ec7d480d588194ddb457be59b9252579c8035ad1ec3a0f289551d"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "template"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

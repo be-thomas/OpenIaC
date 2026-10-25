@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/masterpointio/tailscale/2.1.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/masterpointio/tailscale/aws/2.1.0",
+    "ref": "2.1.0",
+    "path": ".",
+    "archiveSha256": "8df77301ff9220131745bdf4ad8dcf81bef3d9bbff01a933fd01acdeb17ebe08",
+    "inputSha256": "9592e8df00f99f4d449bc7ac302ca7edd88f50ee16c324b0037a1eb4a93f3627"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "tailscale"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

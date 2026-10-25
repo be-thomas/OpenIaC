@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/PaloAltoNetworks/vmseries-modules/1.1.6/modules/vpc_endpoint",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/PaloAltoNetworks/vmseries-modules/aws/1.1.6",
+    "ref": "1.1.6",
+    "path": "modules/vpc_endpoint",
+    "archiveSha256": "d1f8addda811aa7a48837401f3bb3eda1903e3796a5a5f25280366499d4248d4",
+    "inputSha256": "79d08fc80bc0e8e3b99704a408a0286ed00f186365efa1350cf5e3577db0de36"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

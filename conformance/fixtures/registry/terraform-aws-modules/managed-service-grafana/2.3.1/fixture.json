@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/managed-service-grafana/2.3.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/managed-service-grafana/aws/2.3.1",
+    "ref": "2.3.1",
+    "path": ".",
+    "archiveSha256": "0d2dcd8bde2989c93bd5dd4ac207f7b27c78f95c195587dad7886f0b6b08b204",
+    "inputSha256": "a30cc27c1f8d084b0d757c9e99b7483bb82b75744e6ca7b2782353fe94ce6427"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/sprylab/purple-s3-cloudfront/0.3.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/sprylab/purple-s3-cloudfront/aws/0.3.0",
+    "ref": "0.3.0",
+    "path": ".",
+    "archiveSha256": "f45e12e4596896ab07b9c350716bd62ac7d819737bb28fce665ec980f04ace8d",
+    "inputSha256": "aaf233e399c46b738210e06b6a9217dcf982a441d1076fb985027970b7403fc2"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

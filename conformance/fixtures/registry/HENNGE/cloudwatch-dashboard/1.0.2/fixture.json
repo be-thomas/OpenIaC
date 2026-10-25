@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/HENNGE/cloudwatch-dashboard/1.0.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/HENNGE/cloudwatch-dashboard/aws/1.0.2",
+    "ref": "1.0.2",
+    "path": ".",
+    "archiveSha256": "d0ef56a2968c133cfdd9adccc1c6d5dd59fc55170cb569d02152933902daae09",
+    "inputSha256": "650500e843df42e3a1d27899550baa3b702d6db3fd63fe70ebd961f6ff214972"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "locals",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/control_tower_account_factory/1.23.0/examples/codecommit+tf_oss",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/control_tower_account_factory/aws/1.23.0",
+    "ref": "1.23.0",
+    "path": "examples/codecommit+tf_oss",
+    "archiveSha256": "69692e8ce464f39d96a87511e80599dd92e160e5c3d204fdff427ee0544e3db7",
+    "inputSha256": "1df092b7e390d6f142b0a26d91ff6dc17118113b301960ab934b21471ab3a497"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "modules"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

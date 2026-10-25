@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/secretsmanager/1.0.9",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/secretsmanager/aws/1.0.9",
+    "ref": "1.0.9",
+    "path": ".",
+    "archiveSha256": "0c30f5eaa26c9c1234b5635414435dbed34318368cbe06ba9e3cb33f13965357",
+    "inputSha256": "18e4343f3998b5cc65394a5b3eb6b6e9822b8000de97266de952a296fa64d023"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

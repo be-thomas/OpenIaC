@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/vpc-peering/1.0.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/vpc-peering/aws/1.0.1",
+    "ref": "1.0.1",
+    "path": ".",
+    "archiveSha256": "ea3c41bce2c1a750cf8cb5f706deded762e068e9191640d622e0293f724bda02",
+    "inputSha256": "3767a0cb54523696d4e3b711dfac8052f767d3dc27d0a0c0a510ec6199801c1e"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

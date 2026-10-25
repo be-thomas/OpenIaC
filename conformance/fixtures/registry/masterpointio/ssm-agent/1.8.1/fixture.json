@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/masterpointio/ssm-agent/1.8.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/masterpointio/ssm-agent/aws/1.8.1",
+    "ref": "1.8.1",
+    "path": ".",
+    "archiveSha256": "e28999432819081f6ef7a6d8f1e001c3bfd3ed63b7a09a35f16e8c0d9f7f90eb",
+    "inputSha256": "5640e57ca55fd1ef585efd2ce2d38ca678978e76cabd751673f1a6b1171b87e0"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "terraform"
+  ],
+  "features": [
+    "check",
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

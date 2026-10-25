@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/lb-public-agents/0.3.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/lb-public-agents/aws/0.3.0",
+    "ref": "0.3.0",
+    "path": ".",
+    "archiveSha256": "9d1d57bb87feb42cfd2fd68fe8dba704bfe6eb71259b4dd23cee9dd80b2e09cc",
+    "inputSha256": "311c18afa8a1b6eb96db67fc8c7e5e453cb4489c4e6c995fd6f8e99cb836f7c9"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "outputs",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/label/0.0.6/internal/modules/aws",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/label/aws/0.0.6",
+    "ref": "0.0.6",
+    "path": "internal/modules/aws",
+    "archiveSha256": "d936b55b679ee573f63ee9e6268b726f354a60f5555447e3550731ca3db4261e",
+    "inputSha256": "65382409ded323137e4505d6cd010fb1e208e2297d56610ef6a08702890585f2"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

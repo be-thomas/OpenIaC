@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/lacework/ssm-agent/1.0.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lacework/ssm-agent/aws/1.0.2",
+    "ref": "1.0.2",
+    "path": ".",
+    "archiveSha256": "5fe394643e8a5c3ce15ebb93825e3863211e96fc1b529efeda5aa22e06081513",
+    "inputSha256": "e9566647884796b7de06e21c542c9dd812e83dde2dc4db263d39adeece46db92"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "lacework"
+  ],
+  "features": [
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

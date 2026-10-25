@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/HENNGE/ecs/5.6.0/modules/autoscaling/alb-target-tracking/target-requests-count",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/HENNGE/ecs/aws/5.6.0",
+    "ref": "5.6.0",
+    "path": "modules/autoscaling/alb-target-tracking/target-requests-count",
+    "archiveSha256": "07fa8f746538cd1175f47c640f1fb7b98150e8a17f5940b223f755ba29e6cbb9",
+    "inputSha256": "05755b089cfef7bbff086b5c8ec3951395f314fe8eca3bd141d9e1c4907ce7f1"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

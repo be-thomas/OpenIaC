@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/transcend-io/lambda-at-edge/0.6.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/transcend-io/lambda-at-edge/aws/0.6.0",
+    "ref": "0.6.0",
+    "path": ".",
+    "archiveSha256": "357e291f3169abff157df0e43a0c2e218665eae13697b0cfa61ecf8dcdeeb91d",
+    "inputSha256": "a6c536e4300ddd9ab44c226b48a26293c0daee9cad23940157d88cff69fbacd2"
+  },
+  "license": "MIT",
+  "providers": [
+    "archive",
+    "aws"
+  ],
+  "features": [
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

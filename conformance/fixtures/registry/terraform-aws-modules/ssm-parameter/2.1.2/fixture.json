@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/ssm-parameter/2.1.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/ssm-parameter/aws/2.1.2",
+    "ref": "2.1.2",
+    "path": ".",
+    "archiveSha256": "b2f0f51682f4c706da42591d6fe24b75f8fd1f5ee3800c338ee14f4335e8767d",
+    "inputSha256": "d45b82d4329107cb832d342ec20af4e547dd065d140956d2e8562e36da976f1d"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

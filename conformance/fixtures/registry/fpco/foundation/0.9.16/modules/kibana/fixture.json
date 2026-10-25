@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/fpco/foundation/0.9.16/modules/kibana",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
+    "ref": "0.9.16",
+    "path": "modules/kibana",
+    "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
+    "inputSha256": "9e1e57de233480740d7aac662c30e66affcb7c52e0ba9266a4db2b6432eb15a8"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "template"
+  ],
+  "features": [
+    "count",
+    "data",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

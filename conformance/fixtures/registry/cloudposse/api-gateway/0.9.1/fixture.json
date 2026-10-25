@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/api-gateway/0.9.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/api-gateway/aws/0.9.1",
+    "ref": "0.9.1",
+    "path": ".",
+    "archiveSha256": "7907d3635cc4b3dddfb4d8caa7db57317dae8d63bc535443fcea5d70353ad667",
+    "inputSha256": "2b0f4d385b84f7dbe0190a610f155b351c8e4e1841a6287eca5af33822e10f48"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

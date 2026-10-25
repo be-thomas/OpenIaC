@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "registry/scribd/datadog/4.0.0/examples/cloudwatch_log_sync",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/scribd/datadog/aws/4.0.0",
+    "ref": "4.0.0",
+    "path": "examples/cloudwatch_log_sync",
+    "archiveSha256": "1b9c8d96e0eeb5f02fafc9e7b9e4796c809fe1d0b8d58d18a9c6a4d648495bfb",
+    "inputSha256": "0fcb87606ab6f326ae944d98b4d2d5fd41a752607a328443acef9ccec4d6e7e8"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "datadog"
+  ],
+  "features": [
+    "modules",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

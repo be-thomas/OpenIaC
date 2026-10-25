@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/efs/1.2.1/tests/supportingResources",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/efs/aws/1.2.1",
+    "ref": "1.2.1",
+    "path": "tests/supportingResources",
+    "archiveSha256": "88acbc6ce7e2c289cd9b5962fcc45a95d1d133ccd3609d2e394524df026cb983",
+    "inputSha256": "3b06140981ca4d11abcbcff480827f31cdee7a548b143b706a8c35c6a47dfaaa"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "functions",
+    "locals",
+    "modules",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

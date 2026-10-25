@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/dasmeta/modules/3.1.0/modules/alb-logs-to-s3-to-cloudwatch/alb-to-s3-to-cloudwatch-lambda",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
+    "ref": "3.1.0",
+    "path": "modules/alb-logs-to-s3-to-cloudwatch/alb-to-s3-to-cloudwatch-lambda",
+    "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
+    "inputSha256": "1ac9b6048785093323cc0f63f1a035bce26fe6f123648eb52c473564f00abf04"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "modules",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

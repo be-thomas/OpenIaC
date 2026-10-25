@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/PaloAltoNetworks/vmseries-modules/1.1.6/modules/panorama",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/PaloAltoNetworks/vmseries-modules/aws/1.1.6",
+    "ref": "1.1.6",
+    "path": "modules/panorama",
+    "archiveSha256": "d1f8addda811aa7a48837401f3bb3eda1903e3796a5a5f25280366499d4248d4",
+    "inputSha256": "b202e37bbf2810956103a098c7c3dd445d216afa10836ec5191fb4d249f8c470"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

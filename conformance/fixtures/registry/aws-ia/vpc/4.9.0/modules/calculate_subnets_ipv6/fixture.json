@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/vpc/4.9.0/modules/calculate_subnets_ipv6",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/vpc/aws/4.9.0",
+    "ref": "4.9.0",
+    "path": "modules/calculate_subnets_ipv6",
+    "archiveSha256": "056c90c30544ae166825cf2b8277dc8762517d97b161ad170ce5bac893c40746",
+    "inputSha256": "2ad611de7d50fb8d8583c4562f6a24891fa6459fd564c66dd2261caa60c77840"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "count",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

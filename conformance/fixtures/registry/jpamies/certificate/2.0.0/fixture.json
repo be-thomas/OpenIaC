@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/jpamies/certificate/2.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/jpamies/certificate/aws/2.0.0",
+    "ref": "2.0.0",
+    "path": ".",
+    "archiveSha256": "091757758a2328d94d8612bed693958b2d706817eb507a7df60e2835b22f16b6",
+    "inputSha256": "87743fdb99663f8a60ca484c4a5f5206589679fb692361c83f820e3954e04176"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "for_each",
+    "for_expressions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

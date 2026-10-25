@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/lgallard/ecr/2.1.1/modules/kms",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lgallard/ecr/aws/2.1.1",
+    "ref": "2.1.1",
+    "path": "modules/kms",
+    "archiveSha256": "85b9acf37996619e5c95586890c83bae457ef0bdf9ae7f7e1b3f5a8a04894bcc",
+    "inputSha256": "9ba73db677c6a83ccaee8c1d213f420d2fec48c8ac92074e2f246bf69a088d99"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

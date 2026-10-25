@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/observeinc/collection/4.2.0/modules/testing/setup",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/observeinc/collection/aws/4.2.0",
+    "ref": "4.2.0",
+    "path": "modules/testing/setup",
+    "archiveSha256": "34d5830e7e6e5dcbc53416313bcc1da6d9583a13346f0ac649799eaee2958ed0",
+    "inputSha256": "909376230d8562b2b4a4d7ef6dff99251b3273c516705c4f9fd83891739f1aa5"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "data",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

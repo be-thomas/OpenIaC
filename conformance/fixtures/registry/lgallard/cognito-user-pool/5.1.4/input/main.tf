@@ -1,0 +1,585 @@
+resource "aws_cognito_user_pool" "pool" {
+  count = var.enabled && !var.ignore_schema_changes ? 1 : 0
+
+  alias_attributes           = var.alias_attributes
+  auto_verified_attributes   = var.auto_verified_attributes
+  name                       = var.user_pool_name
+  email_verification_subject = local.verification_email_subject
+  email_verification_message = local.verification_email_message
+  mfa_configuration          = var.mfa_configuration
+  sms_authentication_message = var.sms_authentication_message
+  sms_verification_message   = var.sms_verification_message
+  username_attributes        = var.username_attributes
+  deletion_protection        = var.deletion_protection
+  user_pool_tier             = var.user_pool_tier
+
+  # username_configuration
+  dynamic "username_configuration" {
+    for_each = local.username_configuration
+    content {
+      case_sensitive = try(username_configuration.value.case_sensitive, true)
+    }
+  }
+
+  # admin_create_user_config
+  dynamic "admin_create_user_config" {
+    for_each = local.admin_create_user_config
+    content {
+      allow_admin_create_user_only = try(admin_create_user_config.value.allow_admin_create_user_only, true)
+
+      dynamic "invite_message_template" {
+        for_each = try(admin_create_user_config.value.email_message, null) == null && try(admin_create_user_config.value.email_subject, null) == null && try(admin_create_user_config.value.sms_message, null) == null ? [] : [1]
+        content {
+          email_message = try(admin_create_user_config.value.email_message, null)
+          email_subject = try(admin_create_user_config.value.email_subject, null)
+          sms_message   = try(admin_create_user_config.value.sms_message, null)
+        }
+      }
+    }
+  }
+
+  # device_configuration
+  dynamic "device_configuration" {
+    for_each = local.device_configuration
+    content {
+      challenge_required_on_new_device      = try(device_configuration.value.challenge_required_on_new_device, false)
+      device_only_remembered_on_user_prompt = try(device_configuration.value.device_only_remembered_on_user_prompt, false)
+    }
+  }
+
+  # email_configuration
+  dynamic "email_configuration" {
+    for_each = local.email_configuration
+    content {
+      configuration_set      = try(email_configuration.value.configuration_set, null)
+      reply_to_email_address = try(email_configuration.value.reply_to_email_address, null)
+      source_arn             = try(email_configuration.value.source_arn, null)
+      email_sending_account  = try(email_configuration.value.email_sending_account, "COGNITO_DEFAULT")
+      from_email_address     = try(email_configuration.value.from_email_address, null)
+    }
+  }
+
+  # email_mfa_configuration
+  dynamic "email_mfa_configuration" {
+    for_each = local.email_mfa_configuration
+    content {
+      message = email_mfa_configuration.value.message
+      subject = email_mfa_configuration.value.subject
+    }
+  }
+
+  # lambda_config
+  dynamic "lambda_config" {
+    for_each = local.lambda_config
+    content {
+      create_auth_challenge = try(lambda_config.value.create_auth_challenge, null)
+      custom_message        = try(lambda_config.value.custom_message, null)
+      define_auth_challenge = try(lambda_config.value.define_auth_challenge, null)
+      post_authentication   = try(lambda_config.value.post_authentication, null)
+      post_confirmation     = try(lambda_config.value.post_confirmation, null)
+      pre_authentication    = try(lambda_config.value.pre_authentication, null)
+      pre_sign_up           = try(lambda_config.value.pre_sign_up, null)
+      pre_token_generation  = try(lambda_config.value.pre_token_generation, null)
+      dynamic "pre_token_generation_config" {
+        for_each = try(lambda_config.value.pre_token_generation_config, [])
+        content {
+          lambda_arn     = pre_token_generation_config.value.lambda_arn
+          lambda_version = pre_token_generation_config.value.lambda_version
+        }
+      }
+      user_migration                 = try(lambda_config.value.user_migration, null)
+      verify_auth_challenge_response = try(lambda_config.value.verify_auth_challenge_response, null)
+      kms_key_id                     = try(lambda_config.value.kms_key_id, null)
+      dynamic "custom_email_sender" {
+        for_each = try(lambda_config.value.custom_email_sender, [])
+        content {
+          lambda_arn     = custom_email_sender.value.lambda_arn
+          lambda_version = custom_email_sender.value.lambda_version
+        }
+      }
+      dynamic "custom_sms_sender" {
+        for_each = try(lambda_config.value.custom_sms_sender, [])
+        content {
+          lambda_arn     = custom_sms_sender.value.lambda_arn
+          lambda_version = custom_sms_sender.value.lambda_version
+        }
+      }
+    }
+  }
+
+  # sms_configuration
+  dynamic "sms_configuration" {
+    for_each = local.sms_configuration
+    content {
+      external_id    = try(sms_configuration.value.external_id, null)
+      sns_caller_arn = try(sms_configuration.value.sns_caller_arn, null)
+    }
+  }
+
+  # software_token_mfa_configuration
+  dynamic "software_token_mfa_configuration" {
+    for_each = local.software_token_mfa_configuration
+    content {
+      enabled = try(software_token_mfa_configuration.value.enabled, false)
+    }
+  }
+
+  # password_policy
+  dynamic "password_policy" {
+    for_each = local.password_policy
+    content {
+      minimum_length                   = try(password_policy.value.minimum_length, null)
+      require_lowercase                = try(password_policy.value.require_lowercase, null)
+      require_numbers                  = try(password_policy.value.require_numbers, null)
+      require_symbols                  = try(password_policy.value.require_symbols, null)
+      require_uppercase                = try(password_policy.value.require_uppercase, null)
+      temporary_password_validity_days = try(password_policy.value.temporary_password_validity_days, null)
+      password_history_size            = try(password_policy.value.password_history_size, null)
+    }
+  }
+
+  # schema
+  dynamic "schema" {
+    for_each = var.schemas == null ? [] : var.schemas
+    content {
+      attribute_data_type      = schema.value.attribute_data_type
+      developer_only_attribute = schema.value.developer_only_attribute
+      mutable                  = schema.value.mutable
+      name                     = schema.value.name
+      required                 = schema.value.required
+    }
+  }
+
+  # schema (String)
+  dynamic "schema" {
+    for_each = var.string_schemas == null ? [] : var.string_schemas
+    content {
+      attribute_data_type      = schema.value.attribute_data_type
+      developer_only_attribute = schema.value.developer_only_attribute
+      mutable                  = schema.value.mutable
+      name                     = schema.value.name
+      required                 = schema.value.required
+
+      # string_attribute_constraints
+      dynamic "string_attribute_constraints" {
+        for_each = length(keys(try(schema.value.string_attribute_constraints, {}))) == 0 ? [{}] : [try(schema.value.string_attribute_constraints, {})]
+        content {
+          min_length = try(string_attribute_constraints.value.min_length, null)
+          max_length = try(string_attribute_constraints.value.max_length, null)
+        }
+      }
+    }
+  }
+
+  # schema (Number)
+  dynamic "schema" {
+    for_each = var.number_schemas == null ? [] : var.number_schemas
+    content {
+      attribute_data_type      = schema.value.attribute_data_type
+      developer_only_attribute = schema.value.developer_only_attribute
+      mutable                  = schema.value.mutable
+      name                     = schema.value.name
+      required                 = schema.value.required
+
+      # number_attribute_constraints
+      dynamic "number_attribute_constraints" {
+        for_each = length(keys(try(schema.value.number_attribute_constraints, {}))) == 0 ? [{}] : [try(schema.value.number_attribute_constraints, {})]
+        content {
+          min_value = try(number_attribute_constraints.value.min_value, null)
+          max_value = try(number_attribute_constraints.value.max_value, null)
+        }
+      }
+    }
+  }
+
+  # user_pool_add_ons
+  dynamic "user_pool_add_ons" {
+    for_each = local.user_pool_add_ons
+    content {
+      advanced_security_mode = try(user_pool_add_ons.value.advanced_security_mode, null)
+
+      dynamic "advanced_security_additional_flows" {
+        for_each = try(user_pool_add_ons.value.advanced_security_additional_flows, null) != null ? [1] : []
+        content {
+          custom_auth_mode = try(user_pool_add_ons.value.advanced_security_additional_flows, null)
+        }
+      }
+    }
+  }
+
+  # verification_message_template
+  dynamic "verification_message_template" {
+    for_each = local.verification_message_template
+    content {
+      default_email_option  = try(verification_message_template.value.default_email_option, "CONFIRM_WITH_CODE")
+      email_message         = try(verification_message_template.value.email_message, null)
+      email_message_by_link = try(verification_message_template.value.email_message_by_link, null)
+      email_subject         = try(verification_message_template.value.email_subject, null)
+      email_subject_by_link = try(verification_message_template.value.email_subject_by_link, null)
+      sms_message           = try(verification_message_template.value.sms_message, null)
+    }
+  }
+
+
+  dynamic "user_attribute_update_settings" {
+    for_each = local.user_attribute_update_settings
+    content {
+      attributes_require_verification_before_update = user_attribute_update_settings.value.attributes_require_verification_before_update
+    }
+  }
+
+  # web_authn_configuration
+  dynamic "web_authn_configuration" {
+    for_each = local.web_authn_configuration
+    content {
+      relying_party_id  = try(web_authn_configuration.value.relying_party_id, null)
+      user_verification = try(web_authn_configuration.value.user_verification, null)
+    }
+  }
+
+  # account_recovery_setting
+  dynamic "account_recovery_setting" {
+    for_each = length(var.recovery_mechanisms) == 0 ? [] : [1]
+    content {
+      # recovery_mechanism
+      dynamic "recovery_mechanism" {
+        for_each = var.recovery_mechanisms
+        content {
+          name     = recovery_mechanism.value.name
+          priority = recovery_mechanism.value.priority
+        }
+      }
+    }
+  }
+
+  # sign_in_policy
+  dynamic "sign_in_policy" {
+    for_each = local.sign_in_policy
+    content {
+      allowed_first_auth_factors = sign_in_policy.value.allowed_first_auth_factors
+    }
+  }
+
+  # tags
+  tags = var.tags
+
+  # WebAuthn constraints depend on multiple module inputs, so lifecycle
+  # preconditions keep the failure close to the managed user pool resource.
+  lifecycle {
+    precondition {
+      condition     = var.web_authn_configuration == null || (var.domain != null && var.domain != "" && var.domain_managed_login_version >= 2)
+      error_message = "web_authn_configuration requires domain to be set and domain_managed_login_version >= 2 (managed login v2)."
+    }
+
+    precondition {
+      condition     = var.web_authn_configuration == null || contains(["ESSENTIALS", "PLUS"], var.user_pool_tier)
+      error_message = "web_authn_configuration requires user_pool_tier to be ESSENTIALS or PLUS; LITE does not support WebAuthn/passkeys."
+    }
+
+    precondition {
+      condition     = !contains(concat(try(var.sign_in_policy.allowed_first_auth_factors, []), var.sign_in_policy_allowed_first_auth_factors), "WEB_AUTHN") || var.web_authn_configuration != null
+      error_message = "WEB_AUTHN in sign_in_policy requires web_authn_configuration to be set."
+    }
+
+    precondition {
+      condition     = !contains(concat(var.client_explicit_auth_flows, flatten([for client in var.clients : coalesce(try(client.explicit_auth_flows, null), [])])), "ALLOW_USER_AUTH") || contains(["ESSENTIALS", "PLUS"], var.user_pool_tier)
+      error_message = "ALLOW_USER_AUTH requires user_pool_tier to be ESSENTIALS or PLUS."
+    }
+  }
+}
+
+# Separate resource definition with schema ignore_changes lifecycle
+resource "aws_cognito_user_pool" "pool_with_schema_ignore" {
+  count = var.enabled && var.ignore_schema_changes ? 1 : 0
+
+  alias_attributes           = var.alias_attributes
+  auto_verified_attributes   = var.auto_verified_attributes
+  name                       = var.user_pool_name
+  email_verification_subject = local.verification_email_subject
+  email_verification_message = local.verification_email_message
+  mfa_configuration          = var.mfa_configuration
+  sms_authentication_message = var.sms_authentication_message
+  sms_verification_message   = var.sms_verification_message
+  username_attributes        = var.username_attributes
+  deletion_protection        = var.deletion_protection
+  user_pool_tier             = var.user_pool_tier
+
+  # username_configuration
+  dynamic "username_configuration" {
+    for_each = local.username_configuration
+    content {
+      case_sensitive = try(username_configuration.value.case_sensitive, true)
+    }
+  }
+
+  # admin_create_user_config
+  dynamic "admin_create_user_config" {
+    for_each = local.admin_create_user_config
+    content {
+      allow_admin_create_user_only = try(admin_create_user_config.value.allow_admin_create_user_only, true)
+
+      dynamic "invite_message_template" {
+        for_each = try(admin_create_user_config.value.email_message, null) == null && try(admin_create_user_config.value.email_subject, null) == null && try(admin_create_user_config.value.sms_message, null) == null ? [] : [1]
+        content {
+          email_message = try(admin_create_user_config.value.email_message, null)
+          email_subject = try(admin_create_user_config.value.email_subject, null)
+          sms_message   = try(admin_create_user_config.value.sms_message, null)
+        }
+      }
+    }
+  }
+
+  # device_configuration
+  dynamic "device_configuration" {
+    for_each = local.device_configuration
+    content {
+      challenge_required_on_new_device      = try(device_configuration.value.challenge_required_on_new_device, false)
+      device_only_remembered_on_user_prompt = try(device_configuration.value.device_only_remembered_on_user_prompt, false)
+    }
+  }
+
+  # email_configuration
+  dynamic "email_configuration" {
+    for_each = local.email_configuration
+    content {
+      configuration_set      = try(email_configuration.value.configuration_set, null)
+      reply_to_email_address = try(email_configuration.value.reply_to_email_address, null)
+      source_arn             = try(email_configuration.value.source_arn, null)
+      email_sending_account  = try(email_configuration.value.email_sending_account, "COGNITO_DEFAULT")
+      from_email_address     = try(email_configuration.value.from_email_address, null)
+    }
+  }
+
+  # email_mfa_configuration
+  dynamic "email_mfa_configuration" {
+    for_each = local.email_mfa_configuration
+    content {
+      message = email_mfa_configuration.value.message
+      subject = email_mfa_configuration.value.subject
+    }
+  }
+
+  # lambda_config
+  dynamic "lambda_config" {
+    for_each = local.lambda_config
+    content {
+      create_auth_challenge = try(lambda_config.value.create_auth_challenge, null)
+      custom_message        = try(lambda_config.value.custom_message, null)
+      define_auth_challenge = try(lambda_config.value.define_auth_challenge, null)
+      post_authentication   = try(lambda_config.value.post_authentication, null)
+      post_confirmation     = try(lambda_config.value.post_confirmation, null)
+      pre_authentication    = try(lambda_config.value.pre_authentication, null)
+      pre_sign_up           = try(lambda_config.value.pre_sign_up, null)
+      pre_token_generation  = try(lambda_config.value.pre_token_generation, null)
+      dynamic "pre_token_generation_config" {
+        for_each = try(lambda_config.value.pre_token_generation_config, [])
+        content {
+          lambda_arn     = pre_token_generation_config.value.lambda_arn
+          lambda_version = pre_token_generation_config.value.lambda_version
+        }
+      }
+      user_migration                 = try(lambda_config.value.user_migration, null)
+      verify_auth_challenge_response = try(lambda_config.value.verify_auth_challenge_response, null)
+      kms_key_id                     = try(lambda_config.value.kms_key_id, null)
+      dynamic "custom_email_sender" {
+        for_each = try(lambda_config.value.custom_email_sender, [])
+        content {
+          lambda_arn     = custom_email_sender.value.lambda_arn
+          lambda_version = custom_email_sender.value.lambda_version
+        }
+      }
+      dynamic "custom_sms_sender" {
+        for_each = try(lambda_config.value.custom_sms_sender, [])
+        content {
+          lambda_arn     = custom_sms_sender.value.lambda_arn
+          lambda_version = custom_sms_sender.value.lambda_version
+        }
+      }
+    }
+  }
+
+  # sms_configuration
+  dynamic "sms_configuration" {
+    for_each = local.sms_configuration
+    content {
+      external_id    = try(sms_configuration.value.external_id, null)
+      sns_caller_arn = try(sms_configuration.value.sns_caller_arn, null)
+    }
+  }
+
+  # software_token_mfa_configuration
+  dynamic "software_token_mfa_configuration" {
+    for_each = local.software_token_mfa_configuration
+    content {
+      enabled = try(software_token_mfa_configuration.value.enabled, false)
+    }
+  }
+
+  # password_policy
+  dynamic "password_policy" {
+    for_each = local.password_policy
+    content {
+      minimum_length                   = try(password_policy.value.minimum_length, null)
+      require_lowercase                = try(password_policy.value.require_lowercase, null)
+      require_numbers                  = try(password_policy.value.require_numbers, null)
+      require_symbols                  = try(password_policy.value.require_symbols, null)
+      require_uppercase                = try(password_policy.value.require_uppercase, null)
+      temporary_password_validity_days = try(password_policy.value.temporary_password_validity_days, null)
+      password_history_size            = try(password_policy.value.password_history_size, null)
+    }
+  }
+
+  # schema
+  dynamic "schema" {
+    for_each = var.schemas == null ? [] : var.schemas
+    content {
+      attribute_data_type      = schema.value.attribute_data_type
+      developer_only_attribute = schema.value.developer_only_attribute
+      mutable                  = schema.value.mutable
+      name                     = schema.value.name
+      required                 = schema.value.required
+    }
+  }
+
+  # schema (String)
+  dynamic "schema" {
+    for_each = var.string_schemas == null ? [] : var.string_schemas
+    content {
+      attribute_data_type      = schema.value.attribute_data_type
+      developer_only_attribute = schema.value.developer_only_attribute
+      mutable                  = schema.value.mutable
+      name                     = schema.value.name
+      required                 = schema.value.required
+
+      # string_attribute_constraints
+      dynamic "string_attribute_constraints" {
+        for_each = length(keys(try(schema.value.string_attribute_constraints, {}))) == 0 ? [{}] : [try(schema.value.string_attribute_constraints, {})]
+        content {
+          min_length = try(string_attribute_constraints.value.min_length, null)
+          max_length = try(string_attribute_constraints.value.max_length, null)
+        }
+      }
+    }
+  }
+
+  # schema (Number)
+  dynamic "schema" {
+    for_each = var.number_schemas == null ? [] : var.number_schemas
+    content {
+      attribute_data_type      = schema.value.attribute_data_type
+      developer_only_attribute = schema.value.developer_only_attribute
+      mutable                  = schema.value.mutable
+      name                     = schema.value.name
+      required                 = schema.value.required
+
+      # number_attribute_constraints
+      dynamic "number_attribute_constraints" {
+        for_each = length(keys(try(schema.value.number_attribute_constraints, {}))) == 0 ? [{}] : [try(schema.value.number_attribute_constraints, {})]
+        content {
+          min_value = try(number_attribute_constraints.value.min_value, null)
+          max_value = try(number_attribute_constraints.value.max_value, null)
+        }
+      }
+    }
+  }
+
+  # user_pool_add_ons
+  dynamic "user_pool_add_ons" {
+    for_each = local.user_pool_add_ons
+    content {
+      advanced_security_mode = try(user_pool_add_ons.value.advanced_security_mode, null)
+
+      dynamic "advanced_security_additional_flows" {
+        for_each = try(user_pool_add_ons.value.advanced_security_additional_flows, null) != null ? [1] : []
+        content {
+          custom_auth_mode = try(user_pool_add_ons.value.advanced_security_additional_flows, null)
+        }
+      }
+    }
+  }
+
+  # verification_message_template
+  dynamic "verification_message_template" {
+    for_each = local.verification_message_template
+    content {
+      default_email_option  = try(verification_message_template.value.default_email_option, "CONFIRM_WITH_CODE")
+      email_message         = try(verification_message_template.value.email_message, null)
+      email_message_by_link = try(verification_message_template.value.email_message_by_link, null)
+      email_subject         = try(verification_message_template.value.email_subject, null)
+      email_subject_by_link = try(verification_message_template.value.email_subject_by_link, null)
+      sms_message           = try(verification_message_template.value.sms_message, null)
+    }
+  }
+
+  dynamic "user_attribute_update_settings" {
+    for_each = local.user_attribute_update_settings
+    content {
+      attributes_require_verification_before_update = user_attribute_update_settings.value.attributes_require_verification_before_update
+    }
+  }
+
+  # web_authn_configuration
+  dynamic "web_authn_configuration" {
+    for_each = local.web_authn_configuration
+    content {
+      relying_party_id  = try(web_authn_configuration.value.relying_party_id, null)
+      user_verification = try(web_authn_configuration.value.user_verification, null)
+    }
+  }
+
+  # account_recovery_setting
+  dynamic "account_recovery_setting" {
+    for_each = length(var.recovery_mechanisms) == 0 ? [] : [1]
+    content {
+      # recovery_mechanism
+      dynamic "recovery_mechanism" {
+        for_each = var.recovery_mechanisms
+        content {
+          name     = recovery_mechanism.value.name
+          priority = recovery_mechanism.value.priority
+        }
+      }
+    }
+  }
+
+  # sign_in_policy
+  dynamic "sign_in_policy" {
+    for_each = local.sign_in_policy
+    content {
+      allowed_first_auth_factors = sign_in_policy.value.allowed_first_auth_factors
+    }
+  }
+
+  # tags
+  tags = var.tags
+
+  # lifecycle management to prevent perpetual diffs on schema changes
+  lifecycle {
+    ignore_changes = [schema]
+
+    # WebAuthn constraints depend on multiple module inputs, so lifecycle
+    # preconditions keep the failure close to the managed user pool resource.
+    precondition {
+      condition     = var.web_authn_configuration == null || (var.domain != null && var.domain != "" && var.domain_managed_login_version >= 2)
+      error_message = "web_authn_configuration requires domain to be set and domain_managed_login_version >= 2 (managed login v2)."
+    }
+
+    precondition {
+      condition     = var.web_authn_configuration == null || contains(["ESSENTIALS", "PLUS"], var.user_pool_tier)
+      error_message = "web_authn_configuration requires user_pool_tier to be ESSENTIALS or PLUS; LITE does not support WebAuthn/passkeys."
+    }
+
+    precondition {
+      condition     = !contains(concat(try(var.sign_in_policy.allowed_first_auth_factors, []), var.sign_in_policy_allowed_first_auth_factors), "WEB_AUTHN") || var.web_authn_configuration != null
+      error_message = "WEB_AUTHN in sign_in_policy requires web_authn_configuration to be set."
+    }
+
+    precondition {
+      condition     = !contains(concat(var.client_explicit_auth_flows, flatten([for client in var.clients : coalesce(try(client.explicit_auth_flows, null), [])])), "ALLOW_USER_AUTH") || contains(["ESSENTIALS", "PLUS"], var.user_pool_tier)
+      error_message = "ALLOW_USER_AUTH requires user_pool_tier to be ESSENTIALS or PLUS."
+    }
+  }
+}
+
+# Locals are now organized in separate files (locals-*.tf)
+# This improves maintainability and readability of the configuration

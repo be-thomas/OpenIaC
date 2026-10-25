@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/config/2.0.0/modules/conformance-pack",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/config/aws/2.0.0",
+    "ref": "2.0.0",
+    "path": "modules/conformance-pack",
+    "archiveSha256": "4b1a8909f2626393d91104a259b4364cece15fb4e576d79c193ed307f9bbda9f",
+    "inputSha256": "54a7fa4e4a91a5564ecc8f67a73806b7c6a518aa47b4e73c199b40ddf3f83d89"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

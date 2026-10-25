@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/opensearch/2.11.1/modules/collection",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/opensearch/aws/2.11.1",
+    "ref": "2.11.1",
+    "path": "modules/collection",
+    "archiveSha256": "279f522888cdc5bd43d0c951be836d24203bdf1c815c95ca6096f69a8370209b",
+    "inputSha256": "370d430fb4aa6dfe956cdf3c9be56dfe552c04bb559a13b3fd82f1169e8c17ad"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

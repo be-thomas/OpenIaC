@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/lorenzoaiello/rds-alarms/2.4.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lorenzoaiello/rds-alarms/aws/2.4.1",
+    "ref": "2.4.1",
+    "path": ".",
+    "archiveSha256": "996f969e0b1c222b9f03cd7916b72348767c46031eb6073cdcc8880bbb4270d5",
+    "inputSha256": "7beee9ac2faebea2f63220c75a0a18e01b1878a2e01b3faf3eebfe2323791781"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

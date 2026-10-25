@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/fsx/1.3.2/modules/openzfs",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/fsx/aws/1.3.2",
+    "ref": "1.3.2",
+    "path": "modules/openzfs",
+    "archiveSha256": "bcccf3121b249e12c6fdaa14c08d2e1a9bc3dc516385ab90828d275b500060ff",
+    "inputSha256": "e656462fce4cb97d630af81e3be9d42a01ebf2d0da5935a4dfe56d58d658184f"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

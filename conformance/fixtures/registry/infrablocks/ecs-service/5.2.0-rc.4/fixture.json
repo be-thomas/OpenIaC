@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/infrablocks/ecs-service/5.2.0-rc.4",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/infrablocks/ecs-service/aws/5.2.0-rc.4",
+    "ref": "5.2.0-rc.4",
+    "path": ".",
+    "archiveSha256": "216ab993578cb27e6e741259cd7d4e63d1a5f2cf6c33d14f976643432209f8af",
+    "inputSha256": "e65503b33f91d530f747b0bb216e5d6a3d4cdeb7e91a377571f3d0e124c7e781"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/PaloAltoNetworks/vmseries-modules/1.1.6/modules/vpn",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/PaloAltoNetworks/vmseries-modules/aws/1.1.6",
+    "ref": "1.1.6",
+    "path": "modules/vpn",
+    "archiveSha256": "d1f8addda811aa7a48837401f3bb3eda1903e3796a5a5f25280366499d4248d4",
+    "inputSha256": "49b439311d6496df20340892b85305e07754d6360ed84f50872e5d0238daaed3"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

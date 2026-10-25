@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/RaJiska/fck-nat/1.6.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/RaJiska/fck-nat/aws/1.6.1",
+    "ref": "1.6.1",
+    "path": ".",
+    "archiveSha256": "3dc0dfc16845ecb5ae95c06530da393ada94df8f571f719dd0b45a5698eeb003",
+    "inputSha256": "28e2c94721b53ba8e99f56f4622fe212fcb9dfffa25eb51ca87224a1a1a00281"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "cloudinit"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

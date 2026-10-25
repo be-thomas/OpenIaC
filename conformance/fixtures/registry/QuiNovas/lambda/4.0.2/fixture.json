@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/QuiNovas/lambda/4.0.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/QuiNovas/lambda/aws/4.0.2",
+    "ref": "4.0.2",
+    "path": ".",
+    "archiveSha256": "56cbbbea4fd563caf55dc6f6a2f64cf01c74ecbd1231727724f3afc9908ef6ce",
+    "inputSha256": "1e246a1101e21ed15c77cef9dc399fdf525076a880da9cba86da27720290da81"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

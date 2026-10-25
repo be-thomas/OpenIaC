@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "id": "registry/observeinc/collection/4.2.0/modules/testing/sqs_queue",
+  "tier": "smoke",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/observeinc/collection/aws/4.2.0",
+    "ref": "4.2.0",
+    "path": "modules/testing/sqs_queue",
+    "archiveSha256": "34d5830e7e6e5dcbc53416313bcc1da6d9583a13346f0ac649799eaee2958ed0",
+    "inputSha256": "433b7124bac059b1ab9293f2b16621f824db2c308c526f32972b84ca4b5ec59d"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "full"
+}

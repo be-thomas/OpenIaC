@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/mewa/apigateway-cors/2.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/mewa/apigateway-cors/aws/2.0.1",
+    "ref": "2.0.1",
+    "path": ".",
+    "archiveSha256": "545fff060cbf7c869361b092e7084f05d0973d8738ed7912a7151abdb11fa3bb",
+    "inputSha256": "63a35d95b6390e7e810928ef1e7eaf7f1d85ffffd5d3cec544abcf777db58cb4"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

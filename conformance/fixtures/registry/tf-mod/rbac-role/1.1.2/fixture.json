@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/tf-mod/rbac-role/1.1.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/tf-mod/rbac-role/aws/1.1.2",
+    "ref": "1.1.2",
+    "path": ".",
+    "archiveSha256": "b7c6a4c59396a9e0803f97ecdff65de2aeb1f389e93ce8b97bcce715b4c9d9fa",
+    "inputSha256": "b33e5cd2a473f15233a760cc553c8355f3d7d3b8fba94ea51b5cfcf1825b41d2"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "locals",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/glue/0.4.0/modules/glue-job",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/glue/aws/0.4.0",
+    "ref": "0.4.0",
+    "path": "modules/glue-job",
+    "archiveSha256": "a27cd6f975ffa8496f2d0a5a25d7dbc6ddc7b3a6e12e103942f104190a75b220",
+    "inputSha256": "0f51ef1f5676997103161bd692773601edeca3734b0ae45fb77644b3975c9b5c"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

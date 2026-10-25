@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/iam-policy/2.0.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/iam-policy/aws/2.0.2",
+    "ref": "2.0.2",
+    "path": ".",
+    "archiveSha256": "501ae517b87c786ad28f7ea16d94ba6c520ca09a86c1688003e320ee65f765a2",
+    "inputSha256": "7d18b045dc50d629fea4605332d46db56c9944ec539c54fafac9d446ec2c1e96"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

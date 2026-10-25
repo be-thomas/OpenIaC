@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/iam-group/1.1.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/iam-group/aws/1.1.0",
+    "ref": "1.1.0",
+    "path": ".",
+    "archiveSha256": "d18482e43dfdba92fc97fa0a9dd36dad0e982db88ae561b37821b0428a6f74e4",
+    "inputSha256": "454f2dda0ba2c1fa8105fecc628b500d67ddca450888e83eebbb9f9a4c5c8559"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "for_each",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ssm-tls-ssh-key-pair/0.10.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ssm-tls-ssh-key-pair/aws/0.10.2",
+    "ref": "0.10.2",
+    "path": ".",
+    "archiveSha256": "94a0ebf6c9f51af2c796b55de2e661126ae4c210cdebd2a44ec238b0645b2431",
+    "inputSha256": "f1d5d5d643ffe9fead8708b620c66ded4e50d508b78b579c121e570e3eff9488"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "tls"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

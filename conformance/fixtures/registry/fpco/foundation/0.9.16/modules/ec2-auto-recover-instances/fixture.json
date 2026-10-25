@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/fpco/foundation/0.9.16/modules/ec2-auto-recover-instances",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
+    "ref": "0.9.16",
+    "path": "modules/ec2-auto-recover-instances",
+    "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
+    "inputSha256": "aa878fd0c26201cf137004d347f3bee8d8d8b02a8a174b59bf95f1446fcc4b3e"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "template"
+  ],
+  "features": [
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

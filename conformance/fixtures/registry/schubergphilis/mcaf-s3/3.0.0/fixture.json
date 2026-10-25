@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/schubergphilis/mcaf-s3/3.0.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/schubergphilis/mcaf-s3/aws/3.0.0",
+    "ref": "3.0.0",
+    "path": ".",
+    "archiveSha256": "5b0fe92193cb893e15c5ac58b2183921c7a3b70f47b2d622a8fc20d596a71273",
+    "inputSha256": "de5f18fb2c2e8d8a57d97a506329b413d6937d0005259d0f5894909f31399325"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

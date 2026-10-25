@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/vpc/4.9.0/modules/calculate_subnets",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/vpc/aws/4.9.0",
+    "ref": "4.9.0",
+    "path": "modules/calculate_subnets",
+    "archiveSha256": "056c90c30544ae166825cf2b8277dc8762517d97b161ad170ce5bac893c40746",
+    "inputSha256": "c33d2f78683dc090a5827e92523b071f9f30686a9e59681685c0e0a156770012"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "conditionals",
+    "count",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

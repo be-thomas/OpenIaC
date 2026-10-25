@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/backup/1.3.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/backup/aws/1.3.0",
+    "ref": "1.3.0",
+    "path": ".",
+    "archiveSha256": "a2a2414e308098516fa9f12d98c45db08c9a768551ad0b44c6a87de7d59e1e10",
+    "inputSha256": "e058f2c117fa095b1373b6ed66cdf3a98efe3fadaf1d1bcc1811a89b41ea5eb4"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

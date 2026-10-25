@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ssm-parameter-store/0.13.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ssm-parameter-store/aws/0.13.0",
+    "ref": "0.13.0",
+    "path": ".",
+    "archiveSha256": "9d67e5d41b9d713a1f206fff0e32e8b42b98af63c02cc4c48f8a32c680abbfd1",
+    "inputSha256": "4f23f21f29d09a44f582d4f5109168329cb43a51b6e54d616d201d514e16d80f"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

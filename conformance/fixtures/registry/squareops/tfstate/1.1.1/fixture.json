@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/tfstate/1.1.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/tfstate/aws/1.1.1",
+    "ref": "1.1.1",
+    "path": ".",
+    "archiveSha256": "3a38863c5160bf1109365205b1f1e6d7f9ac0b12eca2929c7f352a97dfde2082",
+    "inputSha256": "59ceae09f59679675eac1ba8f752476762e787163b7066b23d1ea6ff7a1dfd61"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

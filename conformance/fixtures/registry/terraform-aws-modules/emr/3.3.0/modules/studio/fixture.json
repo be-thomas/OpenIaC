@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/emr/3.3.0/modules/studio",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/emr/aws/3.3.0",
+    "ref": "3.3.0",
+    "path": "modules/studio",
+    "archiveSha256": "4d73c9f0f0dcdefaf844158fbe247e60cc0116fa65e5f64824cbb3588e3ca0f7",
+    "inputSha256": "ff9ce2d508add304e19e3c6bf566e1da9081dada972de528acd89462a69291a2"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

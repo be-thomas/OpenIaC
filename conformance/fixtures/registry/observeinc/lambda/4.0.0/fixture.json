@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/observeinc/lambda/4.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/observeinc/lambda/aws/4.0.0",
+    "ref": "4.0.0",
+    "path": ".",
+    "archiveSha256": "d97ca192682e39f83a0f37e5588285d4e618ddac2f9473bfd11d1fdd7c719acc",
+    "inputSha256": "7d9878f9a2e918efd78e7dd33aba431050784ebc1d5cb63b95f1c557bd570cd0"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

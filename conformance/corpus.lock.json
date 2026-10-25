@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "fixtureCount": 918,
+  "fileCount": 6934,
+  "totalBytes": 25173266,
+  "treeSha256": "3a50a02837daf1d60d996b25b2749c91bb884f4410ba500fdd51d99439597148",
+  "tiers": {
+    "advanced": 497,
+    "core": 4,
+    "modules": 397,
+    "smoke": 20
+  },
+  "licenses": {
+    "Apache-2.0": 701,
+    "BSD-3-Clause": 9,
+    "MIT": 208
+  },
+  "origins": {
+    "github": 51,
+    "registry": 867
+  }
+}

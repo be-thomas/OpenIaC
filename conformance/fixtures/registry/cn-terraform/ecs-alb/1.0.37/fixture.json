@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cn-terraform/ecs-alb/1.0.37",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cn-terraform/ecs-alb/aws/1.0.37",
+    "ref": "1.0.37",
+    "path": ".",
+    "archiveSha256": "331bcae53987431d5ed2493e65eb617c57f1d7f0dde09acd291b850bce516451",
+    "inputSha256": "d86085892340784ef42a86f118a11f52956e32c9a167f09280c31ad3ccff58fe"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "null",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

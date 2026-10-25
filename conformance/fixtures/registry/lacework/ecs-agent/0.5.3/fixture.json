@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/lacework/ecs-agent/0.5.3",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lacework/ecs-agent/aws/0.5.3",
+    "ref": "0.5.3",
+    "path": ".",
+    "archiveSha256": "b7bc38802ec6bd826de035955ef4d47377bb53aa5787ce7d90945a877d0397df",
+    "inputSha256": "1ac8d171059e03408e3a6a425f8531fcea7eb07518be2669a0bd1f2d81b0cf5a"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "lacework",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/umotif-public/alb/2.2.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/umotif-public/alb/aws/2.2.2",
+    "ref": "2.2.2",
+    "path": ".",
+    "archiveSha256": "232cbebe44a39eada06295df4da9db7b9b469713f95e6756a11312370ae2859e",
+    "inputSha256": "c334729824cd31f51ad962b317dd5a52df178e4f6898957687cda002932343d7"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

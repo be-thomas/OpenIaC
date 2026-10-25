@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/rallyware/cognito-user-pool-client/0.3.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/rallyware/cognito-user-pool-client/aws/0.3.0",
+    "ref": "0.3.0",
+    "path": ".",
+    "archiveSha256": "e5118d0829a6a144defb3ea3d6d8773464f2c7c7a1ee096776ee39c1740e6429",
+    "inputSha256": "461ca7f659a018d2f23dae4702bcd18bb6f0f421996d105a3db44528903a4aa4"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

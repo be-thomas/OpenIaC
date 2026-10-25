@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/networkfirewall/1.0.2/examples/central_inspection_with_egress",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/networkfirewall/aws/1.0.2",
+    "ref": "1.0.2",
+    "path": "examples/central_inspection_with_egress",
+    "archiveSha256": "58e669e24261a04619f8ddb3064391b1dba36d0774e248245e9bec218bcc02f5",
+    "inputSha256": "16516d0b7eb7882b8698f152b03f3c2a890959fc4b317ff7f7f4272a27c7d0c0"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "heredoc",
+    "interpolation",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

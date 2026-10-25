@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/rds/1.4.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/rds/aws/1.4.1",
+    "ref": "1.4.1",
+    "path": ".",
+    "archiveSha256": "f22f3c1bd1d8822e6b35e5a76fb5f1f8869414e6372213a4b8cbd4a18c37897a",
+    "inputSha256": "cf61db6b421d5dd509e8b1aad14ac4f32aa4ee6aa4cae0256bd76a1778c98882"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

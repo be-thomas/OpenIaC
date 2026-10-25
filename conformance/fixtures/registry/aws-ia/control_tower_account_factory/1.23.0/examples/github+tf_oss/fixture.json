@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/control_tower_account_factory/1.23.0/examples/github+tf_oss",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/control_tower_account_factory/aws/1.23.0",
+    "ref": "1.23.0",
+    "path": "examples/github+tf_oss",
+    "archiveSha256": "69692e8ce464f39d96a87511e80599dd92e160e5c3d204fdff427ee0544e3db7",
+    "inputSha256": "5738bff819f38ab7695b2c87f4e68b6cbbbee213e9fc142d373569ba08a3b15d"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "modules"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

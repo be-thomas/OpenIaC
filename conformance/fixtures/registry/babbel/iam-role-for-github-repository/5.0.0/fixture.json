@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/babbel/iam-role-for-github-repository/5.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/babbel/iam-role-for-github-repository/aws/5.0.0",
+    "ref": "5.0.0",
+    "path": ".",
+    "archiveSha256": "03b558d40e91d8837f40f97d339025f2e2931bf10dab5f75ba11634045c648d3",
+    "inputSha256": "c935e8cc2538c06bd9957b7a0abd93c42d0a87c6af6f169f2fa62514ddea1991"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

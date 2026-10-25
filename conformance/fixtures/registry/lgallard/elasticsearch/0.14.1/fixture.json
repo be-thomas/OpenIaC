@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/lgallard/elasticsearch/0.14.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lgallard/elasticsearch/aws/0.14.1",
+    "ref": "0.14.1",
+    "path": ".",
+    "archiveSha256": "21553826d1b69b6bfea33766e4aabf9156bb8be65f9664703b3ad03976b8ced6",
+    "inputSha256": "dc52410438588afe35b33e7b5a2e6cb458526c8dcf54d68b85f210886ad17cf8"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/route53/6.5.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/route53/aws/6.5.1",
+    "ref": "6.5.1",
+    "path": ".",
+    "archiveSha256": "f16ba358b9e87dd24d37d86bcea25f2e1d14082841382cc2814e3d32ddc024b3",
+    "inputSha256": "318f0a1bf70a5c1ec36bec060cb1d7e77732448ad104c5840ba5ccd311942c43"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

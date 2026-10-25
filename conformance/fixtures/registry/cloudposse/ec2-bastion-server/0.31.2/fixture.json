@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ec2-bastion-server/0.31.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ec2-bastion-server/aws/0.31.2",
+    "ref": "0.31.2",
+    "path": ".",
+    "archiveSha256": "0104b009e4e05261264b16b93f41fdbc31405d99ae86f3548b00a8698b8985ff",
+    "inputSha256": "b66118ecc1eff9d851f2e58cc78a809cf9fed910c240a118d7e53f2b5e95c62c"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

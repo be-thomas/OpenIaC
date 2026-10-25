@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/lambda/8.12.0/modules/docker-build",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/lambda/aws/8.12.0",
+    "ref": "8.12.0",
+    "path": "modules/docker-build",
+    "archiveSha256": "53e908eadaa8fa40d480ab027035a7c09f746d5c7ef36b4294d8be108492874e",
+    "inputSha256": "51e9b728cabf72ecbbbb190b5d980e74eeaea01760f2a35d5c83a4495159a62d"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "docker",
+    "null"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "functions",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

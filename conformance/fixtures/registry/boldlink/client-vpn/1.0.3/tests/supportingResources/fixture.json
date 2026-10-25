@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/client-vpn/1.0.3/tests/supportingResources",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/client-vpn/aws/1.0.3",
+    "ref": "1.0.3",
+    "path": "tests/supportingResources",
+    "archiveSha256": "633cf98227eefa12d2320d84ca32379590cb45035759f93aad9d5bef533310bc",
+    "inputSha256": "ee31eb0742f9d8dd79b3b6fc8b65dd1121cca8c3b40d012aaa72248aad6f410e"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "functions",
+    "locals",
+    "modules",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}
