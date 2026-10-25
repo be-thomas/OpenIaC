@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenIaC — Terraform HCL to AWS CDK &amp; Pulumi</title>
+  <meta name="description" content="Convert Terraform HCL into native AWS CDK or Pulumi TypeScript, entirely in your browser. Open source, WebAssembly, no upload." />
+  <meta property="og:title" content="OpenIaC — HCL to AWS CDK & Pulumi" />
+  <meta property="og:description" content="Paste Terraform, get native TypeScript. Runs locally via WebAssembly." />
+  <meta name="theme-color" content="#0b0f17" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%80%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-name">Open<span>IaC</span></span>
+      <span class="brand-tag">HCL → TypeScript</span>
+    </a>
+    <nav class="topnav">
+      <div class="segmented" role="group" aria-label="Output target">
+        <button class="segment is-active" data-target="cdk" type="button">AWS CDK</button>
+        <button class="segment" data-target="pulumi" type="button">Pulumi</button>
+      </div>
+      <a class="ghost-link" href="https://github.com/be-thomas/OpenIaC" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1>Escape the HCL lock-in.</h1>
+      <p>Paste Terraform. Get native <strong>AWS CDK</strong> or <strong>Pulumi</strong> TypeScript. Nothing leaves this tab.</p>
+      <div class="hero-chips">
+        <span class="chip">WebAssembly</span>
+        <span class="chip">No signup</span>
+        <span class="chip">GPL-3.0</span>
+        <span class="chip">Deterministic IR</span>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Convert Terraform to TypeScript">
+      <div class="pane">
+        <div class="pane-head">
+          <span class="file-dot dot-red"></span>
+          <span class="file-name">main.tf</span>
+          <select id="example-select" class="example-select" aria-label="Load an example">
+            <option value="web">web app</option>
+            <option value="storage">storage stack</option>
+          </select>
+          <span class="lang-badge">HCL</span>
+        </div>
+        <div id="input-editor" class="editor"></div>
+      </div>
+
+      <div class="divider">
+        <button id="run-button" class="run-button" type="button" title="Convert (Cmd/Ctrl+Enter)">→</button>
+      </div>
+
+      <div class="pane">
+        <div class="pane-head">
+          <span class="file-dot dot-green"></span>
+          <span class="file-name">index.ts</span>
+          <span id="target-badge" class="lang-badge">AWS CDK</span>
+          <span class="spacer"></span>
+          <button id="copy-button" class="icon-button" type="button" title="Copy TypeScript">Copy</button>
+          <button id="download-button" class="icon-button" type="button" title="Download TypeScript">↓</button>
+        </div>
+        <div id="output-editor" class="editor"></div>
+      </div>
+    </section>
+
+    <section class="statusbar" aria-live="polite">
+      <span id="status-dot" class="status-dot is-loading"></span>
+      <span id="status-text">Loading WebAssembly…</span>
+      <span id="status-stats" class="status-stats"></span>
+    </section>
+
+    <details id="warning-panel" class="warnings" hidden>
+      <summary><span id="warning-count">0</span> conversion warnings</summary>
+      <ul id="warning-list"></ul>
+    </details>
+  </main>
+
+  <footer class="footer">
+    <span>Built with Go + <code>hashicorp/hcl/v2</code> · compiled to WebAssembly</span>
+    <span class="footer-sep">·</span>
+    <a href="https://github.com/be-thomas/OpenIaC">Source</a>
+    <span class="footer-sep">·</span>
+    <span>Not affiliated with HashiCorp</span>
+  </footer>
+
+  <script type="text/plain" id="sample-web">
+terraform {
+  required_version = ">= 1.0"
+}
+
+variable "region" {
+  type    = string
+  default = "us-east-1"
+}
+
+variable "environment" {
+  type    = string
+  default = "dev"
+}
+
+provider "aws" {
+  region = var.region
+}
+
+resource "aws_vpc" "main" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name        = "openiac-${var.environment}"
+    Environment = var.environment
+  }
+}
+
+resource "aws_subnet" "public" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "${var.region}a"
+  map_public_ip_on_launch = true
+}
+
+resource "aws_security_group" "web" {
+  name        = "openiac-web"
+  description = "Allow HTTP"
+  vpc_id      = aws_vpc.main.id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_instance" "web" {
+  ami                    = "ami-0123456789abcdef0"
+  instance_type          = "t3.micro"
+  subnet_id              = aws_subnet.public.id
+  vpc_security_group_ids = [aws_security_group.web.id]
+}
+
+resource "aws_s3_bucket" "assets" {
+  bucket = "openiac-assets-${var.environment}"
+}
+
+output "bucket_arn" {
+  value = aws_s3_bucket.assets.arn
+}
+  </script>
+
+  <script type="text/plain" id="sample-storage">
+variable "environment" {
+  type    = string
+  default = "prod"
+}
+
+resource "aws_s3_bucket" "uploads" {
+  bucket = "openiac-uploads-${var.environment}"
+
+  tags = {
+    Environment = var.environment
+  }
+}
+
+resource "aws_sqs_queue" "events" {
+  name                       = "openiac-events"
+  visibility_timeout_seconds = 300
+  message_retention_seconds  = 1209600
+}
+
+resource "aws_sns_topic" "alerts" {
+  name         = "openiac-alerts"
+  display_name = "OpenIaC alerts"
+}
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/loader.js"></script>
+  <script src="wasm_exec.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

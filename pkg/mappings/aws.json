@@ -1,0 +1,353 @@
+{
+  "schema": "1",
+  "provider": "aws",
+  "resources": {
+    "aws_s3_bucket": {
+      "cdk": {
+        "kind": "l2",
+        "module": "aws-s3",
+        "class": "Bucket",
+        "properties": {
+          "bucket": "bucketName",
+          "tags": "tags",
+          "force_destroy": "autoDeleteObjects",
+          "object_lock_enabled": "objectLockEnabled"
+        },
+        "blocks": {
+          "versioning": {
+            "property": "versioned",
+            "shape": "presence",
+            "value": true
+          }
+        },
+        "attributes": {
+          "arn": "bucketArn",
+          "id": "bucketName",
+          "bucket": "bucketName",
+          "bucket_domain_name": "bucketDomainName",
+          "regional_domain_name": "bucketRegionalDomainName",
+          "website_endpoint": "bucketWebsiteUrl"
+        }
+      },
+      "pulumi": {
+        "module": "s3",
+        "class": "Bucket",
+        "blocks": {
+          "versioning": { "property": "versioning", "shape": "object" },
+          "cors_rule": { "property": "corsRules", "shape": "array" },
+          "lifecycle_rule": { "property": "lifecycleRules", "shape": "array" },
+          "website": { "property": "website", "shape": "object" }
+        }
+      }
+    },
+    "aws_vpc": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-ec2",
+        "class": "CfnVPC",
+        "properties": {
+          "cidr_block": "CidrBlock",
+          "enable_dns_support": "EnableDnsSupport",
+          "enable_dns_hostnames": "EnableDnsHostnames",
+          "instance_tenancy": "InstanceTenancy",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "attributes": {
+          "id": "ref"
+        }
+      },
+      "pulumi": { "module": "ec2", "class": "Vpc" }
+    },
+    "aws_subnet": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-ec2",
+        "class": "CfnSubnet",
+        "properties": {
+          "vpc_id": "VpcId",
+          "cidr_block": "CidrBlock",
+          "availability_zone": "AvailabilityZone",
+          "map_public_ip_on_launch": "MapPublicIpOnLaunch",
+          "assign_ipv6_address_on_creation": "AssignIpv6AddressOnCreation",
+          "ipv6_cidr_block": "Ipv6CidrBlock",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "attributes": {
+          "id": "ref"
+        }
+      },
+      "pulumi": { "module": "ec2", "class": "Subnet" }
+    },
+    "aws_security_group": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-ec2",
+        "class": "CfnSecurityGroup",
+        "properties": {
+          "name": "GroupName",
+          "description": "GroupDescription",
+          "vpc_id": "VpcId",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "blocks": {
+          "ingress": {
+            "property": "SecurityGroupIngress",
+            "shape": "array",
+            "properties": {
+              "from_port": "FromPort",
+              "to_port": "ToPort",
+              "protocol": "IpProtocol",
+              "description": "Description",
+              "cidr_blocks": { "name": "CidrIp", "transform": "first" },
+              "ipv6_cidr_blocks": { "name": "CidrIpv6", "transform": "first" },
+              "security_groups": { "name": "SourceSecurityGroupId", "transform": "first" }
+            }
+          },
+          "egress": {
+            "property": "SecurityGroupEgress",
+            "shape": "array",
+            "properties": {
+              "from_port": "FromPort",
+              "to_port": "ToPort",
+              "protocol": "IpProtocol",
+              "description": "Description",
+              "cidr_blocks": { "name": "CidrIp", "transform": "first" },
+              "ipv6_cidr_blocks": { "name": "CidrIpv6", "transform": "first" },
+              "security_groups": { "name": "SourceSecurityGroupId", "transform": "first" }
+            }
+          }
+        },
+        "attributes": {
+          "id": "attrGroupId"
+        }
+      },
+      "pulumi": { "module": "ec2", "class": "SecurityGroup" }
+    },
+    "aws_internet_gateway": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-ec2",
+        "class": "CfnInternetGateway",
+        "properties": {
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "attributes": {
+          "id": "ref"
+        }
+      },
+      "pulumi": { "module": "ec2", "class": "InternetGateway" }
+    },
+    "aws_route_table": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-ec2",
+        "class": "CfnRouteTable",
+        "properties": {
+          "vpc_id": "VpcId",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "attributes": {
+          "id": "ref"
+        }
+      },
+      "pulumi": { "module": "ec2", "class": "RouteTable" }
+    },
+    "aws_eip": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-ec2",
+        "class": "CfnEIP",
+        "properties": {
+          "domain": "Domain",
+          "instance": "InstanceId",
+          "public_ipv4_pool": "PublicIpv4Pool",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "attributes": {
+          "id": "attrAllocationId",
+          "public_ip": "attrPublicIp",
+          "allocation_id": "attrAllocationId"
+        }
+      },
+      "pulumi": { "module": "ec2", "class": "Eip" }
+    },
+    "aws_instance": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-ec2",
+        "class": "CfnInstance",
+        "properties": {
+          "ami": "ImageId",
+          "instance_type": "InstanceType",
+          "subnet_id": "SubnetId",
+          "vpc_security_group_ids": "SecurityGroupIds",
+          "key_name": "KeyName",
+          "user_data": "UserData",
+          "iam_instance_profile": "IamInstanceProfile",
+          "availability_zone": "AvailabilityZone",
+          "ebs_optimized": "EbsOptimized",
+          "monitoring": "Monitoring",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "attributes": {
+          "id": "ref",
+          "private_ip": "attrPrivateIp",
+          "public_ip": "attrPublicIp",
+          "private_dns": "attrPrivateDnsName",
+          "public_dns": "attrPublicDnsName"
+        }
+      },
+      "pulumi": { "module": "ec2", "class": "Instance" }
+    },
+    "aws_cloudwatch_log_group": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-cloudwatch",
+        "class": "CfnLogGroup",
+        "properties": {
+          "name": "LogGroupName",
+          "retention_in_days": "RetentionInDays",
+          "kms_key_id": "KmsKeyId",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "attributes": {
+          "arn": "attrArn",
+          "id": "ref"
+        }
+      },
+      "pulumi": { "module": "cloudwatch", "class": "LogGroup" }
+    },
+    "aws_dynamodb_table": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-dynamodb",
+        "class": "CfnTable",
+        "properties": {
+          "name": "TableName",
+          "billing_mode": "BillingMode",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "blocks": {
+          "attribute": {
+            "property": "AttributeDefinitions",
+            "shape": "array",
+            "properties": {
+              "name": "AttributeName",
+              "type": "AttributeType"
+            }
+          }
+        },
+        "attributes": {
+          "arn": "attrArn",
+          "id": "ref"
+        }
+      },
+      "pulumi": {
+        "module": "dynamodb",
+        "class": "Table",
+        "blocks": {
+          "attribute": { "property": "attributes", "shape": "array" }
+        }
+      }
+    },
+    "aws_lambda_function": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-lambda",
+        "class": "CfnFunction",
+        "properties": {
+          "function_name": "FunctionName",
+          "description": "Description",
+          "handler": "Handler",
+          "runtime": "Runtime",
+          "memory_size": "MemorySize",
+          "timeout": "Timeout",
+          "role": "Role",
+          "architectures": "Architectures",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "blocks": {
+          "environment": {
+            "property": "Environment",
+            "shape": "object",
+            "properties": {
+              "variables": "Variables"
+            }
+          }
+        },
+        "attributes": {
+          "arn": "attrArn",
+          "id": "ref"
+        }
+      },
+      "pulumi": {
+        "module": "lambda",
+        "class": "Function",
+        "blocks": {
+          "environment": { "property": "environment", "shape": "object" },
+          "vpc_config": { "property": "vpcConfig", "shape": "object" }
+        }
+      }
+    },
+    "aws_iam_role": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-iam",
+        "class": "CfnRole",
+        "properties": {
+          "name": "RoleName",
+          "description": "Description",
+          "path": "Path",
+          "assume_role_policy": { "name": "AssumeRolePolicyDocument", "transform": "json" },
+          "managed_policy_arns": "ManagedPolicyArns",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "attributes": {
+          "arn": "attrArn",
+          "id": "ref"
+        }
+      },
+      "pulumi": { "module": "iam", "class": "Role" }
+    },
+    "aws_sqs_queue": {
+      "cdk": {
+        "kind": "l1",
+        "module": "aws-sqs",
+        "class": "CfnQueue",
+        "properties": {
+          "name": "QueueName",
+          "visibility_timeout_seconds": "VisibilityTimeout",
+          "message_retention_seconds": "MessageRetentionPeriod",
+          "delay_seconds": "DelaySeconds",
+          "fifo_queue": "FifoQueue",
+          "content_based_deduplication": "ContentBasedDeduplication",
+          "tags": { "name": "Tags", "transform": "cfnTags" }
+        },
+        "attributes": {
+          "arn": "attrArn",
+          "id": "ref",
+          "url": "attrQueueUrl"
+        }
+      },
+      "pulumi": { "module": "sqs", "class": "Queue" }
+    },
+    "aws_sns_topic": {
+      "cdk": {
+        "kind": "l2",
+        "module": "aws-sns",
+        "class": "Topic",
+        "properties": {
+          "name": "topicName",
+          "display_name": "displayName",
+          "tags": "tags"
+        },
+        "attributes": {
+          "arn": "topicArn",
+          "id": "topicArn",
+          "name": "topicName"
+        }
+      },
+      "pulumi": { "module": "sns", "class": "Topic" }
+    }
+  }
+}

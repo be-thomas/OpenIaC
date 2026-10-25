@@ -1,0 +1,36 @@
+# ---- Local agent / Claude config (keep out of git) ----
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+skills/
+dev-docs/
+
+# ---- Build output ----
+/bin/
+/dist/
+/out/
+/openiac
+*.test
+coverage.out
+*.wasm
+playground/main.wasm
+playground/wasm_exec.js
+
+# ---- Conformance output / cache ----
+conformance/reports/
+.cache/
+
+# ---- Node ----
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ---- Editor / OS ----
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# ---- Go ----
+vendor/
