@@ -14,6 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: check commit messages
+        run: sh scripts/check-commit-message.sh --history 100
 
       - uses: actions/setup-go@v5
         with:

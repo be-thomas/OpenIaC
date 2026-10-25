@@ -2,7 +2,7 @@ GO ?= go
 BIN := bin/openiac
 PLAYGROUND := playground
 
-.PHONY: all build test vet fmt tidy wasm playground clean
+.PHONY: all build test vet fmt tidy wasm playground clean hooks
 
 all: build
 
@@ -20,6 +20,11 @@ fmt:
 
 tidy:
 	$(GO) mod tidy
+
+# Install repository-local git hooks.
+hooks:
+	git config core.hooksPath .githooks
+	chmod +x .githooks/commit-msg scripts/check-commit-message.sh
 
 # Build the browser playground. Copies wasm_exec.js from the local toolchain,
 # which lives in a different directory depending on the Go version.

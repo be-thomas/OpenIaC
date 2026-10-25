@@ -18,6 +18,7 @@ No Terraform installation is required — the parser reads HCL directly.
 ```bash
 git clone https://github.com/be-thomas/OpenIaC.git
 cd OpenIaC
+make hooks      # install the commit-msg hook
 make build      # bin/openiac
 make test       # go test ./...
 make vet        # go vet ./...
@@ -126,6 +127,9 @@ make fmt && make vet && make test
 - Include a test that fails before the change.
 - If output changes, include a before/after snippet.
 - Commit messages: imperative mood, scoped (`parser: keep map shape when mixed`).
+- Commit messages must not mention an AI assistant or model, and must not
+  include `Co-Authored-By` or any other attribution trailer. This is a hard
+  rule; `make hooks` enables the local check and CI enforces it too.
 
 ## Reporting bugs
 
