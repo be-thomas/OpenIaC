@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/2.1.0",
     "ref": "2.1.0",
+    "commit": "413830ffc6f2d47e1b47241b91f4f0897ef17370",
+    "gitOwner": "vantage-sh",
+    "gitRepo": "terraform-aws-vantage-integration",
     "path": ".",
     "archiveSha256": "8cbd238ec0983e045a658ec5da95cf973e58864cfc341f16702ec7d936e89982",
-    "inputSha256": "d5e9ab25aaade7a2388a9d4675137825c834c5d4193656abc37e0e71b36d9c62"
+    "inputSha256": "d5e9ab25aaade7a2388a9d4675137825c834c5d4193656abc37e0e71b36d9c62",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

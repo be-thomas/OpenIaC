@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/elb/aws/4.0.3",
     "ref": "4.0.3",
+    "commit": "3267e53700b96da3b02ed77d40eaee37a9ff646d",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-elb",
     "path": "modules/elb_attachment",
     "archiveSha256": "850e28f521b95bbbd1d8d3f919e7b2a8e73e6c7936e376bbf0d3de76bcf910dd",
-    "inputSha256": "5f38840e71497c6861229a36c146efd80cf4115701e161ec4361788640b8be83"
+    "inputSha256": "5f38840e71497c6861229a36c146efd80cf4115701e161ec4361788640b8be83",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -17,6 +21,7 @@
   "features": [
     "conditionals",
     "count",
+    "functions",
     "required_providers",
     "resources",
     "terraform",

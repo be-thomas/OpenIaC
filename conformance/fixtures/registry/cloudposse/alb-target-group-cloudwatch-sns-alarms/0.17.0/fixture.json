@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/alb-target-group-cloudwatch-sns-alarms/aws/0.17.0",
     "ref": "0.17.0",
+    "commit": "d712a4261549f251e016bbc340b8ff9c56c0cac6",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-alb-target-group-cloudwatch-sns-alarms",
     "path": ".",
     "archiveSha256": "50acabe230d1247018d34ab8a7b3cefadd26bd4b3813aa23e3e9b6c3d1cb0934",
-    "inputSha256": "9d4447cf1b870897f63b6d16d7bac8d3d4641c315c16dabe9dcb7246f1da60d6"
+    "inputSha256": "9d4447cf1b870897f63b6d16d7bac8d3d4641c315c16dabe9dcb7246f1da60d6",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

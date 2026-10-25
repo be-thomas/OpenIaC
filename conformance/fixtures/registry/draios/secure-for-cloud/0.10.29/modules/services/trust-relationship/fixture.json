@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/draios/secure-for-cloud/aws/0.10.29",
     "ref": "0.10.29",
+    "commit": "9939f6c51084fa8a697d8adb89f1c5f1390b5b96",
+    "gitOwner": "draios",
+    "gitRepo": "terraform-aws-secure-for-cloud",
     "path": "modules/services/trust-relationship",
     "archiveSha256": "60eb102e56ed24aa070de12ca9f7b1d7bf6c18c539f02253af4df0e4dbf4f80c",
-    "inputSha256": "15d800922c824eb048b67c191ea51b56aa9f70440fe8df3c83b7e78b452c73b5"
+    "inputSha256": "15d800922c824eb048b67c191ea51b56aa9f70440fe8df3c83b7e78b452c73b5",
+    "licensePath": "LICENSE.txt"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -19,6 +23,7 @@
     "count",
     "data",
     "for_expressions",
+    "functions",
     "heredoc",
     "interpolation",
     "locals",

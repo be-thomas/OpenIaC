@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/HENNGE/ecs/aws/5.6.0",
     "ref": "5.6.0",
+    "commit": "7c63c7ba421cec0f9089ec288aec3adef3ba8771",
+    "gitOwner": "HENNGE",
+    "gitRepo": "terraform-aws-ecs",
     "path": ".",
     "archiveSha256": "07fa8f746538cd1175f47c640f1fb7b98150e8a17f5940b223f755ba29e6cbb9",
-    "inputSha256": "a26a0f5ad8e2088c989e98e12378e72e066b0feae38ddaa989f62dfd6591e9b0"
+    "inputSha256": "a26a0f5ad8e2088c989e98e12378e72e066b0feae38ddaa989f62dfd6591e9b0",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

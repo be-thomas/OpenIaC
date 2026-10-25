@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/datadog-lambda-forwarder/aws/1.10.1",
     "ref": "1.10.1",
+    "commit": "eae0c9e94b0c53ec0206acad6436ff1e3b262f05",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-datadog-lambda-forwarder",
     "path": ".",
     "archiveSha256": "28ad260c3a0d8eab61cb691be56b9514e02ae42c7975579936c1955b976d5117",
-    "inputSha256": "1548e4c6171469086016159727cb18e57f7c0d10e4a99094a7c06a9ede094511"
+    "inputSha256": "1548e4c6171469086016159727cb18e57f7c0d10e4a99094a7c06a9ede094511",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

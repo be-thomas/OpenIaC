@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/masterpointio/ssm-agent/aws/1.8.1",
     "ref": "1.8.1",
+    "commit": "eee4c8a8170f409e9cceffb95f82a4ba8c53519c",
+    "gitOwner": "masterpointio",
+    "gitRepo": "terraform-aws-ssm-agent",
     "path": ".",
     "archiveSha256": "e28999432819081f6ef7a6d8f1e001c3bfd3ed63b7a09a35f16e8c0d9f7f90eb",
-    "inputSha256": "5640e57ca55fd1ef585efd2ce2d38ca678978e76cabd751673f1a6b1171b87e0"
+    "inputSha256": "5640e57ca55fd1ef585efd2ce2d38ca678978e76cabd751673f1a6b1171b87e0",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -22,7 +26,6 @@
     "data",
     "dynamic",
     "for_each",
-    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",

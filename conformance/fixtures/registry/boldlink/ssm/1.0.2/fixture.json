@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/ssm/aws/1.0.2",
     "ref": "1.0.2",
+    "commit": "893d35a323b64df733ad43f3974c68e53e9b1a51",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-ssm",
     "path": ".",
     "archiveSha256": "7af0edb22f889a68c6bc361c8d99de27502251cc841e756701051a2abd8841dc",
-    "inputSha256": "493837799f4a7675e5167f2e43bacd4b8aa220d2b04211d7f38b61fc0cbd669f"
+    "inputSha256": "493837799f4a7675e5167f2e43bacd4b8aa220d2b04211d7f38b61fc0cbd669f",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

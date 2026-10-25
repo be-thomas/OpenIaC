@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/6.8.2",
     "ref": "6.8.2",
+    "commit": "55514b7873c411040395e024a422684998da77c2",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-iam",
     "path": "modules/iam-read-only-policy",
     "archiveSha256": "258ce47e665691465db44db722411230850130fb5d15e1bcaa0d6465c2fdfd54",
-    "inputSha256": "69f348539fc58959cfff9e5180b0d75eb850e294ac42b25323fc0da2dfc0e4e6"
+    "inputSha256": "69f348539fc58959cfff9e5180b0d75eb850e294ac42b25323fc0da2dfc0e4e6",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -20,6 +24,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "outputs",

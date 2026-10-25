@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/ViktorUJ/vpc/aws/1.1.0",
     "ref": "1.1.0",
+    "commit": "fb92b4e7798e04318c362c031e6e129714a40e56",
+    "gitOwner": "ViktorUJ",
+    "gitRepo": "terraform-aws-vpc",
     "path": "examples/output_private_subnet_by_type",
     "archiveSha256": "d7a6f550764daf614e20d89657a3c1cbd0f91de44c1e9e52ea7cc2d93a625648",
-    "inputSha256": "5559ccbf297fef0e2df9a5e265000c807d50bff03e6395ebc7bf814f6737e496"
+    "inputSha256": "5559ccbf297fef0e2df9a5e265000c807d50bff03e6395ebc7bf814f6737e496",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -16,7 +20,8 @@
   ],
   "features": [
     "modules",
-    "outputs"
+    "outputs",
+    "providers"
   ],
   "targets": [
     "cdk",

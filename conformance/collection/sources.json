@@ -2,7 +2,7 @@
   "schema": 1,
   "registry": {
     "provider": "aws",
-    "maxPages": 100,
+    "maxPages": 300,
     "minDownloads": 1000,
     "maxModules": 400,
     "namespaces": [
@@ -53,6 +53,7 @@
   "licenses": [
     "Apache-2.0",
     "MIT",
+    "MIT-0",
     "BSD-2-Clause",
     "BSD-3-Clause",
     "ISC",

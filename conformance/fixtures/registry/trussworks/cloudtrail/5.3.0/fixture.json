@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/trussworks/cloudtrail/aws/5.3.0",
     "ref": "5.3.0",
+    "commit": "59623058e64f26e476ea1ae6de3e02f9324c0f96",
+    "gitOwner": "trussworks",
+    "gitRepo": "terraform-aws-cloudtrail",
     "path": ".",
     "archiveSha256": "b279dfd071fb08c3150c7f08bb272cf6adca0ac864c7a95fd74067d01a2a544b",
-    "inputSha256": "3c33775dce20e14a10e0678b5dcde61e54ee3793e9ef390e060da7ff3662cf97"
+    "inputSha256": "3c33775dce20e14a10e0678b5dcde61e54ee3793e9ef390e060da7ff3662cf97",
+    "licensePath": "LICENSE.txt"
   },
   "license": "BSD-3-Clause",
   "providers": [
@@ -20,6 +24,7 @@
     "depends_on",
     "dynamic",
     "for_each",
+    "functions",
     "interpolation",
     "locals",
     "outputs",

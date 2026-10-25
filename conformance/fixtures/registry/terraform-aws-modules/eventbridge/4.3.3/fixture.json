@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/eventbridge/aws/4.3.3",
     "ref": "4.3.3",
+    "commit": "e29707a5057ec9b0f6ea87686e9a5b48b4addd11",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-eventbridge",
     "path": ".",
     "archiveSha256": "68849faf6094c8867e488a6043303da2eba21b50095647ba871c68295b10f6d1",
-    "inputSha256": "79405e6051786cc94febd7c4a208a2b0e0c18502607b4c0947a088a7713505ac"
+    "inputSha256": "79405e6051786cc94febd7c4a208a2b0e0c18502607b4c0947a088a7713505ac",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

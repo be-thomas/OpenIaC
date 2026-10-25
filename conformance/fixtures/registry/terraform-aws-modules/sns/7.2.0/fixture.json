@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/sns/aws/7.2.0",
     "ref": "7.2.0",
+    "commit": "4538b7e208f5bbd6c9972f427f85c9bd735aedad",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-sns",
     "path": ".",
     "archiveSha256": "efd0e316b00254b1d4f0a7095cb7923419b4708d2368b06678b0c0b351e89132",
-    "inputSha256": "e1c6224f3211de22e7ee64fd969b26e061a136b71064362b3234b7702c6d3083"
+    "inputSha256": "e1c6224f3211de22e7ee64fd969b26e061a136b71064362b3234b7702c6d3083",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -20,6 +24,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

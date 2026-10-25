@@ -1,20 +1,25 @@
 {
   "schema": 1,
   "id": "registry/squareops/eks-bootstrap/3.1.1/EKS-Blueprint/modules/aws-kms",
-  "tier": "smoke",
+  "tier": "advanced",
   "origin": "registry",
   "source": {
     "url": "https://registry.terraform.io/modules/squareops/eks-bootstrap/aws/3.1.1",
     "ref": "3.1.1",
+    "commit": "d9b3e7211f6e9382396c164a35ed46b3060c0fa2",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-eks-bootstrap",
     "path": "EKS-Blueprint/modules/aws-kms",
     "archiveSha256": "684cc627c3d59f17711fb2ea67655b98897dc07dca952a8fb227c621105f7476",
-    "inputSha256": "adeaacb4f2ce143549e9b6352db38c53f5d661aac3c5e7ca043994ff73970825"
+    "inputSha256": "adeaacb4f2ce143549e9b6352db38c53f5d661aac3c5e7ca043994ff73970825",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "functions",
     "outputs",
     "required_providers",
     "resources",
@@ -25,5 +30,5 @@
     "cdk",
     "pulumi"
   ],
-  "support": "full"
+  "support": "partial"
 }

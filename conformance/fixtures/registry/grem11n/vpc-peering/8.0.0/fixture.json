@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/grem11n/vpc-peering/aws/8.0.0",
     "ref": "8.0.0",
+    "commit": "99eefabfef1651fb68a8721bde8eeddef30855a4",
+    "gitOwner": "grem11n",
+    "gitRepo": "terraform-aws-vpc-peering",
     "path": ".",
     "archiveSha256": "a6f4a8df77a1ea2e8195a25636cca3b3919fe6c360d31bb00aace795d968242e",
-    "inputSha256": "09202cc7e30de76f8cbc6aadfe9edf5a200b54ce56a9fd3da952387275338b84"
+    "inputSha256": "09202cc7e30de76f8cbc6aadfe9edf5a200b54ce56a9fd3da952387275338b84",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

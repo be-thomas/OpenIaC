@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/PaloAltoNetworks/vmseries-modules/aws/1.1.6",
     "ref": "1.1.6",
+    "commit": "aa4c1d80d76f24f7f4c4ac3ffb06a3ebe3628268",
+    "gitOwner": "PaloAltoNetworks",
+    "gitRepo": "terraform-aws-vmseries-modules",
     "path": "modules/crosszone_failover",
     "archiveSha256": "d1f8addda811aa7a48837401f3bb3eda1903e3796a5a5f25280366499d4248d4",
-    "inputSha256": "28865a261368c4f07c3c6172c040ee40fd527eceab1b549c13801b2e41d873d9"
+    "inputSha256": "28865a261368c4f07c3c6172c040ee40fd527eceab1b549c13801b2e41d873d9",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

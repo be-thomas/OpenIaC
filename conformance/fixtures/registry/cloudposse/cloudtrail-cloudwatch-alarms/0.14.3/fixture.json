@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/cloudtrail-cloudwatch-alarms/aws/0.14.3",
     "ref": "0.14.3",
+    "commit": "440dfb511e22826fd29161ed78e5899278806c1c",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-cloudtrail-cloudwatch-alarms",
     "path": ".",
     "archiveSha256": "07d62fc6b7e72cf874b936c7bcfa7066fb72da68ac72813dd863dba074d46fb7",
-    "inputSha256": "ca37c2845b6cacad62b8c42cb40238c4d9c28103c4c072bdc6bafe0800692472"
+    "inputSha256": "ca37c2845b6cacad62b8c42cb40238c4d9c28103c4c072bdc6bafe0800692472",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

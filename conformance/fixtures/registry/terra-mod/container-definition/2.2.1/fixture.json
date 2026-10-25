@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/terra-mod/container-definition/2.2.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terra-mod/container-definition/aws/2.2.1",
+    "ref": "2.2.1",
+    "commit": "f0a7907e8002a3222df5f40a303ce21306d656a2",
+    "gitOwner": "terra-mod",
+    "gitRepo": "terraform-aws-container-definition",
+    "path": ".",
+    "archiveSha256": "97ec3acb49939de7e1e4734854af99b69a7992fef9a279e3381fd4055f7f9be0",
+    "inputSha256": "48ce875644ed87deb670ed788eacd7783b072b6a1cd0aaa336096d6d8d6a0b61",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

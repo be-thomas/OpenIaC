@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/21.29.0",
     "ref": "21.29.0",
+    "commit": "91f11ea01656c26b8e6b8eb1b74f19863f60056c",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-eks",
     "path": ".",
     "archiveSha256": "826eab00c4da2b013b0170cb13389fddb0eee39e79cbfa74381e5160f2e81676",
-    "inputSha256": "40fd1e75ec3bc6839a8d9da5d52b235279f9786e93bac2e6ba4e9f88c924610a"
+    "inputSha256": "40fd1e75ec3bc6839a8d9da5d52b235279f9786e93bac2e6ba4e9f88c924610a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -32,6 +36,7 @@
     "modules",
     "moved",
     "outputs",
+    "providers",
     "required_providers",
     "resources",
     "terraform",

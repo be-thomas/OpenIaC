@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/opensearch/aws/2.11.1",
     "ref": "2.11.1",
+    "commit": "370988b1bd771fd26037e8b1471ddd0ae651c602",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-opensearch",
     "path": ".",
     "archiveSha256": "279f522888cdc5bd43d0c951be836d24203bdf1c815c95ca6096f69a8370209b",
-    "inputSha256": "20340b4d763725ae8d923031a4b275d6841c686ddd8a34824a336473b415a930"
+    "inputSha256": "20340b4d763725ae8d923031a4b275d6841c686ddd8a34824a336473b415a930",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/clowdhaus/datadog-forwarders/aws/7.0.1",
     "ref": "7.0.1",
+    "commit": "49d94247e48be4c050d591b7c6e5fed2d9a55184",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-datadog-forwarders",
     "path": "modules/vpc_flow_log_forwarder",
     "archiveSha256": "93f16e0de18afc29bbfdf4770dd30e0f109be1da3aa7962805b4776cdec280d7",
-    "inputSha256": "d5bdd9e02235ede1ba7bd41dc940c8027cac8c282cdf87c2cee3eec7931b10ff"
+    "inputSha256": "d5bdd9e02235ede1ba7bd41dc940c8027cac8c282cdf87c2cee3eec7931b10ff",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

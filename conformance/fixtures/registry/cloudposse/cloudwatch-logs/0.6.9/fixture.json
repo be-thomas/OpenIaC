@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/cloudwatch-logs/aws/0.6.9",
     "ref": "0.6.9",
+    "commit": "d70ec2286307a51c91d38ba9c6d575d93baedc4e",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-cloudwatch-logs",
     "path": ".",
     "archiveSha256": "c69ac9ad1282f4e2d6c459004b17268a101ce8d579f67826e0860408fa48564f",
-    "inputSha256": "8dc520177581bbc36b0f042d83154466d0020a7d9ebd252b51327fbbe427320f"
+    "inputSha256": "8dc520177581bbc36b0f042d83154466d0020a7d9ebd252b51327fbbe427320f",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

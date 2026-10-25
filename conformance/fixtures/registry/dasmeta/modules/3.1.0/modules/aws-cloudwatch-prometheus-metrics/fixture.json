@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
     "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
     "path": "modules/aws-cloudwatch-prometheus-metrics",
     "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
-    "inputSha256": "dd9267c075bae6a28fb3e9e795484b1f1eb6c3494744784a70dfedfd35a9991d"
+    "inputSha256": "dd9267c075bae6a28fb3e9e795484b1f1eb6c3494744784a70dfedfd35a9991d",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,7 +25,6 @@
     "count",
     "data",
     "depends_on",
-    "functions",
     "heredoc",
     "interpolation",
     "required_providers",

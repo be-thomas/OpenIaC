@@ -6,14 +6,20 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/vpc/aws/4.9.0",
     "ref": "4.9.0",
+    "commit": "afe3b07d98fc9b1d22564eb6218fb5ef94c890a5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-vpc",
     "path": "modules/calculate_subnets_ipv6",
     "archiveSha256": "056c90c30544ae166825cf2b8277dc8762517d97b161ad170ce5bac893c40746",
-    "inputSha256": "2ad611de7d50fb8d8583c4562f6a24891fa6459fd564c66dd2261caa60c77840"
+    "inputSha256": "2ad611de7d50fb8d8583c4562f6a24891fa6459fd564c66dd2261caa60c77840",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [],
   "features": [
+    "conditionals",
     "count",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

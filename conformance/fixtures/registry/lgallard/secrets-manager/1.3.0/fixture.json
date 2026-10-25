@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/lgallard/secrets-manager/aws/1.3.0",
     "ref": "1.3.0",
+    "commit": "dce3d4e5bb57d9d84b882404b8a2c9a960a8b06b",
+    "gitOwner": "lgallard",
+    "gitRepo": "terraform-aws-secrets-manager",
     "path": ".",
     "archiveSha256": "327ee51acf4e5fd9c910750841ae1de00bfa286cf083b2f5222cf93d2f36cf6c",
-    "inputSha256": "59256d689b33b021242ab7cdfc01d352d502047137255979b11316c5369b6be3"
+    "inputSha256": "59256d689b33b021242ab7cdfc01d352d502047137255979b11316c5369b6be3",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

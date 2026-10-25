@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/sso/aws/1.2.1",
     "ref": "1.2.1",
+    "commit": "0bb7c35cf1402230cf2268af54db565a8c85d0d0",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-sso",
     "path": "modules/account-assignments",
     "archiveSha256": "7d7939b504f4160a7bb6f9e19ac57c45f677fcd1b270f19d2347257e681fac1c",
-    "inputSha256": "f7f75bd9c389bd338e0d1717c7f9ae3d946f1b3a9a567510b9f84856925cc55b"
+    "inputSha256": "f7f75bd9c389bd338e0d1717c7f9ae3d946f1b3a9a567510b9f84856925cc55b",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

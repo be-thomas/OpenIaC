@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/DataDog/ecs-datadog/aws/1.2.2",
     "ref": "1.2.2",
+    "commit": "a16d60cb8e7fffd7a46cb99ec7d42eeed96c9dbf",
+    "gitOwner": "DataDog",
+    "gitRepo": "terraform-aws-ecs-datadog",
     "path": "modules/ecs_managed_instances",
     "archiveSha256": "e71fa690237d3918ba3992708a68db5879ddb27b5f778c99a3a5f43403751a6e",
-    "inputSha256": "c909c9519d53cfbac2d6a4ccac86311e95f67e36315aadc7f941046900dc4e00"
+    "inputSha256": "c909c9519d53cfbac2d6a4ccac86311e95f67e36315aadc7f941046900dc4e00",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

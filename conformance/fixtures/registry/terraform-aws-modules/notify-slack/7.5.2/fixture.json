@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/notify-slack/aws/7.5.2",
     "ref": "7.5.2",
+    "commit": "a7765ac0a547f95c8aa48459f84077be8562c0f7",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-notify-slack",
     "path": ".",
     "archiveSha256": "e06b33cb0189a8538e2bc8afba821bc7c2fea00cea95c9a43b50839b9d0ed843",
-    "inputSha256": "b33b85576476fb7f717d41cf5a8c8579f683d7c5fafa4752d5069955f3c5f2f7"
+    "inputSha256": "b33b85576476fb7f717d41cf5a8c8579f683d7c5fafa4752d5069955f3c5f2f7",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

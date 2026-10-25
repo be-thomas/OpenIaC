@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/bbeesley/lambda-do-it-all/aws/4.1.4",
     "ref": "4.1.4",
+    "commit": "651f6f10e3f8fb03b07cc4ac37ff63eb5148f645",
+    "gitOwner": "bbeesley",
+    "gitRepo": "terraform-aws-lambda-do-it-all",
     "path": ".",
     "archiveSha256": "f45cea0d17a6548401eda17138ada6785f00afea8d81cf8756fe80e161d9e06d",
-    "inputSha256": "5f77101a747d6b8d4db5376c458e60b90d05d7b2aa9ac50dec2d0d71d543ec8b"
+    "inputSha256": "5f77101a747d6b8d4db5376c458e60b90d05d7b2aa9ac50dec2d0d71d543ec8b",
+    "licensePath": "LICENSE.md"
   },
   "license": "MIT",
   "providers": [

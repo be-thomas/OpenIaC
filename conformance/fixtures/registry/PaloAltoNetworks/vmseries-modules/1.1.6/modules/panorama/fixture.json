@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/PaloAltoNetworks/vmseries-modules/aws/1.1.6",
     "ref": "1.1.6",
+    "commit": "aa4c1d80d76f24f7f4c4ac3ffb06a3ebe3628268",
+    "gitOwner": "PaloAltoNetworks",
+    "gitRepo": "terraform-aws-vmseries-modules",
     "path": "modules/panorama",
     "archiveSha256": "d1f8addda811aa7a48837401f3bb3eda1903e3796a5a5f25280366499d4248d4",
-    "inputSha256": "b202e37bbf2810956103a098c7c3dd445d216afa10836ec5191fb4d249f8c470"
+    "inputSha256": "b202e37bbf2810956103a098c7c3dd445d216afa10836ec5191fb4d249f8c470",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

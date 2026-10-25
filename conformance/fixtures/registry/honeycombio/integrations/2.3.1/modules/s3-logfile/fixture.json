@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/honeycombio/integrations/aws/2.3.1",
     "ref": "2.3.1",
+    "commit": "a22f5bc0a8a4c110c61f69418393d3683cc03ee5",
+    "gitOwner": "honeycombio",
+    "gitRepo": "terraform-aws-integrations",
     "path": "modules/s3-logfile",
     "archiveSha256": "5858b504b151c7194de18de77c4eedb7111cb033aa8d1f6babd5975ebcbcd834",
-    "inputSha256": "054c1089dbd80ac5e9c990aff0fa14290a6c618949040131589b517ca7c51b2e"
+    "inputSha256": "054c1089dbd80ac5e9c990aff0fa14290a6c618949040131589b517ca7c51b2e",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -20,6 +24,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",

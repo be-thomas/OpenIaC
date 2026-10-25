@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/SPHTech-Platform/cloudfront-policies/aws/1.0.0",
     "ref": "1.0.0",
+    "commit": "26edd627182c43052c3e5a104db31197ea944259",
+    "gitOwner": "SPHTech-Platform",
+    "gitRepo": "terraform-aws-cloudfront-policies",
     "path": "modules/response-headers",
     "archiveSha256": "320bca4ee70aaa3e7ed208858077fc72e92949dfd86a2172a5ad5716605554fa",
-    "inputSha256": "d7ec73a6569008ed9e3597f44efdd502ecd8438fe969f8a83a39dc7fe1cd5858"
+    "inputSha256": "d7ec73a6569008ed9e3597f44efdd502ecd8438fe969f8a83a39dc7fe1cd5858",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
@@ -19,6 +23,7 @@
     "dynamic",
     "for_each",
     "for_expressions",
+    "functions",
     "heredoc",
     "outputs",
     "required_providers",

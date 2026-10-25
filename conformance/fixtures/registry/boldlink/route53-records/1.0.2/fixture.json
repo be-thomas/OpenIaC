@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/route53-records/aws/1.0.2",
     "ref": "1.0.2",
+    "commit": "3c027bfeeb80033d4fbd9e82b98aa60be130dfca",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-route53-records",
     "path": ".",
     "archiveSha256": "2e0bcf731767c1f8aa7dad6f07adbfffcc9f73b1469444503e16c2b3f210eb27",
-    "inputSha256": "0adb0687cf42ffacee84b9c8c0ac87cea5d59fa11b6f9d882444cf6a5257e4d4"
+    "inputSha256": "0adb0687cf42ffacee84b9c8c0ac87cea5d59fa11b6f9d882444cf6a5257e4d4",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

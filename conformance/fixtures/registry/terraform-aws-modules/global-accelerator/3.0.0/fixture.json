@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/global-accelerator/aws/3.0.0",
     "ref": "3.0.0",
+    "commit": "bc30b961476a691d11207633d854e926c7082966",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-global-accelerator",
     "path": ".",
     "archiveSha256": "99a2147c5bd8ca1589f3edaa115bb1b16f6e564b0ccb893b7019eeab0a518d61",
-    "inputSha256": "33309736937bef5b29d7350a9fadad52679e9b11ee28a1a1f1491b88210b6771"
+    "inputSha256": "33309736937bef5b29d7350a9fadad52679e9b11ee28a1a1f1491b88210b6771",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

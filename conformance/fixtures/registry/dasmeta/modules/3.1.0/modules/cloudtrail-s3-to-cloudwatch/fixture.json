@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
     "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
     "path": "modules/cloudtrail-s3-to-cloudwatch",
     "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
-    "inputSha256": "be8447b01300af1ba47c6efb3e6d8304df3f732d06be6f2e3669f5af21179410"
+    "inputSha256": "be8447b01300af1ba47c6efb3e6d8304df3f732d06be6f2e3669f5af21179410",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/lacework/ecr/aws/0.9.3",
     "ref": "0.9.3",
+    "commit": "01bb8831a47c1f4afc1e062289306d96d6ec0349",
+    "gitOwner": "lacework",
+    "gitRepo": "terraform-aws-ecr",
     "path": ".",
     "archiveSha256": "33fbb45a5918922bda9cd41480ceb7b863297a8d892228c82260a301f09e9359",
-    "inputSha256": "657f665f0bd66f969f4efa8dec56701d7b3b611bcaf668c1e21f431be9882bae"
+    "inputSha256": "657f665f0bd66f969f4efa8dec56701d7b3b611bcaf668c1e21f431be9882bae",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

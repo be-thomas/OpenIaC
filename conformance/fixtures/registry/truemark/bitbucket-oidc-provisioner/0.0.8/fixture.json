@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/truemark/bitbucket-oidc-provisioner/aws/0.0.8",
     "ref": "0.0.8",
+    "commit": "d07699793743f408312ca22e0a076eb13555eaf3",
+    "gitOwner": "truemark",
+    "gitRepo": "terraform-aws-bitbucket-oidc-provisioner",
     "path": ".",
     "archiveSha256": "cd68bb6a5fa3f5edc2a72ebb65695c8c5591d1a396020cb3421c3b6f8219f099",
-    "inputSha256": "6c912c72ec8835e71fb6dc68e4b3e5928edae4c8130860bfa8f5705c3ffc2ea8"
+    "inputSha256": "6c912c72ec8835e71fb6dc68e4b3e5928edae4c8130860bfa8f5705c3ffc2ea8",
+    "licensePath": "LICENSE"
   },
   "license": "BSD-3-Clause",
   "providers": [

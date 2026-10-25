@@ -5,10 +5,14 @@
   "origin": "github",
   "source": {
     "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
-    "ref": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "ref": "main",
+    "commit": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints",
     "path": "patterns/vpc-lattice/cross-cluster-pod-communication/cluster",
     "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
-    "inputSha256": "3f4ddddbf5b523482976c37904ad7fd1522bd829e788b8bcd9a59756e74261c5"
+    "inputSha256": "3f4ddddbf5b523482976c37904ad7fd1522bd829e788b8bcd9a59756e74261c5",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -17,14 +21,16 @@
     "terraform"
   ],
   "features": [
+    "conditionals",
     "data",
     "depends_on",
+    "for_expressions",
     "functions",
-    "heredoc",
     "interpolation",
     "locals",
     "modules",
     "outputs",
+    "providers",
     "required_providers",
     "resources",
     "terraform"

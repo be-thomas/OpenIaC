@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/lacework/eks-audit-log/aws/1.2.0",
     "ref": "1.2.0",
+    "commit": "e91f61b2949d0e35f07136187d53177b3ea00c37",
+    "gitOwner": "lacework",
+    "gitRepo": "terraform-aws-eks-audit-log",
     "path": ".",
     "archiveSha256": "1fe0b90c7ef3f672b159728487395599713b0f3be8db38b52ae30411d701acfd",
-    "inputSha256": "93ecc96fd6cb55b899b2019518581d3e9a84619a8802359e5dbce1fe37e4f149"
+    "inputSha256": "93ecc96fd6cb55b899b2019518581d3e9a84619a8802359e5dbce1fe37e4f149",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

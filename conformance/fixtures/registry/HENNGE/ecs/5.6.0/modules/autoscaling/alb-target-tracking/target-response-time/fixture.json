@@ -1,14 +1,18 @@
 {
   "schema": 1,
   "id": "registry/HENNGE/ecs/5.6.0/modules/autoscaling/alb-target-tracking/target-response-time",
-  "tier": "core",
+  "tier": "smoke",
   "origin": "registry",
   "source": {
     "url": "https://registry.terraform.io/modules/HENNGE/ecs/aws/5.6.0",
     "ref": "5.6.0",
+    "commit": "7c63c7ba421cec0f9089ec288aec3adef3ba8771",
+    "gitOwner": "HENNGE",
+    "gitRepo": "terraform-aws-ecs",
     "path": "modules/autoscaling/alb-target-tracking/target-response-time",
     "archiveSha256": "07fa8f746538cd1175f47c640f1fb7b98150e8a17f5940b223f755ba29e6cbb9",
-    "inputSha256": "934f9877693d784eb8170fa6542157bed13ce77545250525b3e548b6ddd7126f"
+    "inputSha256": "934f9877693d784eb8170fa6542157bed13ce77545250525b3e548b6ddd7126f",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

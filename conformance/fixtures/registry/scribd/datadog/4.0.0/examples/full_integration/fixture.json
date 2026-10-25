@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/scribd/datadog/aws/4.0.0",
     "ref": "4.0.0",
+    "commit": "76cd32e9ad2f277c90d278913ec6f703bcaa22c0",
+    "gitOwner": "scribd",
+    "gitRepo": "terraform-aws-datadog",
     "path": "examples/full_integration",
     "archiveSha256": "1b9c8d96e0eeb5f02fafc9e7b9e4796c809fe1d0b8d58d18a9c6a4d648495bfb",
-    "inputSha256": "01ac8b1b3f3abb04273aa4169c8d636b4fa67e02f0d78a8f3fc9fa094e76d4cb"
+    "inputSha256": "01ac8b1b3f3abb04273aa4169c8d636b4fa67e02f0d78a8f3fc9fa094e76d4cb",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
@@ -18,6 +22,7 @@
   "features": [
     "data",
     "modules",
+    "providers",
     "variables"
   ],
   "targets": [

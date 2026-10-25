@@ -6,14 +6,17 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dcos-terraform/dcos/aws/0.3.4",
     "ref": "0.3.4",
+    "commit": "9e2e716e7656c55d0eff04122227a74db1d8a6eb",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-dcos",
     "path": "examples/calico",
     "archiveSha256": "2ecfeb78808e0929154addb7b87bc366773b1efb2aef37e7d880e7ee1432ddf1",
-    "inputSha256": "4d2f537648c00440e9f7b92160a968b30540145551ad31289db9b5075090ec3e"
+    "inputSha256": "4d2f537648c00440e9f7b92160a968b30540145551ad31289db9b5075090ec3e",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [],
   "features": [
-    "for_expressions",
     "interpolation",
     "modules",
     "outputs",

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/sns/aws/1.1.2",
     "ref": "1.1.2",
+    "commit": "22e711673d86ad59fac68b4442a11723e3411435",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-sns",
     "path": ".",
     "archiveSha256": "2d432d7169f3b7e3333303424fc530b408d4bb7299c0260b91130b2cf0773fab",
-    "inputSha256": "0c7e61b70b8d4a55016490bacbfffdf6fcfba813a94c32f5ed7c7c9371ed7e7d"
+    "inputSha256": "0c7e61b70b8d4a55016490bacbfffdf6fcfba813a94c32f5ed7c7c9371ed7e7d",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

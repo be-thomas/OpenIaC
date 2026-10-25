@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/glue/aws/0.4.0",
     "ref": "0.4.0",
+    "commit": "e04ac37bd44efcf29ad0a8fc94149bccc9162a6d",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-glue",
     "path": "modules/glue-workflow",
     "archiveSha256": "a27cd6f975ffa8496f2d0a5a25d7dbc6ddc7b3a6e12e103942f104190a75b220",
-    "inputSha256": "ffc9a1453db73610c91eabcd82be00b8487f920f595bea0980076c72ef12fb4a"
+    "inputSha256": "ffc9a1453db73610c91eabcd82be00b8487f920f595bea0980076c72ef12fb4a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

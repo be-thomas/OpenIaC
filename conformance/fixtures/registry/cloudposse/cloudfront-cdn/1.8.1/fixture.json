@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/cloudfront-cdn/aws/1.8.1",
     "ref": "1.8.1",
+    "commit": "daa84f39110bf6b3672268de4b85e3280d6acd01",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-cloudfront-cdn",
     "path": ".",
     "archiveSha256": "3dfd8047ddbec28d22029af50bb5b75204bfebce7dcfbe25595bd19c8576d0f1",
-    "inputSha256": "bb926340a4f67e84422187d826435bf45a863a4cfa97980bbe94f9784d871209"
+    "inputSha256": "bb926340a4f67e84422187d826435bf45a863a4cfa97980bbe94f9784d871209",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

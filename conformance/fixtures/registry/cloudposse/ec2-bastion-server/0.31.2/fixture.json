@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/ec2-bastion-server/aws/0.31.2",
     "ref": "0.31.2",
+    "commit": "b4ae13d7ce948616d6e79577aa94b8ee3571b39e",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ec2-bastion-server",
     "path": ".",
     "archiveSha256": "0104b009e4e05261264b16b93f41fdbc31405d99ae86f3548b00a8698b8985ff",
-    "inputSha256": "b66118ecc1eff9d851f2e58cc78a809cf9fed910c240a118d7e53f2b5e95c62c"
+    "inputSha256": "b66118ecc1eff9d851f2e58cc78a809cf9fed910c240a118d7e53f2b5e95c62c",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

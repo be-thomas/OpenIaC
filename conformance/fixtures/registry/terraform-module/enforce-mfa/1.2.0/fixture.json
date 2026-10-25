@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-module/enforce-mfa/aws/1.2.0",
     "ref": "1.2.0",
+    "commit": "902488d91c16d381104998d519b8def7e5df875d",
+    "gitOwner": "terraform-module",
+    "gitRepo": "terraform-aws-enforce-mfa",
     "path": ".",
     "archiveSha256": "74d602515f175c91fe94b3ecdba9323867c6b4b2812bf048cd4ddd04ab61d5e4",
-    "inputSha256": "e7bc56a10f8b56911af2bfc582ef7d87bc75b989aabbbbee8534a8f8755dbe91"
+    "inputSha256": "e7bc56a10f8b56911af2bfc582ef7d87bc75b989aabbbbee8534a8f8755dbe91",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

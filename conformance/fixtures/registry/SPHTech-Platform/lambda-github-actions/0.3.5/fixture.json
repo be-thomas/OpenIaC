@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/SPHTech-Platform/lambda-github-actions/aws/0.3.5",
     "ref": "0.3.5",
+    "commit": "5c5c17fcdcaeddc3421d80d81fc8b7916ca7c6d5",
+    "gitOwner": "SPHTech-Platform",
+    "gitRepo": "terraform-aws-lambda-github-actions",
     "path": ".",
     "archiveSha256": "1bdeeaab43169d579becfd11a114ec23cb519b2d9a9b18a8d7333dff989dcc24",
-    "inputSha256": "6a57da790f0441e97bbe663a4d3caa7224bf421164ab6639a32ea584585a3880"
+    "inputSha256": "6a57da790f0441e97bbe663a4d3caa7224bf421164ab6639a32ea584585a3880",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

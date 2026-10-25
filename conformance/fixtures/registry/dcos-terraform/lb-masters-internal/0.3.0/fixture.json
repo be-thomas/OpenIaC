@@ -6,17 +6,23 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dcos-terraform/lb-masters-internal/aws/0.3.0",
     "ref": "0.3.0",
+    "commit": "ce99104ad2f7c22383e62a86c055df68fe1c4261",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-lb-masters-internal",
     "path": ".",
     "archiveSha256": "4125ed7aa34b3d8b4f662c5aae5d8dd864f65cc06f38e9b5c12c0ae0a7976383",
-    "inputSha256": "76d2ca1c1478630b8a84cf955d6de3cd2420cbb608f5cb1ad541be2580e60a30"
+    "inputSha256": "76d2ca1c1478630b8a84cf955d6de3cd2420cbb608f5cb1ad541be2580e60a30",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "functions",
     "modules",
     "outputs",
+    "providers",
     "terraform",
     "variables"
   ],

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/batch/aws/3.0.3",
     "ref": "3.0.3",
+    "commit": "8e917d03918b19214ba8a561fd82e0ba783d1ffc",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-batch",
     "path": ".",
     "archiveSha256": "60be0f8450360443ee34335ecd6d33cbd043728abc9c02c5a2693fbad5a13211",
-    "inputSha256": "aaac24c329d742c4103c296c1363671c30c864f4c515adddc1f30ad00c1c225f"
+    "inputSha256": "aaac24c329d742c4103c296c1363671c30c864f4c515adddc1f30ad00c1c225f",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,6 +25,7 @@
     "depends_on",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

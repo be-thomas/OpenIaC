@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/cloudwatch/aws/5.7.3",
     "ref": "5.7.3",
+    "commit": "82e5143738712a283ab7a8cb4110e7a3e708a834",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-cloudwatch",
     "path": "modules/metric-alarms-by-multiple-dimensions",
     "archiveSha256": "41456bc59ae8bbf47eb50185ae7b90a38c78e7f43ac091e90a14d885f455b701",
-    "inputSha256": "5de34e772eac5def14adfd281ec4b5d80c9c40e6ee8b1b96d9b9f19ea0600f10"
+    "inputSha256": "5de34e772eac5def14adfd281ec4b5d80c9c40e6ee8b1b96d9b9f19ea0600f10",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -17,6 +21,7 @@
   "features": [
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "outputs",
     "required_providers",

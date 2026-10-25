@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/trussworks/ses-domain/aws/7.0.0",
     "ref": "7.0.0",
+    "commit": "b810d38847a1c6fd05ab2bd3fd78b8c7c4dfe78e",
+    "gitOwner": "trussworks",
+    "gitRepo": "terraform-aws-ses-domain",
     "path": ".",
     "archiveSha256": "13708005d6957838517b57bb75a1acf1453c64f129ef7d17bcad66f28aa83b2b",
-    "inputSha256": "ad5d58310de2a15cc6bdb43fbb7ee8bf0a6a4bf7742713de14dc5570b3a95de7"
+    "inputSha256": "ad5d58310de2a15cc6bdb43fbb7ee8bf0a6a4bf7742713de14dc5570b3a95de7",
+    "licensePath": "LICENSE"
   },
   "license": "BSD-3-Clause",
   "providers": [

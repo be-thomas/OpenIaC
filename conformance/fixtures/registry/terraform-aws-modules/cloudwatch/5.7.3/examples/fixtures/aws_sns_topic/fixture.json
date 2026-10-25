@@ -1,14 +1,18 @@
 {
   "schema": 1,
   "id": "registry/terraform-aws-modules/cloudwatch/5.7.3/examples/fixtures/aws_sns_topic",
-  "tier": "advanced",
+  "tier": "smoke",
   "origin": "registry",
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/cloudwatch/aws/5.7.3",
     "ref": "5.7.3",
+    "commit": "82e5143738712a283ab7a8cb4110e7a3e708a834",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-cloudwatch",
     "path": "examples/fixtures/aws_sns_topic",
     "archiveSha256": "41456bc59ae8bbf47eb50185ae7b90a38c78e7f43ac091e90a14d885f455b701",
-    "inputSha256": "d27b108da45a0f62c2f1b8089a3c8d124a139ae7f760c0c0b3007be71758e229"
+    "inputSha256": "d27b108da45a0f62c2f1b8089a3c8d124a139ae7f760c0c0b3007be71758e229",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

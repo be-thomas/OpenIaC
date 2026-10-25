@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/vpc-peering-multi-account/aws/2.0.1",
     "ref": "2.0.1",
+    "commit": "ffdceafb034d4b4150029ef09066352fd21092da",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-vpc-peering-multi-account",
     "path": ".",
     "archiveSha256": "b3415b0eebba33e0762621b8d30f0aa1b8728d9fa69444189bcbc44c2efd0d42",
-    "inputSha256": "2ac57bfb67e5b6dc1ab633e5438fb566c6ea24e93099217acaef20e199ed45dc"
+    "inputSha256": "2ac57bfb67e5b6dc1ab633e5438fb566c6ea24e93099217acaef20e199ed45dc",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

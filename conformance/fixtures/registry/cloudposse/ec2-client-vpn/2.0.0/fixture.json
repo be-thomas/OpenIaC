@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/ec2-client-vpn/aws/2.0.0",
     "ref": "2.0.0",
+    "commit": "226f4637ca2704ccb9f22b4d3df8d11142e96fa7",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ec2-client-vpn",
     "path": ".",
     "archiveSha256": "7902c4366331a9d29980bbcd1845e953a0efa1c21524f13356aeee715ee0811d",
-    "inputSha256": "866713a216f8875d989254b1a2d3e8c63f31bc1d18ffbd144c4a72315fb27ae9"
+    "inputSha256": "866713a216f8875d989254b1a2d3e8c63f31bc1d18ffbd144c4a72315fb27ae9",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

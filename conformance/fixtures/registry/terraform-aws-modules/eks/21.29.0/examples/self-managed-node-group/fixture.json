@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/21.29.0",
     "ref": "21.29.0",
+    "commit": "91f11ea01656c26b8e6b8eb1b74f19863f60056c",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-eks",
     "path": "examples/self-managed-node-group",
     "archiveSha256": "826eab00c4da2b013b0170cb13389fddb0eee39e79cbfa74381e5160f2e81676",
-    "inputSha256": "2fb25ae285af700a80646ffd3e50bbb5acaf61a32017b32b50de6991b5d8f990"
+    "inputSha256": "2fb25ae285af700a80646ffd3e50bbb5acaf61a32017b32b50de6991b5d8f990",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -16,11 +20,12 @@
   ],
   "features": [
     "data",
+    "for_expressions",
     "functions",
-    "heredoc",
     "interpolation",
     "locals",
     "modules",
+    "providers",
     "required_providers",
     "terraform"
   ],

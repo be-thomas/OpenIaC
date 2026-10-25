@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/ecr/aws/3.2.0",
     "ref": "3.2.0",
+    "commit": "b6ef04d088cf91d5ba9505132e9ff7c9f847ed5d",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-ecr",
     "path": ".",
     "archiveSha256": "030d202d0f57510b0dd610006657d0eef243a13bbb5e7e501815cb25825fe727",
-    "inputSha256": "6bad992daf749c7fe1c1afe06c09f2a10830006a4a9c0a2db34a772af15945f0"
+    "inputSha256": "6bad992daf749c7fe1c1afe06c09f2a10830006a4a9c0a2db34a772af15945f0",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -20,6 +24,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

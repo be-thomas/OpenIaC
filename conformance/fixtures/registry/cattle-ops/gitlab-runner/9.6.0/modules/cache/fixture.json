@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cattle-ops/gitlab-runner/aws/9.6.0",
     "ref": "9.6.0",
+    "commit": "942215a946f58410d6ef13e19d9464f7922b2c76",
+    "gitOwner": "cattle-ops",
+    "gitRepo": "terraform-aws-gitlab-runner",
     "path": "modules/cache",
     "archiveSha256": "b5b1804514b6aa6a78b12b0ebc3047bbd9a58369488dfd4d5301193b8ac3ec43",
-    "inputSha256": "a7e2b8f4e5d7e1cb1c5b0a11697e315b85c763309a92549d9edd9728b6115502"
+    "inputSha256": "a7e2b8f4e5d7e1cb1c5b0a11697e315b85c763309a92549d9edd9728b6115502",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

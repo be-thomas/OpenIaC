@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dcos-terraform/dcos/aws/0.3.4",
     "ref": "0.3.4",
+    "commit": "9e2e716e7656c55d0eff04122227a74db1d8a6eb",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-dcos",
     "path": "examples/pull-request-open-source",
     "archiveSha256": "2ecfeb78808e0929154addb7b87bc366773b1efb2aef37e7d880e7ee1432ddf1",
-    "inputSha256": "65546f6028ccf6e191c208cc85671bc633f0547a9859a75622d9998da300bc74"
+    "inputSha256": "65546f6028ccf6e191c208cc85671bc633f0547a9859a75622d9998da300bc74",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [],

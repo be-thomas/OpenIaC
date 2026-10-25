@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/fsx/aws/1.3.2",
     "ref": "1.3.2",
+    "commit": "0b1bf1999b4bea432080e04af9fe50d4f2653acc",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-fsx",
     "path": "modules/lustre",
     "archiveSha256": "bcccf3121b249e12c6fdaa14c08d2e1a9bc3dc516385ab90828d275b500060ff",
-    "inputSha256": "f2434a0a02e994ae2112a2272f69d78760ad7ade482ec569f60bea139c92e500"
+    "inputSha256": "f2434a0a02e994ae2112a2272f69d78760ad7ade482ec569f60bea139c92e500",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -20,6 +24,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

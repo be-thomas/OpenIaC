@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/guardduty/aws/1.0.0",
     "ref": "1.0.0",
+    "commit": "2502c87d542fc3639b372ef87e3445da75df18d9",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-guardduty",
     "path": ".",
     "archiveSha256": "9c0e60a9dbf0f092056d6096d6161ea7066cbeefc11c5597c3bed1d3b06e7679",
-    "inputSha256": "c22916778517de450839b1a2e72af8a0f33138ad2e9e23c99f2602a35f8ed6da"
+    "inputSha256": "c22916778517de450839b1a2e72af8a0f33138ad2e9e23c99f2602a35f8ed6da",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

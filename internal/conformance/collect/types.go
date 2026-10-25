@@ -37,10 +37,15 @@ type GitModule struct {
 	// Registry is set for registry modules.
 	Registry *RegistryModule
 	// Seed is set for configured GitHub seeds.
-	Seed  *GitHubSeed
-	Owner string
-	Repo  string
-	Ref   string
+	Seed *GitHubSeed
+	// Ref is the immutable commit SHA used to download the archive.
+	Ref string
+	// Requested is the ref the registry or seed asked for, such as a tag.
+	Requested string
+	// Subdir is a module subdirectory named by X-Terraform-Get, if any.
+	Subdir string
+	Owner  string
+	Repo   string
 }
 
 // SourceURL is the canonical, human-readable upstream location.
@@ -51,11 +56,19 @@ func (m GitModule) SourceURL() string {
 	return "https://github.com/" + m.Owner + "/" + m.Repo
 }
 
-// RefLabel is the version or commit recorded in fixture metadata.
+// RefLabel is the version or human-readable ref recorded in fixture metadata.
 func (m GitModule) RefLabel() string {
 	if m.Registry != nil {
 		return m.Registry.Version
 	}
+	if m.Requested != "" {
+		return m.Requested
+	}
+	return m.Ref
+}
+
+// Commit is the immutable git commit behind the downloaded archive.
+func (m GitModule) Commit() string {
 	return m.Ref
 }
 

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/mongodb/ecs-task-definition/aws/2.1.5",
     "ref": "2.1.5",
+    "commit": "5583aeb02509e8c7d56c33db90dafc4872ee755f",
+    "gitOwner": "mongodb",
+    "gitRepo": "terraform-aws-ecs-task-definition",
     "path": ".",
     "archiveSha256": "7113aa8cecf5cc71f7fd42949c262b0711aa2a41cfb83e178534170f0fdec878",
-    "inputSha256": "2290aa5a75be5fe6c0e2b849998cc868c1ee3ec20b9ca6e6b5e26af22d63f96f"
+    "inputSha256": "2290aa5a75be5fe6c0e2b849998cc868c1ee3ec20b9ca6e6b5e26af22d63f96f",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

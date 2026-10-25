@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/CrowdStrike/cloud-registration/aws/0.7.13",
     "ref": "0.7.13",
+    "commit": "84c9bcf336c13b24bf7c62264a1465c3b987f23c",
+    "gitOwner": "CrowdStrike",
+    "gitRepo": "terraform-aws-cloud-registration",
     "path": ".",
     "archiveSha256": "9c33a02d03ae3fab7a6108b528c724ad9af5512fec975753745466bc1cd0419a",
-    "inputSha256": "a74895806c30bdfc6567e80f380f01329cdc3252f521bc555734744582cae481"
+    "inputSha256": "a74895806c30bdfc6567e80f380f01329cdc3252f521bc555734744582cae481",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

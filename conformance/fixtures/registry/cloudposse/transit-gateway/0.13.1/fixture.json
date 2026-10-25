@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/transit-gateway/aws/0.13.1",
     "ref": "0.13.1",
+    "commit": "09e0f67a94158afe57b0fb31eca4149c7aeb1b7b",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-transit-gateway",
     "path": ".",
     "archiveSha256": "9c158310f4c1b5922c239249b62c58357fe8c51b666b8b904e07524dc1cca7e9",
-    "inputSha256": "b043adddbf99e1615a341838ee385035c599cf0c772bd4892fcfbd0cbb4060b6"
+    "inputSha256": "b043adddbf99e1615a341838ee385035c599cf0c772bd4892fcfbd0cbb4060b6",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

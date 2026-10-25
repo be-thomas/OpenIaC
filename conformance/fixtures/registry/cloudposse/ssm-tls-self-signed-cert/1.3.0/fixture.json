@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/ssm-tls-self-signed-cert/aws/1.3.0",
     "ref": "1.3.0",
+    "commit": "5e98e08a81b077eca3bef8efa627693386137c9b",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ssm-tls-self-signed-cert",
     "path": ".",
     "archiveSha256": "18398de31360d6620c682b9805a88f85badea1d979fcb394d9e220bacab2ae9d",
-    "inputSha256": "795d985186be83ea0af7fdbeac60121f752de7d6b7e53244f8cf32b8b2ffbad4"
+    "inputSha256": "795d985186be83ea0af7fdbeac60121f752de7d6b7e53244f8cf32b8b2ffbad4",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

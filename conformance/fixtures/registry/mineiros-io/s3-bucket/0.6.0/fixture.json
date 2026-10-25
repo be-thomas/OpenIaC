@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/mineiros-io/s3-bucket/aws/0.6.0",
     "ref": "0.6.0",
+    "commit": "9fac52092a6621ab2a0742912d8313c15ba31c76",
+    "gitOwner": "mineiros-io",
+    "gitRepo": "terraform-aws-s3-bucket",
     "path": ".",
     "archiveSha256": "bb12631f221f9ec2e075a47324903ab0d514533217e0d21db3744ba2c52cfebb",
-    "inputSha256": "b3a76aba565ef12b89a5edd8ed34aa6e6d461f065f20d681070fbfa72ae88387"
+    "inputSha256": "b3a76aba565ef12b89a5edd8ed34aa6e6d461f065f20d681070fbfa72ae88387",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,6 +25,7 @@
     "depends_on",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

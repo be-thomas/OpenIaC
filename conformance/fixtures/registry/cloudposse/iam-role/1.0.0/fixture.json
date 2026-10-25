@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/iam-role/aws/1.0.0",
     "ref": "1.0.0",
+    "commit": "1033fc3dad3196ecbee53f426cd8fc916a615721",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-iam-role",
     "path": ".",
     "archiveSha256": "5b41d47d334c097af460f3c807b88e27eb90b1988afba2b7ee48348594a37d98",
-    "inputSha256": "f60d51b098502d8de9287664e1690e068148fd5f2894114077ecc66a144065cc"
+    "inputSha256": "f60d51b098502d8de9287664e1690e068148fd5f2894114077ecc66a144065cc",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -20,6 +24,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "heredoc",
     "locals",

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cn-terraform/ecs-fargate-service/aws/2.0.50",
     "ref": "2.0.50",
+    "commit": "6af5ff837719a5616a63922732a7c5c2a6552ddc",
+    "gitOwner": "cn-terraform",
+    "gitRepo": "terraform-aws-ecs-fargate-service",
     "path": ".",
     "archiveSha256": "bfc0d76bd42317785f2ec27fb5941f061b4944c23d1da19ae9973fc49b3c64a1",
-    "inputSha256": "a22abec0d952ed89aadd1f929ee00aa3686b7a3b5f5d0516ff66fe8d2c4975a8"
+    "inputSha256": "a22abec0d952ed89aadd1f929ee00aa3686b7a3b5f5d0516ff66fe8d2c4975a8",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -19,6 +23,7 @@
     "count",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "modules",

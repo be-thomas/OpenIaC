@@ -6,13 +6,18 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-redhat/rosa-sts/aws/0.0.16",
     "ref": "0.0.16",
+    "commit": "2d40fec0eae8633fa6ca18d33453186f733d84f9",
+    "gitOwner": "terraform-redhat",
+    "gitRepo": "terraform-aws-rosa-sts",
     "path": "examples/account_roles",
     "archiveSha256": "10419f77c2a4e761e0f2f5851fec4c8e84fb251410d86ccfce7693a8860b3869",
-    "inputSha256": "e023c828acabf7abd44713155139773c25ebd600e857cdcad15659b3d8c1ab9d"
+    "inputSha256": "e023c828acabf7abd44713155139773c25ebd600e857cdcad15659b3d8c1ab9d",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [],
   "features": [
+    "functions",
     "modules",
     "required_providers",
     "terraform",

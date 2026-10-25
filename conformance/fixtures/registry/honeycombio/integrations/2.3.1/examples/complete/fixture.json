@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/honeycombio/integrations/aws/2.3.1",
     "ref": "2.3.1",
+    "commit": "a22f5bc0a8a4c110c61f69418393d3683cc03ee5",
+    "gitOwner": "honeycombio",
+    "gitRepo": "terraform-aws-integrations",
     "path": "examples/complete",
     "archiveSha256": "5858b504b151c7194de18de77c4eedb7111cb033aa8d1f6babd5975ebcbcd834",
-    "inputSha256": "278d996822195d1c1c8d2588de77d49e296a8b935572e9b71b4e44b0a6169e35"
+    "inputSha256": "278d996822195d1c1c8d2588de77d49e296a8b935572e9b71b4e44b0a6169e35",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

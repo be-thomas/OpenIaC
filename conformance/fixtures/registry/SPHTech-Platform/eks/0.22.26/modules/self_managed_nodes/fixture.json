@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/SPHTech-Platform/eks/aws/0.22.26",
     "ref": "0.22.26",
+    "commit": "9e084d4ce1862cf8d0af3e8a9d4155550bce4bd5",
+    "gitOwner": "SPHTech-Platform",
+    "gitRepo": "terraform-aws-eks",
     "path": "modules/self_managed_nodes",
     "archiveSha256": "9347bb5feaea13afb18d2cd2da0a0ddd8d63b3051e737f158b9880d3d71c346d",
-    "inputSha256": "ce443ae5d290de3fd151499a9d7f4b7831954d42327edac8ab7e20bc8dad1f16"
+    "inputSha256": "ce443ae5d290de3fd151499a9d7f4b7831954d42327edac8ab7e20bc8dad1f16",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

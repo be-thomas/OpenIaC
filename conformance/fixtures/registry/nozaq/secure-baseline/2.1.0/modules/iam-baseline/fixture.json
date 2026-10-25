@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/nozaq/secure-baseline/aws/2.1.0",
     "ref": "2.1.0",
+    "commit": "7c4a1e5b876495753695786490350741c5fc188b",
+    "gitOwner": "nozaq",
+    "gitRepo": "terraform-aws-secure-baseline",
     "path": "modules/iam-baseline",
     "archiveSha256": "79259b5d0fb638654503c184994b1e01f9f1b64ccdd89231aa748163073e1c2d",
-    "inputSha256": "6fa79c58f64ceb76741ed926dbed536e68946aa3526c643d1165eaa3dcb33929"
+    "inputSha256": "6fa79c58f64ceb76741ed926dbed536e68946aa3526c643d1165eaa3dcb33929",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
@@ -18,6 +22,7 @@
     "conditionals",
     "count",
     "data",
+    "functions",
     "outputs",
     "required_providers",
     "resources",

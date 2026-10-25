@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/umotif-public/elasticache-redis/aws/3.5.0",
     "ref": "3.5.0",
+    "commit": "61a4c4a849daabc981d0f8990745ab48d06dafa9",
+    "gitOwner": "umotif-public",
+    "gitRepo": "terraform-aws-elasticache-redis",
     "path": ".",
     "archiveSha256": "742f00a87666ca75a10e86828f79c3067bb35e302e9154fb0dcbac957ef50bab",
-    "inputSha256": "04789b7ca78daad54c43fcf88bb6168ea07a39a67ab1a837fae391ecf2fd5881"
+    "inputSha256": "04789b7ca78daad54c43fcf88bb6168ea07a39a67ab1a837fae391ecf2fd5881",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

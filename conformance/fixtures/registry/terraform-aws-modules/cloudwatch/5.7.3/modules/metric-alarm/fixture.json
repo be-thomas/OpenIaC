@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/cloudwatch/aws/5.7.3",
     "ref": "5.7.3",
+    "commit": "82e5143738712a283ab7a8cb4110e7a3e708a834",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-cloudwatch",
     "path": "modules/metric-alarm",
     "archiveSha256": "41456bc59ae8bbf47eb50185ae7b90a38c78e7f43ac091e90a14d885f455b701",
-    "inputSha256": "7b7b250364a7799b06e6e01978425f5430a8c36f88668db1bbf974ab04bf302b"
+    "inputSha256": "7b7b250364a7799b06e6e01978425f5430a8c36f88668db1bbf974ab04bf302b",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

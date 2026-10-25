@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/rds-aurora/aws/1.2.0",
     "ref": "1.2.0",
+    "commit": "89d6675ded139f341dbcdcf6403fcd5a0f52500a",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-rds-aurora",
     "path": ".",
     "archiveSha256": "5b0b94275b6e02b8cc9571ea9040031f8e32e75a38f14be7e960482590444e7e",
-    "inputSha256": "df28c082fea3af867f7743b46a8fa00f247354a834346f05ab1b7aef8404d3e9"
+    "inputSha256": "df28c082fea3af867f7743b46a8fa00f247354a834346f05ab1b7aef8404d3e9",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -20,7 +24,6 @@
     "depends_on",
     "dynamic",
     "for_each",
-    "for_expressions",
     "functions",
     "interpolation",
     "locals",

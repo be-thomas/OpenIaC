@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/github-aws-runners/github-runner/aws/8.0.0",
     "ref": "8.0.0",
+    "commit": "38d0cb5d842d7c0bc887a7cbddfbd926b4063703",
+    "gitOwner": "github-aws-runners",
+    "gitRepo": "terraform-aws-github-runner",
     "path": "modules/lambda",
     "archiveSha256": "6bf9e0bdb6a557aae674779cf84ebad97d46b147d9cc9db5938770339ece2f98",
-    "inputSha256": "e2491f9e2cb8539d6a72898c66e4bab0191d5f4ce5b5556640519f9c3c585d9e"
+    "inputSha256": "e2491f9e2cb8539d6a72898c66e4bab0191d5f4ce5b5556640519f9c3c585d9e",
+    "licensePath": "LICENSE.md"
   },
   "license": "MIT",
   "providers": [

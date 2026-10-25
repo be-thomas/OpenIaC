@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/lgallard/elasticsearch/aws/0.14.1",
     "ref": "0.14.1",
+    "commit": "008f2617e4614c43386554f4ca46ceb03c0624da",
+    "gitOwner": "lgallard",
+    "gitRepo": "terraform-aws-elasticsearch",
     "path": "examples/advanced_security_options_master_user_arn",
     "archiveSha256": "21553826d1b69b6bfea33766e4aabf9156bb8be65f9664703b3ad03976b8ced6",
-    "inputSha256": "ec91b18d02a2e4703b7534a8078877d0b022a51b67c7c5b911a63cea1304942a"
+    "inputSha256": "ec91b18d02a2e4703b7534a8078877d0b022a51b67c7c5b911a63cea1304942a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -19,6 +23,7 @@
     "functions",
     "interpolation",
     "modules",
+    "providers",
     "required_providers",
     "terraform",
     "variables"

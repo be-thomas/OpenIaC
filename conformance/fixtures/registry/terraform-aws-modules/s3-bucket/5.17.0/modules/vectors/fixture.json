@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/5.17.0",
     "ref": "5.17.0",
+    "commit": "9afa4fc8c8f1e0b3fd913474c1bef8d0c454b235",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-s3-bucket",
     "path": "modules/vectors",
     "archiveSha256": "40082ac6caa76b5fe1064381e3357d24dac0e4994280177782132948d59d734b",
-    "inputSha256": "adc9a4a2ae68ce368b3a562b2af5e434672e8dd5e78f0051b3c193577b39ca57"
+    "inputSha256": "adc9a4a2ae68ce368b3a562b2af5e434672e8dd5e78f0051b3c193577b39ca57",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -19,6 +23,7 @@
     "count",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "outputs",
     "required_providers",

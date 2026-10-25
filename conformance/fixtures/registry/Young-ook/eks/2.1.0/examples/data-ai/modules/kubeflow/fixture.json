@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/Young-ook/eks/aws/2.1.0",
     "ref": "2.1.0",
+    "commit": "8748e5ad4e735868aef7c8e0c369e6119cfd9abc",
+    "gitOwner": "Young-ook",
+    "gitRepo": "terraform-aws-eks",
     "path": "examples/data-ai/modules/kubeflow",
     "archiveSha256": "ee277c5b0e074f97bdd688fd431570225958a51321c3423a87b764193c6be0d1",
-    "inputSha256": "f8e9f8f51b47ab42689bc147291e235ec51d21f302d191c966950abcb2344eb8"
+    "inputSha256": "f8e9f8f51b47ab42689bc147291e235ec51d21f302d191c966950abcb2344eb8",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [],

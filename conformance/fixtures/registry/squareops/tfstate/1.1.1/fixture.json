@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/squareops/tfstate/aws/1.1.1",
     "ref": "1.1.1",
+    "commit": "fda682146bd19775c8226b0d89b036efa61ba7ed",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-tfstate",
     "path": ".",
     "archiveSha256": "3a38863c5160bf1109365205b1f1e6d7f9ac0b12eca2929c7f352a97dfde2082",
-    "inputSha256": "59ceae09f59679675eac1ba8f752476762e787163b7066b23d1ea6ff7a1dfd61"
+    "inputSha256": "59ceae09f59679675eac1ba8f752476762e787163b7066b23d1ea6ff7a1dfd61",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

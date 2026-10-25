@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/6.8.2",
     "ref": "6.8.2",
+    "commit": "55514b7873c411040395e024a422684998da77c2",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-iam",
     "path": "modules/iam-policy",
     "archiveSha256": "258ce47e665691465db44db722411230850130fb5d15e1bcaa0d6465c2fdfd54",
-    "inputSha256": "45263198c5890c57652831c555707a41f86dfe1f58228593778d911cba887c70"
+    "inputSha256": "45263198c5890c57652831c555707a41f86dfe1f58228593778d911cba887c70",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

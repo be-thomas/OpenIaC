@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/eks/aws/3.3.6",
     "ref": "3.3.6",
+    "commit": "29bfc48ee3517e2f74ca42c1f629bc2bc1028113",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-eks",
     "path": "modules/fargate-profile",
     "archiveSha256": "7b0f7c55c84a1bbe749979cab51b349083324653d553882b6866e0884b9e3365",
-    "inputSha256": "1a0cab85a0ac510ab38878d3a8f68ad764be2790f041164ef4d3c10342a50272"
+    "inputSha256": "1a0cab85a0ac510ab38878d3a8f68ad764be2790f041164ef4d3c10342a50272",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

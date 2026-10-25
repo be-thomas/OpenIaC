@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/babbel/athena/aws/4.1.1",
     "ref": "4.1.1",
+    "commit": "a9de879d2cc7acbf17287e4f2ec21eea72576dfe",
+    "gitOwner": "babbel",
+    "gitRepo": "terraform-aws-athena",
     "path": ".",
     "archiveSha256": "473fb32f27baefcbc45e9ba51f307e3dd07259d5388800ff02cbe18e9f7a20f1",
-    "inputSha256": "b3d10077c6fd953a8a2694528269ce340be4a991ed78ff1a711c5b5acf2b3417"
+    "inputSha256": "b3d10077c6fd953a8a2694528269ce340be4a991ed78ff1a711c5b5acf2b3417",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
@@ -17,7 +21,6 @@
   "features": [
     "conditionals",
     "count",
-    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",

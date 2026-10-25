@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/client-vpn/aws/1.0.3",
     "ref": "1.0.3",
+    "commit": "95a4074e536e407aff8b7458488fb9f9e8f95d81",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-client-vpn",
     "path": ".",
     "archiveSha256": "633cf98227eefa12d2320d84ca32379590cb45035759f93aad9d5bef533310bc",
-    "inputSha256": "b48cd4764f573791d42aa3dd5197cb6008a614eeee27edd36b7a6e2ab94393c6"
+    "inputSha256": "b48cd4764f573791d42aa3dd5197cb6008a614eeee27edd36b7a6e2ab94393c6",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

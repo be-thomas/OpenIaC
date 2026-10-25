@@ -1,20 +1,25 @@
 {
   "schema": 1,
   "id": "registry/philips-labs/github-oidc/0.8.1/modules/provider",
-  "tier": "smoke",
+  "tier": "advanced",
   "origin": "registry",
   "source": {
     "url": "https://registry.terraform.io/modules/philips-labs/github-oidc/aws/0.8.1",
     "ref": "0.8.1",
+    "commit": "b707fe2d3495560278e78e6679ede593fb538e76",
+    "gitOwner": "philips-labs",
+    "gitRepo": "terraform-aws-github-oidc",
     "path": "modules/provider",
     "archiveSha256": "9966b487cda4b707ff0cf922ed7feb5e9574b7006b72c9cbf85ae38afa9ab48d",
-    "inputSha256": "8a85a279feb91481a58c8782aee8bf6da71e870920a831713b07cbbb5d1c63f7"
+    "inputSha256": "8a85a279feb91481a58c8782aee8bf6da71e870920a831713b07cbbb5d1c63f7",
+    "licensePath": "LICENSE.md"
   },
   "license": "MIT",
   "providers": [
     "aws"
   ],
   "features": [
+    "functions",
     "outputs",
     "resources",
     "variables"
@@ -23,5 +28,5 @@
     "cdk",
     "pulumi"
   ],
-  "support": "full"
+  "support": "partial"
 }

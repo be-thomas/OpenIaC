@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/vpc/aws/3.3.0",
     "ref": "3.3.0",
+    "commit": "561a85a3799674e6815969698a3b81da9aec3a1f",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-vpc",
     "path": "modules/private",
     "archiveSha256": "a160ea695fcdff54fe6a63e07714a41f45ce7b882bc0b0c652ea0590b327cb53",
-    "inputSha256": "92ebaaf8563db91ca7db9e4f11fd04ac32e12333c363746d95689ba1864f58df"
+    "inputSha256": "92ebaaf8563db91ca7db9e4f11fd04ac32e12333c363746d95689ba1864f58df",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/dynamodb-autoscaler/aws/0.16.0",
     "ref": "0.16.0",
+    "commit": "7e71ca150a6c9157527d5a9e6178719dca780b23",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-dynamodb-autoscaler",
     "path": ".",
     "archiveSha256": "35fc304c38759ec044cf135db49ad5bcf8fc8ee370ebd8dee4bc552ba5118141",
-    "inputSha256": "7b3f0d816d1c88b5cee58bc0cde8533dbd6f37e9f6b5ee2a0b162d91a67fdc30"
+    "inputSha256": "7b3f0d816d1c88b5cee58bc0cde8533dbd6f37e9f6b5ee2a0b162d91a67fdc30",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/infrablocks/base-networking/aws/6.1.0-rc.1",
     "ref": "6.1.0-rc.1",
+    "commit": "e7eda56dcd92d5dc80f81650ddff1bce92aea7b2",
+    "gitOwner": "infrablocks",
+    "gitRepo": "terraform-aws-base-networking",
     "path": ".",
     "archiveSha256": "5e892803922a3b7de5fc2f518eeb7c1e508840e63e45d88b829119bb952db071",
-    "inputSha256": "d1917564ef0d8a3227da327ac6fd7db92dca7820e3bfa4241480df326b0d3ea6"
+    "inputSha256": "d1917564ef0d8a3227da327ac6fd7db92dca7820e3bfa4241480df326b0d3ea6",
+    "licensePath": "LICENSE.txt"
   },
   "license": "MIT",
   "providers": [

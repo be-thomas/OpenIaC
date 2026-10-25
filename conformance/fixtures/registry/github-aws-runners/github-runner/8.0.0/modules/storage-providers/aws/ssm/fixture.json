@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/github-aws-runners/github-runner/aws/8.0.0",
     "ref": "8.0.0",
+    "commit": "38d0cb5d842d7c0bc887a7cbddfbd926b4063703",
+    "gitOwner": "github-aws-runners",
+    "gitRepo": "terraform-aws-github-runner",
     "path": "modules/storage-providers/aws/ssm",
     "archiveSha256": "6bf9e0bdb6a557aae674779cf84ebad97d46b147d9cc9db5938770339ece2f98",
-    "inputSha256": "cda09ba9928b3ad158d452b96d4f73cd66988784687251c8112ade49500f1735"
+    "inputSha256": "cda09ba9928b3ad158d452b96d4f73cd66988784687251c8112ade49500f1735",
+    "licensePath": "LICENSE.md"
   },
   "license": "MIT",
   "providers": [
@@ -18,6 +22,7 @@
     "conditionals",
     "count",
     "for_each",
+    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",

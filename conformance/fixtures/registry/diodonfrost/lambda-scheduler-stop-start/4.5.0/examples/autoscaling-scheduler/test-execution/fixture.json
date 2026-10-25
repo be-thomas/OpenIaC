@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/diodonfrost/lambda-scheduler-stop-start/aws/4.5.0",
     "ref": "4.5.0",
+    "commit": "af5376cce2fbda30f33eac66537496e4dc1e79b0",
+    "gitOwner": "diodonfrost",
+    "gitRepo": "terraform-aws-lambda-scheduler-stop-start",
     "path": "examples/autoscaling-scheduler/test-execution",
     "archiveSha256": "a35cc894472c33376d6744089d04071d3997672c7532c9d8d6d2d712406a7c42",
-    "inputSha256": "4a86f0289834063f243f94306f7bd8fc66cf37336d2efc8820a429d04ade790d"
+    "inputSha256": "4a86f0289834063f243f94306f7bd8fc66cf37336d2efc8820a429d04ade790d",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

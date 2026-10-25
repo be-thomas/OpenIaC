@@ -6,15 +6,20 @@
   "source": {
     "url": "https://registry.terraform.io/modules/observeinc/lambda/aws/4.0.0",
     "ref": "4.0.0",
+    "commit": "eea371301c88945ab573cb9b42b07bf92f98be61",
+    "gitOwner": "observeinc",
+    "gitRepo": "terraform-aws-lambda",
     "path": "modules/cloudwatch_metrics",
     "archiveSha256": "d97ca192682e39f83a0f37e5588285d4e618ddac2f9473bfd11d1fdd7c719acc",
-    "inputSha256": "fbd440b79848fee347532efd493a08a4487342c16efc0b680c5ff9f356ead570"
+    "inputSha256": "fbd440b79848fee347532efd493a08a4487342c16efc0b680c5ff9f356ead570",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
     "data",
     "functions",
     "interpolation",

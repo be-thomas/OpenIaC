@@ -6,18 +6,24 @@
   "source": {
     "url": "https://registry.terraform.io/modules/observeinc/kinesis-firehose/aws/2.4.1",
     "ref": "2.4.1",
+    "commit": "c8f5e92eb2e66119a738e916cc0bc496bef6cc09",
+    "gitOwner": "observeinc",
+    "gitRepo": "terraform-aws-kinesis-firehose",
     "path": "modules/cloudwatch_metrics",
     "archiveSha256": "dc0e81ee51dcbb3f40a75e6121673d8c0dea3e4cd65f50294e9b587d5aaaef67",
-    "inputSha256": "3e7f9820433377efcf33fe870ec1889a62af31c24e0af83c666687c50a94f819"
+    "inputSha256": "3e7f9820433377efcf33fe870ec1889a62af31c24e0af83c666687c50a94f819",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
     "count",
     "dynamic",
     "for_each",
+    "functions",
     "heredoc",
     "locals",
     "required_providers",

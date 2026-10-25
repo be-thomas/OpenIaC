@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/squareops/eks/aws/5.4.4",
     "ref": "5.4.4",
+    "commit": "8d592fbaa2eb4dd637b825f6c4ce2c6f351a3546",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-eks",
     "path": "examples/complete",
     "archiveSha256": "0ea30548957f2c895c4eec1c775f4a6413aae1db41a52c3a9e12d332eacfd302",
-    "inputSha256": "71cbd38da6170feee4131b33295c48f9f9ad28b725b865ae51847e3f23d99b37"
+    "inputSha256": "71cbd38da6170feee4131b33295c48f9f9ad28b725b865ae51847e3f23d99b37",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -25,6 +29,7 @@
     "locals",
     "modules",
     "outputs",
+    "providers",
     "required_providers",
     "terraform"
   ],

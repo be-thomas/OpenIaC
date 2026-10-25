@@ -1,20 +1,25 @@
 {
   "schema": 1,
   "id": "registry/aws-ss/wafv2/4.4.0/modules/ip-set",
-  "tier": "core",
+  "tier": "advanced",
   "origin": "registry",
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ss/wafv2/aws/4.4.0",
     "ref": "4.4.0",
+    "commit": "c94b701be58e73ff71bc43b5266216d28cab179d",
+    "gitOwner": "aws-ss",
+    "gitRepo": "terraform-aws-wafv2",
     "path": "modules/ip-set",
     "archiveSha256": "bafd2c53ee9d64075b4b99964e1e7bfeacab694b13418420fab8f62f591b3bd8",
-    "inputSha256": "2b515182edbf42aa3daa3182b70d356ec71016c6d965c6dc48aa0abd04bd4c9a"
+    "inputSha256": "2b515182edbf42aa3daa3182b70d356ec71016c6d965c6dc48aa0abd04bd4c9a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "functions",
     "outputs",
     "required_providers",
     "resources",
@@ -25,5 +30,5 @@
     "cdk",
     "pulumi"
   ],
-  "support": "full"
+  "support": "partial"
 }

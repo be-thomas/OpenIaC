@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/SPHTech-Platform/apigw/aws/0.5.8",
     "ref": "0.5.8",
+    "commit": "db30e7dd7920d696513b2f81ecc53290ed727780",
+    "gitOwner": "SPHTech-Platform",
+    "gitRepo": "terraform-aws-apigw",
     "path": "modules/custom_domain",
     "archiveSha256": "b1e504a7cda7699790e368f94aa8deab49f045a83e9d6d23c05a48942c86651a",
-    "inputSha256": "d71f1457d5cd7e9929cdfa575175279cfe97ce88c2339ec4c986b2f8d9818387"
+    "inputSha256": "d71f1457d5cd7e9929cdfa575175279cfe97ce88c2339ec4c986b2f8d9818387",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

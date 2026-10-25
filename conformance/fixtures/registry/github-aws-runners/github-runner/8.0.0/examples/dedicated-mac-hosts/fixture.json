@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/github-aws-runners/github-runner/aws/8.0.0",
     "ref": "8.0.0",
+    "commit": "38d0cb5d842d7c0bc887a7cbddfbd926b4063703",
+    "gitOwner": "github-aws-runners",
+    "gitRepo": "terraform-aws-github-runner",
     "path": "examples/dedicated-mac-hosts",
     "archiveSha256": "6bf9e0bdb6a557aae674779cf84ebad97d46b147d9cc9db5938770339ece2f98",
-    "inputSha256": "86b5b7d4fd154872e74293be3d863df0ae87c1fe082ba6713d0ef3eaacb9a50c"
+    "inputSha256": "86b5b7d4fd154872e74293be3d863df0ae87c1fe082ba6713d0ef3eaacb9a50c",
+    "licensePath": "LICENSE.md"
   },
   "license": "MIT",
   "providers": [
@@ -22,6 +26,7 @@
     "interpolation",
     "locals",
     "outputs",
+    "providers",
     "required_providers",
     "resources",
     "terraform",

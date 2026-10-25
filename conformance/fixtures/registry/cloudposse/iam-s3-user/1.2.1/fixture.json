@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/iam-s3-user/aws/1.2.1",
     "ref": "1.2.1",
+    "commit": "39545df572f5cc7b24985d728185998dc6566b07",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-iam-s3-user",
     "path": ".",
     "archiveSha256": "2d8dea4caacd7161cd19fe85bf40d2294a167924e05d8a2ac10e4aeff43f1bbc",
-    "inputSha256": "2f5b20180de39eb4220967d4a3488c8fbf8f5582666faad2b25e2daa81123d84"
+    "inputSha256": "2f5b20180de39eb4220967d4a3488c8fbf8f5582666faad2b25e2daa81123d84",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

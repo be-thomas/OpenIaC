@@ -1,14 +1,18 @@
 {
   "schema": 1,
   "id": "registry/fpco/foundation/0.9.16/modules/iam-users",
-  "tier": "advanced",
+  "tier": "smoke",
   "origin": "registry",
   "source": {
     "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
     "ref": "0.9.16",
+    "commit": "a7b028e436cd1ce0977b8144b090ce5c9fe30526",
+    "gitOwner": "fpco",
+    "gitRepo": "terraform-aws-foundation",
     "path": "modules/iam-users",
     "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
-    "inputSha256": "698d14730c3fcf489b85a3fa2f03c511b48b167d2ea8ea4861c5561b3372d5ec"
+    "inputSha256": "698d14730c3fcf489b85a3fa2f03c511b48b167d2ea8ea4861c5561b3372d5ec",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
@@ -16,6 +20,7 @@
   ],
   "features": [
     "count",
+    "functions",
     "outputs",
     "resources",
     "terraform",

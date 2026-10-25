@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/efs/aws/1.5.0",
     "ref": "1.5.0",
+    "commit": "5185a332c24647435f2d89f9f6d28168d62405b2",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-efs",
     "path": ".",
     "archiveSha256": "c3803aaaf1c021d670e0c91d7b5360d664d14511857c8d8486b508fa0f1a6d45",
-    "inputSha256": "088c0d871f544e1d09983fc9e9876f30f55f6898ed7a698486a9595be3c8aa7e"
+    "inputSha256": "088c0d871f544e1d09983fc9e9876f30f55f6898ed7a698486a9595be3c8aa7e",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

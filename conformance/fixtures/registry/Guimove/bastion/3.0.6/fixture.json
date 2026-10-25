@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/Guimove/bastion/aws/3.0.6",
     "ref": "3.0.6",
+    "commit": "3de458b4133c60ca6b3b780aca2ff6999e9cf216",
+    "gitOwner": "Guimove",
+    "gitRepo": "terraform-aws-bastion",
     "path": ".",
     "archiveSha256": "20632fcef5857ed5cb3d62f28cb235335c94a36fbb8b205bfc4612f65654ccf9",
-    "inputSha256": "562b43f44de88656ed9dc607ede49a0aa3355bac69f1ce72b4119e942235abb7"
+    "inputSha256": "562b43f44de88656ed9dc607ede49a0aa3355bac69f1ce72b4119e942235abb7",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

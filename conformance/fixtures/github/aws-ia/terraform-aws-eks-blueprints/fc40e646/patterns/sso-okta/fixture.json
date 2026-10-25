@@ -5,10 +5,14 @@
   "origin": "github",
   "source": {
     "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
-    "ref": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "ref": "main",
+    "commit": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints",
     "path": "patterns/sso-okta",
     "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
-    "inputSha256": "a797e0a800b46ed41e5170be1a25312838d393b006a30d9ff89b654869ed6e7a"
+    "inputSha256": "a797e0a800b46ed41e5170be1a25312838d393b006a30d9ff89b654869ed6e7a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -26,6 +30,7 @@
     "locals",
     "modules",
     "outputs",
+    "providers",
     "required_providers",
     "resources",
     "terraform",

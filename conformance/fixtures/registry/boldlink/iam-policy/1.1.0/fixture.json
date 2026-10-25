@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/iam-policy/aws/1.1.0",
     "ref": "1.1.0",
+    "commit": "44c149e33293d6e3cec5d6512ed55495a598cbe6",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-iam-policy",
     "path": ".",
     "archiveSha256": "592d9306c99059c5d50969730733f84a556fe28fd07b180160b735defd9539ae",
-    "inputSha256": "4a983bb08c4ef4841d09e3d311670f011f6c2cd8d97a27df4089bcda035baef4"
+    "inputSha256": "4a983bb08c4ef4841d09e3d311670f011f6c2cd8d97a27df4089bcda035baef4",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

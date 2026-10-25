@@ -6,16 +6,22 @@
   "source": {
     "url": "https://registry.terraform.io/modules/hashicorp/consul/aws/0.11.0",
     "ref": "0.11.0",
+    "commit": "e9ceb573687c3d28516c9e3714caca84db64a766",
+    "gitOwner": "hashicorp",
+    "gitRepo": "terraform-aws-consul",
     "path": "modules/consul-client-security-group-rules",
     "archiveSha256": "400ac184d6e5fc1f23cb081c44bd8bd35c72d5cecf36ac5f20946c1b5c2eb62c",
-    "inputSha256": "4b7ac093c6b99437a475431eb857e035a6d1fb615fe65c63c67a0c45ed5d688b"
+    "inputSha256": "4b7ac093c6b99437a475431eb857e035a6d1fb615fe65c63c67a0c45ed5d688b",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
     "count",
+    "functions",
     "resources",
     "terraform",
     "variables"

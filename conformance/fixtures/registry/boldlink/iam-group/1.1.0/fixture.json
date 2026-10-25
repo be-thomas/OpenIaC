@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/iam-group/aws/1.1.0",
     "ref": "1.1.0",
+    "commit": "b0e800f0b0ed7e1215e2b9bc78af0c7aaf7c2407",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-iam-group",
     "path": ".",
     "archiveSha256": "d18482e43dfdba92fc97fa0a9dd36dad0e982db88ae561b37821b0428a6f74e4",
-    "inputSha256": "454f2dda0ba2c1fa8105fecc628b500d67ddca450888e83eebbb9f9a4c5c8559"
+    "inputSha256": "454f2dda0ba2c1fa8105fecc628b500d67ddca450888e83eebbb9f9a4c5c8559",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -18,6 +22,8 @@
     "conditionals",
     "count",
     "for_each",
+    "for_expressions",
+    "functions",
     "outputs",
     "required_providers",
     "resources",

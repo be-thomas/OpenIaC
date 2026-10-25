@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/ipam/aws/2.1.2",
     "ref": "2.1.2",
+    "commit": "bbb5e9b2b0a50e5c88cd223b8832ddb24f4dbaa6",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-ipam",
     "path": ".",
     "archiveSha256": "1d70699ad9500dca75199112d8f0d96bc44d8146dbb43953432c911e533c2dac",
-    "inputSha256": "c41c138294d84d0bb604d6251cc997918e8e5bc790536e8198f349a62042f266"
+    "inputSha256": "c41c138294d84d0bb604d6251cc997918e8e5bc790536e8198f349a62042f266",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,6 +25,7 @@
     "depends_on",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",

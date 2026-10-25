@@ -6,15 +6,20 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dcos-terraform/instance/aws/0.3.0",
     "ref": "0.3.0",
+    "commit": "a991fcdb34496aca2cd4ca73ea63a990258b4cdb",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-instance",
     "path": ".",
     "archiveSha256": "6c6acc0e36798d9b590ba49fc4b292285a1aa42248d13a8976acec64d9a6a7de",
-    "inputSha256": "0810c705abfcff342846affa4fe32a0326aa38386856af143563213813004ea2"
+    "inputSha256": "0810c705abfcff342846affa4fe32a0326aa38386856af143563213813004ea2",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
     "count",
     "data",
     "functions",
@@ -22,6 +27,7 @@
     "locals",
     "modules",
     "outputs",
+    "providers",
     "resources",
     "terraform",
     "variables"

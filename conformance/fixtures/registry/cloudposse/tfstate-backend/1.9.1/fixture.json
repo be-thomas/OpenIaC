@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/tfstate-backend/aws/1.9.1",
     "ref": "1.9.1",
+    "commit": "13267a3853954b2e00522467ddf2fa9ffe73e062",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-tfstate-backend",
     "path": ".",
     "archiveSha256": "c11dc14c069df11d72fc82e8281f11bd6dd6299bd65b1d9c98a35a6d6f717189",
-    "inputSha256": "e6f5c7b0fc82fb04e8c99d35361a8e5139c45ca26100563a4214e8de7320079a"
+    "inputSha256": "e6f5c7b0fc82fb04e8c99d35361a8e5139c45ca26100563a4214e8de7320079a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

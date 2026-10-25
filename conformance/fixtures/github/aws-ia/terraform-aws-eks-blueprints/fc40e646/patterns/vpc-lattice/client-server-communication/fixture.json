@@ -5,10 +5,14 @@
   "origin": "github",
   "source": {
     "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
-    "ref": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "ref": "main",
+    "commit": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints",
     "path": "patterns/vpc-lattice/client-server-communication",
     "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
-    "inputSha256": "14d85aad68ed4177f3ac77b8e6b5fe926a37c069cd50903a2d770a7a353d0813"
+    "inputSha256": "14d85aad68ed4177f3ac77b8e6b5fe926a37c069cd50903a2d770a7a353d0813",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -25,6 +29,7 @@
     "locals",
     "modules",
     "outputs",
+    "providers",
     "required_providers",
     "resources",
     "terraform"

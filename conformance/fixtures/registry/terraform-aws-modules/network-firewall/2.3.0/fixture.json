@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/network-firewall/aws/2.3.0",
     "ref": "2.3.0",
+    "commit": "da5ce58c76ab0827c712ec881dad56b0e24c1114",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-network-firewall",
     "path": ".",
     "archiveSha256": "bc120ab19bda666659324039fd238bb80b0d5d10be8fc0f461dd16402bfc3b63",
-    "inputSha256": "43bca2bd8ac936ce286ac26a1a00542c00bbaa8270ac30ba9f99db942643bcf0"
+    "inputSha256": "43bca2bd8ac936ce286ac26a1a00542c00bbaa8270ac30ba9f99db942643bcf0",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

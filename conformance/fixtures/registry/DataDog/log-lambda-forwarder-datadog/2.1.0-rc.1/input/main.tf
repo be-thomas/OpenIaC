@@ -1,0 +1,397 @@
+# IAM role and policies for the Forwarder Lambda
+module "iam" {
+  count = var.existing_iam_role_arn == null ? 1 : 0
+
+  source = "./modules/iam"
+
+  function_name                     = var.function_name
+  iam_role_path                     = var.iam_role_path
+  permissions_boundary_arn          = var.permissions_boundary_arn
+  partition                         = data.aws_partition.current.partition
+  region                            = local.region
+  account_id                        = data.aws_caller_identity.current.account_id
+  tags                              = var.tags
+  s3_bucket_permissions             = local.forwarder_bucket_permissions
+  forwarder_bucket_arn              = local.create_s3_bucket ? aws_s3_bucket.forwarder_bucket[0].arn : null
+  dd_forwarder_existing_bucket_name = var.dd_forwarder_existing_bucket_name
+  dd_api_key_ssm_parameter_name     = var.dd_api_key_ssm_parameter_name
+  dd_api_key_secret_arn             = local.effective_secret_arn != null ? "${local.effective_secret_arn}*" : null
+  dd_allowed_kms_keys               = var.dd_allowed_kms_keys
+  log_group_kms_key_arn             = var.log_group_kms_key_arn
+  dd_s3_log_bucket_arns             = var.dd_s3_log_bucket_arns
+  dd_fetch_lambda_tags              = var.use_v6 ? null : var.dd_fetch_lambda_tags
+  dd_fetch_log_group_tags           = var.use_v6 ? null : var.dd_fetch_log_group_tags
+  dd_fetch_s3_tags                  = var.use_v6 ? null : var.dd_fetch_s3_tags
+  dd_use_vpc                        = var.dd_use_vpc
+  additional_target_lambda_arns     = var.additional_target_lambda_arns != null ? split(",", var.additional_target_lambda_arns) : []
+  sqs_queue_arn                     = local.sqs_queue_arn
+}
+
+# Secrets Manager secret for Datadog API key
+resource "aws_secretsmanager_secret" "dd_api_key_secret" {
+  count = local.should_create_secret ? 1 : 0
+
+  region = local.region
+
+  name_prefix = "DatadogAPIKey-${var.function_name}"
+
+  description = "Datadog API Key"
+
+  tags = var.tags
+
+  lifecycle {
+    precondition {
+      condition     = var.dd_api_key != null
+      error_message = <<-EOT
+        Cannot create Secrets Manager secret: dd_api_key is not provided.
+
+        You must provide ONE of the following:
+        - dd_api_key (module will create secret automatically)
+        - dd_api_key_secret_arn (reference to existing Secrets Manager secret)
+        - dd_api_key_ssm_parameter_name (reference to existing SSM parameter)
+      EOT
+    }
+
+    precondition {
+      condition     = !local.has_external_secret_reference
+      error_message = <<-EOT
+        Configuration conflict: You provided dd_api_key along with an external secret reference.
+
+        Current configuration:
+        - dd_api_key: SET
+        - dd_api_key_secret_arn: ${var.dd_api_key_secret_arn != null ? "SET" : "NOT SET"}
+        - dd_api_key_ssm_parameter_name: ${var.dd_api_key_ssm_parameter_name != null ? "SET" : "NOT SET"}
+
+        Choose ONE approach:
+        1. Use dd_api_key alone (module creates secret)
+        2. Create secret externally and use dd_api_key_secret_arn or dd_api_key_ssm_parameter_name (without dd_api_key)
+
+        If creating the secret externally, set create_dd_api_key_secret = false.
+      EOT
+    }
+  }
+}
+
+resource "aws_secretsmanager_secret_version" "dd_api_key_secret_version" {
+  count = local.should_create_secret ? 1 : 0
+
+  region = local.region
+
+  secret_id     = aws_secretsmanager_secret.dd_api_key_secret[0].id
+  secret_string = var.dd_api_key
+
+  lifecycle {
+    precondition {
+      condition     = var.dd_api_key != null && var.dd_api_key != ""
+      error_message = "dd_api_key must be a non-empty string when creating a secret automatically."
+    }
+  }
+}
+
+# S3 bucket for the forwarder (if needed)
+resource "aws_s3_bucket" "forwarder_bucket" {
+  count = local.create_s3_bucket ? 1 : 0
+
+  region = local.region
+
+  bucket = var.dd_forwarder_bucket_name != null ? var.dd_forwarder_bucket_name : null
+
+  force_destroy = true
+
+  tags = var.tags
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "forwarder_bucket_encryption" {
+  count = local.create_s3_bucket ? 1 : 0
+
+  region = local.region
+
+  bucket = aws_s3_bucket.forwarder_bucket[0].id
+
+  rule {
+    bucket_key_enabled = true
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "aws:kms"
+    }
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "forwarder_bucket_pab" {
+  count = local.create_s3_bucket ? 1 : 0
+
+  region = local.region
+
+  bucket = aws_s3_bucket.forwarder_bucket[0].id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+resource "aws_s3_bucket_logging" "forwarder_bucket_logging" {
+  count = var.dd_forwarder_buckets_access_logs_target != null && local.create_s3_bucket ? 1 : 0
+
+  region = local.region
+
+  bucket = aws_s3_bucket.forwarder_bucket[0].id
+
+  target_bucket = var.dd_forwarder_buckets_access_logs_target
+  target_prefix = "datadog-forwarder/"
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "forwarder_bucket_lifecycle" {
+  count = local.create_s3_bucket ? 1 : 0
+
+  region = local.region
+
+  bucket = aws_s3_bucket.forwarder_bucket[0].id
+
+  rule {
+    id     = "delete-incomplete-mpu-7days"
+    status = "Enabled"
+
+    filter {
+      prefix = ""
+    }
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+}
+
+# S3 bucket policy
+resource "aws_s3_bucket_policy" "forwarder_bucket_policy" {
+  count = local.create_s3_bucket ? 1 : 0
+
+  region = local.region
+
+  bucket = aws_s3_bucket.forwarder_bucket[0].id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid    = "AllowSSLRequestsOnly"
+        Effect = "Deny"
+        Action = "s3:*"
+        Resource = [
+          aws_s3_bucket.forwarder_bucket[0].arn,
+          "${aws_s3_bucket.forwarder_bucket[0].arn}/*"
+        ]
+        Principal = "*"
+        Condition = {
+          Bool = {
+            "aws:SecureTransport" = "false"
+          }
+        }
+      }
+    ]
+  })
+}
+
+# Lambda function
+resource "aws_lambda_function" "forwarder" {
+  region = local.region
+
+  function_name = var.function_name
+  description   = var.use_v6 ? "Pushes logs from AWS to Datadog." : "Pushes logs, metrics and traces from AWS to Datadog."
+  role          = local.iam_role_arn
+  handler       = var.use_v6 ? "bootstrap" : "lambda_function.lambda_handler"
+  runtime       = var.use_v6 ? "provided.al2023" : (var.layer_version == "latest" ? "python3.14" : (can(tonumber(var.layer_version)) && tonumber(var.layer_version) >= 94 ? "python3.14" : "python3.13"))
+  architectures = ["arm64"]
+  memory_size   = var.memory_size
+  timeout       = var.timeout
+
+  layers = var.use_v6 ? var.additional_layers : concat(
+    [var.layer_arn != null ? var.layer_arn : local.default_layer_arn],
+    var.additional_layers
+  )
+
+  filename  = var.use_v6 ? null : local.placeholder_zip_path
+  s3_bucket = var.use_v6 ? local.artifact_bucket : null
+  s3_key    = var.use_v6 ? local.artifact_key : null
+
+  reserved_concurrent_executions = var.reserved_concurrency != null ? tonumber(var.reserved_concurrency) : null
+
+  dynamic "vpc_config" {
+    for_each = var.dd_use_vpc ? [1] : []
+
+    content {
+      security_group_ids = var.vpc_security_group_ids
+      subnet_ids         = var.vpc_subnet_ids
+    }
+  }
+
+  environment {
+    variables = merge(
+      local.env_common,
+      var.use_v6 ? {} : local.env_prior_v6,
+      var.additional_environment_variables
+    )
+  }
+
+  logging_config {
+    log_format = "Text"
+    log_group  = aws_cloudwatch_log_group.forwarder_log_group.name
+  }
+
+  tags = local.tags_with_version
+
+  lifecycle {
+    precondition {
+      condition     = local.has_external_secret_reference || local.is_using_auto_secret_creation
+      error_message = <<-EOT
+        Lambda function requires Datadog API key configuration.
+
+        You must provide ONE of the following:
+        - dd_api_key (module will create secret automatically)
+        - dd_api_key_secret_arn (reference to existing Secrets Manager secret)
+        - dd_api_key_ssm_parameter_name (reference to existing SSM parameter)
+
+        If you are creating a secret or parameter in the same Terraform plan,
+        set create_dd_api_key_secret = false.
+      EOT
+    }
+
+    precondition {
+      condition = (
+        var.dd_api_key_ssm_parameter_name != null ||
+        local.effective_secret_arn != null
+      )
+      error_message = "Internal error: Secret ARN could not be determined. This is likely a module bug."
+    }
+  }
+}
+
+resource "aws_lambda_function_event_invoke_config" "forwarder_invoke_config" {
+  count = var.use_v6 ? 1 : 0
+
+  region = local.region
+
+  function_name = aws_lambda_function.forwarder.function_name
+
+  maximum_retry_attempts = 0
+}
+
+# Lambda permissions
+resource "aws_lambda_permission" "cloudwatch_logs_invoke" {
+  region = local.region
+
+  statement_id   = "CloudWatchLogsInvokePermission"
+  action         = "lambda:InvokeFunction"
+  function_name  = aws_lambda_function.forwarder.function_name
+  principal      = data.aws_partition.current.partition == "aws-cn" ? "logs.amazonaws.com.cn" : "logs.amazonaws.com"
+  source_account = data.aws_caller_identity.current.account_id
+  source_arn     = "arn:${data.aws_partition.current.partition}:logs:${local.region}:${data.aws_caller_identity.current.account_id}:log-group:*:*"
+}
+
+resource "aws_lambda_permission" "s3_invoke" {
+  region = local.region
+
+  statement_id   = "S3Permission"
+  action         = "lambda:InvokeFunction"
+  function_name  = aws_lambda_function.forwarder.function_name
+  principal      = "s3.amazonaws.com"
+  source_account = data.aws_caller_identity.current.account_id
+}
+
+resource "aws_lambda_permission" "sns_invoke" {
+  region = local.region
+
+  statement_id   = "SNSPermission"
+  action         = "lambda:InvokeFunction"
+  function_name  = aws_lambda_function.forwarder.function_name
+  principal      = "sns.amazonaws.com"
+  source_account = data.aws_caller_identity.current.account_id
+}
+
+resource "aws_lambda_permission" "eventbridge_invoke" {
+  region = local.region
+
+  statement_id   = "CloudWatchEventsPermission"
+  action         = "lambda:InvokeFunction"
+  function_name  = aws_lambda_function.forwarder.function_name
+  principal      = data.aws_partition.current.partition == "aws-cn" ? "events.amazonaws.com.cn" : "events.amazonaws.com"
+  source_account = data.aws_caller_identity.current.account_id
+}
+
+# CloudWatch Log Group
+resource "aws_cloudwatch_log_group" "forwarder_log_group" {
+  region = local.region
+
+  name              = "/aws/lambda/${var.function_name}"
+  retention_in_days = var.log_retention_in_days
+  kms_key_id        = var.log_group_kms_key_arn
+
+  tags = var.tags
+
+  lifecycle {
+    precondition {
+      condition     = var.log_group_kms_key_arn == null ? true : split(":", var.log_group_kms_key_arn)[3] == local.region
+      error_message = "log_group_kms_key_arn must be a key in the same region as the forwarder (${local.region})."
+    }
+  }
+}
+
+# Scheduled retry
+
+resource "aws_iam_role" "scheduled_retry" {
+  count = local.store_failed_events_enabled && coalesce(var.dd_schedule_retry_failed_events, false) ? 1 : 0
+
+  name = "${var.function_name}-${local.region}-retry"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = data.aws_partition.current.partition == "aws-cn" ? "scheduler.amazonaws.com.cn" : "scheduler.amazonaws.com"
+        }
+      }
+    ]
+  })
+
+  permissions_boundary = var.permissions_boundary_arn != null ? var.permissions_boundary_arn : null
+
+  tags = var.tags
+}
+
+resource "aws_iam_role_policy" "scheduled_retry" {
+  count = local.store_failed_events_enabled && coalesce(var.dd_schedule_retry_failed_events, false) ? 1 : 0
+
+  name = "${var.function_name}-${local.region}-retry-policy"
+  role = aws_iam_role.scheduled_retry[0].id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "lambda:InvokeFunction",
+        ]
+        Effect   = "Allow"
+        Resource = aws_lambda_function.forwarder.arn
+      },
+    ]
+  })
+}
+
+resource "aws_scheduler_schedule" "scheduled_retry" {
+  count = local.store_failed_events_enabled && coalesce(var.dd_schedule_retry_failed_events, false) ? 1 : 0
+
+  name                = "${var.function_name}-${local.region}-retry"
+  description         = "Retry the failed events from the Datadog Lambda Forwarder ${var.function_name}"
+  schedule_expression = "rate(${var.dd_schedule_retry_interval} hours)"
+  flexible_time_window {
+    mode = "OFF"
+  }
+  target {
+    arn      = aws_lambda_function.forwarder.arn
+    role_arn = aws_iam_role.scheduled_retry[0].arn
+    input    = jsonencode({ retry = true })
+  }
+}

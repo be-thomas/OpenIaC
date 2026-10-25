@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/lgallard/ecr/aws/2.1.1",
     "ref": "2.1.1",
+    "commit": "994c9fc2a18191c5d71fe8d0df40e05faf7c101c",
+    "gitOwner": "lgallard",
+    "gitRepo": "terraform-aws-ecr",
     "path": ".",
     "archiveSha256": "85b9acf37996619e5c95586890c83bae457ef0bdf9ae7f7e1b3f5a8a04894bcc",
-    "inputSha256": "cdaf18a226ad7caf62a363c65df5a3aff123acaa2127d9273afabbb9fc4cc557"
+    "inputSha256": "cdaf18a226ad7caf62a363c65df5a3aff123acaa2127d9273afabbb9fc4cc557",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

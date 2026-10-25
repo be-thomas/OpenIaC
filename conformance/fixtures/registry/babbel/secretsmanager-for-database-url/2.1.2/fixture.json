@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/babbel/secretsmanager-for-database-url/aws/2.1.2",
     "ref": "2.1.2",
+    "commit": "f5495fbe8a7ddb4aeb66f75076d4e7d720be7a9c",
+    "gitOwner": "babbel",
+    "gitRepo": "terraform-aws-secretsmanager-for-database-url",
     "path": ".",
     "archiveSha256": "150a80b80b3367289980f38665b110ecfa2d4daefd4249042272e745fd266f3b",
-    "inputSha256": "162590cde36e0bb589d02cc7ffd1d3471ebfa558d9cb47e1c55770fc63447500"
+    "inputSha256": "162590cde36e0bb589d02cc7ffd1d3471ebfa558d9cb47e1c55770fc63447500",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

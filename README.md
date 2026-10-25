@@ -322,22 +322,29 @@ Add it to [`pkg/mappings/aws.json`](pkg/mappings/aws.json), rebuild, done.
 ## 🧪 Conformance Corpus
 
 The transpiler is tested against real Terraform, not hand-written examples. The
-repository vendors **918 modules** (6,934 files, ~24 MiB) from the Terraform
-Registry and public GitHub repositories. Every fixture pins the upstream commit,
-records the input-tree hash, carries the upstream license and is scanned for
-executables and credentials before it enters the tree.
+repository vendors **853 modules** (6,471 files, ~23 MiB) from the Terraform
+Registry and public GitHub repositories. Every fixture pins the resolved upstream
+commit, records the input-tree hash, carries the upstream license and is scanned
+for executables and credentials before it enters the tree. CI re-verifies the
+tree, its lock and the generated attribution on every pull request.
 
 ```bash
 make conformance-inputs                 # refresh from configured sources
+make conformance-verify                 # check the committed tree and lock
+make conformance-lock                   # regenerate the lock and attribution
 cat conformance/corpus.lock.json        # aggregate counts and tree hash
 ```
 
 | Tier | Count | Purpose |
 |:--|--:|:--|
 | `smoke` | 20 | Smallest basic modules, for every pull request |
-| `core` | 4 | Resources, variables and outputs only |
-| `advanced` | 497 | Data sources, locals, expressions, `count`/`for_each` |
-| `modules` | 397 | Module composition |
+| `core` | 0 | Resources, variables and outputs only |
+| `advanced` | 487 | Data sources, locals, expressions, `count`/`for_each` |
+| `modules` | 346 | Module composition |
+
+Every basic module was small enough to enter `smoke`, so `core` is currently
+empty. Tier is metadata rather than a directory, and both the smoke set and the
+other tiers are derived deterministically; CI rejects a hand-edited tier.
 
 See [docs/CONFORMANCE.md](docs/CONFORMANCE.md) for the L0–L4 oracle design and
 [conformance/README.md](conformance/README.md) for provenance and regeneration.

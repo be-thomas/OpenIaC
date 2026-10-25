@@ -6,15 +6,20 @@
   "source": {
     "url": "https://registry.terraform.io/modules/Young-ook/eks/aws/2.1.0",
     "ref": "2.1.0",
+    "commit": "8748e5ad4e735868aef7c8e0c369e6119cfd9abc",
+    "gitOwner": "Young-ook",
+    "gitRepo": "terraform-aws-eks",
     "path": "modules/pod-identity",
     "archiveSha256": "ee277c5b0e074f97bdd688fd431570225958a51321c3423a87b764193c6be0d1",
-    "inputSha256": "d40f0e88c8b1dceadedb6ee02a0265dc7cfd1ab3a9f803d99e54a96e48b44573"
+    "inputSha256": "d40f0e88c8b1dceadedb6ee02a0265dc7cfd1ab3a9f803d99e54a96e48b44573",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
     "for_each",
     "for_expressions",
     "functions",
@@ -22,7 +27,6 @@
     "modules",
     "outputs",
     "resources",
-    "sensitive",
     "terraform",
     "variables"
   ],

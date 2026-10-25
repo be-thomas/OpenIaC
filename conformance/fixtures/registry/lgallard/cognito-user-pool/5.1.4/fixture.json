@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/lgallard/cognito-user-pool/aws/5.1.4",
     "ref": "5.1.4",
+    "commit": "4e5910ca37ff4766d887f6a3f9e3f1504c69ce59",
+    "gitOwner": "lgallard",
+    "gitRepo": "terraform-aws-cognito-user-pool",
     "path": ".",
     "archiveSha256": "e7f534586d752fc409dff622ade77c4d196de4ab9d10b74e100027d8d50d2d6e",
-    "inputSha256": "397aa584d190fdfa8ed712ff785e8268597ecbe981d0a3c19a5f948945ddbe89"
+    "inputSha256": "397aa584d190fdfa8ed712ff785e8268597ecbe981d0a3c19a5f948945ddbe89",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

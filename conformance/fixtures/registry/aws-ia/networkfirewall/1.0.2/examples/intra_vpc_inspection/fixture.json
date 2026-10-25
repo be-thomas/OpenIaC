@@ -6,21 +6,27 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/networkfirewall/aws/1.0.2",
     "ref": "1.0.2",
+    "commit": "1c5f35b9a9e8c3038d12951f9f38e69e6928762f",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-networkfirewall",
     "path": "examples/intra_vpc_inspection",
     "archiveSha256": "58e669e24261a04619f8ddb3064391b1dba36d0774e248245e9bec218bcc02f5",
-    "inputSha256": "b782583d35899020afdb84fde6525b21d87acc13bd05f8aa85cb8457a2266dbb"
+    "inputSha256": "b782583d35899020afdb84fde6525b21d87acc13bd05f8aa85cb8457a2266dbb",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",
     "locals",
     "modules",
     "outputs",
+    "providers",
     "required_providers",
     "resources",
     "terraform",

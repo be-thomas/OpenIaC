@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/route53-alias/aws/0.13.0",
     "ref": "0.13.0",
+    "commit": "c88d5bc87062a5cca1af2ca45f7884b46e1d7fb4",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-route53-alias",
     "path": ".",
     "archiveSha256": "c6563854381becf72ac4d34c00d8638d36a225fdaece881f1c71243f1facae81",
-    "inputSha256": "09732ccb76f98b61a91efc55d9efcce4059ab6538c169141ba68439bd4954760"
+    "inputSha256": "09732ccb76f98b61a91efc55d9efcce4059ab6538c169141ba68439bd4954760",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

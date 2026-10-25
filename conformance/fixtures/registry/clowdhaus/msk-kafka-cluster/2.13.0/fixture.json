@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/clowdhaus/msk-kafka-cluster/aws/2.13.0",
     "ref": "2.13.0",
+    "commit": "310df9b6af502a8a430227fa788ed4fdaf53f009",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-msk-kafka-cluster",
     "path": ".",
     "archiveSha256": "819cdce96c6c91b77f3e8ed3dc849c0a08fe1212518219e2c6a270fa6ced9caa",
-    "inputSha256": "41da400cb6d0ef9ad9b394e884a24dccfba4e6838015ca19580b9f9fc76c218c"
+    "inputSha256": "41da400cb6d0ef9ad9b394e884a24dccfba4e6838015ca19580b9f9fc76c218c",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

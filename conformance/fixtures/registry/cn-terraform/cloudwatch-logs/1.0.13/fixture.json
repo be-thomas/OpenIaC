@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cn-terraform/cloudwatch-logs/aws/1.0.13",
     "ref": "1.0.13",
+    "commit": "aed331e80e4ae6df868cc71a5f0e1758afbb9e41",
+    "gitOwner": "cn-terraform",
+    "gitRepo": "terraform-aws-cloudwatch-logs",
     "path": ".",
     "archiveSha256": "1f61f5ac1f7e070a2137a525a4d1dfaa901d5a0f70d09bbd7672ec42a2f56892",
-    "inputSha256": "94423d75dcdedfcbc669b4512883a91caf535c79f06f67587801dbe3de044b2e"
+    "inputSha256": "94423d75dcdedfcbc669b4512883a91caf535c79f06f67587801dbe3de044b2e",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

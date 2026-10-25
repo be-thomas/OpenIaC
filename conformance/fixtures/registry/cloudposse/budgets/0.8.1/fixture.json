@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/budgets/aws/0.8.1",
     "ref": "0.8.1",
+    "commit": "75b709ca21550ff21c018f8a5c592332750f576e",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-budgets",
     "path": ".",
     "archiveSha256": "8e181b4e85dee4ff6f6504581e0169946a55939dc0baee4faf5bc2fb672998c6",
-    "inputSha256": "c5beb469ba81f79a92ad17e2299cb1d9014e9a2d88fb28369cb22cf68d58cc3e"
+    "inputSha256": "c5beb469ba81f79a92ad17e2299cb1d9014e9a2d88fb28369cb22cf68d58cc3e",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -20,6 +24,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "heredoc",
     "locals",

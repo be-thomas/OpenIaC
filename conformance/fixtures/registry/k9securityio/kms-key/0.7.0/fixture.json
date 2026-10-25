@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/k9securityio/kms-key/aws/0.7.0",
     "ref": "0.7.0",
+    "commit": "826e156f3eff8abfbfc0021c0b51ea2e9bb16db5",
+    "gitOwner": "k9securityio",
+    "gitRepo": "terraform-aws-kms-key",
     "path": ".",
     "archiveSha256": "d12a651cb82adda49376f92df7d4fafb40361e425a541527be6769dee5fd3ac4",
-    "inputSha256": "09cf0df1e3c3d67747a662f46b84f5fc75d1151d2df10303d7416f5aed4ddc67"
+    "inputSha256": "09cf0df1e3c3d67747a662f46b84f5fc75d1151d2df10303d7416f5aed4ddc67",
+    "licensePath": "LICENSE.txt"
   },
   "license": "Apache-2.0",
   "providers": [

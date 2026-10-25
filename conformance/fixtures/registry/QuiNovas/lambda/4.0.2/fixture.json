@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/QuiNovas/lambda/aws/4.0.2",
     "ref": "4.0.2",
+    "commit": "896cbd6ea1090103e62eec9a0d85cb0f84538e74",
+    "gitOwner": "QuiNovas",
+    "gitRepo": "terraform-aws-lambda",
     "path": ".",
     "archiveSha256": "56cbbbea4fd563caf55dc6f6a2f64cf01c74ecbd1231727724f3afc9908ef6ce",
-    "inputSha256": "1e246a1101e21ed15c77cef9dc399fdf525076a880da9cba86da27720290da81"
+    "inputSha256": "1e246a1101e21ed15c77cef9dc399fdf525076a880da9cba86da27720290da81",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,6 +25,7 @@
     "depends_on",
     "dynamic",
     "for_each",
+    "functions",
     "interpolation",
     "outputs",
     "required_providers",

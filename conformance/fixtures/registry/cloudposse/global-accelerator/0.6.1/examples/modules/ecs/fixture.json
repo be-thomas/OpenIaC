@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/global-accelerator/aws/0.6.1",
     "ref": "0.6.1",
+    "commit": "704d949c0d5a762fb920756163e4d51cfbe13104",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-global-accelerator",
     "path": "examples/modules/ecs",
     "archiveSha256": "44d41e8dd885247829113c37229f70ad815c091b6f15b7557ed175fba7c86208",
-    "inputSha256": "f7627654a34336ea0605b5db57ec34099624f94c6d43a30d04c8ffb3a8a43f76"
+    "inputSha256": "f7627654a34336ea0605b5db57ec34099624f94c6d43a30d04c8ffb3a8a43f76",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

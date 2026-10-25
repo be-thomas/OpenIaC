@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/lambda-function/aws/0.6.1",
     "ref": "0.6.1",
+    "commit": "302a4d51364735edac015baa372efcbf35da5722",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-lambda-function",
     "path": ".",
     "archiveSha256": "d7091e048e6e98948ce831ccc14bcc96ff37f0cddaa711817cea26dfc15d2ce8",
-    "inputSha256": "6db8d00618edcb41938ced3b8a9ced996fa14b4af28f3f3ca7e3a7c90cdaa855"
+    "inputSha256": "6db8d00618edcb41938ced3b8a9ced996fa14b4af28f3f3ca7e3a7c90cdaa855",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,6 +25,7 @@
     "depends_on",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",

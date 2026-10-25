@@ -70,9 +70,9 @@ func ExtractArchive(data []byte, maxText, maxFile int64) (*Archive, error) {
 		switch {
 		case isTerraformFile(name):
 			a.Files[name] = content
-		case isRootLicense(name):
+		case isLicenseName(name):
 			a.Licenses[name] = content
-		case isRootNotice(name):
+		case isNoticeName(name):
 			a.Notices[name] = content
 		}
 	}
@@ -91,7 +91,13 @@ func readTarGz(data []byte, maxText, maxFile int64, a *Archive) (map[string][]by
 		return nil, err
 	}
 	defer gz.Close()
-	tr := tar.NewReader(gz)
+	// Skipped entries still have to be decompressed, so bound the total
+	// expanded size rather than trusting the compressed archive size.
+	limit := maxText * 8
+	if limit <= 0 {
+		limit = maxText
+	}
+	tr := tar.NewReader(&cappedReader{r: gz, remaining: limit})
 	out := make(map[string][]byte)
 	for {
 		h, err := tr.Next()
@@ -107,9 +113,12 @@ func readTarGz(data []byte, maxText, maxFile int64, a *Archive) (map[string][]by
 		if !interestingName(h.Name) {
 			continue
 		}
-		content, err := readLimited(tr, maxFile)
+		content, tooLarge, err := readLimited(tr, maxFile)
 		if err != nil {
 			return nil, err
+		}
+		if tooLarge {
+			return nil, fmt.Errorf("archive file %s exceeds %d bytes", h.Name, maxFile)
 		}
 		if content == nil {
 			continue
@@ -137,14 +146,20 @@ func readZip(data []byte, maxText, maxFile int64, a *Archive) (map[string][]byte
 		if !interestingName(f.Name) {
 			continue
 		}
+		if int64(f.UncompressedSize64) > maxFile {
+			return nil, fmt.Errorf("archive file %s exceeds %d bytes", f.Name, maxFile)
+		}
 		rc, err := f.Open()
 		if err != nil {
 			return nil, err
 		}
-		content, err := readLimited(rc, maxFile)
+		content, tooLarge, err := readLimited(rc, maxFile)
 		rc.Close()
 		if err != nil {
 			return nil, err
+		}
+		if tooLarge {
+			return nil, fmt.Errorf("archive file %s exceeds %d bytes", f.Name, maxFile)
 		}
 		if content == nil {
 			continue
@@ -159,15 +174,33 @@ func readZip(data []byte, maxText, maxFile int64, a *Archive) (map[string][]byte
 	return out, nil
 }
 
-func readLimited(r io.Reader, max int64) ([]byte, error) {
+// cappedReader bounds how many decompressed bytes a reader may consume.
+type cappedReader struct {
+	r         io.Reader
+	remaining int64
+}
+
+func (c *cappedReader) Read(p []byte) (int, error) {
+	if c.remaining <= 0 {
+		return 0, fmt.Errorf("archive expands beyond the text budget")
+	}
+	if int64(len(p)) > c.remaining {
+		p = p[:c.remaining]
+	}
+	n, err := c.r.Read(p)
+	c.remaining -= int64(n)
+	return n, err
+}
+
+func readLimited(r io.Reader, max int64) ([]byte, bool, error) {
 	data, err := io.ReadAll(io.LimitReader(r, max+1))
 	if err != nil {
-		return nil, err
+		return nil, false, err
 	}
 	if int64(len(data)) > max {
-		return nil, nil
+		return nil, true, nil
 	}
-	return data, nil
+	return data, false, nil
 }
 
 func cleanArchivePath(name string) string {
@@ -225,7 +258,9 @@ func isTerraformFile(name string) bool {
 func isLicenseName(name string) bool {
 	base := strings.ToLower(path.Base(name))
 	switch base {
-	case "license", "license.md", "license.txt", "license.rst", "copying", "copying.md", "copying.txt":
+	case "license", "license.md", "license.txt", "license.rst",
+		"licence", "licence.md", "licence.txt", "licence.rst",
+		"copying", "copying.md", "copying.txt":
 		return true
 	}
 	return false
@@ -240,31 +275,63 @@ func isNoticeName(name string) bool {
 	return false
 }
 
-func isRootLicense(name string) bool { return !strings.Contains(name, "/") && isLicenseName(name) }
-func isRootNotice(name string) bool  { return !strings.Contains(name, "/") && isNoticeName(name) }
+// NearestLicense returns the license file that governs a candidate directory:
+// its own LICENSE first, then the nearest ancestor up to the repository root.
+func (a *Archive) NearestLicense(dir string) (string, []byte, bool) {
+	return nearestNamed(a.Licenses, dir)
+}
 
-// PrimaryLicense returns the preferred root license file, if any. The choice
-// is deterministic: LICENSE first, then COPYING, then lexicographic order.
-func (a *Archive) PrimaryLicense() (string, []byte, bool) {
-	if len(a.Licenses) == 0 {
+// NearestNotice returns the nearest ancestor NOTICE file, if any.
+func (a *Archive) NearestNotice(dir string) (string, []byte, bool) {
+	return nearestNamed(a.Notices, dir)
+}
+
+func nearestNamed(files map[string][]byte, dir string) (string, []byte, bool) {
+	if len(files) == 0 {
 		return "", nil, false
 	}
-	names := make([]string, 0, len(a.Licenses))
-	for name := range a.Licenses {
+	for {
+		if name, content, ok := preferredInDir(files, dir); ok {
+			return name, content, true
+		}
+		if dir == "" {
+			return "", nil, false
+		}
+		dir = path.Dir(dir)
+		if dir == "." {
+			dir = ""
+		}
+	}
+}
+
+func preferredInDir(files map[string][]byte, dir string) (string, []byte, bool) {
+	var names []string
+	for name := range files {
+		if path.Dir(name) != dir && !(dir == "" && !strings.Contains(name, "/")) {
+			continue
+		}
 		names = append(names, name)
+	}
+	if len(names) == 0 {
+		return "", nil, false
 	}
 	sort.Slice(names, func(i, j int) bool {
 		rank := func(s string) int {
-			low := strings.ToLower(s)
-			switch {
-			case low == "license":
+			switch strings.ToLower(path.Base(s)) {
+			case "license":
 				return 0
-			case low == "license.md":
+			case "license.md":
 				return 1
-			case low == "license.txt":
+			case "license.txt":
 				return 2
-			case low == "copying":
+			case "copying":
 				return 3
+			case "notice":
+				return 0
+			case "notice.md":
+				return 1
+			case "notice.txt":
+				return 2
 			default:
 				return 4
 			}
@@ -276,18 +343,15 @@ func (a *Archive) PrimaryLicense() (string, []byte, bool) {
 		return names[i] < names[j]
 	})
 	name := names[0]
-	return name, a.Licenses[name], true
+	return name, files[name], true
+}
+
+// PrimaryLicense returns the preferred root license file, if any.
+func (a *Archive) PrimaryLicense() (string, []byte, bool) {
+	return a.NearestLicense("")
 }
 
 // PrimaryNotice returns the preferred root notice file, if any.
 func (a *Archive) PrimaryNotice() (string, []byte, bool) {
-	if len(a.Notices) == 0 {
-		return "", nil, false
-	}
-	names := make([]string, 0, len(a.Notices))
-	for name := range a.Notices {
-		names = append(names, name)
-	}
-	sort.Strings(names)
-	return names[0], a.Notices[names[0]], true
+	return a.NearestNotice("")
 }

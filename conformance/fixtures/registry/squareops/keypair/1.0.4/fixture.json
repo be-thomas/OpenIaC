@@ -6,15 +6,20 @@
   "source": {
     "url": "https://registry.terraform.io/modules/squareops/keypair/aws/1.0.4",
     "ref": "1.0.4",
+    "commit": "5e8b4d78856949e4c42c3340555dbc25811a9da2",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-keypair",
     "path": ".",
     "archiveSha256": "cc93bbf6c558e630e6724941860abe8c5daf107c0cd469fbf68507d6a4a8062e",
-    "inputSha256": "bea9138d265931bd07110c2679c37343603537d754551f220a7a456564ca0952"
+    "inputSha256": "bea9138d265931bd07110c2679c37343603537d754551f220a7a456564ca0952",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "functions",
     "modules",
     "outputs",
     "required_providers",

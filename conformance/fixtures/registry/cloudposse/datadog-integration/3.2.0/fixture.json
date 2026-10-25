@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/datadog-integration/aws/3.2.0",
     "ref": "3.2.0",
+    "commit": "cae0230b460eec1e14d993eee9080fb900a273e4",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-datadog-integration",
     "path": ".",
     "archiveSha256": "25dcdcc475fe18be8209743e4f8b38b0743f171ce56e8848d42d7c11d7356c2b",
-    "inputSha256": "5986249b8d3274055406359ab95a127785ef5309d73f064210e8cfdbfcfd92fc"
+    "inputSha256": "5986249b8d3274055406359ab95a127785ef5309d73f064210e8cfdbfcfd92fc",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

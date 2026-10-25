@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/api-gateway/aws/0.9.1",
     "ref": "0.9.1",
+    "commit": "6839075c74dedfbd29b3d11614887885ea05fe47",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-api-gateway",
     "path": ".",
     "archiveSha256": "7907d3635cc4b3dddfb4d8caa7db57317dae8d63bc535443fcea5d70353ad667",
-    "inputSha256": "2b0f4d385b84f7dbe0190a610f155b351c8e4e1841a6287eca5af33822e10f48"
+    "inputSha256": "2b0f4d385b84f7dbe0190a610f155b351c8e4e1841a6287eca5af33822e10f48",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

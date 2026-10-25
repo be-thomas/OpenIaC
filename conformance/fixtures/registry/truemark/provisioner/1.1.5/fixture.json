@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/truemark/provisioner/aws/1.1.5",
     "ref": "1.1.5",
+    "commit": "81b6285d27ad412ed3cf61d105e079ce76817f06",
+    "gitOwner": "truemark",
+    "gitRepo": "terraform-aws-provisioner",
     "path": ".",
     "archiveSha256": "1d9c925272040c8edcfa099c95e38f395328341aa8cfdc4590b6f0f52645095f",
-    "inputSha256": "77122c66234810c877c68fa20da92c4bef7b6354d50e716ab0d67c328fc7c3a2"
+    "inputSha256": "77122c66234810c877c68fa20da92c4bef7b6354d50e716ab0d67c328fc7c3a2",
+    "licensePath": "LICENSE"
   },
   "license": "BSD-3-Clause",
   "providers": [

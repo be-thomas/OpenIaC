@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/mwaa/aws/0.0.8",
     "ref": "0.0.8",
+    "commit": "5390594c43bffaa541c8ba1a4910b070065ceb71",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-mwaa",
     "path": ".",
     "archiveSha256": "46da480d6690893f411c7ca6dae80a71acb974644b9c2cb46993d7ad934d790c",
-    "inputSha256": "908d580d18a5ae0e21d9a26bec75dc0720f0f06ceede77f36e7ef870c2f02fb8"
+    "inputSha256": "908d580d18a5ae0e21d9a26bec75dc0720f0f06ceede77f36e7ef870c2f02fb8",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -20,6 +24,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",

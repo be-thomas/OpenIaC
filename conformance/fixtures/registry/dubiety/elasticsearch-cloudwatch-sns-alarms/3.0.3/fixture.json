@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dubiety/elasticsearch-cloudwatch-sns-alarms/aws/3.0.3",
     "ref": "3.0.3",
+    "commit": "3ff73343e7af64bde59a6407eeb4ce6b1b98e915",
+    "gitOwner": "dubiety",
+    "gitRepo": "terraform-aws-elasticsearch-cloudwatch-sns-alarms",
     "path": ".",
     "archiveSha256": "d83ba8f130e1f60a7035250f36d07e869f9019dfbb8b1d4c05025c86916d7263",
-    "inputSha256": "1247ff1f3f4624b4bfe4b823186270b57b0fff7dd65894fb3dc01c70d73b5a02"
+    "inputSha256": "1247ff1f3f4624b4bfe4b823186270b57b0fff7dd65894fb3dc01c70d73b5a02",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

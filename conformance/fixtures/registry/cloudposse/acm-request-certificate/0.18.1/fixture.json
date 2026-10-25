@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/acm-request-certificate/aws/0.18.1",
     "ref": "0.18.1",
+    "commit": "1238eb8257b0b756ae7c786de9679f68516dc50c",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-acm-request-certificate",
     "path": ".",
     "archiveSha256": "4b7bc88d661c771ff52c1e59aaf2d095c55e4fb62a6eeb89698fd4cae5ac3c96",
-    "inputSha256": "e3f31793b1cbff29041780dd64c12241d00ed16d24fa148707d10a3ebe39d168"
+    "inputSha256": "e3f31793b1cbff29041780dd64c12241d00ed16d24fa148707d10a3ebe39d168",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

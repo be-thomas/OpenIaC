@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/elasticache-memcached/aws/0.20.0",
     "ref": "0.20.0",
+    "commit": "cb58b698a54a7550a6cdde5ea5c8a518b0a62b0a",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-elasticache-memcached",
     "path": ".",
     "archiveSha256": "9436f2ebaf85f2ee9c06cd4dd20a38cf6cddfdc98a706023df326c34423287cf",
-    "inputSha256": "11de07f4f1ac978b50a70830fa9546e5d4725d7822085ad9a528cb928cc47889"
+    "inputSha256": "11de07f4f1ac978b50a70830fa9546e5d4725d7822085ad9a528cb928cc47889",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

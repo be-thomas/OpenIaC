@@ -6,15 +6,21 @@
   "source": {
     "url": "https://registry.terraform.io/modules/baikonur-oss/fargate-scheduled-task/aws/2.0.3",
     "ref": "2.0.3",
+    "commit": "3820e3af27a52fc667170d2d13f0e109ead8eccb",
+    "gitOwner": "baikonur-oss",
+    "gitRepo": "terraform-aws-fargate-scheduled-task",
     "path": ".",
     "archiveSha256": "f59b00cc3fc6efd3c18e9d0faf207be71a929ffadd96801f77ffc36ca56d636a",
-    "inputSha256": "4c6f9c8ab6f79e517c0e86433a4848a458891d704ecf387be5740366c997d3f3"
+    "inputSha256": "4c6f9c8ab6f79e517c0e86433a4848a458891d704ecf387be5740366c997d3f3",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
+    "functions",
     "heredoc",
     "interpolation",
     "locals",

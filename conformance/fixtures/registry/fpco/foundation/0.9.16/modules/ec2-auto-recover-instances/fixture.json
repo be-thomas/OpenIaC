@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
     "ref": "0.9.16",
+    "commit": "a7b028e436cd1ce0977b8144b090ce5c9fe30526",
+    "gitOwner": "fpco",
+    "gitRepo": "terraform-aws-foundation",
     "path": "modules/ec2-auto-recover-instances",
     "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
-    "inputSha256": "aa878fd0c26201cf137004d347f3bee8d8d8b02a8a174b59bf95f1446fcc4b3e"
+    "inputSha256": "aa878fd0c26201cf137004d347f3bee8d8d8b02a8a174b59bf95f1446fcc4b3e",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
@@ -16,6 +20,7 @@
     "template"
   ],
   "features": [
+    "conditionals",
     "count",
     "data",
     "functions",

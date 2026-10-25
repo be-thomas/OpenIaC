@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/schubergphilis/mcaf-s3/aws/3.0.0",
     "ref": "3.0.0",
+    "commit": "816be32fbc1822699c5b0e93ae4baef69e26f499",
+    "gitOwner": "schubergphilis",
+    "gitRepo": "terraform-aws-mcaf-s3",
     "path": ".",
     "archiveSha256": "5b0fe92193cb893e15c5ac58b2183921c7a3b70f47b2d622a8fc20d596a71273",
-    "inputSha256": "de5f18fb2c2e8d8a57d97a506329b413d6937d0005259d0f5894909f31399325"
+    "inputSha256": "de5f18fb2c2e8d8a57d97a506329b413d6937d0005259d0f5894909f31399325",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/eks-blueprints-teams/aws/1.1.0",
     "ref": "1.1.0",
+    "commit": "e039ac2fbcc25f8990965cc298f97208e573e74c",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints-teams",
     "path": ".",
     "archiveSha256": "a2638b124580c78e1656e2ab2c76b6da23ecb015782db9c5c96a58ca7f006ce8",
-    "inputSha256": "0632d0011550162bda17662b342bde482694537b7a0fbfe675ee5c2c05a27c66"
+    "inputSha256": "0632d0011550162bda17662b342bde482694537b7a0fbfe675ee5c2c05a27c66",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,6 +25,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/lb-s3-bucket/aws/0.20.0",
     "ref": "0.20.0",
+    "commit": "f864e22c4a1599d1395da3c601c2aff42aa622a7",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-lb-s3-bucket",
     "path": ".",
     "archiveSha256": "a16760fdb7c0b8267ae6c5a934d0f2e4feef21ab6610b006d9c01c1ebbc6bdb9",
-    "inputSha256": "7eba4e32215f65aab5b4a8f939567184d848d47622619ccc06a419ba8f696e10"
+    "inputSha256": "7eba4e32215f65aab5b4a8f939567184d848d47622619ccc06a419ba8f696e10",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

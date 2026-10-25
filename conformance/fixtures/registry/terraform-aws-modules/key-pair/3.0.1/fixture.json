@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/key-pair/aws/3.0.1",
     "ref": "3.0.1",
+    "commit": "f3221d392c436a874f189aa2d217d4aff60eb05e",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-key-pair",
     "path": ".",
     "archiveSha256": "5d8bca51bb85b728b14d0eff475f154c8cf597147e8400084cd466c9b4b24aad",
-    "inputSha256": "271de84e9b6cd2c8bca02e026017d689c29b30662b80d92245dc14f14226bc86"
+    "inputSha256": "271de84e9b6cd2c8bca02e026017d689c29b30662b80d92245dc14f14226bc86",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

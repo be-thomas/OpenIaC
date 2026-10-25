@@ -8,7 +8,6 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
-	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -20,9 +19,6 @@ type Options struct {
 	LockPath       string
 	ThirdPartyPath string
 	ReportPath     string
-	MaxModules     int
-	MaxPages       int
-	MinDownloads   int
 	Workers        int
 	Logf           func(string, ...any)
 }
@@ -76,6 +72,10 @@ func New(cfg Config, client *Client, opt Options) *Collector {
 	if opt.Workers <= 0 {
 		opt.Workers = 6
 	}
+	if opt.Workers > 16 {
+		// Unbounded concurrency turns a rate limit into a retry storm.
+		opt.Workers = 16
+	}
 	if opt.Logf == nil {
 		opt.Logf = func(string, ...any) {}
 	}
@@ -94,7 +94,6 @@ func (c *Collector) Run(ctx context.Context) error {
 		return err
 	}
 	c.report.Registry.Pages = pages
-	c.report.Registry.ModulesSeen = len(mods)
 
 	seen := make(map[string]bool, len(mods))
 	for _, m := range mods {
@@ -112,8 +111,9 @@ func (c *Collector) Run(ctx context.Context) error {
 		mods = append(mods, m)
 		seen[registryID(m)] = true
 	}
+	c.report.Registry.ModulesSeen = len(mods)
 
-	selected := selectRegistryModules(mods, c.cfg, c.opt.MaxModules, c.opt.MinDownloads)
+	selected := selectRegistryModules(mods, c.cfg, 0, 0)
 	c.report.Registry.Selected = len(selected)
 	c.opt.Logf("registry: selected %d module roots", len(selected))
 
@@ -139,14 +139,21 @@ func (c *Collector) Run(ctx context.Context) error {
 	c.opt.Logf("sources: %d unique repositories", len(all))
 
 	results := c.processAll(ctx, all)
+	// A cancelled run must not present its partial crawl as a finished corpus.
+	if err := ctx.Err(); err != nil {
+		return err
+	}
 	pending, totalBytes := c.collectFixtures(results)
 	c.opt.Logf("fixtures: %d selected, %d bytes", len(pending), totalBytes)
 
-	markSmoke(pending)
+	fallback := markSmoke(pending)
+	if fallback > 0 {
+		c.opt.Logf("smoke: %d of 20 tiers used the fallback because too few basic modules were available", fallback)
+	}
 	sort.Slice(pending, func(i, j int) bool { return pending[i].fixture.ID < pending[j].fixture.ID })
 
 	for _, p := range pending {
-		n, err := WriteFixture(c.opt.OutDir, p.fixture, p.cand, p.license, p.notice)
+		n, err := WriteFixture(c.opt.OutDir, p.fixture, p.cand, p.cand.LicenseText, p.cand.Notice)
 		if err != nil {
 			c.report.Fixtures.Skipped++
 			c.addSkip(p.fixture.Source.URL, p.fixture.ID, "write: "+err.Error())
@@ -156,11 +163,11 @@ func (c *Collector) Run(ctx context.Context) error {
 		c.report.Fixtures.TotalBytes += n
 	}
 
-	lock, err := WriteLock(c.opt.OutDir, c.opt.LockPath)
+	// RefreshAggregates checks the byte budget before writing either aggregate.
+	// Each file is replaced atomically; verify reports a run that failed between
+	// the two writes.
+	lock, err := RefreshAggregates(c.opt.OutDir, c.opt.LockPath, c.opt.ThirdPartyPath, c.cfg)
 	if err != nil {
-		return err
-	}
-	if err := WriteThirdParty(c.opt.OutDir, c.opt.ThirdPartyPath); err != nil {
 		return err
 	}
 	c.opt.Logf("lock: %d fixtures, %d files, %d bytes, tree %s",
@@ -268,9 +275,6 @@ func (c *Collector) processAll(ctx context.Context, items []GitModule) []archive
 type archiveResult struct {
 	module     GitModule
 	archive    *Archive
-	license    string
-	licenseRaw []byte
-	notice     []byte
 	candidates []*Candidate
 	skips      []Skip
 	reason     string
@@ -290,30 +294,6 @@ func (c *Collector) process(ctx context.Context, gm GitModule) archiveResult {
 	}
 	res.archive = arch
 
-	_, licenseRaw, ok := arch.PrimaryLicense()
-	if !ok {
-		res.reason = "no root license file"
-		return res
-	}
-	if int64(len(licenseRaw)) > c.cfg.Limits.MaxFileBytes {
-		res.reason = "license file too large"
-		return res
-	}
-	spdx := DetectLicense(licenseRaw)
-	if spdx == "" {
-		res.reason = "unrecognized license"
-		return res
-	}
-	if !c.cfg.LicenseAllowed(spdx) {
-		res.reason = "license not allowed: " + spdx
-		return res
-	}
-	res.license = spdx
-	res.licenseRaw = licenseRaw
-	if _, notice, ok := arch.PrimaryNotice(); ok && int64(len(notice)) <= c.cfg.Limits.MaxFileBytes {
-		res.notice = notice
-	}
-
 	maxFixtures := c.cfg.Registry.MaxFixturesPerRepo
 	var includes []string
 	if gm.Seed != nil {
@@ -322,11 +302,13 @@ func (c *Collector) process(ctx context.Context, gm GitModule) archiveResult {
 		}
 		includes = gm.Seed.Include
 	}
-	buildMax := maxFixtures
-	if len(includes) > 0 {
-		buildMax = maxFixtures * 4
+	if gm.Subdir != "" {
+		// A registry module may declare its root inside a monorepo. Restrict
+		// candidates to that directory so the plain fixture ID really denotes
+		// the published module root.
+		includes = []string{gm.Subdir}
 	}
-	cands, skipped := BuildCandidates(arch, buildMax, c.cfg.Limits)
+	cands, skipped := BuildCandidates(arch, maxFixtures, c.cfg.Limits, includes)
 	for _, s := range skipped {
 		res.skips = append(res.skips, Skip{
 			Source: moduleKey(gm),
@@ -334,44 +316,45 @@ func (c *Collector) process(ctx context.Context, gm GitModule) archiveResult {
 			Reason: s.Reason,
 		})
 	}
-	if len(includes) > 0 {
-		cands = filterCandidates(cands, includes)
-		if len(cands) > maxFixtures {
-			cands = cands[:maxFixtures]
-		}
-	}
-	res.candidates = cands
-	if len(cands) == 0 {
-		res.reason = "no usable module roots"
-	}
-	return res
-}
 
-func filterCandidates(cands []*Candidate, includes []string) []*Candidate {
-	if len(includes) == 0 {
-		return cands
-	}
-	var out []*Candidate
+	// A candidate is governed by its own LICENSE or the nearest ancestor
+	// license, so a permissive repository can still exclude a copyleft subtree.
+	kept := cands[:0]
 	for _, cand := range cands {
-		for _, inc := range includes {
-			inc = strings.TrimSpace(inc)
-			inc = strings.TrimSuffix(inc, "/**")
-			inc = strings.TrimSuffix(inc, "/*")
-			inc = strings.Trim(inc, "/")
-			if inc == "" || cand.Dir == inc || strings.HasPrefix(cand.Dir, inc+"/") {
-				out = append(out, cand)
-				break
-			}
+		licenseAt, licenseRaw, ok := arch.NearestLicense(cand.Dir)
+		if !ok {
+			res.skips = append(res.skips, Skip{Source: moduleKey(gm), Path: cand.Dir, Reason: "no license file"})
+			continue
 		}
+		if int64(len(licenseRaw)) > c.cfg.Limits.MaxFileBytes {
+			res.skips = append(res.skips, Skip{Source: moduleKey(gm), Path: cand.Dir, Reason: "license file too large"})
+			continue
+		}
+		spdx := DetectLicense(licenseRaw)
+		if spdx == "" {
+			res.skips = append(res.skips, Skip{Source: moduleKey(gm), Path: cand.Dir, Reason: "unrecognized license"})
+			continue
+		}
+		if !c.cfg.LicenseAllowed(spdx) {
+			res.skips = append(res.skips, Skip{Source: moduleKey(gm), Path: cand.Dir, Reason: "license not allowed: " + spdx})
+			continue
+		}
+		cand.License = spdx
+		cand.LicenseAt = licenseAt
+		cand.LicenseText = licenseRaw
+		if noticeAt, notice, ok := arch.NearestNotice(cand.Dir); ok && int64(len(notice)) <= c.cfg.Limits.MaxFileBytes {
+			cand.Notice = notice
+			cand.NoticeAt = noticeAt
+		}
+		kept = append(kept, cand)
 	}
-	return out
+	res.candidates = kept
+	return res
 }
 
 type pendingFixture struct {
 	fixture Fixture
 	cand    *Candidate
-	license []byte
-	notice  []byte
 }
 
 func (c *Collector) collectFixtures(results []archiveResult) ([]pendingFixture, int64) {
@@ -380,6 +363,11 @@ func (c *Collector) collectFixtures(results []archiveResult) ([]pendingFixture, 
 	seenHash := make(map[string]bool)
 	var total int64
 	for _, res := range results {
+		// Per-directory skips are useful even when the archive as a whole is
+		// rejected, so record them before the early exit.
+		for _, s := range res.skips {
+			c.addSkip(s.Source, s.Path, s.Reason)
+		}
 		if res.archive != nil {
 			c.report.Archives.Downloaded++
 		}
@@ -388,11 +376,8 @@ func (c *Collector) collectFixtures(results []archiveResult) ([]pendingFixture, 
 			c.addSkip(moduleKey(res.module), "", res.reason)
 			continue
 		}
-		for _, s := range res.skips {
-			c.addSkip(s.Source, s.Path, s.Reason)
-		}
 		for _, cand := range res.candidates {
-			f := BuildFixture(res.module, cand, res.archive.SHA256, res.license)
+			f := BuildFixture(res.module, cand, res.archive.SHA256)
 			if len(f.ID) > 240 {
 				c.report.Fixtures.Skipped++
 				c.addSkip(moduleKey(res.module), f.ID, "fixture id too long")
@@ -406,7 +391,7 @@ func (c *Collector) collectFixtures(results []archiveResult) ([]pendingFixture, 
 				c.report.Fixtures.Duplicates++
 				continue
 			}
-			estimate := cand.Bytes + int64(len(res.licenseRaw)+len(res.notice)) + 2048
+			estimate := cand.Bytes + int64(len(cand.LicenseText)+len(cand.Notice)) + 4096
 			if total+estimate > c.cfg.Limits.MaxTotalBytes {
 				c.report.Fixtures.Skipped++
 				c.addSkip(moduleKey(res.module), f.ID, "total corpus budget reached")
@@ -415,18 +400,13 @@ func (c *Collector) collectFixtures(results []archiveResult) ([]pendingFixture, 
 			seenID[f.ID] = true
 			seenHash[f.Source.InputSHA256] = true
 			total += estimate
-			pending = append(pending, pendingFixture{
-				fixture: f,
-				cand:    cand,
-				license: res.licenseRaw,
-				notice:  res.notice,
-			})
+			pending = append(pending, pendingFixture{fixture: f, cand: cand})
 		}
 	}
 	return pending, total
 }
 
-func markSmoke(pending []pendingFixture) {
+func markSmoke(pending []pendingFixture) int {
 	var preferred, fallback []int
 	for i := range pending {
 		if onlyBasicFeatures(pending[i].cand.Features) {
@@ -447,12 +427,17 @@ func markSmoke(pending []pendingFixture) {
 	bySize(preferred)
 	bySize(fallback)
 	order := append(preferred, fallback...)
+	usedFallback := 0
 	for i, idx := range order {
 		if i >= 20 {
 			break
 		}
+		if !onlyBasicFeatures(pending[idx].cand.Features) {
+			usedFallback++
+		}
 		pending[idx].fixture.Tier = "smoke"
 	}
+	return usedFallback
 }
 
 func onlyBasicFeatures(features []string) bool {
@@ -506,7 +491,30 @@ func selectRegistryModules(mods []RegistryModule, cfg Config, limit, minDownload
 		return out[i].ID < out[j].ID
 	})
 	if limit > 0 && len(out) > limit {
-		out = out[:limit]
+		// Configured modules are pinned deliberately, so they keep their slot
+		// even when popularity would place them below the cut.
+		kept := make([]RegistryModule, 0, limit)
+		var rest []RegistryModule
+		for _, m := range out {
+			if always[registryID(m)] && len(kept) < limit {
+				kept = append(kept, m)
+			} else {
+				rest = append(rest, m)
+			}
+		}
+		for _, m := range rest {
+			if len(kept) >= limit {
+				break
+			}
+			kept = append(kept, m)
+		}
+		sort.Slice(kept, func(i, j int) bool {
+			if kept[i].Downloads != kept[j].Downloads {
+				return kept[i].Downloads > kept[j].Downloads
+			}
+			return kept[i].ID < kept[j].ID
+		})
+		out = kept
 	}
 	return out
 }

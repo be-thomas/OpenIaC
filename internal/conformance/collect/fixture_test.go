@@ -20,9 +20,11 @@ func TestWriteFixturePreservesCuratedFiles(t *testing.T) {
 		Tier:      "modules",
 		Support:   "partial",
 		Bytes:     75,
+		License:   "Apache-2.0",
+		LicenseAt: "LICENSE",
 	}
 	m := GitModule{Registry: &RegistryModule{Namespace: "acme", Name: "mod", Provider: "aws", Version: "1.2.3"}, Owner: "acme", Repo: "mod", Ref: "abc123"}
-	f := BuildFixture(m, cand, "archivehash", "Apache-2.0")
+	f := BuildFixture(m, cand, "archivehash")
 	if f.ID != "registry/acme/mod/1.2.3" {
 		t.Fatalf("id = %q", f.ID)
 	}
@@ -65,9 +67,11 @@ func TestWriteFixtureRemovesStaleNotice(t *testing.T) {
 		Providers: []string{"aws"},
 		Tier:      "core",
 		Support:   "full",
+		License:   "MIT",
+		LicenseAt: "LICENSE",
 	}
 	m := GitModule{Registry: &RegistryModule{Namespace: "acme", Name: "mod", Provider: "aws", Version: "1.0.0"}}
-	f := BuildFixture(m, cand, "archivehash", "MIT")
+	f := BuildFixture(m, cand, "archivehash")
 	if _, err := WriteFixture(out, f, cand, []byte("license"), []byte("notice")); err != nil {
 		t.Fatal(err)
 	}
@@ -76,6 +80,28 @@ func TestWriteFixtureRemovesStaleNotice(t *testing.T) {
 	}
 	if _, err := os.Stat(filepath.Join(out, filepath.FromSlash(f.ID), "NOTICE")); !os.IsNotExist(err) {
 		t.Errorf("stale NOTICE still present: %v", err)
+	}
+}
+
+func TestWriteFixtureRemovesStaleLicense(t *testing.T) {
+	out := t.TempDir()
+	cand := &Candidate{
+		Files:     map[string][]byte{"main.tf": []byte(`resource "aws_s3_bucket" "b" {}`)},
+		Features:  []string{"resources"},
+		Providers: []string{"aws"},
+		License:   "MIT",
+		LicenseAt: "LICENSE",
+	}
+	m := GitModule{Registry: &RegistryModule{Namespace: "acme", Name: "mod", Provider: "aws", Version: "1.0.0"}}
+	f := BuildFixture(m, cand, "archivehash")
+	if _, err := WriteFixture(out, f, cand, []byte("license"), nil); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := WriteFixture(out, f, cand, nil, nil); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(filepath.Join(out, filepath.FromSlash(f.ID), "LICENSE")); !os.IsNotExist(err) {
+		t.Errorf("stale LICENSE still present: %v", err)
 	}
 }
 

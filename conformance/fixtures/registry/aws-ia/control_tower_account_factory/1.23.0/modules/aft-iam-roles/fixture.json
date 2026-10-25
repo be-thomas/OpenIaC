@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/control_tower_account_factory/aws/1.23.0",
     "ref": "1.23.0",
+    "commit": "3531688103767a7d05e58a854fd957cf824cabd9",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-control_tower_account_factory",
     "path": "modules/aft-iam-roles",
     "archiveSha256": "69692e8ce464f39d96a87511e80599dd92e160e5c3d204fdff427ee0544e3db7",
-    "inputSha256": "976954866d520b71ba264474e6d790f49d81cbb6a6b152d7622f0558e35ae2a1"
+    "inputSha256": "976954866d520b71ba264474e6d790f49d81cbb6a6b152d7622f0558e35ae2a1",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

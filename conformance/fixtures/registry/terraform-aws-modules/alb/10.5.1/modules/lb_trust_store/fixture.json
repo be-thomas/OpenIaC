@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/alb/aws/10.5.1",
     "ref": "10.5.1",
+    "commit": "6c6e48c10d450d01cf6715346e926df0b858efc2",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-alb",
     "path": "modules/lb_trust_store",
     "archiveSha256": "836886873b7a06f03bbb5bc2a2f758b7556be3c31b6278e31b52e172cda0cadb",
-    "inputSha256": "1d172522cb1819cca1fa90a2ab2fe1160df04162b5798cf89659689a78fdc0b2"
+    "inputSha256": "1d172522cb1819cca1fa90a2ab2fe1160df04162b5798cf89659689a78fdc0b2",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

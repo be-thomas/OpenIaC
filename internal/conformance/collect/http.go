@@ -14,6 +14,7 @@ import (
 
 const (
 	registryBase   = "https://registry.terraform.io"
+	registryHost   = "registry.terraform.io"
 	githubAPI      = "https://api.github.com"
 	githubCodeload = "https://codeload.github.com"
 	userAgent      = "OpenIaC-conformance/0.1 (+https://github.com/be-thomas/OpenIaC)"
@@ -51,9 +52,11 @@ func (c *Client) request(ctx context.Context, rawURL string, accept string) (*ht
 	if accept != "" {
 		req.Header.Set("Accept", accept)
 	}
-	if c.Token != "" && strings.HasPrefix(rawURL, githubAPI) {
-		req.Header.Set("Authorization", "Bearer "+c.Token)
-		req.Header.Set("X-GitHub-Api-Version", "2022-11-28")
+	if c.Token != "" {
+		if u, err := url.Parse(rawURL); err == nil && u.Scheme == "https" && u.Host == "api.github.com" {
+			req.Header.Set("Authorization", "Bearer "+c.Token)
+			req.Header.Set("X-GitHub-Api-Version", "2022-11-28")
+		}
 	}
 	return c.do(req)
 }
@@ -117,6 +120,11 @@ func (c *Client) RegistryModules(ctx context.Context, cfg RegistryConfig, logf f
 			return out, pages, fmt.Errorf("registry page %d: %w", pages+1, err)
 		}
 		var page RegistryPage
+		if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+			io.Copy(io.Discard, io.LimitReader(resp.Body, 1<<20))
+			resp.Body.Close()
+			return out, pages, fmt.Errorf("registry page %d: %s", pages+1, resp.Status)
+		}
 		err = json.NewDecoder(io.LimitReader(resp.Body, 32<<20)).Decode(&page)
 		resp.Body.Close()
 		if err != nil {
@@ -140,16 +148,38 @@ func (c *Client) RegistryModules(ctx context.Context, cfg RegistryConfig, logf f
 		if logf != nil {
 			logf("registry: page %d, %d modules (%d total)", pages, len(page.Modules), len(out))
 		}
-		next = page.Meta.NextURL
-		if next != "" {
-			u, err := url.Parse(next)
-			if err == nil && !u.IsAbs() {
-				base, _ := url.Parse(pageURL)
-				next = base.ResolveReference(u).String()
-			}
-		}
+		next = registryNextURL(pageURL, page.Meta.NextURL)
+	}
+	if next != "" && logf != nil {
+		logf("registry: stopped at page cap %d with more results available", cfg.MaxPages)
 	}
 	return out, pages, nil
+}
+
+// registryNextURL validates a registry pagination link. It returns the URL to
+// request next, or "" when the crawl must stop: a link is only followed when
+// it resolves to the registry over https, so a protocol-relative or foreign
+// link can never redirect the crawl to another origin.
+func registryNextURL(pageURL, next string) string {
+	if next == "" {
+		return ""
+	}
+	u, err := url.Parse(next)
+	if err != nil || (u.Host != "" && !u.IsAbs()) {
+		return ""
+	}
+	if !u.IsAbs() {
+		base, err := url.Parse(pageURL)
+		if err != nil {
+			return ""
+		}
+		next = base.ResolveReference(u).String()
+	}
+	u, err = url.Parse(next)
+	if err != nil || u.Scheme != "https" || u.Host != registryHost {
+		return ""
+	}
+	return next
 }
 
 // RegistryModuleByID fetches the latest version of one registry module.
@@ -189,7 +219,7 @@ func (c *Client) ResolveRegistryDownload(ctx context.Context, m RegistryModule) 
 		return GitModule{}, fmt.Errorf("registry download %s: %s", m.ID, resp.Status)
 	}
 	get := resp.Header.Get("X-Terraform-Get")
-	owner, repo, ref, ok := parseGitHubSource(get)
+	owner, repo, ref, subdir, ok := parseGitHubSource(get)
 	if !ok {
 		return GitModule{}, fmt.Errorf("registry download %s: unsupported source %q", m.ID, get)
 	}
@@ -197,7 +227,7 @@ func (c *Client) ResolveRegistryDownload(ctx context.Context, m RegistryModule) 
 	if err != nil {
 		return GitModule{}, err
 	}
-	return GitModule{Registry: &m, Owner: owner, Repo: repo, Ref: sha}, nil
+	return GitModule{Registry: &m, Owner: owner, Repo: repo, Ref: sha, Requested: ref, Subdir: subdir}, nil
 }
 
 // ResolveSeed turns a configured GitHub seed into an exact commit.
@@ -215,7 +245,7 @@ func (c *Client) ResolveSeed(ctx context.Context, seed GitHubSeed) (GitModule, e
 		return GitModule{}, err
 	}
 	s := seed
-	return GitModule{Seed: &s, Owner: parts[0], Repo: parts[1], Ref: sha}, nil
+	return GitModule{Seed: &s, Owner: parts[0], Repo: parts[1], Ref: sha, Requested: seed.Ref}, nil
 }
 
 func (c *Client) resolveCommit(ctx context.Context, owner, repo, ref string) (string, error) {
@@ -270,37 +300,57 @@ func (c *Client) DownloadArchive(ctx context.Context, owner, repo, ref string, m
 	return data, nil
 }
 
-// parseGitHubSource recognizes the forms used by X-Terraform-Get.
-func parseGitHubSource(raw string) (owner, repo, ref string, ok bool) {
+// parseGitHubSource recognizes the forms used by X-Terraform-Get: git URLs
+// with a ref query, and archive URLs under /archive/ or /archive/refs/.
+func parseGitHubSource(raw string) (owner, repo, ref, subdir string, ok bool) {
 	s := strings.TrimSpace(raw)
 	s = strings.TrimPrefix(s, "git::")
 	if strings.HasPrefix(s, "git@github.com:") {
 		s = "https://github.com/" + strings.TrimPrefix(s, "git@github.com:")
 	}
 	u, err := url.Parse(s)
-	if err != nil || (u.Host != "github.com" && u.Host != "www.github.com") {
-		return "", "", "", false
+	if err != nil || u.Scheme != "https" || (u.Host != "github.com" && u.Host != "www.github.com") {
+		return "", "", "", "", false
 	}
-	parts := strings.Split(strings.Trim(u.Path, "/"), "/")
+	p := u.Path
+	if i := strings.Index(p, "//"); i >= 0 {
+		subdir = strings.Trim(p[i+2:], "/")
+		p = p[:i]
+	}
+	parts := strings.Split(strings.Trim(p, "/"), "/")
 	if len(parts) < 2 {
-		return "", "", "", false
+		return "", "", "", "", false
 	}
 	owner = parts[0]
 	repo = strings.TrimSuffix(parts[1], ".git")
-	ref = u.Query().Get("ref")
 	if repo == "" {
-		return "", "", "", false
+		return "", "", "", "", false
 	}
-	if ref == "" {
-		// Older registry responses use /archive/<ref>.zip.
-		if len(parts) >= 4 && parts[2] == "archive" {
-			ref = strings.TrimSuffix(strings.TrimSuffix(parts[3], ".zip"), ".tar.gz")
+	ref = u.Query().Get("ref")
+	if i := strings.Index(ref, "//"); i >= 0 {
+		// Terraform also accepts the subdirectory after the ref query.
+		if subdir == "" {
+			subdir = strings.Trim(ref[i+2:], "/")
+		}
+		ref = ref[:i]
+	}
+	if ref == "" && len(parts) >= 4 && parts[2] == "archive" {
+		rest := parts[3:]
+		if len(rest) >= 2 && rest[0] == "refs" {
+			rest = rest[2:]
+		}
+		if len(rest) > 0 {
+			name := rest[len(rest)-1]
+			for _, ext := range []string{".zip", ".tar.gz", ".tgz"} {
+				name = strings.TrimSuffix(name, ext)
+			}
+			ref = name
 		}
 	}
 	if ref == "" {
-		return "", "", "", false
+		return "", "", "", "", false
 	}
-	return owner, repo, ref, true
+	return owner, repo, ref, subdir, true
 }
 
 func isHexSHA(s string) bool {

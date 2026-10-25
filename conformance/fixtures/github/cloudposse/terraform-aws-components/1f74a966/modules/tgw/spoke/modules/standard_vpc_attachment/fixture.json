@@ -5,10 +5,14 @@
   "origin": "github",
   "source": {
     "url": "https://github.com/cloudposse/terraform-aws-components",
-    "ref": "1f74a966a0b40ce7e5cae5baec690e5356cf46b8",
+    "ref": "main",
+    "commit": "1f74a966a0b40ce7e5cae5baec690e5356cf46b8",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-components",
     "path": "modules/tgw/spoke/modules/standard_vpc_attachment",
     "archiveSha256": "97bfd2e9c947b2ae0a7fe6754f377cdc389f3397de7eba4d935c82a8aaf2ab4c",
-    "inputSha256": "8fc5b690313240ecc72ef2117a2145e9f46592388fe34b739b90aa9456a25d08"
+    "inputSha256": "8fc5b690313240ecc72ef2117a2145e9f46592388fe34b739b90aa9456a25d08",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/eks-data-addons/aws/1.38.0",
     "ref": "1.38.0",
+    "commit": "ea3c83dc8ce4be0f2bcca8cb3dc3e5e71057740e",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-data-addons",
     "path": ".",
     "archiveSha256": "ddb7794878ce9b85a38303688a7ab0cc5f119121fdc5f70b9034325ab99949ff",
-    "inputSha256": "1f099a1c9b00e7ac3a354736220fc42e2adcb42bfcbe58b1f6310ce31e5309f6"
+    "inputSha256": "1f099a1c9b00e7ac3a354736220fc42e2adcb42bfcbe58b1f6310ce31e5309f6",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,6 +25,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/security-hub/aws/0.13.0",
     "ref": "0.13.0",
+    "commit": "d5642ecdda292c14289fe750854ce50c6ea530d8",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-security-hub",
     "path": "modules/control-disablements",
     "archiveSha256": "55e4a0fed14f5d0dcca493f581ccc55c3a1ae3501130be82b42281f922136bb4",
-    "inputSha256": "0ee2dc62757d6539f5b3aaf46bc9d4ef9f12ca49c0b09a9ccbf93e258f391682"
+    "inputSha256": "0ee2dc62757d6539f5b3aaf46bc9d4ef9f12ca49c0b09a9ccbf93e258f391682",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

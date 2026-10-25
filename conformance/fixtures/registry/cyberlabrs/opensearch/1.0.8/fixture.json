@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "registry/cyberlabrs/opensearch/1.0.8",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cyberlabrs/opensearch/aws/1.0.8",
+    "ref": "1.0.8",
+    "commit": "f230f49ddcd6f6c91211e6426e92a27598e76082",
+    "gitOwner": "cyberlabrs",
+    "gitRepo": "terraform-aws-opensearch",
+    "path": ".",
+    "archiveSha256": "542f5c6b49d7569434ddae828fa03f2f4ce810d922fccad94cd7d3d467526b4e",
+    "inputSha256": "01edfdfaa54544791a36fc8dc41164131c7fc9805c7ea4f3a7eb971a5e7929de",
+    "licensePath": "LICENCE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random",
+    "time"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

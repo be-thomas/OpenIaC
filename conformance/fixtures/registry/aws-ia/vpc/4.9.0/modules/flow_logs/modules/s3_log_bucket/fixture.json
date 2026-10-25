@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/vpc/aws/4.9.0",
     "ref": "4.9.0",
+    "commit": "afe3b07d98fc9b1d22564eb6218fb5ef94c890a5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-vpc",
     "path": "modules/flow_logs/modules/s3_log_bucket",
     "archiveSha256": "056c90c30544ae166825cf2b8277dc8762517d97b161ad170ce5bac893c40746",
-    "inputSha256": "2e0ccb0693c58ea1c6d2620ff98fd2830f02b33d9db3fde99042b67092ba9ef5"
+    "inputSha256": "2e0ccb0693c58ea1c6d2620ff98fd2830f02b33d9db3fde99042b67092ba9ef5",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

@@ -17,7 +17,7 @@ module "child" { source = "./modules/child" }
 		"examples/bad/main.tf":     []byte(`module "root" { source = "../../" }`),
 		"examples/missing/main.tf": []byte(`module "x" { source = "./nope" }`),
 	}}
-	cands, skipped := BuildCandidates(a, 10, Defaults().Limits)
+	cands, skipped := BuildCandidates(a, 10, Defaults().Limits, nil)
 	byDir := make(map[string]*Candidate)
 	for _, c := range cands {
 		byDir[c.Dir] = c
@@ -67,7 +67,78 @@ func TestBuildCandidatesCaps(t *testing.T) {
 	}}
 	limits := Defaults().Limits
 	limits.MaxFixtureBytes = 5
-	if cands, _ := BuildCandidates(a, 10, limits); len(cands) != 0 {
+	if cands, _ := BuildCandidates(a, 10, limits, nil); len(cands) != 0 {
 		t.Errorf("expected cap rejection, got %d", len(cands))
 	}
+}
+
+func TestBuildCandidatesIgnoresCommentedSource(t *testing.T) {
+	a := &Archive{Files: map[string][]byte{
+		"main.tf": []byte("// source = \"../outside\"\nresource \"aws_s3_bucket\" \"b\" {}\n"),
+	}}
+	cands, skipped := BuildCandidates(a, 10, Defaults().Limits, nil)
+	if len(cands) != 1 || cands[0].Dir != "" {
+		t.Fatalf("candidates = %v, skips = %v", dirsOf(cands), skipped)
+	}
+}
+
+func TestBuildCandidatesExcludesTestTrees(t *testing.T) {
+	a := &Archive{Files: map[string][]byte{
+		"tests/unit/main.tf": []byte(`resource "aws_s3_bucket" "b" {}`),
+	}}
+	cands, skipped := BuildCandidates(a, 10, Defaults().Limits, nil)
+	if len(cands) != 0 {
+		t.Fatalf("test tree became a candidate: %v", dirsOf(cands))
+	}
+	if len(skipped) != 1 || skipped[0].Reason != "excluded directory" {
+		t.Fatalf("skips = %v", skipped)
+	}
+}
+
+func TestBuildCandidatesIncludePrefix(t *testing.T) {
+	a := &Archive{Files: map[string][]byte{
+		"main.tf":           []byte(`resource "aws_s3_bucket" "b" {}`),
+		"modules/a/main.tf": []byte(`resource "aws_sns_topic" "t" {}`),
+	}}
+	cands, _ := BuildCandidates(a, 10, Defaults().Limits, []string{"modules/**"})
+	if len(cands) != 1 || cands[0].Dir != "modules/a" {
+		t.Fatalf("candidates = %v", dirsOf(cands))
+	}
+}
+
+func TestBuildCandidatesRejectsNonAWS(t *testing.T) {
+	a := &Archive{Files: map[string][]byte{
+		"main.tf": []byte(`resource "google_storage_bucket" "b" {}`),
+	}}
+	cands, skipped := BuildCandidates(a, 10, Defaults().Limits, nil)
+	if len(cands) != 0 {
+		t.Fatalf("non-AWS candidate kept: %v", dirsOf(cands))
+	}
+	if len(skipped) != 1 || !strings.Contains(skipped[0].Reason, "no supported output target") {
+		t.Fatalf("skips = %v", skipped)
+	}
+}
+
+func TestBuildCandidatesModuleWrapperKeepsTargets(t *testing.T) {
+	a := &Archive{Files: map[string][]byte{
+		"main.tf": []byte(`module "vpc" { source = "terraform-aws-modules/vpc/aws" }`),
+	}}
+	cands, skipped := BuildCandidates(a, 10, Defaults().Limits, nil)
+	if len(cands) != 1 {
+		t.Fatalf("skips = %v", skipped)
+	}
+	if len(cands[0].Targets) != 2 {
+		t.Errorf("targets = %v", cands[0].Targets)
+	}
+	if cands[0].Tier != "modules" {
+		t.Errorf("tier = %q", cands[0].Tier)
+	}
+}
+
+func dirsOf(cands []*Candidate) []string {
+	out := make([]string, 0, len(cands))
+	for _, c := range cands {
+		out = append(out, c.Dir)
+	}
+	return out
 }

@@ -25,6 +25,16 @@ func main() {
 			fmt.Fprintln(os.Stderr, "openiac-conformance:", err)
 			os.Exit(1)
 		}
+	case "verify":
+		if err := runVerify(os.Args[2:]); err != nil {
+			fmt.Fprintln(os.Stderr, "openiac-conformance:", err)
+			os.Exit(1)
+		}
+	case "lock":
+		if err := runLock(os.Args[2:]); err != nil {
+			fmt.Fprintln(os.Stderr, "openiac-conformance:", err)
+			os.Exit(1)
+		}
 	case "-h", "--help", "help":
 		usage()
 	default:
@@ -35,9 +45,10 @@ func main() {
 }
 
 func usage() {
-	fmt.Fprint(os.Stderr, `usage: openiac-conformance collect [flags]
+	fmt.Fprint(os.Stderr, `usage: openiac-conformance <collect|verify|lock> [flags]
 
-flags:
+collect downloads upstream modules and rewrites the fixture tree.
+
   -config string        sources file (default conformance/collection/sources.json)
   -out string           fixture tree (default conformance/fixtures)
   -lock string          lock file (default conformance/corpus.lock.json)
@@ -48,6 +59,22 @@ flags:
   -min-downloads int    override registry popularity floor
   -workers int          concurrent downloads (default 6)
   -v                    verbose progress
+
+verify checks the committed tree against its lock, attribution and fixture
+metadata. It never writes or uses the network.
+
+  -config string        sources file (default conformance/collection/sources.json)
+  -out string           fixture tree (default conformance/fixtures)
+  -lock string          lock file (default conformance/corpus.lock.json)
+  -third-party string   attribution file (default THIRD_PARTY.md)
+
+lock rewrites the lock and attribution from the fixture tree. It never writes
+to the fixture tree and never uses the network.
+
+  -config string        sources file (default conformance/collection/sources.json)
+  -out string           fixture tree (default conformance/fixtures)
+  -lock string          lock file (default conformance/corpus.lock.json)
+  -third-party string   attribution file (default THIRD_PARTY.md)
 `)
 }
 
@@ -91,9 +118,6 @@ func runCollect(args []string) error {
 		LockPath:       *lock,
 		ThirdPartyPath: *thirdParty,
 		ReportPath:     *report,
-		MaxModules:     cfg.Registry.MaxModules,
-		MaxPages:       cfg.Registry.MaxPages,
-		MinDownloads:   cfg.Registry.MinDownloads,
 		Workers:        *workers,
 		Logf:           logf,
 	})
@@ -104,6 +128,49 @@ func runCollect(args []string) error {
 		return err
 	}
 	fmt.Println(collect.Summary(c.Report()))
+	return nil
+}
+
+func runVerify(args []string) error {
+	fs := flag.NewFlagSet("verify", flag.ExitOnError)
+	configPath := fs.String("config", "conformance/collection/sources.json", "sources file")
+	out := fs.String("out", "conformance/fixtures", "fixture tree")
+	lock := fs.String("lock", "conformance/corpus.lock.json", "lock file")
+	thirdParty := fs.String("third-party", "THIRD_PARTY.md", "attribution file")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	cfg, err := collect.LoadConfig(*configPath)
+	if err != nil {
+		return err
+	}
+	res, err := collect.Verify(*out, *lock, *thirdParty, cfg)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("verified %d fixtures, %d files, %d bytes\n", res.Fixtures, res.Files, res.Bytes)
+	return nil
+}
+
+func runLock(args []string) error {
+	fs := flag.NewFlagSet("lock", flag.ExitOnError)
+	configPath := fs.String("config", "conformance/collection/sources.json", "sources file")
+	out := fs.String("out", "conformance/fixtures", "fixture tree")
+	lock := fs.String("lock", "conformance/corpus.lock.json", "lock file")
+	thirdParty := fs.String("third-party", "THIRD_PARTY.md", "attribution file")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	cfg, err := collect.LoadConfig(*configPath)
+	if err != nil {
+		return err
+	}
+	l, err := collect.RefreshAggregates(*out, *lock, *thirdParty, cfg)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("lock: %d fixtures, %d files, %d bytes, tree %s\n",
+		l.FixtureCount, l.FileCount, l.TotalBytes, l.TreeSHA256)
 	return nil
 }
 

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/msk-apache-kafka-cluster/aws/2.6.0",
     "ref": "2.6.0",
+    "commit": "1df94b236f10e1d5b24f79cc784e944c8fda2c14",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-msk-apache-kafka-cluster",
     "path": ".",
     "archiveSha256": "60b71f76fe21c4a20cb95b3ae81feece2041d717909a82268e291fef0f0df900",
-    "inputSha256": "6e4916c9ca1c70e99b019c724ac79dc8e26636dfc0f6cec37cca9bcca54e59d8"
+    "inputSha256": "6e4916c9ca1c70e99b019c724ac79dc8e26636dfc0f6cec37cca9bcca54e59d8",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

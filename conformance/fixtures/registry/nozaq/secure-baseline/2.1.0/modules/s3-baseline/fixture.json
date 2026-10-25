@@ -1,21 +1,24 @@
 {
   "schema": 1,
   "id": "registry/nozaq/secure-baseline/2.1.0/modules/s3-baseline",
-  "tier": "advanced",
+  "tier": "smoke",
   "origin": "registry",
   "source": {
     "url": "https://registry.terraform.io/modules/nozaq/secure-baseline/aws/2.1.0",
     "ref": "2.1.0",
+    "commit": "7c4a1e5b876495753695786490350741c5fc188b",
+    "gitOwner": "nozaq",
+    "gitRepo": "terraform-aws-secure-baseline",
     "path": "modules/s3-baseline",
     "archiveSha256": "79259b5d0fb638654503c184994b1e01f9f1b64ccdd89231aa748163073e1c2d",
-    "inputSha256": "555984ed42abaefd4e4961e0b72ea1ccfb2af507b7986e607cc426613655a98c"
+    "inputSha256": "555984ed42abaefd4e4961e0b72ea1ccfb2af507b7986e607cc426613655a98c",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
     "aws"
   ],
   "features": [
-    "for_expressions",
     "required_providers",
     "resources",
     "terraform",
@@ -25,5 +28,5 @@
     "cdk",
     "pulumi"
   ],
-  "support": "partial"
+  "support": "full"
 }

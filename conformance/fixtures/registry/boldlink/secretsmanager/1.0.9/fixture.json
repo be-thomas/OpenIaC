@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/secretsmanager/aws/1.0.9",
     "ref": "1.0.9",
+    "commit": "809a581bda43c5d4b229a27a7e8418233605b95b",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-secretsmanager",
     "path": ".",
     "archiveSha256": "0c30f5eaa26c9c1234b5635414435dbed34318368cbe06ba9e3cb33f13965357",
-    "inputSha256": "18e4343f3998b5cc65394a5b3eb6b6e9822b8000de97266de952a296fa64d023"
+    "inputSha256": "18e4343f3998b5cc65394a5b3eb6b6e9822b8000de97266de952a296fa64d023",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

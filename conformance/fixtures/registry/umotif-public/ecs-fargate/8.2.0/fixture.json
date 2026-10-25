@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/umotif-public/ecs-fargate/aws/8.2.0",
     "ref": "8.2.0",
+    "commit": "957a6fbedc7ff4365332fda72b50538ff8f86806",
+    "gitOwner": "umotif-public",
+    "gitRepo": "terraform-aws-ecs-fargate",
     "path": ".",
     "archiveSha256": "ad99d100587f3f7d1915b9d0f492e9e5cd60471e038c803ab16d5c7d426f8c78",
-    "inputSha256": "66d4d01f6c826910c6ebfb10c4511c26bcab95fe9fd7c20a5be051253a153de1"
+    "inputSha256": "66d4d01f6c826910c6ebfb10c4511c26bcab95fe9fd7c20a5be051253a153de1",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

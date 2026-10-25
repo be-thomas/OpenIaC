@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/babbel/iam-role-for-github-repository/aws/5.0.0",
     "ref": "5.0.0",
+    "commit": "48114d95d29112b3194d0a81300a0bf736b7876d",
+    "gitOwner": "babbel",
+    "gitRepo": "terraform-aws-iam-role-for-github-repository",
     "path": ".",
     "archiveSha256": "03b558d40e91d8837f40f97d339025f2e2931bf10dab5f75ba11634045c648d3",
-    "inputSha256": "c935e8cc2538c06bd9957b7a0abd93c42d0a87c6af6f169f2fa62514ddea1991"
+    "inputSha256": "c935e8cc2538c06bd9957b7a0abd93c42d0a87c6af6f169f2fa62514ddea1991",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

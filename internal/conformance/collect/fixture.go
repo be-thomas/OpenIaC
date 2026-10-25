@@ -26,17 +26,22 @@ type Fixture struct {
 	Support   string   `json:"support"`
 }
 
-// Source records provenance. Ref is a registry version or an immutable commit.
+// Source records provenance. Ref is a registry version or the requested git
+// ref; Commit is the immutable commit the archive was cut from.
 type Source struct {
 	URL           string `json:"url"`
 	Ref           string `json:"ref"`
+	Commit        string `json:"commit"`
+	GitOwner      string `json:"gitOwner"`
+	GitRepo       string `json:"gitRepo"`
 	Path          string `json:"path"`
 	ArchiveSHA256 string `json:"archiveSha256"`
 	InputSHA256   string `json:"inputSha256"`
+	LicensePath   string `json:"licensePath,omitempty"`
 }
 
 // BuildFixture assembles metadata for one candidate.
-func BuildFixture(m GitModule, cand *Candidate, archiveSHA, license string) Fixture {
+func BuildFixture(m GitModule, cand *Candidate, archiveSHA string) Fixture {
 	origin := "github"
 	if m.Registry != nil {
 		origin = "registry"
@@ -53,14 +58,18 @@ func BuildFixture(m GitModule, cand *Candidate, archiveSHA, license string) Fixt
 		Source: Source{
 			URL:           m.SourceURL(),
 			Ref:           m.RefLabel(),
+			Commit:        m.Commit(),
+			GitOwner:      m.Owner,
+			GitRepo:       m.Repo,
 			Path:          sub,
 			ArchiveSHA256: archiveSHA,
 			InputSHA256:   InputHash(cand.Files),
+			LicensePath:   cand.LicenseAt,
 		},
-		License:   license,
+		License:   cand.License,
 		Providers: cand.Providers,
 		Features:  cand.Features,
-		Targets:   []string{"cdk", "pulumi"},
+		Targets:   cand.Targets,
 		Support:   cand.Support,
 	}
 }
@@ -123,9 +132,13 @@ func WriteFixture(outDir string, f Fixture, cand *Candidate, license, notice []b
 		}
 		written += int64(len(cand.Files[name]))
 	}
-	if len(license) > 0 {
-		dest := filepath.Join(dir, "LICENSE")
-		if err := os.WriteFile(dest, license, 0o644); err != nil {
+	licenseDest := filepath.Join(dir, "LICENSE")
+	if len(license) == 0 {
+		if err := os.Remove(licenseDest); err != nil && !os.IsNotExist(err) {
+			return written, err
+		}
+	} else {
+		if err := os.WriteFile(licenseDest, license, 0o644); err != nil {
 			return written, err
 		}
 		written += int64(len(license))
@@ -160,6 +173,9 @@ func safeRelative(name string) error {
 	}
 	if path.IsAbs(name) {
 		return fmt.Errorf("absolute path")
+	}
+	if strings.ContainsRune(name, '\\') {
+		return fmt.Errorf("backslash in path")
 	}
 	clean := path.Clean(name)
 	if clean != name {

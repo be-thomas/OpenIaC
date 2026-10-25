@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/hashicorp/vault/aws/0.17.0",
     "ref": "0.17.0",
+    "commit": "350b705eef67c6437f9043733db750b01a069bec",
+    "gitOwner": "hashicorp",
+    "gitRepo": "terraform-aws-vault",
     "path": "modules/vault-elb",
     "archiveSha256": "aa4b30c9c7ee26d1fd2473e156100780ff259623a99b10a90edcd4a7d6d3bffd",
-    "inputSha256": "9b920c6ded011b31c517b6de20861efdb1f298a663f47f2db265802a2e0663b8"
+    "inputSha256": "9b920c6ded011b31c517b6de20861efdb1f298a663f47f2db265802a2e0663b8",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

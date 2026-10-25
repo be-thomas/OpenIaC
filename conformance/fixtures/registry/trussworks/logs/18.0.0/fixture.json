@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/trussworks/logs/aws/18.0.0",
     "ref": "18.0.0",
+    "commit": "ceccbe384ff9a1bfe15efc845d104ffe0c701378",
+    "gitOwner": "trussworks",
+    "gitRepo": "terraform-aws-logs",
     "path": ".",
     "archiveSha256": "e1197e5002009c36acc32c8a6cc7c1e6313d804beb552d81ea159f9ee94275d1",
-    "inputSha256": "bd0fb81a46df7b2e6e569ca740dbfa540b114fe870310c7824f50304d77c1b56"
+    "inputSha256": "bd0fb81a46df7b2e6e569ca740dbfa540b114fe870310c7824f50304d77c1b56",
+    "licensePath": "LICENSE"
   },
   "license": "BSD-3-Clause",
   "providers": [
@@ -21,6 +25,7 @@
     "depends_on",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

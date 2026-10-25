@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/CrowdStrike/cloud-registration/aws/0.7.13",
     "ref": "0.7.13",
+    "commit": "84c9bcf336c13b24bf7c62264a1465c3b987f23c",
+    "gitOwner": "CrowdStrike",
+    "gitRepo": "terraform-aws-cloud-registration",
     "path": "modules/agentless-scanning-environments",
     "archiveSha256": "9c33a02d03ae3fab7a6108b528c724ad9af5512fec975753745466bc1cd0419a",
-    "inputSha256": "79014811df2221636e54eaa156cb2529e7de2b2cd1469ab53e46300ab90b5cd1"
+    "inputSha256": "79014811df2221636e54eaa156cb2529e7de2b2cd1469ab53e46300ab90b5cd1",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

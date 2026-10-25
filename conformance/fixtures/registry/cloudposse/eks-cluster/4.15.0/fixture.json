@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/eks-cluster/aws/4.15.0",
     "ref": "4.15.0",
+    "commit": "4fa8d25eefe0a2b8a7e491809fdef0be675da5e6",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-eks-cluster",
     "path": ".",
     "archiveSha256": "2e06be2d9f9248ad56d9e72200809bd9f8794ccc236f06baa0fbcedf747766d1",
-    "inputSha256": "2c125bab2029921787ba19fff049be007a5cde44e0d5c8778794257ce60dd618"
+    "inputSha256": "2c125bab2029921787ba19fff049be007a5cde44e0d5c8778794257ce60dd618",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -30,6 +34,7 @@
     "locals",
     "modules",
     "outputs",
+    "providers",
     "required_providers",
     "resources",
     "terraform",

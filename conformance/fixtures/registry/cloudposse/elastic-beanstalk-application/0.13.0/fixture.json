@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/elastic-beanstalk-application/aws/0.13.0",
     "ref": "0.13.0",
+    "commit": "48d5840ce7aa1324349a4af1828ad9866cc0bf19",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-elastic-beanstalk-application",
     "path": ".",
     "archiveSha256": "b260a4268fdce89eb24128bf47bc7aec1c250a50a580bad6649c744a22bfc129",
-    "inputSha256": "badbe4b64672f1f6a6bf4652ec396db032cca6128bfca3a26aa345631128e118"
+    "inputSha256": "badbe4b64672f1f6a6bf4652ec396db032cca6128bfca3a26aa345631128e118",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

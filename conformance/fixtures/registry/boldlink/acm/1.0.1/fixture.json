@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/boldlink/acm/aws/1.0.1",
     "ref": "1.0.1",
+    "commit": "b6b970c7ac66ac93eda6bb07c4fa2966b36e1181",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-acm",
     "path": ".",
     "archiveSha256": "181e1400219e66c8562c5783784e79be6eedd91ff7788ca261666825ee8ff7f3",
-    "inputSha256": "5ff6c2c052759dfa62bd1d0b0a2a86b389803a3103700a4b2ef66238f8c55c78"
+    "inputSha256": "5ff6c2c052759dfa62bd1d0b0a2a86b389803a3103700a4b2ef66238f8c55c78",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,6 +25,7 @@
     "dynamic",
     "for_each",
     "for_expressions",
+    "functions",
     "outputs",
     "required_providers",
     "resources",

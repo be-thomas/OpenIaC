@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
     "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
     "path": "modules/aws-vpc-peering",
     "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
-    "inputSha256": "f2c47aaa1fb0c877a268dd4121747fd80fef316b6185c674ac19a82279951e8e"
+    "inputSha256": "f2c47aaa1fb0c877a268dd4121747fd80fef316b6185c674ac19a82279951e8e",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

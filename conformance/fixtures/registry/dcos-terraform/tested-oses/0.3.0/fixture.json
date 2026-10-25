@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dcos-terraform/tested-oses/aws/0.3.0",
     "ref": "0.3.0",
+    "commit": "96b80c57163c9e56171177d1274d0a11d384673d",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-tested-oses",
     "path": ".",
     "archiveSha256": "8a424ace547fb383f9bddfd23c92cb8171a683eecad117437a655c26d61d2269",
-    "inputSha256": "597e4561ad42c3e48698b5545371a1694e7ab52e77deacb2fcdb32148bcd09f8"
+    "inputSha256": "597e4561ad42c3e48698b5545371a1694e7ab52e77deacb2fcdb32148bcd09f8",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -18,8 +22,8 @@
   "features": [
     "data",
     "functions",
-    "interpolation",
     "outputs",
+    "providers",
     "terraform",
     "variables"
   ],

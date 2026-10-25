@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/cn-terraform/s3-static-website/1.2.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cn-terraform/s3-static-website/aws/1.2.0",
+    "ref": "1.2.0",
+    "commit": "9669752257cfb8dcab9dc37a8485834697d8ae03",
+    "gitOwner": "cn-terraform",
+    "gitRepo": "terraform-aws-s3-static-website",
+    "path": ".",
+    "archiveSha256": "0b4e6dee0ab809bdafe11e106b4bcc083fda65736c6bf87e76ad9b90412097fc",
+    "inputSha256": "b576454900fbfee6f673583cac96fa2f03fd6b847a7673689b3e880a35a6a5d7",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

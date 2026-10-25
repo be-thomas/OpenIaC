@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dcos-terraform/security-groups/aws/0.3.0",
     "ref": "0.3.0",
+    "commit": "fb8f2bb2c7e08b6fc679140389904f03d7ab87ea",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-security-groups",
     "path": ".",
     "archiveSha256": "2482ba6c4b5938d0c62fd2df1d0e0974ec2c5d1ee7de882adcdd5f4dfe921c40",
-    "inputSha256": "3dd6b7a9a33f77011d8846f8ff5cd42eeb9ec47c5eb6c0e00ddd95d500c90dbc"
+    "inputSha256": "3dd6b7a9a33f77011d8846f8ff5cd42eeb9ec47c5eb6c0e00ddd95d500c90dbc",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -23,6 +27,7 @@
     "interpolation",
     "locals",
     "outputs",
+    "providers",
     "resources",
     "terraform",
     "variables"

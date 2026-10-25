@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/ecs-web-app/aws/2.5.0",
     "ref": "2.5.0",
+    "commit": "c5440eedde1f7632520b73a522875627851d6455",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ecs-web-app",
     "path": ".",
     "archiveSha256": "a4222e015756002e9e41cc69b0073ef388fea28f0325574fadda9caad9be49c9",
-    "inputSha256": "7246a1935f4263e41dc3e6918fa633323c4bed97c7d840d3b55227542f184fae"
+    "inputSha256": "7246a1935f4263e41dc3e6918fa633323c4bed97c7d840d3b55227542f184fae",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

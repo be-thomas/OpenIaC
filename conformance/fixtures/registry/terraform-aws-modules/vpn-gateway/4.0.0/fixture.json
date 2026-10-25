@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/vpn-gateway/aws/4.0.0",
     "ref": "4.0.0",
+    "commit": "b4a481d06144addf271996c10ebdb688b06362f6",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-vpn-gateway",
     "path": ".",
     "archiveSha256": "fc9fd41cbcfa8fcbe214a76c6c1c974dfc5b0843dbe6722288414d6e4985dd2c",
-    "inputSha256": "08b5a8cac1e80581b96dacc1b4a1f3a6edeece2439c668d8f5a0813c742a94ff"
+    "inputSha256": "08b5a8cac1e80581b96dacc1b4a1f3a6edeece2439c668d8f5a0813c742a94ff",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -19,6 +23,7 @@
     "count",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

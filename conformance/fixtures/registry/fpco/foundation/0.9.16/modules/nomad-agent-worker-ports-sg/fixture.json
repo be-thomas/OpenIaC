@@ -6,15 +6,20 @@
   "source": {
     "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
     "ref": "0.9.16",
+    "commit": "a7b028e436cd1ce0977b8144b090ce5c9fe30526",
+    "gitOwner": "fpco",
+    "gitRepo": "terraform-aws-foundation",
     "path": "modules/nomad-agent-worker-ports-sg",
     "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
-    "inputSha256": "b284e1327efe06ec5fec1ede7b2ce5af2a3cfd55c4fa22b83da6d0885910430d"
+    "inputSha256": "b284e1327efe06ec5fec1ede7b2ce5af2a3cfd55c4fa22b83da6d0885910430d",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
     "aws"
   ],
   "features": [
+    "functions",
     "interpolation",
     "resources",
     "terraform",

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/nlb/aws/0.18.3",
     "ref": "0.18.3",
+    "commit": "45a8c3c045da651f107a9a2b2bca4e102e8a8b87",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-nlb",
     "path": ".",
     "archiveSha256": "8af4eaa5812e3be2d591f06357129afa6edd98da184a1772e709cbfad576d177",
-    "inputSha256": "d3428c1df1e012f42e2f5230743b7b2f161e1d1f4064430092b63882508536ab"
+    "inputSha256": "d3428c1df1e012f42e2f5230743b7b2f161e1d1f4064430092b63882508536ab",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

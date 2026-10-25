@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/vpc-peering/aws/1.0.1",
     "ref": "1.0.1",
+    "commit": "8c57c7bbd3a7404d18868851a5fd5daf24933fd1",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-vpc-peering",
     "path": ".",
     "archiveSha256": "ea3c41bce2c1a750cf8cb5f706deded762e068e9191640d622e0293f724bda02",
-    "inputSha256": "3767a0cb54523696d4e3b711dfac8052f767d3dc27d0a0c0a510ec6199801c1e"
+    "inputSha256": "3767a0cb54523696d4e3b711dfac8052f767d3dc27d0a0c0a510ec6199801c1e",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -19,6 +23,7 @@
     "count",
     "data",
     "depends_on",
+    "for_expressions",
     "functions",
     "heredoc",
     "locals",

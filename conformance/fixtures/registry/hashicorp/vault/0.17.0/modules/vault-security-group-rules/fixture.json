@@ -6,16 +6,22 @@
   "source": {
     "url": "https://registry.terraform.io/modules/hashicorp/vault/aws/0.17.0",
     "ref": "0.17.0",
+    "commit": "350b705eef67c6437f9043733db750b01a069bec",
+    "gitOwner": "hashicorp",
+    "gitRepo": "terraform-aws-vault",
     "path": "modules/vault-security-group-rules",
     "archiveSha256": "aa4b30c9c7ee26d1fd2473e156100780ff259623a99b10a90edcd4a7d6d3bffd",
-    "inputSha256": "f9c868b7bc58d3b693464e13e61e2995955f44d3c25ad07a83d4931ebcbbc7bd"
+    "inputSha256": "f9c868b7bc58d3b693464e13e61e2995955f44d3c25ad07a83d4931ebcbbc7bd",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
     "count",
+    "functions",
     "resources",
     "terraform",
     "variables"

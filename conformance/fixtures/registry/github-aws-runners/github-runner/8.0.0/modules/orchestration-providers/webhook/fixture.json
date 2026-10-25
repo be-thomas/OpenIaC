@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/github-aws-runners/github-runner/aws/8.0.0",
     "ref": "8.0.0",
+    "commit": "38d0cb5d842d7c0bc887a7cbddfbd926b4063703",
+    "gitOwner": "github-aws-runners",
+    "gitRepo": "terraform-aws-github-runner",
     "path": "modules/orchestration-providers/webhook",
     "archiveSha256": "6bf9e0bdb6a557aae674779cf84ebad97d46b147d9cc9db5938770339ece2f98",
-    "inputSha256": "b701f4522738cb12643f112ffd2fd817ca01e530937278e149f1f9c497ca8390"
+    "inputSha256": "b701f4522738cb12643f112ffd2fd817ca01e530937278e149f1f9c497ca8390",
+    "licensePath": "LICENSE.md"
   },
   "license": "MIT",
   "providers": [
@@ -21,6 +25,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",

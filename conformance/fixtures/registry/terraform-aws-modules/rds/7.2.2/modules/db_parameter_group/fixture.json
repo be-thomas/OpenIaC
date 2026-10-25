@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/7.2.2",
     "ref": "7.2.2",
+    "commit": "175da043429cbbe41c512f976105719f6d0e538c",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-rds",
     "path": "modules/db_parameter_group",
     "archiveSha256": "a7ee48a84b1f0a42ba303ed874b05fcd53121441ee79c7c8a13c4819bbf0ed93",
-    "inputSha256": "4bc461d3921c5130cb7af40d8c4c09d47f21ddfa6aa90091e8c55a7eb792e49c"
+    "inputSha256": "4bc461d3921c5130cb7af40d8c4c09d47f21ddfa6aa90091e8c55a7eb792e49c",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

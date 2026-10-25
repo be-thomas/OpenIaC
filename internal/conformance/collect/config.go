@@ -63,7 +63,7 @@ func Defaults() Config {
 		Schema: 1,
 		Registry: RegistryConfig{
 			Provider:           "aws",
-			MaxPages:           100,
+			MaxPages:           300,
 			MinDownloads:       1000,
 			MaxModules:         400,
 			MaxFixturesPerRepo: 50,
@@ -80,6 +80,7 @@ func Defaults() Config {
 		Licenses: []string{
 			"Apache-2.0",
 			"MIT",
+			"MIT-0",
 			"BSD-2-Clause",
 			"BSD-3-Clause",
 			"ISC",

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/iam-identity-center/aws/1.0.4",
     "ref": "1.0.4",
+    "commit": "62f4b8e7add718877bdc187b73d44d1d05fc5b45",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-iam-identity-center",
     "path": ".",
     "archiveSha256": "3fe8207b52b2a8ee00439ca20d4a86b6e66824e9ab7bc3fa5f185721f9f83e13",
-    "inputSha256": "e7e00131b3be8d6b9cd19b6a8e9230ad80d9629298d2007d04161bca616b7494"
+    "inputSha256": "e7e00131b3be8d6b9cd19b6a8e9230ad80d9629298d2007d04161bca616b7494",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

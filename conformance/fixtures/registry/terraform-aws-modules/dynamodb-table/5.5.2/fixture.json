@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/dynamodb-table/aws/5.5.2",
     "ref": "5.5.2",
+    "commit": "c38423ae6c92825e7cc4376c7f81deb20a676f2b",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-dynamodb-table",
     "path": ".",
     "archiveSha256": "a25f483ae511eccf60dcdb6e0998d2758149e1b995bca3d82d42bef202eac087",
-    "inputSha256": "e46b4028d3f75340b77cadd889e34ae5316377662d229465ac8a564c1dfe4a48"
+    "inputSha256": "e46b4028d3f75340b77cadd889e34ae5316377662d229465ac8a564c1dfe4a48",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

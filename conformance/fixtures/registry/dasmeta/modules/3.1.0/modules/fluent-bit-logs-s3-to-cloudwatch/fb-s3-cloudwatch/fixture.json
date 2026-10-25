@@ -6,11 +6,15 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
     "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
     "path": "modules/fluent-bit-logs-s3-to-cloudwatch/fb-s3-cloudwatch",
     "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
-    "inputSha256": "5c77a21387ba189224eac31ddff8fc793d3a6641c18994c2c0b1a59998c6d3f1"
+    "inputSha256": "5c77a21387ba189224eac31ddff8fc793d3a6641c18994c2c0b1a59998c6d3f1",
+    "licensePath": "modules/fluent-bit-logs-s3-to-cloudwatch/fb-s3-cloudwatch/LICENSE"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "providers": [
     "aws"
   ],

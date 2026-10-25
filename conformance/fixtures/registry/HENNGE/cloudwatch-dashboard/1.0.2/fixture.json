@@ -6,15 +6,20 @@
   "source": {
     "url": "https://registry.terraform.io/modules/HENNGE/cloudwatch-dashboard/aws/1.0.2",
     "ref": "1.0.2",
+    "commit": "fd4bfa327ea899c35a24f718203268cee2126992",
+    "gitOwner": "HENNGE",
+    "gitRepo": "terraform-aws-cloudwatch-dashboard",
     "path": ".",
     "archiveSha256": "d0ef56a2968c133cfdd9adccc1c6d5dd59fc55170cb569d02152933902daae09",
-    "inputSha256": "650500e843df42e3a1d27899550baa3b702d6db3fd63fe70ebd961f6ff214972"
+    "inputSha256": "650500e843df42e3a1d27899550baa3b702d6db3fd63fe70ebd961f6ff214972",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "for_expressions",
     "functions",
     "locals",
     "outputs",

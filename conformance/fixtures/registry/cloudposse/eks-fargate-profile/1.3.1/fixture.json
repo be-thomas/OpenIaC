@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/eks-fargate-profile/aws/1.3.1",
     "ref": "1.3.1",
+    "commit": "cd40e682ee25cd30f9adb907da6d5d36e792ef69",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-eks-fargate-profile",
     "path": ".",
     "archiveSha256": "de247d32388668e09ef409f7e108105bcfe72dadecc828a675e32d825a80cd35",
-    "inputSha256": "560406994824cc505c453c6289c838e29b834bbe6b4eb2728e4c840f13181cd8"
+    "inputSha256": "560406994824cc505c453c6289c838e29b834bbe6b4eb2728e4c840f13181cd8",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

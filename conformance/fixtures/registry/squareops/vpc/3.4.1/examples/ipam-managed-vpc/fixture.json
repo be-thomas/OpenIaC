@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/squareops/vpc/aws/3.4.1",
     "ref": "3.4.1",
+    "commit": "7f4d05376a08860772ec29ea61300bd62cf356c5",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-vpc",
     "path": "examples/ipam-managed-vpc",
     "archiveSha256": "03661d003b3f549d2f166e7c5e4249776105d93a744533e48f7435d6e0aa8652",
-    "inputSha256": "58c53ec82631113e68f117f98d25acd7334f61c57b551de55b53b14037d427a7"
+    "inputSha256": "58c53ec82631113e68f117f98d25acd7334f61c57b551de55b53b14037d427a7",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -17,7 +21,8 @@
   "features": [
     "locals",
     "modules",
-    "outputs"
+    "outputs",
+    "providers"
   ],
   "targets": [
     "cdk",

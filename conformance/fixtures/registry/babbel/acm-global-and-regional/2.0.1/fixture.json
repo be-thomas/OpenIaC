@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/babbel/acm-global-and-regional/aws/2.0.1",
     "ref": "2.0.1",
+    "commit": "20ccc8b4dcd63fcddb529b9384e3975a3d03bebb",
+    "gitOwner": "babbel",
+    "gitRepo": "terraform-aws-acm-global-and-regional",
     "path": ".",
     "archiveSha256": "b0d621d83f9dd21086721b537b7384d1c8cd5fffc45fa92d8c6d1260869ef4a4",
-    "inputSha256": "2477dac9fdc46a3cfc065229b9725fdf326385b645068b7112e5db0775336871"
+    "inputSha256": "2477dac9fdc46a3cfc065229b9725fdf326385b645068b7112e5db0775336871",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

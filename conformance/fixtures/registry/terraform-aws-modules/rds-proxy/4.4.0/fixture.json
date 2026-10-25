@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/rds-proxy/aws/4.4.0",
     "ref": "4.4.0",
+    "commit": "012b4332f58ccaaa485d0af2040e599056d696f9",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-rds-proxy",
     "path": ".",
     "archiveSha256": "a3e3a6072476867f0b2a02c71f030045a4660af23d2108c0405fb7ccaf80e46c",
-    "inputSha256": "d578dd7ade7bf2afe3c29101b98568e272bca517edb436d255ec60b4b441cb30"
+    "inputSha256": "d578dd7ade7bf2afe3c29101b98568e272bca517edb436d255ec60b4b441cb30",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/inspector/aws/0.4.0",
     "ref": "0.4.0",
+    "commit": "0784ccd10a4f37bd4d50e53c25c7d4c22f49a29e",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-inspector",
     "path": ".",
     "archiveSha256": "97505174ecb38b1b6cd38b2d3065dc50cefab0278b6821d2c34f944ec8d930b3",
-    "inputSha256": "a13c3f4c8f1863193422b89eece86190c75bd0a2e32b38a38287cf616d9a72ba"
+    "inputSha256": "a13c3f4c8f1863193422b89eece86190c75bd0a2e32b38a38287cf616d9a72ba",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

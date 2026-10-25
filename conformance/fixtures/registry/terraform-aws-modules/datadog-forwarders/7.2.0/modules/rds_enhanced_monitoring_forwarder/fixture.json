@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/datadog-forwarders/aws/7.2.0",
     "ref": "7.2.0",
+    "commit": "8fe6c147632c201fe91824d713ce22311cdfb3de",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-datadog-forwarders",
     "path": "modules/rds_enhanced_monitoring_forwarder",
     "archiveSha256": "3a3799e86bcf70ee8fa2bc7f4679de9bed29a1f249c46d65fc85ee43e4b3241c",
-    "inputSha256": "f76920d79cae79e3f1df23f44b4c487c4d9802b6a4fb56e268db9537a0d74701"
+    "inputSha256": "f76920d79cae79e3f1df23f44b4c487c4d9802b6a4fb56e268db9537a0d74701",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

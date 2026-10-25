@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/networkfirewall/aws/1.0.2",
     "ref": "1.0.2",
+    "commit": "1c5f35b9a9e8c3038d12951f9f38e69e6928762f",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-networkfirewall",
     "path": "modules/central_inspection_with_egress_routing",
     "archiveSha256": "58e669e24261a04619f8ddb3064391b1dba36d0774e248245e9bec218bcc02f5",
-    "inputSha256": "d5e0615910f0c14a701edaf45c789d6ec25edc86ddd3cd5429e1772b6604925a"
+    "inputSha256": "d5e0615910f0c14a701edaf45c789d6ec25edc86ddd3cd5429e1772b6604925a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -16,6 +20,7 @@
   ],
   "features": [
     "count",
+    "functions",
     "required_providers",
     "resources",
     "terraform",

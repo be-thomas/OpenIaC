@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cn-terraform/ecs-fargate-scheduled-task/aws/2.1.0",
     "ref": "2.1.0",
+    "commit": "7e14476d496c6e3c291a6a2cb30dc5d917ae8247",
+    "gitOwner": "cn-terraform",
+    "gitRepo": "terraform-aws-ecs-fargate-scheduled-task",
     "path": ".",
     "archiveSha256": "04bdee5d83b6c0075f77872873fd5d29adf857405639ccaf3c18c651450a89b1",
-    "inputSha256": "a46468fdb5dc97cdb527efa610d5d8a01e983d2c1f9d31d2503507c3bb76d3df"
+    "inputSha256": "a46468fdb5dc97cdb527efa610d5d8a01e983d2c1f9d31d2503507c3bb76d3df",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

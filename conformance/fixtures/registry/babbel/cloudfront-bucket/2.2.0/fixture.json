@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/babbel/cloudfront-bucket/aws/2.2.0",
     "ref": "2.2.0",
+    "commit": "102a956acd00b90fd1581e654ec60692c0dd271f",
+    "gitOwner": "babbel",
+    "gitRepo": "terraform-aws-cloudfront-bucket",
     "path": ".",
     "archiveSha256": "175834517848265556f9b8f346f123998601d0120400192fd8d0b507a80ec7fb",
-    "inputSha256": "f9cc905ec1aed2814c456a9342cf65e2c042c67f60fdb6152b84f0619f0ef27c"
+    "inputSha256": "f9cc905ec1aed2814c456a9342cf65e2c042c67f60fdb6152b84f0619f0ef27c",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

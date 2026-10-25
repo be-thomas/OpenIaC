@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/wandb/wandb/aws/8.0.0",
     "ref": "8.0.0",
+    "commit": "da9203f295a5c6ead41d060a3ef8e211617d8f9a",
+    "gitOwner": "wandb",
+    "gitRepo": "terraform-aws-wandb",
     "path": "modules/iam_role",
     "archiveSha256": "1ec2e8ca251b3f6dfd37e034a18342617c0d24653fe304e41cdabfecaee8c558",
-    "inputSha256": "b4103328c3672c9193b3e05d8b20ebd291a3cfcbeb860abe2ab6abe5d814d610"
+    "inputSha256": "b4103328c3672c9193b3e05d8b20ebd291a3cfcbeb860abe2ab6abe5d814d610",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

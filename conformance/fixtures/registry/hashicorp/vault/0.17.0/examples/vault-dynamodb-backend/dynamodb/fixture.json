@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/hashicorp/vault/aws/0.17.0",
     "ref": "0.17.0",
+    "commit": "350b705eef67c6437f9043733db750b01a069bec",
+    "gitOwner": "hashicorp",
+    "gitRepo": "terraform-aws-vault",
     "path": "examples/vault-dynamodb-backend/dynamodb",
     "archiveSha256": "aa4b30c9c7ee26d1fd2473e156100780ff259623a99b10a90edcd4a7d6d3bffd",
-    "inputSha256": "de119e19e53b83aeb10cf60f9eaa8e3917c4db8612ac6028d995be676d0a96dc"
+    "inputSha256": "de119e19e53b83aeb10cf60f9eaa8e3917c4db8612ac6028d995be676d0a96dc",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

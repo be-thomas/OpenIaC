@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/philips-labs/github-runner/aws/6.1.0",
     "ref": "6.1.0",
+    "commit": "dfbaeed50cdfa12bf4847be417bbc5130ce72e34",
+    "gitOwner": "philips-labs",
+    "gitRepo": "terraform-aws-github-runner",
     "path": "modules/runners/pool",
     "archiveSha256": "d51d373679290fa85b7577e9d687025cc26a745c6522542bdec788c1fa12dd87",
-    "inputSha256": "506ee9517fedf100e5ea81ff996ee4b0ca58e5b15cef763298332fb6ae2ff4ac"
+    "inputSha256": "506ee9517fedf100e5ea81ff996ee4b0ca58e5b15cef763298332fb6ae2ff4ac",
+    "licensePath": "LICENSE.md"
   },
   "license": "MIT",
   "providers": [
@@ -20,6 +24,7 @@
     "data",
     "dynamic",
     "for_each",
+    "for_expressions",
     "functions",
     "interpolation",
     "outputs",

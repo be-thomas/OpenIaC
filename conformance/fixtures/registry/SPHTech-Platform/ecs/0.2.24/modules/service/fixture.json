@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/SPHTech-Platform/ecs/aws/0.2.24",
     "ref": "0.2.24",
+    "commit": "72be00c9c3f02459d7d13ee97acd56feb52fd051",
+    "gitOwner": "SPHTech-Platform",
+    "gitRepo": "terraform-aws-ecs",
     "path": "modules/service",
     "archiveSha256": "b5270503f3fa0b88fcae2ec6a56a3acca1425d12fbc6deea61580fec96bdcb4e",
-    "inputSha256": "a7f47b543957b70313502e05aec884270dafb3e6f3a9f8bcc1b92624e05ea21c"
+    "inputSha256": "a7f47b543957b70313502e05aec884270dafb3e6f3a9f8bcc1b92624e05ea21c",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [

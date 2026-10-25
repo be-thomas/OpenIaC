@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/HENNGE/ecs/aws/5.6.0",
     "ref": "5.6.0",
+    "commit": "7c63c7ba421cec0f9089ec288aec3adef3ba8771",
+    "gitOwner": "HENNGE",
+    "gitRepo": "terraform-aws-ecs",
     "path": "modules/autoscaling/ecs-target-tracking/service-utilization",
     "archiveSha256": "07fa8f746538cd1175f47c640f1fb7b98150e8a17f5940b223f755ba29e6cbb9",
-    "inputSha256": "577527727e6dc9d28e91edc105a55e17e54e93f8f6108c0eb3f5d1aea67b227e"
+    "inputSha256": "577527727e6dc9d28e91edc105a55e17e54e93f8f6108c0eb3f5d1aea67b227e",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -17,6 +21,7 @@
   "features": [
     "conditionals",
     "count",
+    "functions",
     "interpolation",
     "outputs",
     "required_providers",

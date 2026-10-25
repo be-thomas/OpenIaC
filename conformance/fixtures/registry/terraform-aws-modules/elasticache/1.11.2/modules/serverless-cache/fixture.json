@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/elasticache/aws/1.11.2",
     "ref": "1.11.2",
+    "commit": "41a277b73b9d375a2856886ab8469fd3f8b6d0ef",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-elasticache",
     "path": "modules/serverless-cache",
     "archiveSha256": "0dd16c86df50a647b2dd851f5ab9a3b1ff40058c6931499ff35d835c12d27513",
-    "inputSha256": "4e2b57e6626c464296dd58723f5af8b328f170422b172257ca1761dcb0e9885a"
+    "inputSha256": "4e2b57e6626c464296dd58723f5af8b328f170422b172257ca1761dcb0e9885a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

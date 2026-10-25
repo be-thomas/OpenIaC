@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/avlcloudtechnologies/sso/aws/0.5.0",
     "ref": "0.5.0",
+    "commit": "9f25d90f5ca96a8b7fd792c956562428d2d8459b",
+    "gitOwner": "avlcloudtechnologies",
+    "gitRepo": "terraform-aws-sso",
     "path": "examples/complete",
     "archiveSha256": "b80a5bb4b801e53aacead2f988b484fa0e0448ad4dc1770bfe1cb3c2b6e5e5bf",
-    "inputSha256": "3a7deb4b2835dcab055cac22311736c163fb9e78a40dadf60e709dca9a316741"
+    "inputSha256": "3a7deb4b2835dcab055cac22311736c163fb9e78a40dadf60e709dca9a316741",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -21,6 +25,7 @@
     "locals",
     "modules",
     "outputs",
+    "providers",
     "required_providers",
     "terraform",
     "variables"

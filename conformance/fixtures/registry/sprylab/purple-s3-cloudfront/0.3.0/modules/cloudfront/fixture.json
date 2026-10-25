@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/sprylab/purple-s3-cloudfront/aws/0.3.0",
     "ref": "0.3.0",
+    "commit": "32c559ea890e2327987b843a5a11d89947813762",
+    "gitOwner": "sprylab",
+    "gitRepo": "terraform-aws-purple-s3-cloudfront",
     "path": "modules/cloudfront",
     "archiveSha256": "f45e12e4596896ab07b9c350716bd62ac7d819737bb28fce665ec980f04ace8d",
-    "inputSha256": "61ec64334a2d797a1d9011254f3f688e36fa6450df549c4729becb4d4146386a"
+    "inputSha256": "61ec64334a2d797a1d9011254f3f688e36fa6450df549c4729becb4d4146386a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

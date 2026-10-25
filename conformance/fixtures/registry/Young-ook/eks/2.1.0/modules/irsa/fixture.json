@@ -6,16 +6,22 @@
   "source": {
     "url": "https://registry.terraform.io/modules/Young-ook/eks/aws/2.1.0",
     "ref": "2.1.0",
+    "commit": "8748e5ad4e735868aef7c8e0c369e6119cfd9abc",
+    "gitOwner": "Young-ook",
+    "gitRepo": "terraform-aws-eks",
     "path": "modules/irsa",
     "archiveSha256": "ee277c5b0e074f97bdd688fd431570225958a51321c3423a87b764193c6be0d1",
-    "inputSha256": "c4ddb9f784350de987245baadebd9002eb2f11e2f91de88cb9e8e158c0c31992"
+    "inputSha256": "c4ddb9f784350de987245baadebd9002eb2f11e2f91de88cb9e8e158c0c31992",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
     "for_each",
+    "for_expressions",
     "functions",
     "locals",
     "modules",

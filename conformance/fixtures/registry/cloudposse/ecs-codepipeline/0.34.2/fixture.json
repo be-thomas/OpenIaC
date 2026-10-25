@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/ecs-codepipeline/aws/0.34.2",
     "ref": "0.34.2",
+    "commit": "a09e2c4bd89996b7de7359c24752f5fb81ba6d43",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ecs-codepipeline",
     "path": ".",
     "archiveSha256": "6a28a37e37e797a7acd4d582438e6ae05fe475545aa197c548542dd86121469c",
-    "inputSha256": "95caa6df1e1e8d2e8728b0539b0c97ed9d069dcc81b8039b4b5e6b52b071f09f"
+    "inputSha256": "95caa6df1e1e8d2e8728b0539b0c97ed9d069dcc81b8039b4b5e6b52b071f09f",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

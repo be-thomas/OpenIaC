@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/squareops/vpc/aws/3.4.1",
     "ref": "3.4.1",
+    "commit": "7f4d05376a08860772ec29ea61300bd62cf356c5",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-vpc",
     "path": "modules/vpc_peering",
     "archiveSha256": "03661d003b3f549d2f166e7c5e4249776105d93a744533e48f7435d6e0aa8652",
-    "inputSha256": "fdefc87efb5997ba06da2e3745d4863cc9d56e32d1888e06f7beb66b3757e538"
+    "inputSha256": "fdefc87efb5997ba06da2e3745d4863cc9d56e32d1888e06f7beb66b3757e538",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -22,6 +26,7 @@
     "functions",
     "locals",
     "outputs",
+    "providers",
     "required_providers",
     "resources",
     "terraform",

@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/umotif-public/waf-webaclv2/aws/5.1.2",
     "ref": "5.1.2",
+    "commit": "6a0ffc80a4d1bf6ae4adb8c82ea0b394d563593e",
+    "gitOwner": "umotif-public",
+    "gitRepo": "terraform-aws-waf-webaclv2",
     "path": ".",
     "archiveSha256": "b35e3ec58cd51f065a76bb64aeb0ae051885161b031698df6724da2781d2d004",
-    "inputSha256": "b2da58bb4a72a47f88e42556805127744b24ecc79b26140ebb2dd0eb98cd7c49"
+    "inputSha256": "b2da58bb4a72a47f88e42556805127744b24ecc79b26140ebb2dd0eb98cd7c49",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

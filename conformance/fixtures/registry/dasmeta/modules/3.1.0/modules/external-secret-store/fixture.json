@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
     "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
     "path": "modules/external-secret-store",
     "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
-    "inputSha256": "2f17a5e5aa8116eb8635704f595b229189fd6cbd5b2bbe88bb72ef65f8855790"
+    "inputSha256": "2f17a5e5aa8116eb8635704f595b229189fd6cbd5b2bbe88bb72ef65f8855790",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -16,6 +20,7 @@
     "kubectl"
   ],
   "features": [
+    "conditionals",
     "data",
     "depends_on",
     "functions",

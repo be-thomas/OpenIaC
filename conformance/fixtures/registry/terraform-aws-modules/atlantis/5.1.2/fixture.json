@@ -6,14 +6,19 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/atlantis/aws/5.1.2",
     "ref": "5.1.2",
+    "commit": "7b7073e574bdd1a8f07a501f91c3a408c042cfb1",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-atlantis",
     "path": ".",
     "archiveSha256": "918dde51d1d85570713b96561019d77070ef0951daab71f52da2ded664c23e76",
-    "inputSha256": "3f57fcb36b1cbea914dbc8b5f1b9139c646a3e099e9bdb91fa6da3438b71b0d6"
+    "inputSha256": "3f57fcb36b1cbea914dbc8b5f1b9139c646a3e099e9bdb91fa6da3438b71b0d6",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [],
   "features": [
     "conditionals",
+    "for_expressions",
     "functions",
     "interpolation",
     "locals",

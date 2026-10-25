@@ -6,18 +6,24 @@
   "source": {
     "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
     "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
     "path": "modules/cognito-identity",
     "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
-    "inputSha256": "1305cba197261826e6691f327402358466c243d45bb6e52d4679f367b528a44b"
+    "inputSha256": "1305cba197261826e6691f327402358466c243d45bb6e52d4679f367b528a44b",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
     "count",
     "dynamic",
     "for_each",
+    "functions",
     "resources",
     "variables"
   ],

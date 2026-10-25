@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/ecs/aws/7.6.1",
     "ref": "7.6.1",
+    "commit": "60b428812ddcffe48abc6af0988fe826c89da961",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-ecs",
     "path": ".",
     "archiveSha256": "1af3f3f6c60fafc5efa587d10204bd7e033a5c6c36163a2cb9e25fc590fddc08",
-    "inputSha256": "a2e4fbba8fd13b9caf7d33f50f5b0f56b6de153bb6b79db40cf96aa65542cfa7"
+    "inputSha256": "a2e4fbba8fd13b9caf7d33f50f5b0f56b6de153bb6b79db40cf96aa65542cfa7",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

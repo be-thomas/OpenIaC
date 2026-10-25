@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/cloudposse/ecr/aws/1.0.2",
     "ref": "1.0.2",
+    "commit": "987b8df5dc7a8798f3bb0b2c2a700153c86f32d4",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ecr",
     "path": ".",
     "archiveSha256": "a9802fc145a955f9760d7cf8a2cc9fe607e9feedd33bcb4b03f16561534bcebc",
-    "inputSha256": "daafb748b255ef7d431371f2be7ae9337d14e55429b3a3e72d9280921d9b4e1a"
+    "inputSha256": "daafb748b255ef7d431371f2be7ae9337d14e55429b3a3e72d9280921d9b4e1a",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [

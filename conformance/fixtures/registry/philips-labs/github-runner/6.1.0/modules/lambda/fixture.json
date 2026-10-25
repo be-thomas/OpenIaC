@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/philips-labs/github-runner/aws/6.1.0",
     "ref": "6.1.0",
+    "commit": "dfbaeed50cdfa12bf4847be417bbc5130ce72e34",
+    "gitOwner": "philips-labs",
+    "gitRepo": "terraform-aws-github-runner",
     "path": "modules/lambda",
     "archiveSha256": "d51d373679290fa85b7577e9d687025cc26a745c6522542bdec788c1fa12dd87",
-    "inputSha256": "d657cec36171dd175886e19b4fae7942b87a2440c9f397c7b384ad8dc10faa01"
+    "inputSha256": "d657cec36171dd175886e19b4fae7942b87a2440c9f397c7b384ad8dc10faa01",
+    "licensePath": "LICENSE.md"
   },
   "license": "MIT",
   "providers": [

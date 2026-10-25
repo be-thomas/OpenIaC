@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/telia-oss/ecr/aws/3.0.0",
     "ref": "3.0.0",
+    "commit": "bd84e008ab40b5e08f50d10be791ba811cfaee97",
+    "gitOwner": "telia-oss",
+    "gitRepo": "terraform-aws-ecr",
     "path": ".",
     "archiveSha256": "bcdb136ae1ff2c93e10247f96c1ccb2526667acba0b5568525e6da2f899a45ad",
-    "inputSha256": "4f72340d4738a84084d5d4242923c7af5dd61e127faaa9846ef00ed873dcc73d"
+    "inputSha256": "4f72340d4738a84084d5d4242923c7af5dd61e127faaa9846ef00ed873dcc73d",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
@@ -17,6 +21,7 @@
   "features": [
     "conditionals",
     "data",
+    "functions",
     "heredoc",
     "interpolation",
     "outputs",

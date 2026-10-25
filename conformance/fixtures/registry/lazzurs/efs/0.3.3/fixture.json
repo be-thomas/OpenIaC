@@ -6,15 +6,20 @@
   "source": {
     "url": "https://registry.terraform.io/modules/lazzurs/efs/aws/0.3.3",
     "ref": "0.3.3",
+    "commit": "c62276ffb5afb8d3bf1e732a17d0faca468530ff",
+    "gitOwner": "lazzurs",
+    "gitRepo": "terraform-aws-efs",
     "path": ".",
     "archiveSha256": "839df03f31a275705091170d547a8f8e191ffe5c41d1dd014280941fa6cc169a",
-    "inputSha256": "f377e5cde7ae7eb6c757efccee37ea69df7a5242ebc542bd4c757ff436438098"
+    "inputSha256": "f377e5cde7ae7eb6c757efccee37ea69df7a5242ebc542bd4c757ff436438098",
+    "licensePath": "LICENSE"
   },
   "license": "MIT",
   "providers": [
     "aws"
   ],
   "features": [
+    "conditionals",
     "count",
     "functions",
     "interpolation",

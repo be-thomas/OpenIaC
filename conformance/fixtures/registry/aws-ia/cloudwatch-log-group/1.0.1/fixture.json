@@ -6,9 +6,13 @@
   "source": {
     "url": "https://registry.terraform.io/modules/aws-ia/cloudwatch-log-group/aws/1.0.1",
     "ref": "1.0.1",
+    "commit": "2aaddbde28faf28034027140c2c26bad6af64e20",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-cloudwatch-log-group",
     "path": ".",
     "archiveSha256": "fe2e62a37962a95d2778e4099831b34d386a1858b21c29876f66f79db4226969",
-    "inputSha256": "393f3375d5db9906bf181d0e579ca18504b3048e69a7d60abb550c7cb9d83e94"
+    "inputSha256": "393f3375d5db9906bf181d0e579ca18504b3048e69a7d60abb550c7cb9d83e94",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": [
@@ -16,6 +20,7 @@
   ],
   "features": [
     "data",
+    "for_expressions",
     "functions",
     "heredoc",
     "interpolation",
