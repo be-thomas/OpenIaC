@@ -121,7 +121,7 @@ func TestJSONNestedBlocksDoNotWarn(t *testing.T) {
 }
 
 func TestUnflattenBlocksIgnoresScalars(t *testing.T) {
-	blocks, consumed := emitters.UnflattenBlocks(
+	blocks, consumed, conflicts := emitters.UnflattenBlocks(
 		map[string]ir.Value{
 			"versioning": {Kind: ir.KindBool, Literal: true},
 			"bucket":     {Kind: ir.KindString, Literal: "logs"},
@@ -129,15 +129,15 @@ func TestUnflattenBlocksIgnoresScalars(t *testing.T) {
 		map[string]mappings.BlockMap{"versioning": {Property: "versioned"}},
 		nil,
 	)
-	if len(blocks) != 0 || len(consumed) != 0 {
-		t.Fatalf("blocks=%v consumed=%v, want nothing", blocks, consumed)
+	if len(blocks) != 0 || len(consumed) != 0 || len(conflicts) != 0 {
+		t.Fatalf("blocks=%v consumed=%v conflicts=%v, want nothing", blocks, consumed, conflicts)
 	}
 }
 
 func TestUnflattenBlocksConsumesEmptyArray(t *testing.T) {
 	// "ingress": [] means there are no ingress blocks, which is what native HCL
 	// with no ingress block means. It must not fall through as a property.
-	blocks, consumed := emitters.UnflattenBlocks(
+	blocks, consumed, _ := emitters.UnflattenBlocks(
 		map[string]ir.Value{"ingress": {Kind: ir.KindList}},
 		map[string]mappings.BlockMap{"ingress": {Property: "ingress", Shape: "array"}},
 		nil,
@@ -150,18 +150,95 @@ func TestUnflattenBlocksConsumesEmptyArray(t *testing.T) {
 	}
 }
 
-func TestUnflattenBlocksLeavesNativeBlocksAlone(t *testing.T) {
-	// An attribute that duplicates a native block is invalid Terraform. It must
-	// stay an attribute so the emitter reports it, not render a second block.
-	blocks, consumed := emitters.UnflattenBlocks(
+func TestUnflattenBlocksReportsDuplicateAttribute(t *testing.T) {
+	// An attribute that duplicates a native block is invalid Terraform. The
+	// attribute must be consumed, or two blocks are rendered, and reported so
+	// the emitter can warn about it.
+	blocks, consumed, conflicts := emitters.UnflattenBlocks(
 		map[string]ir.Value{"ingress": {Kind: ir.KindMap, Fields: map[string]ir.Value{
 			"from_port": {Kind: ir.KindNumber, Literal: 80},
 		}}},
 		map[string]mappings.BlockMap{"ingress": {Property: "ingress", Shape: "array"}},
 		[]ir.Block{{Type: "ingress"}},
 	)
-	if len(blocks) != 0 || len(consumed) != 0 {
-		t.Fatalf("blocks=%v consumed=%v, want nothing", blocks, consumed)
+	if len(blocks) != 0 {
+		t.Fatalf("blocks=%v, want none", blocks)
+	}
+	if !consumed["ingress"] {
+		t.Fatalf("consumed=%v, want ingress consumed", consumed)
+	}
+	if len(conflicts) != 1 || conflicts[0] != "ingress" {
+		t.Fatalf("conflicts=%v, want [ingress]", conflicts)
+	}
+}
+
+// A body that carries both a block and an attribute of the same name is
+// invalid Terraform, but it must never produce duplicate object keys or two
+// blocks; the attribute is dropped and the conflict is reported.
+func TestDuplicateBlockAndAttributeWarnsAndEmitsOnce(t *testing.T) {
+	graph := parseSource(t, `
+resource "aws_security_group" "web" {
+  name = "web"
+  ingress {
+    from_port = 80
+    to_port   = 80
+    protocol  = "tcp"
+  }
+  ingress = [{
+    from_port = 443
+    to_port   = 443
+    protocol  = "tcp"
+  }]
+}
+`, "main.tf")
+
+	for target, result := range emitBoth(t, graph) {
+		content := result.Files[0].Content
+		key := "ingress:"
+		if target == "cdk" {
+			key = "SecurityGroupIngress: ["
+		}
+		if got := strings.Count(content, key); got != 1 {
+			t.Errorf("%s: %q appears %d times, want once\n%s", target, key, got, content)
+		}
+		if strings.Contains(content, "443") {
+			t.Errorf("%s: duplicate attribute rendered\n%s", target, content)
+		}
+		warned := false
+		for _, warning := range result.Warnings {
+			if strings.Contains(warning, "both a block and an attribute") {
+				warned = true
+			}
+		}
+		if !warned {
+			t.Errorf("%s: no conflict warning; warnings=%v", target, result.Warnings)
+		}
+	}
+}
+
+// An empty block list means the block is absent, whichever syntax spells it.
+// The IR cannot tell a native attribute from a recovered JSON one, so the rule
+// applies to both and native HCL with "ingress = []" matches native HCL with
+// no ingress block.
+func TestEmptyBlockArrayIsAbsentInNativeHCL(t *testing.T) {
+	absent := emitBoth(t, parseSource(t, `
+resource "aws_security_group" "web" {
+  name = "web"
+}
+`, "main.tf"))
+	empty := emitBoth(t, parseSource(t, `
+resource "aws_security_group" "web" {
+  name   = "web"
+  ingress = []
+}
+`, "main.tf"))
+
+	for target := range absent {
+		want := absent[target].Files[0].Content
+		got := empty[target].Files[0].Content
+		if got != want {
+			t.Errorf("%s: ingress = [] differs from no ingress block\n--- absent\n%s\n--- empty\n%s", target, want, got)
+		}
 	}
 }
 

@@ -433,7 +433,8 @@ kind must treat it as "cannot convert" and warn, never as a literal.
 - **JSON bodies are flat below the top level.** HCL exposes no block structure in
   a `.tf.json` body, so a nested block arrives as a `map` value. An emitter that
   knows its block schema recovers the native shape with
-  `emitters.UnflattenBlocks`; otherwise the value stays flat. This is documented
+  `emitters.UnflattenBlocks`; otherwise the value stays flat. An empty array for
+  a block type means the block is absent, in either syntax. This is documented
   rather than guessed.
 - **`line` is informational.** It is not stable across reformatting and must not
   be used for identity.

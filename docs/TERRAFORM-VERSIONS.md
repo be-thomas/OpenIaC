@@ -193,7 +193,9 @@ Two differences matter to consumers:
   `Block`. `lifecycle`, `default_tags`, `provisioner` and friends therefore
   appear in `attributes`, not `blocks`. An emitter that knows its schema calls
   `emitters.UnflattenBlocks` to recover them, so both syntaxes produce the same
-  TypeScript; a block type no mapping declares stays a flat value.
+  TypeScript; a block type no mapping declares stays a flat value. An empty
+  array for a block type means the block is absent, in either syntax, so
+  `"ingress": []` and `ingress = []` both convert to no ingress rules.
 
 Expressions keep working: a JSON string containing `${…}` or `%{…}` becomes an
 `expr` value with its references collected. A string that is exactly one

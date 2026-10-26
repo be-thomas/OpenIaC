@@ -7,7 +7,7 @@ import (
 	"github.com/be-thomas/openiac/pkg/mappings"
 )
 
-// UnflattenBlocks recovers nested blocks from a flat .tf.json body.
+// UnflattenBlocks recovers nested blocks from a flat body.
 //
 // Terraform's JSON syntax has no way to spell a nested block below the top
 // level, so the parser leaves e.g. "versioning": {"enabled": true} as a map
@@ -16,17 +16,20 @@ import (
 // is converted back into the blocks HCL would have produced, and reported in
 // consumed so the caller does not also render it as a property.
 //
-// existing lists the blocks the caller already has. A type that is present
-// there is left alone, so an attribute that duplicates a native block is still
-// reported as an unsupported property rather than rendered a second time.
+// An empty array counts as a block shape: it means the block is absent, which
+// is what native HCL with no such block means. Values that do not fit a block
+// shape (a scalar, a list holding a scalar) are left alone.
 //
-// Values that do not fit a block shape (a scalar, a list holding a scalar) are
-// left alone. An empty array counts as a block shape: it means the block is
-// absent, which is what native HCL with no such block means. Blocks are
-// returned in sorted attribute-name order so output stays deterministic.
-func UnflattenBlocks(attrs map[string]ir.Value, schema map[string]mappings.BlockMap, existing []ir.Block) (blocks []ir.Block, consumed map[string]bool) {
+// existing lists the blocks the caller already has. A type that also appears
+// there is ambiguous, because Terraform does not allow a block and an argument
+// of the same name. The attribute is consumed so it cannot be rendered twice,
+// and the name is returned in conflicts so the caller can warn about it.
+//
+// Blocks are returned in sorted attribute-name order so output stays
+// deterministic.
+func UnflattenBlocks(attrs map[string]ir.Value, schema map[string]mappings.BlockMap, existing []ir.Block) (blocks []ir.Block, consumed map[string]bool, conflicts []string) {
 	if len(attrs) == 0 || len(schema) == 0 {
-		return nil, nil
+		return nil, nil, nil
 	}
 
 	native := make(map[string]bool, len(existing))
@@ -36,21 +39,25 @@ func UnflattenBlocks(attrs map[string]ir.Value, schema map[string]mappings.Block
 
 	names := make([]string, 0, len(attrs))
 	for name, value := range attrs {
-		if _, ok := schema[name]; ok && !native[name] && blockShape(value) {
+		if _, ok := schema[name]; ok && blockShape(value) {
 			names = append(names, name)
 		}
 	}
 	if len(names) == 0 {
-		return nil, nil
+		return nil, nil, nil
 	}
 	sort.Strings(names)
 
 	consumed = make(map[string]bool, len(names))
 	for _, name := range names {
 		consumed[name] = true
+		if native[name] {
+			conflicts = append(conflicts, name)
+			continue
+		}
 		blocks = append(blocks, blocksFromValue(name, attrs[name], schema[name])...)
 	}
-	return blocks, consumed
+	return blocks, consumed, conflicts
 }
 
 // blockShape reports whether a flat JSON value has the shape of nested blocks:
@@ -102,7 +109,7 @@ func blockFromMap(typ string, v ir.Value, blockMap mappings.BlockMap) (ir.Block,
 	}
 
 	if len(blockMap.Blocks) > 0 {
-		nested, consumed := UnflattenBlocks(block.Attributes, blockMap.Blocks, nil)
+		nested, consumed, _ := UnflattenBlocks(block.Attributes, blockMap.Blocks, nil)
 		for name := range consumed {
 			delete(block.Attributes, name)
 		}

@@ -222,10 +222,13 @@ func (r *run) renderProperties(resource *ir.Resource, mapping *mappings.PulumiMa
 	if mapping != nil {
 		schema = mapping.Blocks
 	}
-	flatBlocks, consumed := emitters.UnflattenBlocks(resource.Attributes, schema, resource.Blocks)
+	flatBlocks, consumed, conflicts := emitters.UnflattenBlocks(resource.Attributes, schema, resource.Blocks)
 	blocks := resource.Blocks
 	if len(flatBlocks) > 0 {
 		blocks = append(append([]ir.Block(nil), resource.Blocks...), flatBlocks...)
+	}
+	for _, name := range conflicts {
+		r.warnings.Addf("%s: %s is given as both a block and an attribute; the attribute is ignored", resource.ID, name)
 	}
 
 	for _, name := range sortedKeys(resource.Attributes) {
@@ -311,10 +314,13 @@ func (r *run) renderBlockObject(block ir.Block, blockMap *mappings.BlockMap, rew
 	if blockMap != nil {
 		schema = blockMap.Blocks
 	}
-	flatBlocks, consumed := emitters.UnflattenBlocks(block.Attributes, schema, block.Blocks)
+	flatBlocks, consumed, conflicts := emitters.UnflattenBlocks(block.Attributes, schema, block.Blocks)
 	blocks := block.Blocks
 	if len(flatBlocks) > 0 {
 		blocks = append(append([]ir.Block(nil), block.Blocks...), flatBlocks...)
+	}
+	for _, name := range conflicts {
+		r.warnings.Addf("%s: %s is given as both a block and an attribute; the attribute is ignored", context, name)
 	}
 
 	for _, name := range sortedKeys(block.Attributes) {
