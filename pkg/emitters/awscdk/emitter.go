@@ -210,7 +210,7 @@ func (r *run) renderProperties(resource *ir.Resource, mapping *mappings.CDKMappi
 	if mapping != nil {
 		schema = mapping.Blocks
 	}
-	flatBlocks, consumed := emitters.UnflattenBlocks(resource.Attributes, schema)
+	flatBlocks, consumed := emitters.UnflattenBlocks(resource.Attributes, schema, resource.Blocks)
 	blocks := resource.Blocks
 	if len(flatBlocks) > 0 {
 		blocks = append(append([]ir.Block(nil), resource.Blocks...), flatBlocks...)
@@ -290,7 +290,7 @@ func (r *run) renderBlockGroup(blocks []ir.Block, blockMap mappings.BlockMap, re
 func (r *run) renderBlockObject(block ir.Block, blockMap mappings.BlockMap, rewriter *emitutil.RefRewriter, context string) (string, bool) {
 	var parts []string
 
-	flatBlocks, consumed := emitters.UnflattenBlocks(block.Attributes, blockMap.Blocks)
+	flatBlocks, consumed := emitters.UnflattenBlocks(block.Attributes, blockMap.Blocks, block.Blocks)
 	blocks := block.Blocks
 	if len(flatBlocks) > 0 {
 		blocks = append(append([]ir.Block(nil), block.Blocks...), flatBlocks...)

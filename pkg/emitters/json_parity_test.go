@@ -17,6 +17,10 @@ import (
 // produce the same TypeScript.
 const (
 	nativeNested = `
+variable "port" {
+  type = number
+}
+
 resource "aws_s3_bucket" "logs" {
   bucket = "logs"
   versioning {
@@ -27,7 +31,7 @@ resource "aws_s3_bucket" "logs" {
 resource "aws_security_group" "web" {
   name = "web"
   ingress {
-    from_port   = 80
+    from_port   = var.port
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
@@ -36,6 +40,9 @@ resource "aws_security_group" "web" {
 `
 
 	jsonNested = `{
+  "variable": {
+    "port": { "type": "number" }
+  },
   "resource": {
     "aws_s3_bucket": {
       "logs": {
@@ -48,7 +55,7 @@ resource "aws_security_group" "web" {
         "name": "web",
         "ingress": [
           {
-            "from_port": 80,
+            "from_port": "${var.port}",
             "to_port": 80,
             "protocol": "tcp",
             "cidr_blocks": ["0.0.0.0/0"]
@@ -120,8 +127,79 @@ func TestUnflattenBlocksIgnoresScalars(t *testing.T) {
 			"bucket":     {Kind: ir.KindString, Literal: "logs"},
 		},
 		map[string]mappings.BlockMap{"versioning": {Property: "versioned"}},
+		nil,
 	)
 	if len(blocks) != 0 || len(consumed) != 0 {
 		t.Fatalf("blocks=%v consumed=%v, want nothing", blocks, consumed)
+	}
+}
+
+func TestUnflattenBlocksConsumesEmptyArray(t *testing.T) {
+	// "ingress": [] means there are no ingress blocks, which is what native HCL
+	// with no ingress block means. It must not fall through as a property.
+	blocks, consumed := emitters.UnflattenBlocks(
+		map[string]ir.Value{"ingress": {Kind: ir.KindList}},
+		map[string]mappings.BlockMap{"ingress": {Property: "ingress", Shape: "array"}},
+		nil,
+	)
+	if len(blocks) != 0 {
+		t.Fatalf("blocks=%v, want none", blocks)
+	}
+	if !consumed["ingress"] {
+		t.Fatalf("consumed=%v, want ingress consumed", consumed)
+	}
+}
+
+func TestUnflattenBlocksLeavesNativeBlocksAlone(t *testing.T) {
+	// An attribute that duplicates a native block is invalid Terraform. It must
+	// stay an attribute so the emitter reports it, not render a second block.
+	blocks, consumed := emitters.UnflattenBlocks(
+		map[string]ir.Value{"ingress": {Kind: ir.KindMap, Fields: map[string]ir.Value{
+			"from_port": {Kind: ir.KindNumber, Literal: 80},
+		}}},
+		map[string]mappings.BlockMap{"ingress": {Property: "ingress", Shape: "array"}},
+		[]ir.Block{{Type: "ingress"}},
+	)
+	if len(blocks) != 0 || len(consumed) != 0 {
+		t.Fatalf("blocks=%v consumed=%v, want nothing", blocks, consumed)
+	}
+}
+
+func TestJSONEmptyBlockArrayMatchesNativeOutput(t *testing.T) {
+	native := emitBoth(t, parseSource(t, `
+resource "aws_security_group" "web" {
+  name = "web"
+}
+`, "main.tf"))
+	jsonSyntax := emitBoth(t, parseSource(t, `{
+  "resource": {
+    "aws_security_group": {
+      "web": {
+        "name": "web",
+        "ingress": []
+      }
+    }
+  }
+}`, "main.tf.json"))
+
+	for target := range native {
+		nativeFiles := native[target].Files
+		jsonFiles := jsonSyntax[target].Files
+		if len(nativeFiles) != len(jsonFiles) {
+			t.Fatalf("%s: files = %d vs %d", target, len(nativeFiles), len(jsonFiles))
+		}
+		for i := range nativeFiles {
+			want := nativeFiles[i].Content
+			got := strings.ReplaceAll(jsonFiles[i].Content, "main.tf.json", "main.tf")
+			if got != want {
+				t.Errorf("%s: %s differs with an empty block array\n--- native\n%s\n--- json\n%s",
+					target, nativeFiles[i].Path, want, got)
+			}
+		}
+		for _, warning := range jsonSyntax[target].Warnings {
+			if strings.Contains(warning, "ingress") {
+				t.Errorf("%s: empty ingress array reported as unconverted: %s", target, warning)
+			}
+		}
 	}
 }

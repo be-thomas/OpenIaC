@@ -196,8 +196,11 @@ Two differences matter to consumers:
   TypeScript; a block type no mapping declares stays a flat value.
 
 Expressions keep working: a JSON string containing `${…}` or `%{…}` becomes an
-`expr` value with its references collected, and is normalised to a quoted HCL
-template so the emitters render identical TypeScript for both syntaxes.
+`expr` value with its references collected. A string that is exactly one
+interpolation, such as `"${var.port}"`, keeps the bare inner expression,
+because Terraform evaluates it to that expression's value and type; any other
+template is normalised to a quoted HCL template. Either way both syntaxes render
+identical TypeScript.
 
 ## Out of scope
 

@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/hcl/v2"
+	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/zclconf/go-cty/cty"
 
 	"github.com/be-thomas/openiac/pkg/ir"
@@ -39,6 +40,18 @@ func parseJSONExpr(expr hcl.Expression, src []byte) ir.Value {
 	if value, ok := literalValue(expr); ok {
 		text, isString := value.Literal.(string)
 		if value.Kind == ir.KindString && isString && isTemplateText(text) {
+			if inner, ok := singleInterpolation(text); ok {
+				// Terraform evaluates "${expr}" to the expression's own value
+				// and type, so keep the bare expression: this renders exactly
+				// like the native HCL form instead of wrapping it in a string
+				// template.
+				return ir.Value{
+					Kind: ir.KindExpr,
+					Expr: inner,
+					Raw:  inner,
+					Refs: collectRefs(expr),
+				}
+			}
 			// Rendering the decoded text back as an HCL template keeps the
 			// emitters' existing template handling working unchanged.
 			quoted := hclQuoteTemplate(text)
@@ -105,6 +118,31 @@ func jsonArray(expr hcl.Expression, src []byte) (ir.Value, bool) {
 // markers, meaning it is an expression rather than a plain string.
 func isTemplateText(s string) bool {
 	return strings.Contains(s, "${") || strings.Contains(s, "%{")
+}
+
+// singleInterpolation returns the HCL source of the expression inside a JSON
+// string that is nothing but one interpolation, for example "${var.port}".
+//
+// Terraform evaluates such a string to the wrapped expression's value and
+// type, not to a string, so it must be kept as the bare expression. Only a
+// string that cannot be recognised as a single interpolation falls back to the
+// general template handling.
+func singleInterpolation(s string) (string, bool) {
+	if !strings.HasPrefix(s, "${") || !strings.HasSuffix(s, "}") {
+		return "", false
+	}
+	parsed, diags := hclsyntax.ParseTemplate([]byte(s), "json", hcl.Pos{Line: 1, Column: 1})
+	if diags.HasErrors() {
+		return "", false
+	}
+	if _, ok := parsed.(*hclsyntax.TemplateWrapExpr); !ok {
+		return "", false
+	}
+	inner := strings.TrimSpace(s[2 : len(s)-1])
+	if inner == "" {
+		return "", false
+	}
+	return inner, true
 }
 
 // hclQuoteTemplate renders text as an HCL quoted template.

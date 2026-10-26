@@ -222,7 +222,7 @@ func (r *run) renderProperties(resource *ir.Resource, mapping *mappings.PulumiMa
 	if mapping != nil {
 		schema = mapping.Blocks
 	}
-	flatBlocks, consumed := emitters.UnflattenBlocks(resource.Attributes, schema)
+	flatBlocks, consumed := emitters.UnflattenBlocks(resource.Attributes, schema, resource.Blocks)
 	blocks := resource.Blocks
 	if len(flatBlocks) > 0 {
 		blocks = append(append([]ir.Block(nil), resource.Blocks...), flatBlocks...)
@@ -311,7 +311,7 @@ func (r *run) renderBlockObject(block ir.Block, blockMap *mappings.BlockMap, rew
 	if blockMap != nil {
 		schema = blockMap.Blocks
 	}
-	flatBlocks, consumed := emitters.UnflattenBlocks(block.Attributes, schema)
+	flatBlocks, consumed := emitters.UnflattenBlocks(block.Attributes, schema, block.Blocks)
 	blocks := block.Blocks
 	if len(flatBlocks) > 0 {
 		blocks = append(append([]ir.Block(nil), block.Blocks...), flatBlocks...)

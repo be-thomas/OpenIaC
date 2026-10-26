@@ -143,11 +143,20 @@ func TestJSONInterpolationBecomesExpression(t *testing.T) {
 	if !contains(env.Refs, "var.environment") {
 		t.Errorf("refs = %v, want var.environment", env.Refs)
 	}
-	if !strings.Contains(env.Expr, "var.environment") {
-		t.Errorf("expr = %q, want a template with var.environment", env.Expr)
+	// "${var.environment}" is one interpolation and nothing else, so Terraform
+	// evaluates it to the expression's value and type. It must not become a
+	// string template.
+	if env.Expr != "var.environment" {
+		t.Errorf("expr = %q, want the bare expression var.environment", env.Expr)
 	}
-	if !strings.HasPrefix(env.Expr, `"`) {
-		t.Errorf("expr = %q, want an HCL quoted template", env.Expr)
+
+	// Text around an interpolation is a real template and stays quoted.
+	name := tags.Fields["Name"]
+	if name.Kind != ir.KindExpr {
+		t.Fatalf("tags.Name kind = %q, want expr", name.Kind)
+	}
+	if !strings.HasPrefix(name.Expr, `"`) || !strings.Contains(name.Expr, "var.environment") {
+		t.Errorf("expr = %q, want an HCL quoted template", name.Expr)
 	}
 }
 
