@@ -116,12 +116,14 @@ make fmt && make vet && make test
 ## Golden output
 
 `pkg/engine/golden_test.go` snapshots `examples/aws-web-app` for both targets
-into `pkg/engine/testdata/golden/`. Any change to generated TypeScript, or to
-the warnings a target reports, fails the test. When a change is intended,
-refresh the snapshots, review the diff, and commit it with the code:
+into `pkg/engine/testdata/golden/`, and `pkg/engine/testdata/fixtures/warned`
+the same way so the warning section is covered too. Any change to generated
+TypeScript, or to the warnings a target reports, fails the test. When a change
+is intended, refresh the snapshots, review the diff, and commit it with the
+code:
 
 ```bash
-go test ./pkg/engine -run TestGoldenAwsWebApp -update
+go test ./pkg/engine -run TestGolden -update
 ```
 
 ## Releasing a version

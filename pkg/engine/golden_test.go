@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 
@@ -14,36 +15,95 @@ import (
 
 // update rewrites the golden files instead of comparing against them:
 //
-//	go test ./pkg/engine -run TestGoldenAwsWebApp -update
+//	go test ./pkg/engine -run TestGolden -update
 var update = flag.Bool("update", false, "rewrite golden files")
+
+// goldenTargets is the pair of emitters every snapshot covers.
+var goldenTargets = []engine.Target{engine.TargetCDK, engine.TargetPulumi}
 
 // TestGoldenAwsWebApp snapshots the documented example in both targets. It is
 // the regression guard for emitter output: any change to generated TypeScript
-// has to be visible here, including the warnings a target reports.
+// has to be visible here.
 func TestGoldenAwsWebApp(t *testing.T) {
+	snapshot(t, "aws-web-app", filepath.Join("examples", "aws-web-app"), false)
+}
+
+// TestGoldenWarned snapshots a module the targets cannot fully convert, so the
+// warning section of the snapshots is exercised. Without it a warning-free
+// fixture would leave the section empty in every golden file and changes to
+// warning collection would go unnoticed.
+func TestGoldenWarned(t *testing.T) {
+	snapshot(t, "warned", filepath.Join("pkg", "engine", "testdata", "fixtures", "warned"), true)
+}
+
+// snapshot converts a fixture in both targets and compares each result with
+// its committed golden file. wantWarnings fails the test unless every target
+// reports at least one warning, so a fixture added for that purpose cannot
+// decay into a copy of the warning-free case.
+func snapshot(t *testing.T, name, dir string, wantWarnings bool) {
+	t.Helper()
+
 	// The generated "// Source:" comment carries the path the parser was given,
 	// so the test runs from the repository root to keep the snapshot portable.
-	t.Chdir("../..")
+	t.Chdir(repoRoot(t))
 
-	graph, err := engine.Parse(filepath.Join("examples", "aws-web-app"))
+	graph, err := engine.Parse(dir)
 	if err != nil {
 		t.Fatalf("Parse: %v", err)
 	}
 
-	results, err := engine.Convert(graph, []engine.Target{engine.TargetCDK, engine.TargetPulumi}, emitters.Options{
+	results, err := engine.Convert(graph, goldenTargets, emitters.Options{
 		StackName:   "OpenIacStack",
 		ProjectName: "openiac",
 	})
 	if err != nil {
 		t.Fatalf("Convert: %v", err)
 	}
-	if len(results) != 2 {
-		t.Fatalf("results = %d, want 2", len(results))
+	if len(results) != len(goldenTargets) {
+		t.Fatalf("results = %d, want %d", len(results), len(goldenTargets))
 	}
 
 	for _, result := range results {
-		path := filepath.Join("pkg", "engine", "testdata", "golden", "aws-web-app."+string(result.Target)+".txt")
-		golden(t, path, renderResult(result))
+		if wantWarnings && len(result.Warnings) == 0 {
+			t.Errorf("%s: warnings = 0, want at least one", result.Target)
+		}
+		path := filepath.Join("pkg", "engine", "testdata", "golden", name+"."+string(result.Target)+".txt")
+		checkGolden(t, path, renderResult(result))
+	}
+}
+
+// repoRoot finds the module root, so the snapshots do not depend on the
+// directory the test binary was started from: `go test` starts in pkg/engine,
+// but a prebuilt binary or a debugger can start anywhere.
+func repoRoot(t *testing.T) string {
+	t.Helper()
+	if _, file, _, ok := runtime.Caller(0); ok {
+		if root, ok := moduleRoot(filepath.Dir(file)); ok {
+			return root
+		}
+	}
+	wd, err := os.Getwd()
+	if err != nil {
+		t.Fatalf("working directory: %v", err)
+	}
+	if root, ok := moduleRoot(wd); ok {
+		return root
+	}
+	t.Fatalf("cannot find go.mod above %s", wd)
+	return ""
+}
+
+// moduleRoot walks up from dir until it finds a go.mod.
+func moduleRoot(dir string) (string, bool) {
+	for {
+		if _, err := os.Stat(filepath.Join(dir, "go.mod")); err == nil {
+			return dir, true
+		}
+		parent := filepath.Dir(dir)
+		if parent == dir {
+			return "", false
+		}
+		dir = parent
 	}
 }
 
@@ -68,7 +128,7 @@ func renderResult(result engine.TargetResult) string {
 	return b.String()
 }
 
-func golden(t *testing.T, path, got string) {
+func checkGolden(t *testing.T, path, got string) {
 	t.Helper()
 	if *update {
 		if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
@@ -85,7 +145,7 @@ func golden(t *testing.T, path, got string) {
 		t.Fatalf("read %s: %v (run with -update to create it)", path, err)
 	}
 	if string(want) != got {
-		t.Errorf("%s is stale; run `go test ./pkg/engine -run TestGoldenAwsWebApp -update`\n--- want\n%s\n--- got\n%s",
+		t.Errorf("%s is stale; run `go test ./pkg/engine -run TestGolden -update`\n--- want\n%s\n--- got\n%s",
 			path, want, got)
 	}
 }

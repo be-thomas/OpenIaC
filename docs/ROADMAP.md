@@ -35,7 +35,7 @@ playground produces the same output as the CLI.
 
 ---
 
-## v0.1.1 — Release hardening · Nov 2026 ✅
+## v0.1.1 — Release hardening · Nov 2026 🚧
 
 | Task | Exit criteria |
 |:--|:--|
@@ -44,6 +44,10 @@ playground produces the same output as the CLI.
 | Golden tests | Snapshot output for `examples/aws-web-app` in both targets |
 | Docs | Architecture, IR reference, Terraform version support, contributing, roadmap, README |
 | Versioning | `openiac version` reads a single source of truth |
+
+The work is in place; the milestone stays in progress until the release is cut.
+`internal/buildinfo/VERSION` keeps a `-dev` suffix and no `v0.1.1` tag exists
+yet, so nothing reports this milestone as shipped.
 
 ---
 
