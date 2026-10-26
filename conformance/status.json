@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "corpus": {
     "fixtures": 853,
     "files": 6471,
@@ -10,6 +10,22 @@
     "modules": 853,
     "parsed": 853,
     "failed": 0
+  },
+  "emit": {
+    "cdk": {
+      "modules": 853,
+      "emitted": 853,
+      "failed": 0,
+      "clean": 27,
+      "warnings": 10669
+    },
+    "pulumi": {
+      "modules": 853,
+      "emitted": 853,
+      "failed": 0,
+      "clean": 31,
+      "warnings": 11774
+    }
   },
   "min_versions": {
     "1.0.0": 468,

@@ -150,25 +150,43 @@ therefore fails verification instead of silently drifting.
 Provider, CloudFormation and Pulumi schemas are dependencies rather than source:
 they are pinned by lockfile and cached outside the tree.
 
-### Parse summary
+### Outcome summary
 
-`openiac-conformance status` parses every fixture and writes three committed
-files: [`status.json`](../conformance/status.json) holds the corpus size, the
-parse counts and the minimum-version distribution,
+`openiac-conformance status` parses every fixture, runs both emitters over every
+graph that parsed, and writes three committed files:
+[`status.json`](../conformance/status.json) holds the corpus size, the parse
+counts, each emitter's results and the minimum-version distribution,
 [`badge.json`](../conformance/badge.json) is the shields.io endpoint the README
-renders as a badge, and the chart between the `conformance:summary` markers in
-the [`README`](../README.md) is regenerated in place. CI runs `status -check`,
-so the summary cannot drift from the corpus without failing a pull request.
+renders as a badge, and the outcome table between the `conformance:summary`
+markers in the [`README`](../README.md) is regenerated in place. CI runs
+`status -check`, so the summary cannot drift from the corpus without failing a
+pull request.
 
 ```bash
-make conformance-status        # re-parse the corpus and rewrite all three
+make conformance-status        # re-parse, re-emit and rewrite all three
 make conformance-status-check  # fail when the committed summary is stale
 ```
+
+The report separates three questions the corpus answers, because they fail
+differently:
+
+| Field | Question | A regression means |
+|:--|:--|:--|
+| `parse.parsed` | Did the parser turn this module into IR? | The parser rejects valid Terraform |
+| `emit.<target>.emitted` | Did the emitter produce non-empty TypeScript? | The emitter crashes or emits nothing |
+| `emit.<target>.clean` | Did it do so without a warning? | Nothing broken — the module needs a human, which is the documented behaviour for unmapped constructs |
+
+`emitted + failed` partitions the modules each emitter was run on, and `clean`
+is a subset of `emitted`. A module that fails to parse is never handed to an
+emitter, so the two denominators differ when parsing regresses. Every emitted
+module is expected to be non-empty: an emitter that succeeds with no file is
+counted as a failure.
 
 The minimum version is the oldest Terraform release a fixture needs, derived
 from its `required_version` constraint and the language features it uses (see
 [TERRAFORM-VERSIONS.md](TERRAFORM-VERSIONS.md)); it measures parse coverage, not
-conversion completeness.
+conversion completeness, and is kept in `status.json` rather than rendered in
+the README.
 
 ### Sources
 
