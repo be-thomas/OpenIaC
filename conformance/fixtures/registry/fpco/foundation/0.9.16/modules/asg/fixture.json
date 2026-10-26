@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/fpco/foundation/0.9.16/modules/asg",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
+    "ref": "0.9.16",
+    "commit": "a7b028e436cd1ce0977b8144b090ce5c9fe30526",
+    "gitOwner": "fpco",
+    "gitRepo": "terraform-aws-foundation",
+    "path": "modules/asg",
+    "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
+    "inputSha256": "8f3aec22eb1bd82417896cecf99919c73d5e5610e60ff831317d4ead61885210",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

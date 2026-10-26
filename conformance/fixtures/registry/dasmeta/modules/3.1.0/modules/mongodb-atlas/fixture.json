@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/dasmeta/modules/3.1.0/modules/mongodb-atlas",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
+    "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
+    "path": "modules/mongodb-atlas",
+    "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
+    "inputSha256": "0eb342337bf4d5b19a2a4ff62089afca4ad7cf2a198483c83049d57eae648c5f",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "mongodbatlas",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

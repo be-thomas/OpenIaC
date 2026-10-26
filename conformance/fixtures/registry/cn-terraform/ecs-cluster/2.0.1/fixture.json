@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/cn-terraform/ecs-cluster/2.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cn-terraform/ecs-cluster/aws/2.0.1",
+    "ref": "2.0.1",
+    "commit": "dd78842d1f4df2f7ba2b77f9d2d9a7df601c147e",
+    "gitOwner": "cn-terraform",
+    "gitRepo": "terraform-aws-ecs-cluster",
+    "path": ".",
+    "archiveSha256": "6ede1a68b692ff6430ef2d517408109ba932c6aec0129f0f1e8c6ec74f041018",
+    "inputSha256": "cc3a5f8896c50a52f9e04350a0d4745ac5c6b66dc1e76671f2fb5daeb8a1f2ca",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/documentdb-cluster/1.1.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/documentdb-cluster/aws/1.1.0",
+    "ref": "1.1.0",
+    "commit": "96c457c8a4cd055c3661fbc7adbb01c7a2da7ff4",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-documentdb-cluster",
+    "path": ".",
+    "archiveSha256": "4a3628311bbe97f520871a866ac2d93ec8841a2eb814b0c2623c0e2545416484",
+    "inputSha256": "43beff7699f734d5a1b8f1905cbb345c69c70e1567f9d822c31611aa01b03dc9",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/cn-terraform/ecs-service-autoscaling/1.0.12",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cn-terraform/ecs-service-autoscaling/aws/1.0.12",
+    "ref": "1.0.12",
+    "commit": "596f57a062cdd5fdf3ba00a3a7592853fb8d82c9",
+    "gitOwner": "cn-terraform",
+    "gitRepo": "terraform-aws-ecs-service-autoscaling",
+    "path": ".",
+    "archiveSha256": "1fed13247a733f2db3c60c00b78d6a3088340393aa5a60b5aea27a2e32e68f41",
+    "inputSha256": "4d87c6aa43968bb8148eab606a392d342a2aacfc88f3c3583357af29a3e78e3a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "depends_on",
+    "functions",
+    "interpolation",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

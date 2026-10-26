@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/fpco/foundation/0.9.16/modules/consul-leader-wan-sg",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
+    "ref": "0.9.16",
+    "commit": "a7b028e436cd1ce0977b8144b090ce5c9fe30526",
+    "gitOwner": "fpco",
+    "gitRepo": "terraform-aws-foundation",
+    "path": "modules/consul-leader-wan-sg",
+    "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
+    "inputSha256": "385b499d8945a3b56beacb99b0ad6ad12fe8b24b721bfc43edd0c4ebbb35ee55",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "interpolation",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

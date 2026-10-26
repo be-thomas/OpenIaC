@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/clowdhaus/rds-proxy/3.2.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/clowdhaus/rds-proxy/aws/3.2.1",
+    "ref": "3.2.1",
+    "commit": "e8ffe8f2f1c02f69a653c232d45c86f626a422c9",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-rds-proxy",
+    "path": ".",
+    "archiveSha256": "388bcd0c2560eae00febf4a6fdf56bbec084e86cfa30c3c42ac5f275c44f34da",
+    "inputSha256": "7a5c1dda1e1fa146b02db351a69d3f0fc4e5e56fd263c2f2d45290e05cbd6982",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

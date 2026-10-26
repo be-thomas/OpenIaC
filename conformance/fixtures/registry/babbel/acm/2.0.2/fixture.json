@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/babbel/acm/2.0.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/babbel/acm/aws/2.0.2",
+    "ref": "2.0.2",
+    "commit": "fc66c7742e53340fe4601105d66a21ec25ee8026",
+    "gitOwner": "babbel",
+    "gitRepo": "terraform-aws-acm",
+    "path": ".",
+    "archiveSha256": "d2f5353b41b45991c62b3f9fb9df926b711755dc29c1654e55c6ef62da1fcaf3",
+    "inputSha256": "1dca65c6a94ca6bb9291f4c3e111f15f6c24aeb4ef2a8bbb529ac54b2c237964",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

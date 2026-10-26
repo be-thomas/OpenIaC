@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/wandb/wandb/8.0.0/modules/file_storage",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/wandb/wandb/aws/8.0.0",
+    "ref": "8.0.0",
+    "commit": "da9203f295a5c6ead41d060a3ef8e211617d8f9a",
+    "gitOwner": "wandb",
+    "gitRepo": "terraform-aws-wandb",
+    "path": "modules/file_storage",
+    "archiveSha256": "1ec2e8ca251b3f6dfd37e034a18342617c0d24653fe304e41cdabfecaee8c558",
+    "inputSha256": "b6ac53a4ddfdf54f4051c88ce37dabd9c2b5606e8bec37d42648a5575e5c1fd1",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "functions",
+    "interpolation",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

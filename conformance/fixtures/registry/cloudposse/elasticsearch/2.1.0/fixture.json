@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/elasticsearch/2.1.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/elasticsearch/aws/2.1.0",
+    "ref": "2.1.0",
+    "commit": "0fedd88334c54a67eb73fe7059b6c556ca25060d",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-elasticsearch",
+    "path": ".",
+    "archiveSha256": "46bb637cadb5970a761368b533225e4668ae898a17a720a07f2c70053c2b679a",
+    "inputSha256": "49bc0dea61395303686c6ed8fd273c3f7bea342fe266c5eca0026ea4b1d60e6a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

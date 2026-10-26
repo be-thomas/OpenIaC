@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "github/aws-ia/terraform-aws-eks-blueprints/fc40e646/patterns/ml-capacity-block",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
+    "ref": "main",
+    "commit": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints",
+    "path": "patterns/ml-capacity-block",
+    "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
+    "inputSha256": "c1d151aa7677bd1808948ab15692d8c28bb3466a7e6698ac9e03930665f64ac0",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm"
+  ],
+  "features": [
+    "data",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "providers",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

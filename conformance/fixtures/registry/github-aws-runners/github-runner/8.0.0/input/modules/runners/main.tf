@@ -1,0 +1,427 @@
+locals {
+  tags = merge(
+    {
+      "Name" = format("%s-action-runner", var.prefix)
+    },
+    {
+      "ghr:ssm_config_path" = "${var.ssm_paths.root}/${var.ssm_paths.config}"
+    },
+    var.tags,
+  )
+
+  name_sg                         = var.overrides["name_sg"] == "" ? local.tags["Name"] : var.overrides["name_sg"]
+  name_runner                     = var.overrides["name_runner"] == "" ? local.tags["Name"] : var.overrides["name_runner"]
+  role_path                       = var.role_path == null ? "/${var.prefix}/" : var.role_path
+  instance_profile_path           = var.instance_profile_path == null ? "/${var.prefix}/" : var.instance_profile_path
+  lambda_zip                      = var.lambda_zip == null ? "${path.module}/../../lambdas/functions/control-plane/runners.zip" : var.lambda_zip
+  userdata_template               = var.userdata_template == null ? local.default_userdata_template[var.runner_os] : var.userdata_template
+  kms_key_arn                     = var.kms_key_arn != null ? var.kms_key_arn : ""
+  s3_location_runner_distribution = var.enable_runner_binaries_syncer ? "s3://${var.s3_runner_binaries.id}/${var.s3_runner_binaries.key}" : ""
+  default_ami = {
+    "windows" = { name = ["Windows_Server-2022-English-Full-ECS_Optimized-*"] }
+    "linux"   = var.runner_architecture == "arm64" ? { name = ["al2023-ami-2023.*-kernel-6.*-arm64"] } : { name = ["al2023-ami-2023.*-kernel-6.*-x86_64"] }
+    "osx"     = var.runner_architecture == "arm64" ? { name = ["amzn-ec2-macos-15.*-arm64"] } : { name = ["amzn-ec2-macos-15.*"] }
+  }
+
+  default_userdata_template = {
+    "windows" = "${path.module}/templates/user-data.ps1"
+    "linux"   = "${path.module}/templates/user-data.sh"
+    "osx"     = "${path.module}/templates/user-data-osx.sh"
+  }
+
+  userdata_install_runner = {
+    "windows" = "${path.module}/templates/install-runner.ps1"
+    "linux"   = "${path.module}/templates/install-runner.sh"
+    "osx"     = "${path.module}/templates/install-runner-osx.sh"
+  }
+
+  userdata_start_runner = {
+    "windows" = "${path.module}/templates/start-runner.ps1"
+    "linux"   = "${path.module}/templates/start-runner.sh"
+    "osx"     = "${path.module}/templates/start-runner-osx.sh"
+  }
+
+  # Handle AMI configuration
+  ami_config = var.ami != null ? var.ami : {
+    filter               = local.default_ami[var.runner_os]
+    owners               = ["amazon"]
+    id_ssm_parameter_arn = null
+    kms_key_arn          = null
+  }
+  ami_kms_key_arn           = local.ami_config.kms_key_arn != null ? local.ami_config.kms_key_arn : ""
+  ami_filter                = merge(local.default_ami[var.runner_os], local.ami_config.filter)
+  ami_id_ssm_module_managed = local.ami_config.id_ssm_parameter_arn == null
+  # Extract parameter name from ARN (format: arn:aws:ssm:region:account:parameter/path/to/param)
+  ami_id_ssm_parameter_name = local.ami_id_ssm_module_managed ? null : try(regex("parameter(/.+)$", local.ami_config.id_ssm_parameter_arn)[0], null)
+
+  enable_job_queued_check = var.enable_job_queued_check == null ? !var.enable_ephemeral_runners : var.enable_job_queued_check
+
+  arn_ssm_parameters_path_config = "arn:${var.aws_partition}:ssm:${var.aws_region}:${data.aws_caller_identity.current.account_id}:parameter${var.ssm_paths.root}/${var.ssm_paths.config}"
+
+  token_path = "${var.ssm_paths.root}/${var.ssm_paths.tokens}"
+
+  user_data = var.enable_userdata ? (var.userdata_content == null ? templatefile(local.userdata_template, {
+    enable_debug_logging            = var.enable_user_data_debug_logging
+    s3_location_runner_distribution = local.s3_location_runner_distribution
+    pre_install                     = var.userdata_pre_install
+    install_runner = templatefile(local.userdata_install_runner[var.runner_os], {
+      S3_LOCATION_RUNNER_DISTRIBUTION = local.s3_location_runner_distribution
+      RUNNER_ARCHITECTURE             = var.runner_architecture
+    })
+    post_install       = var.userdata_post_install
+    hook_job_started   = var.runner_hook_job_started
+    hook_job_completed = var.runner_hook_job_completed
+    start_runner = templatefile(local.userdata_start_runner[var.runner_os], {
+      metadata_tags = var.metadata_options != null ? var.metadata_options.instance_metadata_tags : "enabled"
+    })
+    ghes_url        = var.ghes_url
+    ghes_ssl_verify = var.ghes_ssl_verify
+
+    ## retain these for backwards compatibility
+    environment                     = var.prefix
+    enable_cloudwatch_agent         = var.enable_cloudwatch_agent
+    ssm_key_cloudwatch_agent_config = var.enable_cloudwatch_agent ? aws_ssm_parameter.cloudwatch_agent_config_runner[0].name : ""
+  }) : var.userdata_content) : ""
+
+  encoded_user_data = (
+    var.runner_os == "linux" ? base64gzip(local.user_data) :
+    var.runner_os == "windows" ? base64encode(local.user_data) :
+    var.runner_os == "osx" ? base64encode(local.user_data) :
+    null
+  )
+
+  launch_template_variants = var.instance_capacity_type_override_enabled ? ["default", "on_demand_override"] : ["default"]
+
+  on_demand_override_launch_template_created = contains(local.launch_template_variants, "on_demand_override")
+}
+
+data "aws_ami" "runner" {
+  most_recent = "true"
+
+  dynamic "filter" {
+    for_each = local.ami_filter
+    content {
+      name   = filter.key
+      values = filter.value
+    }
+  }
+
+  owners = local.ami_config.owners
+}
+
+resource "aws_ssm_parameter" "runner_ami_id" {
+  count     = local.ami_id_ssm_module_managed ? 1 : 0
+  name      = "${var.ssm_paths.root}/${var.ssm_paths.config}/ami_id"
+  type      = "String"
+  data_type = "aws:ec2:image"
+  value     = data.aws_ami.runner.id
+
+  tags = merge(
+    local.tags,
+    {
+      # Remove parentheses from AMI name to comply with AWS tag constraints
+      "ghr:ami_name" = replace(data.aws_ami.runner.name, "/[()]/", "")
+    },
+    {
+      "ghr:ami_creation_date" = data.aws_ami.runner.creation_date
+    },
+    {
+      "ghr:ami_deprecation_time" = data.aws_ami.runner.deprecation_time
+    }
+  )
+}
+
+locals {
+  # All-null defaults so both branches below share one object type.
+  network_interfaces_zero = {
+    associate_carrier_ip_address      = null
+    associate_public_ip_address       = null
+    delete_on_termination             = null
+    description                       = null
+    device_index                      = null
+    interface_type                    = null
+    ipv4_address_count                = null
+    ipv4_addresses                    = null
+    ipv4_prefix_count                 = null
+    ipv4_prefixes                     = null
+    ipv6_address_count                = null
+    ipv6_addresses                    = null
+    ipv6_prefix_count                 = null
+    ipv6_prefixes                     = null
+    network_card_index                = null
+    network_interface_id              = null
+    primary_ipv6                      = null
+    private_ip_address                = null
+    security_groups                   = null
+    subnet_id                         = null
+    connection_tracking_specification = null
+    ena_srd_specification             = null
+  }
+
+  network_interfaces = length(var.network_interfaces) > 0 ? var.network_interfaces : (
+    var.associate_public_ipv4_address ? [merge(local.network_interfaces_zero, {
+      associate_public_ip_address = true
+      security_groups = compact(concat(
+        var.enable_managed_runner_security_group ? [aws_security_group.runner_sg[0].id] : [],
+        var.runner_additional_security_group_ids,
+      ))
+    })] : []
+  )
+}
+
+resource "aws_launch_template" "runner" {
+  for_each = toset(local.launch_template_variants)
+
+  name = each.key == "default" ? "${var.prefix}-action-runner" : "${var.prefix}-action-runner-on-demand-override"
+
+  dynamic "block_device_mappings" {
+    for_each = var.block_device_mappings != null ? var.block_device_mappings : []
+    content {
+      device_name = block_device_mappings.value.device_name
+
+      ebs {
+        delete_on_termination      = block_device_mappings.value.delete_on_termination
+        encrypted                  = block_device_mappings.value.encrypted
+        iops                       = block_device_mappings.value.iops
+        kms_key_id                 = block_device_mappings.value.kms_key_id
+        snapshot_id                = block_device_mappings.value.snapshot_id
+        throughput                 = block_device_mappings.value.throughput
+        volume_initialization_rate = block_device_mappings.value.volume_initialization_rate
+        volume_size                = block_device_mappings.value.volume_size
+        volume_type                = block_device_mappings.value.volume_type
+      }
+    }
+  }
+
+  dynamic "metadata_options" {
+    for_each = var.metadata_options != null ? [var.metadata_options] : []
+
+    content {
+      http_endpoint               = metadata_options.value.http_endpoint
+      http_tokens                 = metadata_options.value.http_tokens
+      http_put_response_hop_limit = metadata_options.value.http_put_response_hop_limit
+      instance_metadata_tags      = metadata_options.value.instance_metadata_tags
+    }
+  }
+
+  dynamic "metadata_options" {
+    for_each = var.metadata_options != null ? [] : [0]
+
+    content {
+      instance_metadata_tags = "enabled"
+    }
+  }
+
+  dynamic "credit_specification" {
+    for_each = var.credit_specification != null ? [var.credit_specification] : []
+    content {
+      cpu_credits = credit_specification.value
+    }
+  }
+
+  dynamic "cpu_options" {
+    for_each = var.cpu_options != null ? [var.cpu_options] : []
+    content {
+      core_count            = try(cpu_options.value.core_count, null)
+      threads_per_core      = try(cpu_options.value.threads_per_core, null)
+      amd_sev_snp           = try(cpu_options.value.amd_sev_snp, null)
+      nested_virtualization = try(cpu_options.value.nested_virtualization, null)
+    }
+  }
+
+  dynamic "placement" {
+    for_each = var.placement != null ? [var.placement] : []
+    content {
+      affinity                = try(placement.value.affinity, null)
+      availability_zone       = try(placement.value.availability_zone, null)
+      group_id                = try(placement.value.group_id, null)
+      group_name              = try(placement.value.group_name, null)
+      host_id                 = try(placement.value.host_id, null)
+      host_resource_group_arn = try(placement.value.host_resource_group_arn, null)
+      spread_domain           = try(placement.value.spread_domain, null)
+      tenancy                 = try(placement.value.tenancy, null)
+      partition_number        = try(placement.value.partition_number, null)
+    }
+  }
+
+  dynamic "license_specification" {
+    for_each = var.license_specifications
+    content {
+      license_configuration_arn = license_specification.value.license_configuration_arn
+    }
+  }
+
+  monitoring {
+    enabled = var.enable_runner_detailed_monitoring
+  }
+
+  iam_instance_profile {
+    name = var.iam_overrides["override_instance_profile"] ? var.iam_overrides["instance_profile_name"] : aws_iam_instance_profile.runner[0].name
+  }
+
+  instance_initiated_shutdown_behavior = "terminate"
+  image_id                             = "resolve:ssm:${local.ami_id_ssm_module_managed ? aws_ssm_parameter.runner_ami_id[0].arn : var.ami.id_ssm_parameter_arn}"
+  key_name                             = var.key_name
+  ebs_optimized                        = var.ebs_optimized
+
+  vpc_security_group_ids = !var.associate_public_ipv4_address ? compact(concat(
+    var.enable_managed_runner_security_group ? [aws_security_group.runner_sg[0].id] : [],
+    var.runner_additional_security_group_ids,
+  )) : []
+
+  tag_specifications {
+    resource_type = "instance"
+    tags = merge(
+      local.tags,
+      {
+        "Name" = format("%s", local.name_runner)
+      },
+      {
+        "ghr:runner_name_prefix" = var.runner_name_prefix
+      },
+      var.runner_ec2_tags
+    )
+  }
+
+  tag_specifications {
+    resource_type = "volume"
+    tags = merge(
+      local.tags,
+      {
+        "Name" = format("%s", local.name_runner)
+      },
+      {
+        "ghr:runner_name_prefix" = var.runner_name_prefix
+      },
+      var.runner_ec2_tags
+    )
+  }
+
+  # We avoid including the "spot-instances-request" tag_specifications block when on_demand_failover_for_errors is defined,
+  # because when using on-demand fallback, the spot instance request resource is not created and thus the tags would not apply.
+  # Additionally, tagging spot requests via the CreateFleetCommand in the Lambda function does not work as expected,
+  # so we rely on Terraform to manage these tags only when spot is exclusively used without on-demand failover.
+  dynamic "tag_specifications" {
+    for_each = each.key == "default" && var.instance_target_capacity_type == "spot" && length(var.enable_on_demand_failover_for_errors) == 0 ? [1] : [] # Include the block only if the value is "spot" and on_demand_failover_for_errors is not enabled
+    content {
+      resource_type = "spot-instances-request"
+      tags = merge(
+        local.tags,
+        {
+          "Name" = format("%s", local.name_runner)
+        },
+        {
+          "ghr:runner_name_prefix" = var.runner_name_prefix
+        },
+        var.runner_ec2_tags
+      )
+    }
+  }
+
+  tag_specifications {
+    resource_type = "network-interface"
+    tags = merge(
+      local.tags,
+      {
+        "Name" = format("%s", local.name_runner)
+      },
+      {
+        "ghr:runner_name_prefix" = var.runner_name_prefix
+      },
+      var.runner_ec2_tags
+    )
+  }
+
+  user_data = local.encoded_user_data
+
+  tags = local.tags
+
+  update_default_version = true
+
+  dynamic "network_interfaces" {
+    for_each = local.network_interfaces
+    content {
+      associate_carrier_ip_address = try(network_interfaces.value.associate_carrier_ip_address, null)
+      associate_public_ip_address  = try(network_interfaces.value.associate_public_ip_address, null)
+      delete_on_termination        = try(network_interfaces.value.delete_on_termination, null)
+      description                  = try(network_interfaces.value.description, null)
+      device_index                 = try(network_interfaces.value.device_index, null)
+      interface_type               = try(network_interfaces.value.interface_type, null)
+      ipv4_address_count           = try(network_interfaces.value.ipv4_address_count, null)
+      ipv4_addresses               = try(network_interfaces.value.ipv4_addresses, null)
+      ipv4_prefix_count            = try(network_interfaces.value.ipv4_prefix_count, null)
+      ipv4_prefixes                = try(network_interfaces.value.ipv4_prefixes, null)
+      ipv6_address_count           = try(network_interfaces.value.ipv6_address_count, null)
+      ipv6_addresses               = try(network_interfaces.value.ipv6_addresses, null)
+      ipv6_prefix_count            = try(network_interfaces.value.ipv6_prefix_count, null)
+      ipv6_prefixes                = try(network_interfaces.value.ipv6_prefixes, null)
+      network_card_index           = try(network_interfaces.value.network_card_index, null)
+      network_interface_id         = try(network_interfaces.value.network_interface_id, null)
+      primary_ipv6                 = try(network_interfaces.value.primary_ipv6, null)
+      private_ip_address           = try(network_interfaces.value.private_ip_address, null)
+      security_groups              = try(network_interfaces.value.security_groups, null)
+      subnet_id                    = try(network_interfaces.value.subnet_id, null)
+
+      dynamic "connection_tracking_specification" {
+        for_each = try(network_interfaces.value.connection_tracking_specification, null) != null ? [network_interfaces.value.connection_tracking_specification] : []
+        content {
+          tcp_established_timeout = try(connection_tracking_specification.value.tcp_established_timeout, null)
+          udp_stream_timeout      = try(connection_tracking_specification.value.udp_stream_timeout, null)
+          udp_timeout             = try(connection_tracking_specification.value.udp_timeout, null)
+        }
+      }
+
+      dynamic "ena_srd_specification" {
+        for_each = try(network_interfaces.value.ena_srd_specification, null) != null ? [network_interfaces.value.ena_srd_specification] : []
+        content {
+          ena_srd_enabled = try(ena_srd_specification.value.ena_srd_enabled, null)
+          dynamic "ena_srd_udp_specification" {
+            for_each = try(ena_srd_specification.value.ena_srd_udp_specification, null) != null ? [ena_srd_specification.value.ena_srd_udp_specification] : []
+            content {
+              ena_srd_udp_enabled = try(ena_srd_udp_specification.value.ena_srd_udp_enabled, null)
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+moved {
+  from = aws_launch_template.runner
+  to   = aws_launch_template.runner["default"]
+}
+
+resource "aws_security_group" "runner_sg" {
+  count       = var.enable_managed_runner_security_group ? 1 : 0
+  name_prefix = "${var.prefix}-github-actions-runner-sg"
+  description = "Github Actions Runner security group"
+
+  vpc_id = var.vpc_id
+
+  ingress = []
+
+  dynamic "egress" {
+    for_each = var.egress_rules
+    iterator = each
+
+    content {
+      cidr_blocks      = each.value.cidr_blocks
+      ipv6_cidr_blocks = each.value.ipv6_cidr_blocks
+      prefix_list_ids  = each.value.prefix_list_ids
+      from_port        = each.value.from_port
+      protocol         = each.value.protocol
+      security_groups  = each.value.security_groups
+      self             = each.value.self
+      to_port          = each.value.to_port
+      description      = each.value.description
+    }
+  }
+
+  tags = merge(
+    local.tags,
+    {
+      "Name" = format("%s", local.name_sg)
+    },
+  )
+}

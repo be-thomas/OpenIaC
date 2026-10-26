@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/cn-terraform/logs-s3-bucket/2.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cn-terraform/logs-s3-bucket/aws/2.0.1",
+    "ref": "2.0.1",
+    "commit": "2aced79804a39a41b2ef870a46655dff675c3f2d",
+    "gitOwner": "cn-terraform",
+    "gitRepo": "terraform-aws-logs-s3-bucket",
+    "path": ".",
+    "archiveSha256": "c295167f45871e58a986a4d55d0c92b6d267805a20bdcc67e791569509f54ec6",
+    "inputSha256": "13ed0418c3d61c75f713c8327b455da6de28f45cd966816ae479d163f49aa409",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

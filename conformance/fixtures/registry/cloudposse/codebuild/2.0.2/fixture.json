@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/codebuild/2.0.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/codebuild/aws/2.0.2",
+    "ref": "2.0.2",
+    "commit": "20c1b29e65f2d2fd752afd53abc0445b977cb88e",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-codebuild",
+    "path": ".",
+    "archiveSha256": "a54517dc4ded6d6a66b096bb307990b3a6e7b1a7eb4974c06f846d2f3901b819",
+    "inputSha256": "6eaed71879a9daac0f36423220cc677f393e909aabf9732259769b10b2f2e7e6",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

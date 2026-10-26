@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/iam/6.8.2/modules/iam-oidc-provider",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/6.8.2",
+    "ref": "6.8.2",
+    "commit": "55514b7873c411040395e024a422684998da77c2",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-iam",
+    "path": "modules/iam-oidc-provider",
+    "archiveSha256": "258ce47e665691465db44db722411230850130fb5d15e1bcaa0d6465c2fdfd54",
+    "inputSha256": "c347927003a899079ec92fdb48dcbe9f109c558eb463bea6347a668acba8ebb9",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "tls"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

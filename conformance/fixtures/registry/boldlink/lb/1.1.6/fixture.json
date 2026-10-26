@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/lb/1.1.6",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/lb/aws/1.1.6",
+    "ref": "1.1.6",
+    "commit": "683327ea0611e209ff844943b23f13fac9620758",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-lb",
+    "path": ".",
+    "archiveSha256": "a5337009924ffdd66007978962f9bfd236fb7c7ff22fe8ddb8510f45c5479b8b",
+    "inputSha256": "44bb1f6a270f753eaee78c02c44b7397cf4dcacb4266840e213611e838dfd372",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "tls"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

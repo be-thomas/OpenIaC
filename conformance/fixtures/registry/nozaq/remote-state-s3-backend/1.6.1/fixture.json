@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/nozaq/remote-state-s3-backend/1.6.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/nozaq/remote-state-s3-backend/aws/1.6.1",
+    "ref": "1.6.1",
+    "commit": "0c1fdbff6dbc2394c7bb691e83bb77d61dcc5e2e",
+    "gitOwner": "nozaq",
+    "gitRepo": "terraform-aws-remote-state-s3-backend",
+    "path": ".",
+    "archiveSha256": "70318484399d828828765bbb97a6fd6ea2cad4ec93d2bfce57b264c692196e6c",
+    "inputSha256": "91800c34d3067473574288664f0ccf88b035dd3232fcba17259f2da230165c86",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

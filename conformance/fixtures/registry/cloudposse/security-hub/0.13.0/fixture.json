@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/security-hub/0.13.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/security-hub/aws/0.13.0",
+    "ref": "0.13.0",
+    "commit": "d5642ecdda292c14289fe750854ce50c6ea530d8",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-security-hub",
+    "path": ".",
+    "archiveSha256": "55e4a0fed14f5d0dcca493f581ccc55c3a1ae3501130be82b42281f922136bb4",
+    "inputSha256": "92188895cd66bc46ad95a9f970a99a41d49ce5ccf91cbbeb8b5116eee4242abd",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

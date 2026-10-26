@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/memory-db/3.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/memory-db/aws/3.2.0",
+    "ref": "3.2.0",
+    "commit": "1897817aae0d48862780375cc878bf5de56a08cb",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-memory-db",
+    "path": ".",
+    "archiveSha256": "76db4fa453d2715d9a1273a351304dda1be7abb2a4ac01a85b001142e1b79907",
+    "inputSha256": "f88b2040241af2bca4bcdb868fc7d2a6cf20e488cee46b361449cfb39740454c",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

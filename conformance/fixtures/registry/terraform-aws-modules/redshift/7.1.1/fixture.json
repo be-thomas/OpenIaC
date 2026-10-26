@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/redshift/7.1.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/redshift/aws/7.1.1",
+    "ref": "7.1.1",
+    "commit": "20863dab73fd48244752522fd131eef3a4318c9c",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-redshift",
+    "path": ".",
+    "archiveSha256": "013724d04f8956d1c6bf1bf7a4c22df88cbc63fd09f5f6356975d4ba3895e18b",
+    "inputSha256": "b0c44e6ba84225215762af8133b34fb4bb30f0773800bbee3cbd812ae996f30a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

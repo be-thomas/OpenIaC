@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/cloudwatch/5.7.3/modules/log-stream",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/cloudwatch/aws/5.7.3",
+    "ref": "5.7.3",
+    "commit": "82e5143738712a283ab7a8cb4110e7a3e708a834",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-cloudwatch",
+    "path": "modules/log-stream",
+    "archiveSha256": "41456bc59ae8bbf47eb50185ae7b90a38c78e7f43ac091e90a14d885f455b701",
+    "inputSha256": "601657df9e4e17d5fb1dbd648d1be96ddac1a13af30c2e2b1064fc15c1d4794f",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

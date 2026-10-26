@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/ViktorUJ/vpc/1.1.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/ViktorUJ/vpc/aws/1.1.0",
+    "ref": "1.1.0",
+    "commit": "fb92b4e7798e04318c362c031e6e129714a40e56",
+    "gitOwner": "ViktorUJ",
+    "gitRepo": "terraform-aws-vpc",
+    "path": ".",
+    "archiveSha256": "d7a6f550764daf614e20d89657a3c1cbd0f91de44c1e9e52ea7cc2d93a625648",
+    "inputSha256": "fd76329c82293ffe44672a970d8aae37da52b580727cd14f549bb388f718270a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

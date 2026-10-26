@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/control_tower_account_factory/1.23.0/examples/githubenterprise+tf_cloud",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/control_tower_account_factory/aws/1.23.0",
+    "ref": "1.23.0",
+    "commit": "3531688103767a7d05e58a854fd957cf824cabd9",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-control_tower_account_factory",
+    "path": "examples/githubenterprise+tf_cloud",
+    "archiveSha256": "69692e8ce464f39d96a87511e80599dd92e160e5c3d204fdff427ee0544e3db7",
+    "inputSha256": "e068f52424698ceaac1951668a76e44fc4e84bd2f7e424deb157736658b4bb56",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "modules"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

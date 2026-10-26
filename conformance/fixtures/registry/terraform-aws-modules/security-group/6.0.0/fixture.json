@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/security-group/6.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/security-group/aws/6.0.0",
+    "ref": "6.0.0",
+    "commit": "58d8e895915f5573767081142d063b7caf7a2b47",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-security-group",
+    "path": ".",
+    "archiveSha256": "b074a5afd2749be1c6bd39ea7a848300d6dde926dba655f460a757cc176d4354",
+    "inputSha256": "c2186dc298ed02f5ca252530e3dd0e77975e1b0d37724b1d9a7fdaa13373a93f",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/nozaq/secure-baseline/2.1.0/modules/secure-bucket",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/nozaq/secure-baseline/aws/2.1.0",
+    "ref": "2.1.0",
+    "commit": "7c4a1e5b876495753695786490350741c5fc188b",
+    "gitOwner": "nozaq",
+    "gitRepo": "terraform-aws-secure-baseline",
+    "path": "modules/secure-bucket",
+    "archiveSha256": "79259b5d0fb638654503c184994b1e01f9f1b64ccdd89231aa748163073e1c2d",
+    "inputSha256": "8b5dbbb316b354be1ecf2f7a8bea5b39e4493b4cb34f0b5a17f4bcae7cc12001",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "functions",
+    "interpolation",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

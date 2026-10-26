@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/dasmeta/modules/3.1.0/modules/budgets",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
+    "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
+    "path": "modules/budgets",
+    "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
+    "inputSha256": "9001f763b907f3432a3a58596693f5d40b013f8205a9491b4accee43ac7e6eb1",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

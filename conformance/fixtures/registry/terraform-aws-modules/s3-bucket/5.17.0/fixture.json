@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/s3-bucket/5.17.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/5.17.0",
+    "ref": "5.17.0",
+    "commit": "9afa4fc8c8f1e0b3fd913474c1bef8d0c454b235",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-s3-bucket",
+    "path": ".",
+    "archiveSha256": "40082ac6caa76b5fe1064381e3357d24dac0e4994280177782132948d59d734b",
+    "inputSha256": "0212d4ae20764508ec684b8e4404ff7e3ef7ef1b79734f1a87e55bc3c2780f3a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

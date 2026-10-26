@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/transit-gateway/0.13.1/modules/transit_gateway_route",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/transit-gateway/aws/0.13.1",
+    "ref": "0.13.1",
+    "commit": "09e0f67a94158afe57b0fb31eca4149c7aeb1b7b",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-transit-gateway",
+    "path": "modules/transit_gateway_route",
+    "archiveSha256": "9c158310f4c1b5922c239249b62c58357fe8c51b666b8b904e07524dc1cca7e9",
+    "inputSha256": "bf7711437c74108eed6c67577abae5326d785cbb4fd74a858723d1542ad1010c",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

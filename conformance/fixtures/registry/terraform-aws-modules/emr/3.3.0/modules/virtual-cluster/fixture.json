@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/emr/3.3.0/modules/virtual-cluster",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/emr/aws/3.3.0",
+    "ref": "3.3.0",
+    "commit": "e26ebda0500b5c4b8bf2f839ed7bc2599d545f64",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-emr",
+    "path": "modules/virtual-cluster",
+    "archiveSha256": "4d73c9f0f0dcdefaf844158fbe247e60cc0116fa65e5f64824cbb3588e3ca0f7",
+    "inputSha256": "34def6d4d8cfca036aeec85ae277c85e437d4607e90df0bf0398d1747954f458",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "kubernetes"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/trussworks/wafv2/4.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/trussworks/wafv2/aws/4.0.0",
+    "ref": "4.0.0",
+    "commit": "75c0b4fc49e8366ce9c1d9242bf7496ed2283619",
+    "gitOwner": "trussworks",
+    "gitRepo": "terraform-aws-wafv2",
+    "path": ".",
+    "archiveSha256": "de9e772f40358e0558d5632ee3a7e6e5d3f0123c76feb21664b81e8fe020a91f",
+    "inputSha256": "5dc2f1747c3fd48a327d34895e91e71befa648836861b340498e4402ac5bb52b",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

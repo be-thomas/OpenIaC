@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/observeinc/cloudwatch-logs-subscription/0.6.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/observeinc/cloudwatch-logs-subscription/aws/0.6.1",
+    "ref": "0.6.1",
+    "commit": "324168fa2e971004eb127295748c4cfd9f97c3a4",
+    "gitOwner": "observeinc",
+    "gitRepo": "terraform-aws-cloudwatch-logs-subscription",
+    "path": ".",
+    "archiveSha256": "52ad4411f396e26524849f8ac219d17929220798945fad72bda4bd6ae68cb335",
+    "inputSha256": "2b36d5165f6984cb04e4a08be39e5d9d97fbdde15adaaf597326340d9827b3f8",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "archive",
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

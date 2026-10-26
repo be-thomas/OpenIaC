@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/clouddrove/kms/1.3.4",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/clouddrove/kms/aws/1.3.4",
+    "ref": "1.3.4",
+    "commit": "92940dbd1c4a9c30da8ba35b386505e6df923981",
+    "gitOwner": "clouddrove",
+    "gitRepo": "terraform-aws-kms",
+    "path": ".",
+    "archiveSha256": "9a7e6dcb86209982205fedf468d5ddd1a7460b99e342de3843df1dc119f60d99",
+    "inputSha256": "a9a8b59cdd39bf029eb7db0ad7a636979984eeafd32ead44e052b52c708d5eb4",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

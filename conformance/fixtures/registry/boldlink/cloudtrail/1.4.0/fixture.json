@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/cloudtrail/1.4.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/cloudtrail/aws/1.4.0",
+    "ref": "1.4.0",
+    "commit": "a25fd104532f5fe4e54f858f5718b92d1a7c2bd7",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-cloudtrail",
+    "path": ".",
+    "archiveSha256": "f41ca38efa7774818e6c1b8656a1e83e78a10b0e2d70a8dbb5dcad06188c3312",
+    "inputSha256": "f612f8ebb1d0e6c26b51afd7c6c8d6f19e71db016fea868e71ef3ffd10a7cc61",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-module/lambda/2.13.1/examples/basic",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-module/lambda/aws/2.13.1",
+    "ref": "2.13.1",
+    "commit": "d856bebf47f5e8ef3afe47933ac8cdeec660c3cb",
+    "gitOwner": "terraform-module",
+    "gitRepo": "terraform-aws-lambda",
+    "path": "examples/basic",
+    "archiveSha256": "6f7617473f96760b33728a9425b9988b1a1ff1992dcdf29fc65797ef1d36f391",
+    "inputSha256": "0ff1b0b9dca747e95c9e88d4e1189f5e5443bc0adaf7f28d2e29ae8da71d2da0",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "archive",
+    "aws"
+  ],
+  "features": [
+    "data",
+    "functions",
+    "heredoc",
+    "modules",
+    "outputs",
+    "providers",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

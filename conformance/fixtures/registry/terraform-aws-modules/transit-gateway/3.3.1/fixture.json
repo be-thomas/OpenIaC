@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/transit-gateway/3.3.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/transit-gateway/aws/3.3.1",
+    "ref": "3.3.1",
+    "commit": "7973ea0890176868b62bb60a694768cec19daf9a",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-transit-gateway",
+    "path": ".",
+    "archiveSha256": "06c15eb9eff4b62dcbdfa664382390136f6468d43d3403d5ce5b9796f1018aa8",
+    "inputSha256": "c8374ea15792ec9e830f30b01501cfd07ee982de339a84b77854eb227db48a02",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

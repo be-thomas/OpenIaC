@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/vpc/0.3.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/vpc/aws/0.3.0",
+    "ref": "0.3.0",
+    "commit": "734e35d67654dc961e9c378d8dba93d55da67d67",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-vpc",
+    "path": ".",
+    "archiveSha256": "5753d23a4b2386ef97dbfc5a03718596e55f39b3fe1506c521d2565bc35b99e4",
+    "inputSha256": "bf24fea79def7ae8bbc5c4c855c905df092a8f6060980fa17504e4dee630feb9",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "count",
+    "data",
+    "for_expressions",
+    "functions",
+    "locals",
+    "outputs",
+    "providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

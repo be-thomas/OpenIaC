@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/hashicorp/vault/0.17.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/hashicorp/vault/aws/0.17.0",
+    "ref": "0.17.0",
+    "commit": "350b705eef67c6437f9043733db750b01a069bec",
+    "gitOwner": "hashicorp",
+    "gitRepo": "terraform-aws-vault",
+    "path": ".",
+    "archiveSha256": "aa4b30c9c7ee26d1fd2473e156100780ff259623a99b10a90edcd4a7d6d3bffd",
+    "inputSha256": "d699c98278fb3ea236aaec6fd2018cd6d54ee007ba199fea9104d15094418a2e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "template"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "modules",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/ecr-registry/1.1.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/ecr-registry/aws/1.1.0",
+    "ref": "1.1.0",
+    "commit": "88374b90ca5a5b19c8990c9b36bf126cb5a2bcb5",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-ecr-registry",
+    "path": ".",
+    "archiveSha256": "23c27c78daa9e56e3826eae19f1ec5458d3fe0e8ebdfe05d6ecb25ec5182438c",
+    "inputSha256": "ab81e747853f8b7fde987905cfcc37842e2e1a36762cdee703aa9b2ba9c85df4",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

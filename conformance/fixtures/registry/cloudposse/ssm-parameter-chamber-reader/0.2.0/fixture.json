@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ssm-parameter-chamber-reader/0.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ssm-parameter-chamber-reader/aws/0.2.0",
+    "ref": "0.2.0",
+    "commit": "9df8537010c33f43eee1b4496a8456ba191c7161",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ssm-parameter-chamber-reader",
+    "path": ".",
+    "archiveSha256": "dc867392a30449ba41e823ca81a8aa062f568655caa0cfbc4f39bb4e24c5ad83",
+    "inputSha256": "a7908217f5a3859234774448a92b04b391fe1e19f4f474afc6456aa1194e5a6d",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "locals",
+    "outputs",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

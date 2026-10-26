@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/hashicorp/consul/0.11.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/hashicorp/consul/aws/0.11.0",
+    "ref": "0.11.0",
+    "commit": "e9ceb573687c3d28516c9e3714caca84db64a766",
+    "gitOwner": "hashicorp",
+    "gitRepo": "terraform-aws-consul",
+    "path": ".",
+    "archiveSha256": "400ac184d6e5fc1f23cb081c44bd8bd35c72d5cecf36ac5f20946c1b5c2eb62c",
+    "inputSha256": "34d70dd057ead806dc3c5a8cd6bb77cab6edbcf63b62442a1b106695be52d0f9",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "modules",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

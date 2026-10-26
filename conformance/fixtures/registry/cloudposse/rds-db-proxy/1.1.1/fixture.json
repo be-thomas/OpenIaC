@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/rds-db-proxy/1.1.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/rds-db-proxy/aws/1.1.1",
+    "ref": "1.1.1",
+    "commit": "3876a93a12b8970de7d401a462ca8cacfe363c09",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-rds-db-proxy",
+    "path": ".",
+    "archiveSha256": "3745619305611ddcff46b2f44dee4df87931aea10a83e23e4ea0801ce4233d57",
+    "inputSha256": "205d06ae5fcf279de359313f06809bfc9da58b9fd7a16c303c6e88ba13ff9c85",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

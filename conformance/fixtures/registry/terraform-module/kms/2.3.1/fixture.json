@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-module/kms/2.3.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-module/kms/aws/2.3.1",
+    "ref": "2.3.1",
+    "commit": "0bd3e131779baabcec680a4f4bac4ac9a3b9b141",
+    "gitOwner": "terraform-module",
+    "gitRepo": "terraform-aws-kms",
+    "path": ".",
+    "archiveSha256": "1c7b11c0e9c20e1edf5a3947d777f67e617a230904a46cf3c369d2d242810448",
+    "inputSha256": "a03baa5a2f5b7dd4792cff3b7f1b33fbd615cddc0125071f847d47039b695221",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/alb/10.5.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/alb/aws/10.5.1",
+    "ref": "10.5.1",
+    "commit": "6c6e48c10d450d01cf6715346e926df0b858efc2",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-alb",
+    "path": ".",
+    "archiveSha256": "836886873b7a06f03bbb5bc2a2f758b7556be3c31b6278e31b52e172cda0cadb",
+    "inputSha256": "a88c45dffa2bb502079bb87675a6e95db3c5ffdb0a6d8d905c7a54ed010ff06f",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

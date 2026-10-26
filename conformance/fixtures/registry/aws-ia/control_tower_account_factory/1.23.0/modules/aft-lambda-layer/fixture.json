@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/control_tower_account_factory/1.23.0/modules/aft-lambda-layer",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/control_tower_account_factory/aws/1.23.0",
+    "ref": "1.23.0",
+    "commit": "3531688103767a7d05e58a854fd957cf824cabd9",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-control_tower_account_factory",
+    "path": "modules/aft-lambda-layer",
+    "archiveSha256": "69692e8ce464f39d96a87511e80599dd92e160e5c3d204fdff427ee0544e3db7",
+    "inputSha256": "da0299d9a509f1b9156793dbdb5f4970096188381114579963ece86b6876c069",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "local",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

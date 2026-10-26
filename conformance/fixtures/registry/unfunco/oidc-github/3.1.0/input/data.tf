@@ -1,0 +1,56 @@
+// SPDX-FileCopyrightText: 2024 Daniel Morris <daniel@honestempire.com>
+// SPDX-License-Identifier: MIT
+
+data "aws_partition" "this" {
+  count = var.create ? 1 : 0
+}
+
+data "aws_iam_policy_document" "assume_role" {
+  count = var.create && local.has_github_subjects ? 1 : 0
+
+  version = "2012-10-17"
+
+  statement {
+    actions = ["sts:AssumeRoleWithWebIdentity"]
+    effect  = "Allow"
+
+    condition {
+      test = "StringLike"
+      values = [
+        for subject in var.github_subjects :
+        format(
+          "repo:%s%s",
+          subject,
+          length(regexall(":+", subject)) > 0 ? "" : local.default_subject_suffix,
+        )
+      ]
+      variable = "${local.oidc_issuer}:sub"
+    }
+
+    condition {
+      test = "StringEquals"
+      values = var.additional_audiences != null ? concat(
+        [format("sts.%s", data.aws_partition.this[0].dns_suffix)],
+        var.additional_audiences,
+      ) : [format("sts.%s", data.aws_partition.this[0].dns_suffix)]
+      variable = "${local.oidc_issuer}:aud"
+    }
+
+    principals {
+      identifiers = [local.oidc_provider_arn]
+      type        = "Federated"
+    }
+  }
+}
+
+data "aws_iam_openid_connect_provider" "github" {
+  count = !local.create_oidc_provider ? 1 : 0
+
+  url = local.oidc_provider_url
+}
+
+data "tls_certificate" "github" {
+  count = local.create_oidc_provider ? 1 : 0
+
+  url = format("https://%s/.well-known/openid-configuration", local.oidc_issuer_host)
+}

@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/dynamodb/1.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/dynamodb/aws/1.2.0",
+    "ref": "1.2.0",
+    "commit": "f77b6bd889595a2c229bec6f818642578f0bfa7c",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-dynamodb",
+    "path": ".",
+    "archiveSha256": "d4c3d62c9123fcb9c6395abd02b5475573662847a4416bbc406fa4f7fb36a635",
+    "inputSha256": "419d313bfbd8a83167e7e0f6f208f671bae954c6fd8d05edccdd35d6a62f3c42",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

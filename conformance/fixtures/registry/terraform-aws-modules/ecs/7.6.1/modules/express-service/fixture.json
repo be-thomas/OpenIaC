@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/ecs/7.6.1/modules/express-service",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/ecs/aws/7.6.1",
+    "ref": "7.6.1",
+    "commit": "60b428812ddcffe48abc6af0988fe826c89da961",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-ecs",
+    "path": "modules/express-service",
+    "archiveSha256": "1af3f3f6c60fafc5efa587d10204bd7e033a5c6c36163a2cb9e25fc590fddc08",
+    "inputSha256": "e80d47bba1ed854c81d7f320037f01070dc3f534d818904879468d85695d9e67",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/multi-az-subnets/0.15.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/multi-az-subnets/aws/0.15.0",
+    "ref": "0.15.0",
+    "commit": "9c5ef29079c5f37c3da2c753996e4423d38e9903",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-multi-az-subnets",
+    "path": ".",
+    "archiveSha256": "14eb53c379d7733b39fc31d58e01c0ed28a17be451fd798b17019ef99451f9db",
+    "inputSha256": "61c07bfa76655d0f74b0f0ebe265bf9a9df66bdbba6992cc9f7247d357d9719d",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

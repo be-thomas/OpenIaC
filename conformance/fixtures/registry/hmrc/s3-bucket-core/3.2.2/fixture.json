@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/hmrc/s3-bucket-core/3.2.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/hmrc/s3-bucket-core/aws/3.2.2",
+    "ref": "3.2.2",
+    "commit": "ec44e1a8a1e1dc9afb33acbbdf1f1d8186c13767",
+    "gitOwner": "hmrc",
+    "gitRepo": "terraform-aws-s3-bucket-core",
+    "path": ".",
+    "archiveSha256": "9274389819eb841be737aaa2f909665f568ac6e8e66496317d479afe6a121709",
+    "inputSha256": "3c17a18e62c4d86b258030368b9c53641fbeb50368b9b630855c49862838c665",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

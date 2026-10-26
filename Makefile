@@ -2,7 +2,7 @@ GO ?= go
 BIN := bin/openiac
 PLAYGROUND := playground
 
-.PHONY: all build test vet fmt tidy wasm playground clean hooks
+.PHONY: all build test vet fmt tidy wasm playground clean hooks conformance-inputs conformance-verify conformance-lock
 
 all: build
 
@@ -25,6 +25,18 @@ tidy:
 hooks:
 	git config core.hooksPath .githooks
 	chmod +x .githooks/commit-msg scripts/check-commit-message.sh
+
+# Refresh the conformance input corpus from the configured public sources.
+conformance-inputs:
+	$(GO) run ./cmd/openiac-conformance collect -v
+
+# Check that the committed corpus matches its lock and attribution.
+conformance-verify:
+	$(GO) run ./cmd/openiac-conformance verify
+
+# Regenerate the lock and attribution from the committed fixture tree.
+conformance-lock:
+	$(GO) run ./cmd/openiac-conformance lock
 
 # Build the browser playground. Copies wasm_exec.js from the local toolchain,
 # which lives in a different directory depending on the Go version.

@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ec2-autoscale-group/0.43.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ec2-autoscale-group/aws/0.43.1",
+    "ref": "0.43.1",
+    "commit": "387ac59a65a6a1296984b76512d7edf3ee0d6630",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ec2-autoscale-group",
+    "path": ".",
+    "archiveSha256": "3adcb6a81e37633743302ce99dde7944607f81ee2e65c462ac18b3236bf71470",
+    "inputSha256": "e6af8cdc19c1fff6a04bc7a62cd66f0cd801a90df3bc692bedc48b1902075bc2",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

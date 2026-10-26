@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/tmknom/elasticache-redis/2.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/tmknom/elasticache-redis/aws/2.0.0",
+    "ref": "2.0.0",
+    "commit": "160c61886d2ea17e772e33e39a056e5e0fab347d",
+    "gitOwner": "tmknom",
+    "gitRepo": "terraform-aws-elasticache-redis",
+    "path": ".",
+    "archiveSha256": "5bfc566cdc97ca68ec90de0c3e98f7813200175bc91ee92c1161a6fa3dcfd64a",
+    "inputSha256": "872bf6b475999ab833956490d92bad9bdf79cce7e6983aeabfc4b9f2da9dc971",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/philips-labs/github-runner/6.1.0/modules/webhook/eventbridge",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/philips-labs/github-runner/aws/6.1.0",
+    "ref": "6.1.0",
+    "commit": "dfbaeed50cdfa12bf4847be417bbc5130ce72e34",
+    "gitOwner": "philips-labs",
+    "gitRepo": "terraform-aws-github-runner",
+    "path": "modules/webhook/eventbridge",
+    "archiveSha256": "d51d373679290fa85b7577e9d687025cc26a745c6522542bdec788c1fa12dd87",
+    "inputSha256": "e28ccfb6404e055172ca3db7abb2e33bbe5b15e16d220055d9c405a7e24fb797",
+    "licensePath": "LICENSE.md"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "null"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

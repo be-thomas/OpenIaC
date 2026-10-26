@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/wandb/wandb/8.0.0/modules/app_eks/cluster_autoscaler",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/wandb/wandb/aws/8.0.0",
+    "ref": "8.0.0",
+    "commit": "da9203f295a5c6ead41d060a3ef8e211617d8f9a",
+    "gitOwner": "wandb",
+    "gitRepo": "terraform-aws-wandb",
+    "path": "modules/app_eks/cluster_autoscaler",
+    "archiveSha256": "1ec2e8ca251b3f6dfd37e034a18342617c0d24653fe304e41cdabfecaee8c558",
+    "inputSha256": "f2e4d219a291b1cb433f1e2461232e40292e690c8e3d8063b2057eb45f5f9c26",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

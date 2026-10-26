@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/transit-gateway/0.13.1/modules/subnet_route",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/transit-gateway/aws/0.13.1",
+    "ref": "0.13.1",
+    "commit": "09e0f67a94158afe57b0fb31eca4149c7aeb1b7b",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-transit-gateway",
+    "path": "modules/subnet_route",
+    "archiveSha256": "9c158310f4c1b5922c239249b62c58357fe8c51b666b8b904e07524dc1cca7e9",
+    "inputSha256": "bd7af7fa3d1e628b9d9bc569e5b0973614bad7f191dbd9b05e551bc3ee06caf8",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

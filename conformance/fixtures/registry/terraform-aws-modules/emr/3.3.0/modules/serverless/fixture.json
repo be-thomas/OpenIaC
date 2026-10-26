@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/emr/3.3.0/modules/serverless",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/emr/aws/3.3.0",
+    "ref": "3.3.0",
+    "commit": "e26ebda0500b5c4b8bf2f839ed7bc2599d545f64",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-emr",
+    "path": "modules/serverless",
+    "archiveSha256": "4d73c9f0f0dcdefaf844158fbe247e60cc0116fa65e5f64824cbb3588e3ca0f7",
+    "inputSha256": "b2630d70177adc0fa9f65fe25a36f3fecff69ba7b73c7fef31faca50e569f4c2",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

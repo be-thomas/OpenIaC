@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-module/enforce-mfa/1.2.0/examples/basic",
+  "tier": "smoke",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-module/enforce-mfa/aws/1.2.0",
+    "ref": "1.2.0",
+    "commit": "902488d91c16d381104998d519b8def7e5df875d",
+    "gitOwner": "terraform-module",
+    "gitRepo": "terraform-aws-enforce-mfa",
+    "path": "examples/basic",
+    "archiveSha256": "74d602515f175c91fe94b3ecdba9323867c6b4b2812bf048cd4ddd04ab61d5e4",
+    "inputSha256": "cb1ee75086979ed076664aba0e98275d166f6e1ad90d1504e5abc077485a2206",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "modules",
+    "resources"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

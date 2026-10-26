@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "registry/schubergphilis/mcaf-lambda/4.1.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/schubergphilis/mcaf-lambda/aws/4.1.0",
+    "ref": "4.1.0",
+    "commit": "906ceba785f27d6fc5663ced77c7c4d1c833cc15",
+    "gitOwner": "schubergphilis",
+    "gitRepo": "terraform-aws-mcaf-lambda",
+    "path": ".",
+    "archiveSha256": "f4461f0bc461e7a29d1442b30bcecfe6286e9998bc4a2d4bc1bdbc83f707f82a",
+    "inputSha256": "e345632e76bfd94e5adba2639991697934d58b5b42f7b3eb1c9c823c3fc6712d",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "archive",
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

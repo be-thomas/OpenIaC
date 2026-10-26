@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/rds-aurora/10.4.1/modules/dsql",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/rds-aurora/aws/10.4.1",
+    "ref": "10.4.1",
+    "commit": "d72cba285514b5e2e83bea7dd1272c1c206a4f64",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-rds-aurora",
+    "path": "modules/dsql",
+    "archiveSha256": "988888a03e689a47731c48e9c61461ef4b7015ff0c6f73047ccadc1121ce3ca7",
+    "inputSha256": "b28d0dcbf2823548f15737b1e73dc78f3a0857542acfe9ed1ab579ac13c73617",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

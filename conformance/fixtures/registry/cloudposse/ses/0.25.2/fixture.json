@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ses/0.25.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ses/aws/0.25.2",
+    "ref": "0.25.2",
+    "commit": "c316baf192ecb8650eb6a902642b79ca8ad45e37",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ses",
+    "path": ".",
+    "archiveSha256": "ad77eace31ac47887269614f88979bc988bdcce839756c425bffcb973092c71a",
+    "inputSha256": "f73cd72cc326ce399fd16f2a2a421d09f3ef95cac164c387dc1c264e9d5aca39",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

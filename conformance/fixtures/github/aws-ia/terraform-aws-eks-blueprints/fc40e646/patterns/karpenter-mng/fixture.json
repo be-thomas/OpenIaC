@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "github/aws-ia/terraform-aws-eks-blueprints/fc40e646/patterns/karpenter-mng",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
+    "ref": "main",
+    "commit": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints",
+    "path": "patterns/karpenter-mng",
+    "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
+    "inputSha256": "969662c2203f22a376d1baf620291a8dae5eece4198f8154a1bf05b200be2f1e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm"
+  ],
+  "features": [
+    "data",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "providers",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

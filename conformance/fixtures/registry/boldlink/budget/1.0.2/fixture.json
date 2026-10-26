@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/budget/1.0.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/budget/aws/1.0.2",
+    "ref": "1.0.2",
+    "commit": "146816a2c8058fdb5ec257440e99d0b572ba3913",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-budget",
+    "path": ".",
+    "archiveSha256": "cf43ac63b8d412774937bc671ea7e0c2ca33781c6d3359b7a25efafd9536d270",
+    "inputSha256": "8ebede6db02ba1d87b5cd770a50cd9545222783b5c8ac0d9e8301c116df4d73d",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

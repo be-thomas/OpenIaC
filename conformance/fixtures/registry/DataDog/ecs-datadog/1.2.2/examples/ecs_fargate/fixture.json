@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/DataDog/ecs-datadog/1.2.2/examples/ecs_fargate",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/DataDog/ecs-datadog/aws/1.2.2",
+    "ref": "1.2.2",
+    "commit": "a16d60cb8e7fffd7a46cb99ec7d42eeed96c9dbf",
+    "gitOwner": "DataDog",
+    "gitRepo": "terraform-aws-ecs-datadog",
+    "path": "examples/ecs_fargate",
+    "archiveSha256": "e71fa690237d3918ba3992708a68db5879ddb27b5f778c99a3a5f43403751a6e",
+    "inputSha256": "94ac4bd3efecea3006babbc1fe82059a4ca1abf4b6c84cb46da9a30df33bc532",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "functions",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

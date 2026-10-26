@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/rad-security/rad-security-connect/0.11.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/rad-security/rad-security-connect/aws/0.11.0",
+    "ref": "0.11.0",
+    "commit": "2a91ae99b3346603f03a9f4dd3d808c847ba46bb",
+    "gitOwner": "rad-security",
+    "gitRepo": "terraform-aws-rad-security-connect",
+    "path": ".",
+    "archiveSha256": "77fe7bc8496fba6cd3a611e0f508ec8c9138dedd6f16f5b730b330614b67ac5d",
+    "inputSha256": "28dd0401febd8c062b6831856669b20f65114a300d069d8711e8a7649f4d27b3",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "rad-security",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

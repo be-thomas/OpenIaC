@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/notespacejp/cloudfront-functions-basic-auth/1.1.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/notespacejp/cloudfront-functions-basic-auth/aws/1.1.1",
+    "ref": "1.1.1",
+    "commit": "51b383850a7e8febe5567f6f4edec513d34c936e",
+    "gitOwner": "notespacejp",
+    "gitRepo": "terraform-aws-cloudfront-functions-basic-auth",
+    "path": ".",
+    "archiveSha256": "308877c24266472f7660a9b41423bfc72659662f6968b09d96ca38321058b472",
+    "inputSha256": "27a5f26a67b8172b034400491e5082ccbe67f99d266fc8f46414c850343d3382",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

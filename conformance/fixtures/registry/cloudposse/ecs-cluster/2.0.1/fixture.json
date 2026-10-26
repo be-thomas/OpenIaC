@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ecs-cluster/2.0.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ecs-cluster/aws/2.0.1",
+    "ref": "2.0.1",
+    "commit": "2fb65f6f79587c087c767599d2057b35393f12ce",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ecs-cluster",
+    "path": ".",
+    "archiveSha256": "c2a3885ecf1a795b4bff97c5083b140460a635a8748608c182f6a721dce178ab",
+    "inputSha256": "8998ff5461be052bfd59c5f128b2eb8c660db1471569c39e62e8b33d6263edf8",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

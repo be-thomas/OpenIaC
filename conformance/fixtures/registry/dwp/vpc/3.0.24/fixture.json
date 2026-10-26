@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/dwp/vpc/3.0.24",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dwp/vpc/aws/3.0.24",
+    "ref": "3.0.24",
+    "commit": "13e615935fc0d9d9f6b5ccabc587e3ae5701995f",
+    "gitOwner": "dwp",
+    "gitRepo": "terraform-aws-vpc",
+    "path": ".",
+    "archiveSha256": "5a8b3c57ca69f1f19283a530fd5b6104ef458a47f9b0712ccae28c8f851331e1",
+    "inputSha256": "c0ce7481919bcdf9e500cff3c8a0f56ec64e5cbf0b3ca768c223b972d386c32d",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -40,6 +40,9 @@ jobs:
       - name: test
         run: go test ./...
 
+      - name: verify conformance corpus
+        run: go run ./cmd/openiac-conformance verify
+
       - name: build CLI
         run: go build -o bin/openiac ./cmd/openiac
 

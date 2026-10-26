@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/public-agents/0.3.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/public-agents/aws/0.3.0",
+    "ref": "0.3.0",
+    "commit": "f1e65c0e9134e10829f7b7a08c00c046da71ef7e",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-public-agents",
+    "path": ".",
+    "archiveSha256": "2da2086f752d80fedb7583d4fe7c292e0805ea2e783b2a42e56946524d633ed7",
+    "inputSha256": "847cfdf477571d32213673dcf29294d6f36b9908d72579d53cb1f59621a4bd35",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "modules",
+    "outputs",
+    "providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/global-accelerator/0.6.1/modules/endpoint-group",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/global-accelerator/aws/0.6.1",
+    "ref": "0.6.1",
+    "commit": "704d949c0d5a762fb920756163e4d51cfbe13104",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-global-accelerator",
+    "path": "modules/endpoint-group",
+    "archiveSha256": "44d41e8dd885247829113c37229f70ad815c091b6f15b7557ed175fba7c86208",
+    "inputSha256": "c3c61448fb12083bc043b236077f8903ff9e472aae1f6578096bf4eda4d166f0",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

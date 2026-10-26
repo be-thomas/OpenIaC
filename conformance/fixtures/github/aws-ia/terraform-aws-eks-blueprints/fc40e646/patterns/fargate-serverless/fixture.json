@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "github/aws-ia/terraform-aws-eks-blueprints/fc40e646/patterns/fargate-serverless",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
+    "ref": "main",
+    "commit": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints",
+    "path": "patterns/fargate-serverless",
+    "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
+    "inputSha256": "1971ec96bf585573796d0d3fb5bb45674f232c716246f505df3ba5913da42316",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm",
+    "kubernetes"
+  ],
+  "features": [
+    "data",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "providers",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

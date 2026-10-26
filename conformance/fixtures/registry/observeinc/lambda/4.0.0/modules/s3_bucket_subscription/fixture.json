@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/observeinc/lambda/4.0.0/modules/s3_bucket_subscription",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/observeinc/lambda/aws/4.0.0",
+    "ref": "4.0.0",
+    "commit": "eea371301c88945ab573cb9b42b07bf92f98be61",
+    "gitOwner": "observeinc",
+    "gitRepo": "terraform-aws-lambda",
+    "path": "modules/s3_bucket_subscription",
+    "archiveSha256": "d97ca192682e39f83a0f37e5588285d4e618ddac2f9473bfd11d1fdd7c719acc",
+    "inputSha256": "3ae79927cb0cd4fc84350e7e1ea16368a6b2395df09bcc570723c97bd3910d8c",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/glue/0.4.0/modules/glue-schema",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/glue/aws/0.4.0",
+    "ref": "0.4.0",
+    "commit": "e04ac37bd44efcf29ad0a8fc94149bccc9162a6d",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-glue",
+    "path": "modules/glue-schema",
+    "archiveSha256": "a27cd6f975ffa8496f2d0a5a25d7dbc6ddc7b3a6e12e103942f104190a75b220",
+    "inputSha256": "e57c98338a8605fcfd97d5fc8843d66af212a547808fd865a4ee7ce6a052dd3a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

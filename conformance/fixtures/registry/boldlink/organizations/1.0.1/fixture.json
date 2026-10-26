@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/organizations/1.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/organizations/aws/1.0.1",
+    "ref": "1.0.1",
+    "commit": "3f8066d534ee745bcd2d454be73dae3d64c0ac09",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-organizations",
+    "path": ".",
+    "archiveSha256": "bfef5cfed74ae032124cf5d45ff55774129d3cc0699f1f66591c6ab536ff0663",
+    "inputSha256": "53687c0caac48dd4b98873be1f67d773c354eb138ca3b2fd9447ec7a617eb6e4",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "functions",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

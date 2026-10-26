@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/kms-key/0.12.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/kms-key/aws/0.12.2",
+    "ref": "0.12.2",
+    "commit": "e1c8c8a8555ff371d186a30d76cf69a32eec430d",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-kms-key",
+    "path": ".",
+    "archiveSha256": "67a9b70601f628f8051d9357c3cda8a4de27094fe3807ee3527ed6eb8a1385a4",
+    "inputSha256": "120182bafcae7825a8d178eae7877d7ca79866133e0e22ea1dee7496ab0a9c84",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "heredoc",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

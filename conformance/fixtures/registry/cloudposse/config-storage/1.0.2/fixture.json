@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/config-storage/1.0.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/config-storage/aws/1.0.2",
+    "ref": "1.0.2",
+    "commit": "0b1ed0c328f2607aff883961e848d4312e5e2fd3",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-config-storage",
+    "path": ".",
+    "archiveSha256": "d70183309096f9f81145bec706b8a74ae9295eabba4250ad30ef3a0589a1e9ef",
+    "inputSha256": "888cc4a8babd1fbbdcd94413ba9d12f9272ac7f5d1a5231309127defc92da006",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

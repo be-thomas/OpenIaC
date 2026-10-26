@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/fpco/foundation/0.9.16/modules/external-dns-iam",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/fpco/foundation/aws/0.9.16",
+    "ref": "0.9.16",
+    "commit": "a7b028e436cd1ce0977b8144b090ce5c9fe30526",
+    "gitOwner": "fpco",
+    "gitRepo": "terraform-aws-foundation",
+    "path": "modules/external-dns-iam",
+    "archiveSha256": "755ef1ca15055c33dfc9092dbe65640da50b25fc4bdd98c5f7567a45acb673fb",
+    "inputSha256": "e62c7f26e06bea9adfb0be9cb3c7d891ae5d6631bb086401549d1e6cfa63f9eb",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "interpolation",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/nozaq/secure-baseline/2.1.0/modules/guardduty-baseline",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/nozaq/secure-baseline/aws/2.1.0",
+    "ref": "2.1.0",
+    "commit": "7c4a1e5b876495753695786490350741c5fc188b",
+    "gitOwner": "nozaq",
+    "gitRepo": "terraform-aws-secure-baseline",
+    "path": "modules/guardduty-baseline",
+    "archiveSha256": "79259b5d0fb638654503c184994b1e01f9f1b64ccdd89231aa748163073e1c2d",
+    "inputSha256": "28fa63b1cfc47bf1850bf239b5e08aa934722df478b4b63c729505bd43e70c55",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,7 +1,7 @@
 # Conformance Process
 
-> **Status:** design. The harness, corpus and gates below are not implemented
-> yet. This document is the contract to build against.
+> **Status:** inputs phase. The collector and committed fixture tree exist.
+> The L1–L4 harness, goldens and CI gates below are still to be built.
 
 Conformance answers one question: **does OpenIaC preserve the meaning of real
 Terraform when it emits AWS CDK or Pulumi?** Coverage alone cannot answer that,
@@ -22,6 +22,45 @@ There is no reliable public corpus of Terraform → CDK/Pulumi *pairs*. AWS
 publishes the two kinds of examples separately. The plan is therefore: collect
 real Terraform inputs, then derive expected behaviour from tools that can
 validate or execute them independently.
+
+## Inputs phase
+
+The first implementation step is the corpus itself. `cmd/openiac-conformance`
+crawls the Terraform Registry for AWS modules, resolves every module version to
+an immutable GitHub commit, downloads the archive and writes the accepted module
+roots under `conformance/fixtures/`. Configured GitHub seeds add monorepos that
+contain many local modules. The source list, caps and license allowlist live in
+[`conformance/collection/sources.json`](../conformance/collection/sources.json).
+
+```bash
+make conformance-inputs
+# or
+go run ./cmd/openiac-conformance collect -v
+```
+
+The collector is intentionally conservative. It keeps only `.tf` and
+`.tf.json` files, rejects provisioners, external data sources and credential
+literals, and requires a recognized permissive license on the candidate or its
+nearest ancestor. Module roots are discovered by parsing HCL, not by matching
+text, so comments cannot invent or suppress a local reference. A module that
+references a local path outside its own fixture root is skipped. Local modules
+referenced inside the root are copied in, so the fixture is self-contained.
+`verify` re-derives the lock, parses every fixture and checks its metadata
+without network access; CI runs it on every pull request. It reads the same
+`sources.json` as the collector, so the license allowlist cannot diverge between
+the two commands. `lock` rewrites `corpus.lock.json` and `THIRD_PARTY.md` from
+the fixture tree alone, for the case where fixtures were curated by hand. The
+full rules and the regeneration workflow are in
+[`conformance/README.md`](../conformance/README.md).
+
+Because verification is offline, `source.commit` and `source.archiveSha256`
+cannot be re-derived. Verify checks their shape and, for GitHub-origin fixtures,
+that the short commit in the fixture ID matches `source.commit`; registry IDs
+carry the registry version and source path instead, and their commit is recorded
+at ingest. Authenticity is established only by the collector at ingest time.
+
+No expected IR, warnings, CDK or Pulumi output is generated in this phase. The
+L0–L4 layers below remain the contract for the next phase.
 
 ## Conformance layers
 
@@ -93,6 +132,21 @@ One clone gives a contributor the compiler, the fixtures and the expectations at
 the same revision. There is no second repository, submodule or release artifact
 for inputs.
 
+Snapshot at 2026-10-26: **853 fixtures**, 6,471 files, 24,314,566 bytes; 811
+from the Terraform Registry and 42 from GitHub seeds. Tiers: 20 `smoke`, 0
+`core`, 487 `advanced` and 346 `modules`. Licenses: 633 Apache-2.0, 211 MIT and
+9 BSD-3-Clause. Only eleven fixtures use basic features only; all were promoted
+into `smoke`, leaving `core` empty. The generated
+[`corpus.lock.json`](../conformance/corpus.lock.json) is authoritative.
+
+The smoke set is derived, not curated. The collector prefers feature-basic
+modules, then fills the remaining slots with the smallest other fixtures
+(falling back when fewer than 20 basic modules exist), breaking ties by fixture
+ID. `verify` re-runs that rule and rejects a fixture whose `tier` is `smoke`
+without being in the derived set, or outside it while claiming `smoke`. Every
+other fixture is classified from its parsed features. A hand-re-tiered corpus
+therefore fails verification instead of silently drifting.
+
 Provider, CloudFormation and Pulumi schemas are dependencies rather than source:
 they are pinned by lockfile and cached outside the tree.
 
@@ -112,12 +166,17 @@ of service.
 
 ### Selection rules
 
-- AWS provider only for the first corpus.
+- AWS provider only for the first corpus. A candidate needs an AWS provider, or
+  no direct provider and at least one module call, so at least one output target
+  applies.
 - No `.tfstate`, no `.tfvars` containing secrets, no credentials.
 - No `local-exec`, `remote-exec`, `external` data sources or dynamic providers.
-- Parse-clean and under a size cap.
-- Deduplicate by normalized AST signature, then sample stratified by resource
-  type and feature (`count`, `for_each`, `locals`, `data`, `module`).
+- Parse-clean: every file must parse as HCL or JSON before it is considered.
+- Directories named `test`, `tests`, `spec`, `specs`, `docs` or `internal` are
+  excluded. Examples are kept because they are real user configurations.
+- Deduplicate by the content hash of the input tree. There is no AST
+  normalization and no stratified sampling: the corpus is every candidate that
+  survives ranking, caps and the total budget.
 - Never execute corpus code outside the sandbox described below.
 
 ### Tiers
@@ -128,7 +187,11 @@ of service.
 | `core` | ~100 | Literal resources, variables, outputs, references |
 | `advanced` | ~80 | Locals, data sources, interpolation, blocks |
 | `modules` | ~20 | Module calls, `count`, `for_each` |
-| `synthetic` | as needed | LLM-generated probes; excluded from headline metrics |
+| `synthetic` | as needed | Planned: LLM-generated probes; excluded from headline metrics |
+
+Only the first four tiers exist in the corpus today; `synthetic` is reserved by
+the design and rejected by the current verifier, which accepts only
+`smoke`, `core`, `advanced` and `modules`.
 
 Initial targets: 200 fixtures at v0.1 and ~2,000 by v0.3. These are goals, not
 guarantees.
@@ -140,32 +203,36 @@ Everything lives under `conformance/fixtures/`:
 ```text
 conformance/
 ├── fixtures/
-│   ├── authored/                     # maintained by this project
+│   ├── authored/                     # planned: maintained by this project
 │   │   ├── smoke/<id>/
 │   │   ├── core/<id>/
 │   │   ├── advanced/<id>/
 │   │   ├── modules/<id>/
-│   │   └── synthetic/<id>/           # excluded from headline metrics
+│   │   └── synthetic/<id>/           # planned: excluded from headline metrics
 │   ├── registry/<org>/<module>/<version>/
 │   └── github/<org>/<repo>/<short-sha>[/<subdir>...]/
 ├── collection/
-│   ├── sources.json                  # seeds, globs, caps, license allowlist
+│   ├── sources.json                  # seeds, path prefixes, caps, license allowlist
 │   └── README.md
 ├── policy/
-│   └── feature-support.json          # feature → expected warning codes
+│   └── feature-support.json          # planned: feature → expected warning codes
 ├── oracle/
-│   ├── normalize/<resource_type>.json
-│   ├── allowlist.json
-│   └── README.md
+│   ├── normalize/<resource_type>.json  # planned
+│   ├── allowlist.json                # planned
+│   └── README.md                     # planned
 ├── container/
-│   ├── Dockerfile
-│   └── entrypoint.sh
-├── baselines/<date>.json
-├── schemas.lock.json
-├── toolchain.lock.json
+│   ├── Dockerfile                    # planned
+│   └── entrypoint.sh                 # planned
+├── baselines/<date>.json             # planned
+├── schemas.lock.json                 # planned
+├── toolchain.lock.json               # planned
 ├── corpus.lock.json                  # generated aggregate; verified by CI
 └── reports/                          # gitignored
 ```
+
+Today the tree contains `fixtures/` (registry and github origins only),
+`collection/`, `README.md` and `corpus.lock.json`; every entry marked *planned*
+belongs to a later phase.
 
 Every fixture has the same shape:
 
@@ -181,6 +248,7 @@ registry/terraform-aws-modules/vpc/5.1.0/
 │   ├── cdk/index.ts
 │   └── pulumi/index.ts
 ├── LICENSE                           # vendored fixtures only
+├── NOTICE                            # upstream notice, when present
 └── NOTES.md                          # optional
 ```
 
@@ -199,9 +267,13 @@ fixture; upstream files are never edited in place.
   "source": {
     "url": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/5.1.0",
     "ref": "5.1.0",
+    "commit": "<40-hex git commit>",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-modules",
     "path": ".",
     "archiveSha256": "<digest>",
-    "inputSha256": "<digest>"
+    "inputSha256": "<digest>",
+    "licensePath": "LICENSE"
   },
   "license": "Apache-2.0",
   "providers": ["aws"],
@@ -214,9 +286,9 @@ fixture; upstream files are never edited in place.
 | Field | Meaning |
 |:--|:--|
 | `id` | Fixture path under `fixtures/` |
-| `tier` | `smoke`, `core`, `advanced`, `modules` or `synthetic` |
-| `origin` | `authored`, `registry` or `github` |
-| `source` | Upstream URL, ref, subdirectory, archive digest and input-tree digest |
+| `tier` | `smoke`, `core`, `advanced` or `modules` (`synthetic` is planned); `verify` recomputes it |
+| `origin` | `registry` or `github` (`authored` is planned) |
+| `source` | Upstream URL, ref, immutable commit, git owner/repo, subdirectory, archive digest, input-tree digest and license path |
 | `license` | SPDX identifier; the fixture directory carries the license text |
 | `providers` | Providers used by the module |
 | `features` | Constructs used to derive expected warnings and coverage |
@@ -225,20 +297,21 @@ fixture; upstream files are never edited in place.
 
 There is no global `manifest.jsonl`. Each `fixture.json` is the source of truth;
 the harness walks the tree and builds an index in memory. `corpus.lock.json` is
-the only aggregate, and CI regenerates it and fails if it differs.
+the only aggregate. CI recomputes it without writing and fails when it differs
+from the committed file.
 
 ### Monorepo rules
 
 | Rule | Reason |
 |:--|:--|
-| Commit text only: `.tf`, `.tf.json`, `LICENSE*`, `NOTES.md` | Keeps clones and diffs reviewable |
+| Commit text only: `.tf`, `.tf.json`, `LICENSE*`, `NOTICE*`, `fixture.json`, `NOTES.md` | Keeps clones and diffs reviewable |
 | Prune binaries, `.terraform/`, state, lock files and examples/tests outside the selected module | Nothing else is used by the harness |
-| Cap each fixture at 256 KiB and 100 files | Bounds worst-case input |
+| Cap each fixture at 512 KiB and 200 files | Bounds worst-case input |
 | Keep the whole `conformance/fixtures/` tree under 100 MB | Keeps the monorepo cloneable; CI fails above budget |
 | Never reformat or patch upstream files | The fixture must remain what upstream published |
 | Copy the license text into the fixture and record its SPDX identifier | Attribution travels with the code |
 | Allow only GPL-3.0-compatible licenses | Avoids license contamination |
-| Re-tier vendored fixtures by editing `fixture.json`; never move the files | Tier is metadata, not location |
+| Tier is metadata, not location; never move the files to re-tier | `verify` recomputes the tier and rejects a hand-edited value |
 | No symlinks, binaries or executable content | Safe to parse, archive and review |
 | Add a new directory for a new upstream version | History and provenance stay intact |
 
@@ -261,12 +334,13 @@ conformance/fixtures/
 ### Runner layout
 
 ```text
-cmd/openiac-conformance/          # CLI: discover, lock, run, report
+cmd/openiac-conformance/          # CLI: collect, verify, lock
 internal/conformance/
-├── corpus/                       # discover, verify, classify, lock
-├── layer0/ … layer4/             # one package per oracle
-├── compare/                      # normalization and diff engine
-└── report/                       # JSON and static dashboard
+├── collect/                       # implemented: ingest, fixture writing, lock, verify
+├── corpus/                        # planned: harness discovery, verify, classify
+├── layer0/ … layer4/              # planned: one package per oracle
+├── compare/                       # planned: normalization and diff engine
+└── report/                        # planned: JSON and static dashboard
 ```
 
 Generated output lives in `conformance/reports/<run-id>/` and is never

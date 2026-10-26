@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/docdb/1.3.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/docdb/aws/1.3.2",
+    "ref": "1.3.2",
+    "commit": "b6508e96097e7bf3d8c7336302c9f2b4a6fb6d36",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-docdb",
+    "path": ".",
+    "archiveSha256": "37e00b3eeafac273295718b45cdab80b4e6c992b7f3aab2fa190221f7b8df869",
+    "inputSha256": "0621e8967259905b00c022115c58deb7f58a3d1fba089d058b1594c38d4fd868",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

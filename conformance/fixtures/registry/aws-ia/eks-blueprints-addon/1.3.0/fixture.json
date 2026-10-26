@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/eks-blueprints-addon/1.3.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/eks-blueprints-addon/aws/1.3.0",
+    "ref": "1.3.0",
+    "commit": "581285115ac7866076b7d044a2cc1fd89f6a8b25",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints-addon",
+    "path": ".",
+    "archiveSha256": "3d7c715f72c6e0c989a5c1f2b5935a22329e40c3a58d9f5ec48443758eea7d35",
+    "inputSha256": "420f4b8843cce2f052c478c5614ddfd6fbf9de1380627a19edb40902caef5db6",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

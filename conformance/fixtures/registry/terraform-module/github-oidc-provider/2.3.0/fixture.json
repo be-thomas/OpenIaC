@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-module/github-oidc-provider/2.3.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-module/github-oidc-provider/aws/2.3.0",
+    "ref": "2.3.0",
+    "commit": "234b778117d468f3dd981b6ae0a54f8ea16b8fa4",
+    "gitOwner": "terraform-module",
+    "gitRepo": "terraform-aws-github-oidc-provider",
+    "path": ".",
+    "archiveSha256": "7cbd23d862e1a937cc1d70a3ba92ba73326553039084fe1652ba5bdd01b9aaea",
+    "inputSha256": "f15c4c534220575606dbc44c48a542c1415cdff2f38820a8203cda89cbbe0649",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

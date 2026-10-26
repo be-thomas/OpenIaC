@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/dcos/0.3.4/examples/simple-open-source",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/dcos/aws/0.3.4",
+    "ref": "0.3.4",
+    "commit": "9e2e716e7656c55d0eff04122227a74db1d8a6eb",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-dcos",
+    "path": "examples/simple-open-source",
+    "archiveSha256": "2ecfeb78808e0929154addb7b87bc366773b1efb2aef37e7d880e7ee1432ddf1",
+    "inputSha256": "1d82947cc4917d7c88501d930af9204a4994fd65ab9285589ad84540b92679d7",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "interpolation",
+    "modules",
+    "outputs",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

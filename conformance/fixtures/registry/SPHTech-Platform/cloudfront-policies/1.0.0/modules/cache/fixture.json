@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/cloudfront-policies/1.0.0/modules/cache",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/cloudfront-policies/aws/1.0.0",
+    "ref": "1.0.0",
+    "commit": "26edd627182c43052c3e5a104db31197ea944259",
+    "gitOwner": "SPHTech-Platform",
+    "gitRepo": "terraform-aws-cloudfront-policies",
+    "path": "modules/cache",
+    "archiveSha256": "320bca4ee70aaa3e7ed208858077fc72e92949dfd86a2172a5ad5716605554fa",
+    "inputSha256": "11d189760aa321795e5906434b777eb78f0475d3470a8299196bb97e9c520ece",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/snowplow-devops/dynamodb-autoscaling/0.2.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/snowplow-devops/dynamodb-autoscaling/aws/0.2.2",
+    "ref": "0.2.2",
+    "commit": "049295c85eb430b1d32b243ef4c694c52224a9c4",
+    "gitOwner": "snowplow-devops",
+    "gitRepo": "terraform-aws-dynamodb-autoscaling",
+    "path": ".",
+    "archiveSha256": "64a1a8f7ecf0e9fab0b18a95cea7fa77ca011dd75f015fa26f6609e87f362f5e",
+    "inputSha256": "7166fa1694d19ed1d2c9a828a1964f785ef22f20588b73959adb2b83c74b4a6a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "depends_on",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

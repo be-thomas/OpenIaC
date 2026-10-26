@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/iam-role/2.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/iam-role/aws/2.0.0",
+    "ref": "2.0.0",
+    "commit": "4e228662549e41fd3e534811711eb2cd04ee08ea",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-iam-role",
+    "path": ".",
+    "archiveSha256": "beb1ead9586eafcd2f3a17cebeb00448357b7a1d04f91a8adf2698041bc610a2",
+    "inputSha256": "683a2ccd760d030cab6429721d873bbd6a245fe48a66a808b66f4e95cbde1b3f",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

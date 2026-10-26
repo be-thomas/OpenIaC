@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/app-runner/1.2.3",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/app-runner/aws/1.2.3",
+    "ref": "1.2.3",
+    "commit": "f1f98b84a4055d6950191615c781cf9bb2af2207",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-app-runner",
+    "path": ".",
+    "archiveSha256": "bb7f6c1e5822191a75f45ac99f9afee4e378bcefba8ca294f01b98bdc7c29ef4",
+    "inputSha256": "c4a84959d687c33ff393dacb9c5b673e41d8878042e886ee09cda6baa93dfb2b",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

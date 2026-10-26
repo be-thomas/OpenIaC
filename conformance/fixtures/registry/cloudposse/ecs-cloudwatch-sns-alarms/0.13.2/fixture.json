@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ecs-cloudwatch-sns-alarms/0.13.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ecs-cloudwatch-sns-alarms/aws/0.13.2",
+    "ref": "0.13.2",
+    "commit": "5bcbc282b42ad2328d7277eee1f83d0f139b13c5",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ecs-cloudwatch-sns-alarms",
+    "path": ".",
+    "archiveSha256": "87c21bf479a2336e97693bef6939071eb126c887bdb4e0ae7bbd4e6d4ef0253a",
+    "inputSha256": "6a5d93f8aa12e16a652eca0b1cb3e6c854b89603806718ba997121846630c702",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

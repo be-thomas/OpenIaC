@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/networkfirewall/1.0.2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/networkfirewall/aws/1.0.2",
+    "ref": "1.0.2",
+    "commit": "1c5f35b9a9e8c3038d12951f9f38e69e6928762f",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-networkfirewall",
+    "path": ".",
+    "archiveSha256": "58e669e24261a04619f8ddb3064391b1dba36d0774e248245e9bec218bcc02f5",
+    "inputSha256": "9e3db73f18f3d973a73b49d756a83f585fffce6c1c832b0dc30b25a35eb03042",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

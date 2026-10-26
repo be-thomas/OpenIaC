@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "github/aws-ia/terraform-aws-eks-blueprints/fc40e646/patterns/gitops/multi-cluster-hub-spoke-argocd/spokes",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
+    "ref": "main",
+    "commit": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints",
+    "path": "patterns/gitops/multi-cluster-hub-spoke-argocd/spokes",
+    "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
+    "inputSha256": "5d90e6143433fbe664fc726a1f69ac9853ca7a6aa33a4be663453e254b2c3b10",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "kubernetes",
+    "terraform"
+  ],
+  "features": [
+    "data",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "providers",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

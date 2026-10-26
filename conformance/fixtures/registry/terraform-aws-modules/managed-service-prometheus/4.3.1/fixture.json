@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/managed-service-prometheus/4.3.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/managed-service-prometheus/aws/4.3.1",
+    "ref": "4.3.1",
+    "commit": "93946d1d124aad009802878e7e02c4dcf00f093f",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-managed-service-prometheus",
+    "path": ".",
+    "archiveSha256": "7328a2a5efb12080ce14208e8ccd36a512f442d2a89664f60a7ec8112a3c26db",
+    "inputSha256": "31eec012b2c4c66b960eecf1da1f84d1f73e2079f99aed917b094bf1ea0b018f",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

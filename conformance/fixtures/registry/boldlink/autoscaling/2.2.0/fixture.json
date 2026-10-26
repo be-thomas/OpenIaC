@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/autoscaling/2.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/autoscaling/aws/2.2.0",
+    "ref": "2.2.0",
+    "commit": "6afb57ebc3b57cfbcf3cc5ff2f0715a2bdd50d0b",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-autoscaling",
+    "path": ".",
+    "archiveSha256": "1c42e4621015749e9f785ec7edf3c19a91859b4ffcb1c6d645cb2d19814616a5",
+    "inputSha256": "9cc40cc06c3af70f2b302b7b66ae78cb0c471c589141823d383565bea53bf759",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "template"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "id": "registry/Young-ook/eks/2.1.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/Young-ook/eks/aws/2.1.0",
+    "ref": "2.1.0",
+    "commit": "8748e5ad4e735868aef7c8e0c369e6119cfd9abc",
+    "gitOwner": "Young-ook",
+    "gitRepo": "terraform-aws-eks",
+    "path": ".",
+    "archiveSha256": "ee277c5b0e074f97bdd688fd431570225958a51321c3423a87b764193c6be0d1",
+    "inputSha256": "93f469a8b61a9b37093b353461655e10f4dff5ea7c0c2f8a9dc959806f5eb671",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "cloudinit",
+    "kubernetes",
+    "time",
+    "tls"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

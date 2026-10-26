@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "registry/ViktorUJ/vpc/1.1.0/examples/nat_gateway_az_existing_eip",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/ViktorUJ/vpc/aws/1.1.0",
+    "ref": "1.1.0",
+    "commit": "fb92b4e7798e04318c362c031e6e129714a40e56",
+    "gitOwner": "ViktorUJ",
+    "gitRepo": "terraform-aws-vpc",
+    "path": "examples/nat_gateway_az_existing_eip",
+    "archiveSha256": "d7a6f550764daf614e20d89657a3c1cbd0f91de44c1e9e52ea7cc2d93a625648",
+    "inputSha256": "afd068c9dcff11417fabc8e0b074f31f8004edbe17454b0ba8958ec1e64f57a6",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "outputs",
+    "providers"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

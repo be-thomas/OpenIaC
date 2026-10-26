@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/avlcloudtechnologies/sso/0.5.0/examples/with-dependencies",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/avlcloudtechnologies/sso/aws/0.5.0",
+    "ref": "0.5.0",
+    "commit": "9f25d90f5ca96a8b7fd792c956562428d2d8459b",
+    "gitOwner": "avlcloudtechnologies",
+    "gitRepo": "terraform-aws-sso",
+    "path": "examples/with-dependencies",
+    "archiveSha256": "b80a5bb4b801e53aacead2f988b484fa0e0448ad4dc1770bfe1cb3c2b6e5e5bf",
+    "inputSha256": "6519ae9495fd4efe7e232092d4d3aab657aa2b07677db66109c59606fa5a681e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "for_expressions",
+    "functions",
+    "locals",
+    "modules",
+    "outputs",
+    "providers",
+    "required_providers",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

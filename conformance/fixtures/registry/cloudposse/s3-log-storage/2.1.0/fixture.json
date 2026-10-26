@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/s3-log-storage/2.1.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/s3-log-storage/aws/2.1.0",
+    "ref": "2.1.0",
+    "commit": "0e1cb0c3812d4a75edc9c3aacd041551193bef82",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-s3-log-storage",
+    "path": ".",
+    "archiveSha256": "de370f8a45e02b7d320e5bb1714d99f71717c461149007273eaaffff231b4427",
+    "inputSha256": "b3ec2f0f571028d0c61e7bc1176f55cddf0ae7eaf7424bd5018debd71666c97a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

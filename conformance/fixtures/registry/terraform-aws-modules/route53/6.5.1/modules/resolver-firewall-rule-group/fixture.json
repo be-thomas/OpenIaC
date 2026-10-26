@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/route53/6.5.1/modules/resolver-firewall-rule-group",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/route53/aws/6.5.1",
+    "ref": "6.5.1",
+    "commit": "883f987d6bb328c09bd4dfc5a04024534b371d59",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-route53",
+    "path": "modules/resolver-firewall-rule-group",
+    "archiveSha256": "f16ba358b9e87dd24d37d86bcea25f2e1d14082841382cc2814e3d32ddc024b3",
+    "inputSha256": "4f52a578e05d38284304641c853a517e3f2013832becb701b0c107c6dd88742e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

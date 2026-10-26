@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/jmgreg31/cloudfront/5.0.1/example",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/jmgreg31/cloudfront/aws/5.0.1",
+    "ref": "5.0.1",
+    "commit": "0c87c59baa45612bec356af7854a01a884feba27",
+    "gitOwner": "jmgreg31",
+    "gitRepo": "terraform-aws-cloudfront",
+    "path": "example",
+    "archiveSha256": "0834598b4aadfa784d7706bb600826550136eb43707e4609310eab4113f2ef33",
+    "inputSha256": "c76f8ec0fffcded3b44b96a866e64d43f0ea94c1d5488c9bfc1ba7140dab8b44",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "backend",
+    "functions",
+    "heredoc",
+    "modules",
+    "outputs",
+    "providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "id": "registry/lacework/agentless-scanning/0.19.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lacework/agentless-scanning/aws/0.19.0",
+    "ref": "0.19.0",
+    "commit": "aac34f474d545279b818af785579bb5e07c91bfd",
+    "gitOwner": "lacework",
+    "gitRepo": "terraform-aws-agentless-scanning",
+    "path": ".",
+    "archiveSha256": "6efaf726f57131cbc7be23523a16c723c6da5bacc2e283bcb240f28b23d7c6b1",
+    "inputSha256": "56b66ea18799bfd541c9f73c92f7673efa7b58a2d579156b96e33ccd6be84ef8",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "lacework",
+    "null",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

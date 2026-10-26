@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/network-firewall/2.3.0/modules/firewall",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/network-firewall/aws/2.3.0",
+    "ref": "2.3.0",
+    "commit": "da5ce58c76ab0827c712ec881dad56b0e24c1114",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-network-firewall",
+    "path": "modules/firewall",
+    "archiveSha256": "bc120ab19bda666659324039fd238bb80b0d5d10be8fc0f461dd16402bfc3b63",
+    "inputSha256": "e1b0c5730d1a2d3dd74ea5827deeb628308c79085cf8d678bc11da17b426e237",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

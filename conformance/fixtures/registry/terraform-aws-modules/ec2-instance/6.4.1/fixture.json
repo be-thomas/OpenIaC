@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/ec2-instance/6.4.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/ec2-instance/aws/6.4.1",
+    "ref": "6.4.1",
+    "commit": "294fb8928bc0f7e0d9ba5bea41a8236c9a7a95d9",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-ec2-instance",
+    "path": ".",
+    "archiveSha256": "d7935d415168605bc165a1708f7c591ff6d2cecab0d803ab8310d276aab68fe1",
+    "inputSha256": "b9c78ad0c6598a8301a0609fcce1a37f841d25fa37e5375beab270007c7f9c91",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

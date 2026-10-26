@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/bootstrap/0.3.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/bootstrap/aws/0.3.0",
+    "ref": "0.3.0",
+    "commit": "86a339dbea4c2981fdb1a961f8c17f26b8b99d97",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-bootstrap",
+    "path": ".",
+    "archiveSha256": "9595b3431c9f16f3ba3623043327b5d54d493f9c61a8ad8137bd2bf20f5371c1",
+    "inputSha256": "d5c982d5b46713e9b028dabaf71846cbf9bc8851799a0da417eb3e519dd6d853",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "functions",
+    "interpolation",
+    "modules",
+    "outputs",
+    "providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

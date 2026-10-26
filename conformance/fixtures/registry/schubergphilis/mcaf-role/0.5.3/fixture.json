@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/schubergphilis/mcaf-role/0.5.3",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/schubergphilis/mcaf-role/aws/0.5.3",
+    "ref": "0.5.3",
+    "commit": "83959ef98ee59cab38093d58c82d010406463150",
+    "gitOwner": "schubergphilis",
+    "gitRepo": "terraform-aws-mcaf-role",
+    "path": ".",
+    "archiveSha256": "645f1dea666b39f59cff9f706158d494fb6f1e2c15e9d3333506e559e6899958",
+    "inputSha256": "425dbd9bc7f601d82bd385b80fc6a22e4d454e9da4b0590ed69f0d3827d81fba",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

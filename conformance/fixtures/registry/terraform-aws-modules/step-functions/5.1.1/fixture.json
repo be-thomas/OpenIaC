@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/step-functions/5.1.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/step-functions/aws/5.1.1",
+    "ref": "5.1.1",
+    "commit": "16c7a1ffaa72643d714a7b3924216edce9413482",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-step-functions",
+    "path": ".",
+    "archiveSha256": "d849cea6587e103cf0189d80a8479f34c193f171ed825702916bfcf0be779118",
+    "inputSha256": "5e1eeef84bda72f65d8df7d49cba49bc7a6b6267651b0fd84825e25b3f07dbf5",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

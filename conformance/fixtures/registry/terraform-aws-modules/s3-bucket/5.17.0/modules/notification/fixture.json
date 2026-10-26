@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/s3-bucket/5.17.0/modules/notification",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/5.17.0",
+    "ref": "5.17.0",
+    "commit": "9afa4fc8c8f1e0b3fd913474c1bef8d0c454b235",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-s3-bucket",
+    "path": "modules/notification",
+    "archiveSha256": "40082ac6caa76b5fe1064381e3357d24dac0e4994280177782132948d59d734b",
+    "inputSha256": "9dc0151e0b0cedc506e88009687c744ec10f9b1737613451324e1e3257cfa9aa",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

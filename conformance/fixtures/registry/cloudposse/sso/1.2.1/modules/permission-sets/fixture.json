@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/sso/1.2.1/modules/permission-sets",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/sso/aws/1.2.1",
+    "ref": "1.2.1",
+    "commit": "0bb7c35cf1402230cf2268af54db565a8c85d0d0",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-sso",
+    "path": "modules/permission-sets",
+    "archiveSha256": "7d7939b504f4160a7bb6f9e19ac57c45f677fcd1b270f19d2347257e681fac1c",
+    "inputSha256": "42b6710ec766aa19b302e697a4959969a4bf981d74428b6ea7068a7d19d8d68a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "data",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

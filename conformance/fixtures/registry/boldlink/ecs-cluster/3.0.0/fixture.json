@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/ecs-cluster/3.0.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/ecs-cluster/aws/3.0.0",
+    "ref": "3.0.0",
+    "commit": "0afa42785b85e2d61cbd3cff2be401557a743035",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-ecs-cluster",
+    "path": ".",
+    "archiveSha256": "686df444f63d032badc22d622c8111aef9653b7da59b2a2001211b13344eb376",
+    "inputSha256": "1c4a597d70c072b4b5cbea0d28936af336665b1c62b22b8bfc6df958523609c3",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

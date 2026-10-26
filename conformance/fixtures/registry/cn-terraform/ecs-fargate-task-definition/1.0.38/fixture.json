@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/cn-terraform/ecs-fargate-task-definition/1.0.38",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cn-terraform/ecs-fargate-task-definition/aws/1.0.38",
+    "ref": "1.0.38",
+    "commit": "4cb93246e5f5739da03c08f3336008793592a48d",
+    "gitOwner": "cn-terraform",
+    "gitRepo": "terraform-aws-ecs-fargate-task-definition",
+    "path": ".",
+    "archiveSha256": "45dbc00fb538c75fcfa8a21f4069738ee07293a299621c7005954a59846c6ab4",
+    "inputSha256": "2ea26814c4b88230c3d9ce2734b926051893ba97f86ea26d7c8d755c1351707d",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

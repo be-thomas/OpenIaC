@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/vpc/3.4.1/examples/complete-vpc-with-vpn",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/vpc/aws/3.4.1",
+    "ref": "3.4.1",
+    "commit": "7f4d05376a08860772ec29ea61300bd62cf356c5",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-vpc",
+    "path": "examples/complete-vpc-with-vpn",
+    "archiveSha256": "03661d003b3f549d2f166e7c5e4249776105d93a744533e48f7435d6e0aa8652",
+    "inputSha256": "b2242e6affefc3c5ad851723b0a8c885bc2231f24eeb7961a0c58168c91f454e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "providers"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

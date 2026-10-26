@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/draios/secure-for-cloud/0.10.29/modules/services/workload-scanning",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/draios/secure-for-cloud/aws/0.10.29",
+    "ref": "0.10.29",
+    "commit": "9939f6c51084fa8a697d8adb89f1c5f1390b5b96",
+    "gitOwner": "draios",
+    "gitRepo": "terraform-aws-secure-for-cloud",
+    "path": "modules/services/workload-scanning",
+    "archiveSha256": "60eb102e56ed24aa070de12ca9f7b1d7bf6c18c539f02253af4df0e4dbf4f80c",
+    "inputSha256": "464344f616ad5f50d6852eaad16fbce225881c0605127a0bacfb9f04fa438d9b",
+    "licensePath": "LICENSE.txt"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

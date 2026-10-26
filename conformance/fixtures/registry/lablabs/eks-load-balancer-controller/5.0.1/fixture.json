@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "registry/lablabs/eks-load-balancer-controller/5.0.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lablabs/eks-load-balancer-controller/aws/5.0.1",
+    "ref": "5.0.1",
+    "commit": "8a59a013f90404a9343fb64179078b2796ce3846",
+    "gitOwner": "lablabs",
+    "gitRepo": "terraform-aws-eks-load-balancer-controller",
+    "path": ".",
+    "archiveSha256": "1ca7a7e85e6f017bb09f5a6618237af4d0b959b73e737eae9db350ba1a3f9232",
+    "inputSha256": "d32da6fa9d97e5991ace4319450072391e414c378e86ce9c7d60e70d063097d5",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "terraform",
+    "utils"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

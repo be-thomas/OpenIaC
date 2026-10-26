@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/honeycombio/integrations/2.3.1/examples/rds-logs/postgresql",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/honeycombio/integrations/aws/2.3.1",
+    "ref": "2.3.1",
+    "commit": "a22f5bc0a8a4c110c61f69418393d3683cc03ee5",
+    "gitOwner": "honeycombio",
+    "gitRepo": "terraform-aws-integrations",
+    "path": "examples/rds-logs/postgresql",
+    "archiveSha256": "5858b504b151c7194de18de77c4eedb7111cb033aa8d1f6babd5975ebcbcd834",
+    "inputSha256": "2a3e04bd152f4cfe5ccf93f9bbd9473d4ad3e17d914e626d8772f4bcf95ff97f",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "resources",
+    "sensitive",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

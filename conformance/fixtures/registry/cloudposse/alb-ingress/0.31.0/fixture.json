@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/alb-ingress/0.31.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/alb-ingress/aws/0.31.0",
+    "ref": "0.31.0",
+    "commit": "5a39ddb4c5a06cd71498239cf085dd3e06f5c3ce",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-alb-ingress",
+    "path": ".",
+    "archiveSha256": "fc7c7a290cdea567d970ad357a900e4199c7dc0e37fd75ddf706437ef17e9233",
+    "inputSha256": "38ccb15cfc6f604a599cc5a2f31a0ec1bb4de0f25fe1395bb25270be69a189e8",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

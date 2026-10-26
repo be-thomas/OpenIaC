@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/babbel/ses-sending-domain/2.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/babbel/ses-sending-domain/aws/2.2.0",
+    "ref": "2.2.0",
+    "commit": "8bb810648e62fcc35bc19311c27b766e55616b39",
+    "gitOwner": "babbel",
+    "gitRepo": "terraform-aws-ses-sending-domain",
+    "path": ".",
+    "archiveSha256": "9aeff27660c341d9d1b424a0d4c9db4bb06c806b6610294d8a8afc3ce8f62ed5",
+    "inputSha256": "c8be37315d44355015782840999c807422136a72f36018adb834ce6544b5426e",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

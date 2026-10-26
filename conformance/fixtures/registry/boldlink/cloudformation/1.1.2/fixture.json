@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/cloudformation/1.1.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/cloudformation/aws/1.1.2",
+    "ref": "1.1.2",
+    "commit": "08d0cf1b7ab6a3858f39592990cb7d823c95375a",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-cloudformation",
+    "path": ".",
+    "archiveSha256": "64228e79573f42c6ca2fad2538f7a85a212604bff33137786f8a1583e7bff09b",
+    "inputSha256": "68d6f3ab56a779d16a957fbe9aed30c620dfbff980ce2307e78f088b8133b8bd",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/babbel/alb-for-vpc-internal-requests/4.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/babbel/alb-for-vpc-internal-requests/aws/4.0.1",
+    "ref": "4.0.1",
+    "commit": "f1488e2d043dadd6e577ecb92bd3ca23183dcd1a",
+    "gitOwner": "babbel",
+    "gitRepo": "terraform-aws-alb-for-vpc-internal-requests",
+    "path": ".",
+    "archiveSha256": "63f7ec47d0fa4cc7684e2850ba5283fab37e910a5e5b0e475020e41a3e19acde",
+    "inputSha256": "bb67d739ec3a4098d23411ac35425519e52998bca432b89deedae9b4b2e46641",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

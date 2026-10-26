@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/telia-oss/ecs-fargate/7.3.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/telia-oss/ecs-fargate/aws/7.3.1",
+    "ref": "7.3.1",
+    "commit": "1ddcbe2b8976f8ff98ad9d902d2c4157718da928",
+    "gitOwner": "telia-oss",
+    "gitRepo": "terraform-aws-ecs-fargate",
+    "path": ".",
+    "archiveSha256": "8f477a600f79debef768852388daf043b8d780f755456a77f95de6a8d503d5a1",
+    "inputSha256": "492c1a1c2cea87b748613d517772a30ce6c74298ac3ec5d85453d08f580408d3",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "null"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

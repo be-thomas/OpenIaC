@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/HENNGE/ecs/5.6.0/modules/core/task",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/HENNGE/ecs/aws/5.6.0",
+    "ref": "5.6.0",
+    "commit": "7c63c7ba421cec0f9089ec288aec3adef3ba8771",
+    "gitOwner": "HENNGE",
+    "gitRepo": "terraform-aws-ecs",
+    "path": "modules/core/task",
+    "archiveSha256": "07fa8f746538cd1175f47c640f1fb7b98150e8a17f5940b223f755ba29e6cbb9",
+    "inputSha256": "48c618f4234064a259931412c94960270489221db5341b57a1b5eda3cf55f200",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "id": "registry/DataDog/log-lambda-forwarder-datadog/2.1.0-rc.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/DataDog/log-lambda-forwarder-datadog/aws/2.1.0-rc.1",
+    "ref": "2.1.0-rc.1",
+    "commit": "dabd1d5db14bcbe0786852dc2306696a51a8d52e",
+    "gitOwner": "DataDog",
+    "gitRepo": "terraform-aws-log-lambda-forwarder-datadog",
+    "path": ".",
+    "archiveSha256": "c25b1b0bfe2ebaaa6c2fa647d7eecacf2c37aa00e79fb4b5526f62ce9b8eb5ca",
+    "inputSha256": "163506e1a76824c9b76f788c7d67fcb79bb1964068ec7a72214cecc565899a71",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "check",
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

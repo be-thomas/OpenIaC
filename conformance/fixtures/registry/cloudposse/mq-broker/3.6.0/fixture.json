@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/mq-broker/3.6.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/mq-broker/aws/3.6.0",
+    "ref": "3.6.0",
+    "commit": "964072d4b16d33f7effade85d558c7e4cbd5ea4f",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-mq-broker",
+    "path": ".",
+    "archiveSha256": "93ab9559b4f19aea80df17f9d2bd1d7c6e57570157dfe84f9df1f5771bdea14a",
+    "inputSha256": "a8564f7c4ee5548c71db023c5d94831f82808b295cc6ec54e40eae64df37fc27",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

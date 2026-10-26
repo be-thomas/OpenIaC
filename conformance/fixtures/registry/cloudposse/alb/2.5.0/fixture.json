@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/alb/2.5.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/alb/aws/2.5.0",
+    "ref": "2.5.0",
+    "commit": "4dda7712b87aa2fb38d17db244d792a8fd64bab5",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-alb",
+    "path": ".",
+    "archiveSha256": "fb24cbb846e4fd20cb8312b66b4ea60769107674eb6b3d57492f7f9229a7f2fe",
+    "inputSha256": "a65b8b89badbd2a29eeb4965b182acfee6d48e8e78594d365098ffc46f1cf4dc",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

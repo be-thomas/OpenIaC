@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/rds-cluster/2.6.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/rds-cluster/aws/2.6.0",
+    "ref": "2.6.0",
+    "commit": "03c1ad7f1a8d5c9fa3268913dfcc3fb2a5210391",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-rds-cluster",
+    "path": ".",
+    "archiveSha256": "8534282554305bf03d2c3d964c76813901876b8d822478d35c7efa7434d0c9df",
+    "inputSha256": "c7d756887d8dbfe53b88eb694eb57bf61bfd21b355d166ba6c52b7bc41b775e5",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

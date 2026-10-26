@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/autoscaling/9.3.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/autoscaling/aws/9.3.2",
+    "ref": "9.3.2",
+    "commit": "f90a581bcca0bab571022a021db155f2860e9b32",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-autoscaling",
+    "path": ".",
+    "archiveSha256": "6243738caeb19c062e78ba5f77324f7acaad2ed69cdbc80fa6c832c4f0529e74",
+    "inputSha256": "280457805655a5bd9b3d42dcc693c83e5faf943c31776911a587479ce4280678",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

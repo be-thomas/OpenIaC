@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/sprylab/purple-s3-cloudfront/0.3.0/modules/lambdas",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/sprylab/purple-s3-cloudfront/aws/0.3.0",
+    "ref": "0.3.0",
+    "commit": "32c559ea890e2327987b843a5a11d89947813762",
+    "gitOwner": "sprylab",
+    "gitRepo": "terraform-aws-purple-s3-cloudfront",
+    "path": "modules/lambdas",
+    "archiveSha256": "f45e12e4596896ab07b9c350716bd62ac7d819737bb28fce665ec980f04ace8d",
+    "inputSha256": "3ac3ab8c64fb035e0d6b695c224b8d6133b8da5290d44138c0d34e07e68f0de2",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "heredoc",
+    "interpolation",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

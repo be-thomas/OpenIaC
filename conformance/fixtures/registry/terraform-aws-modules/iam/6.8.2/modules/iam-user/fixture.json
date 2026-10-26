@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/iam/6.8.2/modules/iam-user",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/6.8.2",
+    "ref": "6.8.2",
+    "commit": "55514b7873c411040395e024a422684998da77c2",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-iam",
+    "path": "modules/iam-user",
+    "archiveSha256": "258ce47e665691465db44db722411230850130fb5d15e1bcaa0d6465c2fdfd54",
+    "inputSha256": "7ba72a18138e99ef5a231d8fce1deb6fd4396c8b98f985d1a9b608cbcf961627",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "locals",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

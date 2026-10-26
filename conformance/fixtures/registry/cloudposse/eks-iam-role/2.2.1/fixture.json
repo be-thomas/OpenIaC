@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/eks-iam-role/2.2.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/eks-iam-role/aws/2.2.1",
+    "ref": "2.2.1",
+    "commit": "a806e9101cb5e16c0610347ae91e8ae6ed04166d",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-eks-iam-role",
+    "path": ".",
+    "archiveSha256": "2438611b738c5bea6bc00e67504381293707f04ef3fcf2af36dc4d47a0b53c11",
+    "inputSha256": "7defd8eea6001ad9ac876863d423534a620a4f725272b79428ef4144e0521481",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

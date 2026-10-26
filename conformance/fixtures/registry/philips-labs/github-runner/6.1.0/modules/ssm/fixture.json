@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/philips-labs/github-runner/6.1.0/modules/ssm",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/philips-labs/github-runner/aws/6.1.0",
+    "ref": "6.1.0",
+    "commit": "dfbaeed50cdfa12bf4847be417bbc5130ce72e34",
+    "gitOwner": "philips-labs",
+    "gitRepo": "terraform-aws-github-runner",
+    "path": "modules/ssm",
+    "archiveSha256": "d51d373679290fa85b7577e9d687025cc26a745c6522542bdec788c1fa12dd87",
+    "inputSha256": "f4ec298de356561498093892ad467a3d7b87bc0627c73efdd2e3f3fc6c845980",
+    "licensePath": "LICENSE.md"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,103 @@
+variable "config" {
+  description = "Lookup details in parent module."
+  type = object({
+    lambda = object({
+      log_level                      = string
+      logging_retention_in_days      = number
+      logging_kms_key_id             = string
+      log_class                      = string
+      reserved_concurrent_executions = number
+      s3_bucket                      = string
+      s3_key                         = string
+      s3_object_version              = string
+      security_group_ids             = list(string)
+      runtime                        = string
+      architecture                   = string
+      memory_size                    = number
+      timeout                        = number
+      zip                            = string
+      subnet_ids                     = list(string)
+      parameter_store_tags           = string
+    })
+    tags = map(string)
+    ghes = object({
+      url        = string
+      ssl_verify = string
+    })
+    github_app_parameters = object({
+      key_base64 = map(string)
+      id         = map(string)
+      additional_apps_manifest = optional(object({
+        name = string
+        arn  = string
+      }), null)
+      additional_app_parameter_arns = optional(list(string), [])
+    })
+    subnet_ids = list(string)
+    runner = object({
+      disable_runner_autoupdate            = bool
+      ephemeral                            = bool
+      enable_jit_config                    = bool
+      enable_on_demand_failover_for_errors = list(string)
+      scale_errors                         = list(string)
+      boot_time_in_minutes                 = number
+      labels                               = list(string)
+      launch_template = object({
+        name = string
+      })
+      group_name  = string
+      name_prefix = string
+      pool_owner  = string
+      role = object({
+        arn = string
+      })
+      use_dedicated_host = bool
+    })
+    runners_maximum_count         = number
+    instance_types                = list(string)
+    instance_type_priorities      = optional(map(number))
+    instance_target_capacity_type = string
+    instance_allocation_strategy  = string
+    instance_max_spot_price       = string
+    prefix                        = string
+    pool = list(object({
+      schedule_expression          = string
+      schedule_expression_timezone = string
+      size                         = number
+    }))
+    include_busy_runners      = bool
+    role_permissions_boundary = string
+    kms_key_arn               = string
+    ami_kms_key_arn           = string
+    ami_id_ssm_parameter_arn  = string
+    role_path                 = string
+    ssm_token_path            = string
+    ssm_ttl_seconds = optional(object({
+      tokens = optional(number, null)
+    }), {})
+    ssm_config_path                      = string
+    ami_id_ssm_parameter_name            = string
+    ami_id_ssm_parameter_read_policy_arn = string
+    arn_ssm_parameters_path_config       = string
+    lambda_tags                          = map(string)
+    user_agent                           = string
+  })
+}
+
+variable "aws_partition" {
+  description = "(optional) partition for the arn if not 'aws'"
+  type        = string
+  default     = "aws"
+}
+
+variable "tracing_config" {
+  description = "Configuration for lambda tracing."
+  type = object({
+    mode                  = optional(string, null)
+    capture_http_requests = optional(bool, false)
+    capture_error         = optional(bool, false)
+  })
+  default = {}
+}
+
+

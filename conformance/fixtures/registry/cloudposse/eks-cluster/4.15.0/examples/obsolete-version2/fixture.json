@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/eks-cluster/4.15.0/examples/obsolete-version2",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/eks-cluster/aws/4.15.0",
+    "ref": "4.15.0",
+    "commit": "4fa8d25eefe0a2b8a7e491809fdef0be675da5e6",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-eks-cluster",
+    "path": "examples/obsolete-version2",
+    "archiveSha256": "2e06be2d9f9248ad56d9e72200809bd9f8794ccc236f06baa0fbcedf747766d1",
+    "inputSha256": "a60b77ad7748d4760fce61c9d5da5ab60ab3d17d8cbdfcd1319471eff7a73516",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "providers",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

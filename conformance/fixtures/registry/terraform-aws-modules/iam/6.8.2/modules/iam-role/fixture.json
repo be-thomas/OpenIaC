@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/iam/6.8.2/modules/iam-role",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/iam/aws/6.8.2",
+    "ref": "6.8.2",
+    "commit": "55514b7873c411040395e024a422684998da77c2",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-iam",
+    "path": "modules/iam-role",
+    "archiveSha256": "258ce47e665691465db44db722411230850130fb5d15e1bcaa0d6465c2fdfd54",
+    "inputSha256": "c422cb4a38ebf526b1fc1c317566954aa4f864cc604e0be4a975b551718ccde1",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/secrets-manager/2.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/secrets-manager/aws/2.2.0",
+    "ref": "2.2.0",
+    "commit": "f3d3da1c801816563080065c5f37f212c8dee444",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-secrets-manager",
+    "path": ".",
+    "archiveSha256": "772035c7fb476d1d2ce173fcb47fbf0f301671259fdc255e363d3c3b25ae5562",
+    "inputSha256": "592c272758f589884a3fb9fa9e950216c6a31bb5391c957628b7a2b4ee9c378e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

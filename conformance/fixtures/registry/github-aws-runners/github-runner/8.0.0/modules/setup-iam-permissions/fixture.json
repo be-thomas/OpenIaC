@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/github-aws-runners/github-runner/8.0.0/modules/setup-iam-permissions",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/github-aws-runners/github-runner/aws/8.0.0",
+    "ref": "8.0.0",
+    "commit": "38d0cb5d842d7c0bc887a7cbddfbd926b4063703",
+    "gitOwner": "github-aws-runners",
+    "gitRepo": "terraform-aws-github-runner",
+    "path": "modules/setup-iam-permissions",
+    "archiveSha256": "6bf9e0bdb6a557aae674779cf84ebad97d46b147d9cc9db5938770339ece2f98",
+    "inputSha256": "b3f18349cd5bed2ae77063406e5f10b192952db28a33a0d6957aab0f1e48ef37",
+    "licensePath": "LICENSE.md"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

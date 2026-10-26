@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/control_tower_account_factory/1.23.0/sources/aft-customizations-repos/aft-account-provisioning-customizations/terraform",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/control_tower_account_factory/aws/1.23.0",
+    "ref": "1.23.0",
+    "commit": "3531688103767a7d05e58a854fd957cf824cabd9",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-control_tower_account_factory",
+    "path": "sources/aft-customizations-repos/aft-account-provisioning-customizations/terraform",
+    "archiveSha256": "69692e8ce464f39d96a87511e80599dd92e160e5c3d204fdff427ee0544e3db7",
+    "inputSha256": "3744a3cb228e007ebf7eb76c774cb4039f0401f242bed40cc06d37bf0b0af974",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "interpolation",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

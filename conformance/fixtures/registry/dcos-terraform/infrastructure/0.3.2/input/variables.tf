@@ -1,0 +1,332 @@
+variable "dcos_instance_os" {
+  description = "Operating system to use. Instead of using your own AMI you could use a provided OS."
+  default     = "centos_7.4"
+}
+
+variable "cluster_name" {
+  description = "Name of the DC/OS cluster"
+}
+
+variable "availability_zones" {
+  type        = list(string)
+  description = "List of availability_zones to be used as the same format that are required by the platform/cloud providers. i.e `['RegionZone']`"
+  default     = []
+}
+
+variable "subnet_range" {
+  description = "Private IP space to be used in CIDR format"
+  default     = "172.16.0.0/16"
+}
+
+variable "tags" {
+  description = "Add custom tags to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "admin_ips" {
+  description = "List of CIDR admin IPs"
+  type        = list(string)
+}
+
+variable "aws_key_name" {
+  description = "Specify the aws ssh key to use. We assume its already loaded in your SSH agent. Set ssh_public_key_file to empty string"
+  default     = ""
+}
+
+variable "ssh_public_key" {
+  description = "SSH public key in authorized keys format (e.g. 'ssh-rsa ..') to be used with the instances. Make sure you added this key to your ssh-agent."
+
+  default = ""
+}
+
+variable "ssh_public_key_file" {
+  description = "Path to SSH public key. This is mandatory but can be set to an empty string if you want to use ssh_public_key with the key as string."
+}
+
+variable "num_bootstrap" {
+  description = "Specify the amount of bootstrap. You should have at most 1"
+  default     = 1
+}
+
+variable "num_masters" {
+  description = "Specify the amount of masters. For redundancy you should have at least 3"
+  default     = 3
+}
+
+variable "num_private_agents" {
+  description = "Specify the amount of private agents. These agents will provide your main resources"
+  default     = 2
+}
+
+variable "num_public_agents" {
+  description = "Specify the amount of public agents. These agents will host marathon-lb and edgelb"
+  default     = 1
+}
+
+variable "aws_ami" {
+  description = "AMI that will be used for the instances instead of the Mesosphere chosen default images. Custom AMIs must fulfill the Mesosphere DC/OS system-requirements: See https://docs.mesosphere.com/1.12/installing/production/system-requirements/"
+  default     = ""
+}
+
+variable "bootstrap_aws_ami" {
+  description = "[BOOTSTRAP] AMI to be used"
+  default     = ""
+}
+
+variable "bootstrap_os" {
+  description = "[BOOTSTRAP] Operating system to use. Instead of using your own AMI you could use a provided OS."
+  default     = ""
+}
+
+variable "bootstrap_root_volume_size" {
+  description = "[BOOTSTRAP] Root volume size in GB"
+  default     = "80"
+}
+
+variable "bootstrap_root_volume_type" {
+  description = "[BOOTSTRAP] Root volume type"
+  default     = "standard"
+}
+
+variable "bootstrap_iam_instance_profile" {
+  description = "[BOOTSTRAP] Instance profile to be used for these instances"
+  default     = ""
+}
+
+variable "bootstrap_instance_type" {
+  description = "[BOOTSTRAP] Instance type"
+  default     = "t2.medium"
+}
+
+variable "bootstrap_associate_public_ip_address" {
+  description = "[BOOTSTRAP] Associate a public ip address with there instances"
+  default     = true
+}
+
+variable "bootstrap_hostname_format" {
+  description = "[BOOTSTRAP] Format the hostname inputs are index+1, region, cluster_name"
+  default     = "%[3]s-bootstrap%[1]d-%[2]s"
+}
+
+variable "masters_aws_ami" {
+  description = "[MASTERS] AMI to be used"
+  default     = ""
+}
+
+variable "masters_os" {
+  description = "[MASTERS] Operating system to use. Instead of using your own AMI you could use a provided OS."
+  default     = ""
+}
+
+variable "masters_root_volume_size" {
+  description = "[MASTERS] Root volume size in GB"
+  default     = "120"
+}
+
+variable "masters_iam_instance_profile" {
+  description = "[MASTERS] Instance profile to be used for these instances"
+  default     = ""
+}
+
+variable "masters_instance_type" {
+  description = "[MASTERS] Instance type"
+  default     = "m4.xlarge"
+}
+
+variable "masters_associate_public_ip_address" {
+  description = "[MASTERS] Associate a public ip address with there instances"
+  default     = true
+}
+
+variable "masters_hostname_format" {
+  description = "[MASTERS] Format the hostname inputs are index+1, region, cluster_name"
+  default     = "%[3]s-master%[1]d-%[2]s"
+}
+
+variable "masters_user_data" {
+  description = "[MASTERS] User data to be used on these instances (cloud-init)"
+  default     = ""
+}
+
+variable "masters_extra_volumes" {
+  description = "[MASTERS] Extra volumes for each private agent"
+  default     = []
+}
+
+variable "private_agents_aws_ami" {
+  description = "[PRIVATE AGENTS] AMI to be used"
+  default     = ""
+}
+
+variable "private_agents_os" {
+  description = "[PRIVATE AGENTS] Operating system to use. Instead of using your own AMI you could use a provided OS."
+  default     = ""
+}
+
+variable "private_agents_root_volume_size" {
+  description = "[PRIVATE AGENTS] Root volume size in GB"
+  default     = "120"
+}
+
+variable "private_agents_root_volume_type" {
+  description = "[PRIVATE AGENTS] Root volume type"
+  default     = "gp2"
+}
+
+variable "private_agents_extra_volumes" {
+  description = "[PRIVATE AGENTS] Extra volumes for each private agent"
+  default     = []
+}
+
+variable "public_agents_extra_volumes" {
+  description = "[PUBLIC AGENTS] Extra volumes for each public agent"
+  default     = []
+}
+
+variable "private_agents_iam_instance_profile" {
+  description = "[PRIVATE AGENTS] Instance profile to be used for these instances"
+  default     = ""
+}
+
+variable "private_agents_instance_type" {
+  description = "[PRIVATE AGENTS] Instance type"
+  default     = "m4.xlarge"
+}
+
+variable "private_agents_associate_public_ip_address" {
+  description = "[PRIVATE AGENTS] Associate a public ip address with there instances"
+  default     = true
+}
+
+variable "private_agents_hostname_format" {
+  description = "[PRIVATE AGENTS] Format the hostname inputs are index+1, region, cluster_name"
+  default     = "%[3]s-privateagent%[1]d-%[2]s"
+}
+
+variable "private_agents_user_data" {
+  description = "[PRIVATE AGENTS] User data to be used on these instances (cloud-init)"
+  default     = ""
+}
+
+variable "public_agents_aws_ami" {
+  description = "[PUBLIC AGENTS] AMI to be used"
+  default     = ""
+}
+
+variable "public_agents_os" {
+  description = "[PUBLIC AGENTS] Operating system to use. Instead of using your own AMI you could use a provided OS."
+  default     = ""
+}
+
+variable "public_agents_root_volume_size" {
+  description = "[PUBLIC AGENTS] Root volume size"
+  default     = "120"
+}
+
+variable "public_agents_root_volume_type" {
+  description = "[PUBLIC AGENTS] Specify the root volume type."
+  default     = "gp2"
+}
+
+variable "public_agents_iam_instance_profile" {
+  description = "[PUBLIC AGENTS] Instance profile to be used for these instances"
+  default     = ""
+}
+
+variable "public_agents_instance_type" {
+  description = "[PUBLIC AGENTS] Instance type"
+  default     = "m4.xlarge"
+}
+
+variable "public_agents_associate_public_ip_address" {
+  description = "[PUBLIC AGENTS] Associate a public ip address with there instances"
+  default     = true
+}
+
+variable "public_agents_hostname_format" {
+  description = "[PUBLIC AGENTS] Format the hostname inputs are index+1, region, cluster_name"
+  default     = "%[3]s-publicagent%[1]d-%[2]s"
+}
+
+variable "public_agents_user_data" {
+  description = "[PUBLIC AGENTS] User data to be used on these instances (cloud-init)"
+  default     = ""
+}
+
+variable "public_agents_additional_ports" {
+  description = "List of additional ports allowed for public access on public agents (80 and 443 open by default)"
+  default     = []
+}
+
+variable "public_agents_allow_registered" {
+  description = "Allow registered / user ports (1024-49151 see: RFC6335) on public agents public IPs"
+  default     = false
+}
+
+variable "public_agents_allow_dynamic" {
+  description = "Allow dynamic / ephemeral ports (49152-65535 see: RFC6335) on public agents public IPs"
+  default     = false
+}
+
+variable "public_agents_access_ips" {
+  description = "List of ips allowed access to public agents. admin_ips are joined to this list"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "aws_create_s3_bucket" {
+  description = "Create S3 bucket with unique name for exhibitor."
+  default     = false
+}
+
+variable "name_prefix" {
+  description = "Name Prefix"
+  default     = ""
+}
+
+variable "accepted_internal_networks" {
+  description = "Subnet ranges for all internal networks"
+  type        = list(string)
+  default     = []
+}
+
+variable "lb_disable_masters" {
+  description = "Do not spawn master load balancer (admin access + internal access)"
+  default     = false
+}
+
+variable "lb_disable_public_agents" {
+  description = "Do not spawn public agent load balancers. ( Needs to be true when num_public_agents is 0 )"
+  default     = false
+}
+
+variable "masters_acm_cert_arn" {
+  description = "ACM certifacte to be used for the masters load balancer"
+  default     = ""
+}
+
+variable "masters_internal_acm_cert_arn" {
+  description = "ACM certifacte to be used for the internal masters load balancer"
+  default     = ""
+}
+
+variable "public_agents_acm_cert_arn" {
+  description = "ACM certifacte to be used for the public agents load balancer"
+  default     = ""
+}
+
+variable "adminrouter_grpc_proxy_port" {
+  description = ""
+  default     = 12379
+}
+
+variable "open_admin_router" {
+  description = "Open admin router to public (80+443 on load balancer). WARNING: attackers could take over your cluster"
+  default     = false
+}
+
+variable "open_instance_ssh" {
+  description = "Open SSH on instances to public. WARNING: make sure you use a strong SSH key"
+  default     = false
+}

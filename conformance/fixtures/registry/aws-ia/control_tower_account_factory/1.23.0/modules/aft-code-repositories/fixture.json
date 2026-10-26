@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/control_tower_account_factory/1.23.0/modules/aft-code-repositories",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/control_tower_account_factory/aws/1.23.0",
+    "ref": "1.23.0",
+    "commit": "3531688103767a7d05e58a854fd957cf824cabd9",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-control_tower_account_factory",
+    "path": "modules/aft-code-repositories",
+    "archiveSha256": "69692e8ce464f39d96a87511e80599dd92e160e5c3d204fdff427ee0544e3db7",
+    "inputSha256": "730809ac28b01b90f0bb73d124e9688aece794ff7b0571724c25f71abd8f6d6d",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "local",
+    "time"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

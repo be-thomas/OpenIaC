@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/dasmeta/modules/3.1.0/modules/cloudtrail-s3-to-cloudwatch/cloudtrail-log-to-cloudwatch",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
+    "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
+    "path": "modules/cloudtrail-s3-to-cloudwatch/cloudtrail-log-to-cloudwatch",
+    "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
+    "inputSha256": "f0d2a303e2c4e8ae7d14f46cad859da912635ecff774f14855bf5f106f8b14c7",
+    "licensePath": "modules/cloudtrail-s3-to-cloudwatch/cloudtrail-log-to-cloudwatch/LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "functions",
+    "interpolation",
+    "modules",
+    "outputs",
+    "resources",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

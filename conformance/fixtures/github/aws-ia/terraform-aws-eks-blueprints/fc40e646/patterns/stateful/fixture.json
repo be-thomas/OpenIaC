@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "github/aws-ia/terraform-aws-eks-blueprints/fc40e646/patterns/stateful",
+  "tier": "modules",
+  "origin": "github",
+  "source": {
+    "url": "https://github.com/aws-ia/terraform-aws-eks-blueprints",
+    "ref": "main",
+    "commit": "fc40e64615785b3dc4db88e57c45a6687ca026b5",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-eks-blueprints",
+    "path": "patterns/stateful",
+    "archiveSha256": "3417eb0a237d4bb333e768c388dfd911f0f9bf1ba0f1ba20a1fe5aebba0bdf9f",
+    "inputSha256": "bb2678e5b3abbe482fb207cb52504fe04474ed555650aaa0f2d93805afea2b75",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "helm",
+    "kubernetes"
+  ],
+  "features": [
+    "data",
+    "depends_on",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "providers",
+    "required_providers",
+    "resources",
+    "terraform"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/acm/6.3.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/acm/aws/6.3.1",
+    "ref": "6.3.1",
+    "commit": "aae84c011dd68ace1beb5d10e1feddfe9a334953",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-acm",
+    "path": ".",
+    "archiveSha256": "f157ad5b8c4f5ee55a69914e58293d2d63a18b9e08b6926ee204d5c50aba00ec",
+    "inputSha256": "d2870ba828f20cd892ff6bc1be73cddaf543a49963b01e845674a3cae283af5e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

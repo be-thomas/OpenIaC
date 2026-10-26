@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/rds-aurora/1.2.0/modules/global-cluster",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/rds-aurora/aws/1.2.0",
+    "ref": "1.2.0",
+    "commit": "89d6675ded139f341dbcdcf6403fcd5a0f52500a",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-rds-aurora",
+    "path": "modules/global-cluster",
+    "archiveSha256": "5b0b94275b6e02b8cc9571ea9040031f8e32e75a38f14be7e960482590444e7e",
+    "inputSha256": "054bb8607c5797ee0e7cae6bf96641aa6f43142495cda3feb9609cca231ff95b",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

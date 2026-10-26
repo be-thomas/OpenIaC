@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/dcos-terraform/lb-masters/0.3.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dcos-terraform/lb-masters/aws/0.3.0",
+    "ref": "0.3.0",
+    "commit": "c9bc415144f4246f49383598b2aeeadfa1e3b795",
+    "gitOwner": "dcos-terraform",
+    "gitRepo": "terraform-aws-lb-masters",
+    "path": ".",
+    "archiveSha256": "3ebefc54d887df4fe04af83843938aca1e3dde9237edbccdf7d07459f7b2efcd",
+    "inputSha256": "8a6805ff369c87c301c8d1b813e2d6571c1abb90da268a367f20ab4e42d20315",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "modules",
+    "outputs",
+    "providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

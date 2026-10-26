@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/ecs-alb-service-task/1.0.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/ecs-alb-service-task/aws/1.0.0",
+    "ref": "1.0.0",
+    "commit": "3257ea5cc24eb4f39a3c134828951530b2c3e225",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-ecs-alb-service-task",
+    "path": ".",
+    "archiveSha256": "a7f410c48e6584a807edd29b80fd2a184f626e63e3713b4b660f0ebaf3a4ae02",
+    "inputSha256": "0e2ca69e124e13f87e67aa8dabb1010364e301a595e886b6106c593199f204d7",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

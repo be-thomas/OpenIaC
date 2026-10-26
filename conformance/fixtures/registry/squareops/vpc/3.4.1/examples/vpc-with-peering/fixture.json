@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/vpc/3.4.1/examples/vpc-with-peering",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/vpc/aws/3.4.1",
+    "ref": "3.4.1",
+    "commit": "7f4d05376a08860772ec29ea61300bd62cf356c5",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-vpc",
+    "path": "examples/vpc-with-peering",
+    "archiveSha256": "03661d003b3f549d2f166e7c5e4249776105d93a744533e48f7435d6e0aa8652",
+    "inputSha256": "82e90c9577de9d0e2ace14d136c8c7ab49fd707a128106b282b9eca811a6f9c0",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "locals",
+    "modules",
+    "outputs",
+    "providers"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

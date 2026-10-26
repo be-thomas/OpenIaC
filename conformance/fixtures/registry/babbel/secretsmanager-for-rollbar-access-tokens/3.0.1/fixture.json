@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/babbel/secretsmanager-for-rollbar-access-tokens/3.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/babbel/secretsmanager-for-rollbar-access-tokens/aws/3.0.1",
+    "ref": "3.0.1",
+    "commit": "9e1901625554444e077a2511c904debc8be7399c",
+    "gitOwner": "babbel",
+    "gitRepo": "terraform-aws-secretsmanager-for-rollbar-access-tokens",
+    "path": ".",
+    "archiveSha256": "a8d9dcbdd0844c77ed8793d0d8c2a537e11957d9b08ab162731d621428d947cc",
+    "inputSha256": "fb6a601c715027b7aa511a2294cd3e1c9e09f762b2aeb798ae51fdc986bafbfd",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

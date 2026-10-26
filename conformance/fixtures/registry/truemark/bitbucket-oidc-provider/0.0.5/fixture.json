@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/truemark/bitbucket-oidc-provider/0.0.5",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/truemark/bitbucket-oidc-provider/aws/0.0.5",
+    "ref": "0.0.5",
+    "commit": "6e8a700dcb162d9f58a6904472e2ec2f60b39f11",
+    "gitOwner": "truemark",
+    "gitRepo": "terraform-aws-bitbucket-oidc-provider",
+    "path": ".",
+    "archiveSha256": "b6293426c53d6cf8ea30c3c37a1bc0a78ff6b9e6d70c8873ebbe7606c8e83519",
+    "inputSha256": "7b861a42acbaeb5a787dd3e078e8193ec1371b4e312b7b34c1b775ade9a1bf75",
+    "licensePath": "LICENSE"
+  },
+  "license": "BSD-3-Clause",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

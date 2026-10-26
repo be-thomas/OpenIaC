@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/eks-node-group/3.4.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/eks-node-group/aws/3.4.0",
+    "ref": "3.4.0",
+    "commit": "b9feda8cb09f85cb1f171fef58c3f32170b4db3e",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-eks-node-group",
+    "path": ".",
+    "archiveSha256": "5178a3ef6764b013fab480a2ad89c13cbb2d5abf227b50b62c553819f8004c2b",
+    "inputSha256": "9cd06e659161c2d5fdfbf1a54429c66ab53f5b3a370af5f3392501f338960d98",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "null",
+    "random"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/PaloAltoNetworks/vmseries-modules/1.1.6/modules/nlb",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/PaloAltoNetworks/vmseries-modules/aws/1.1.6",
+    "ref": "1.1.6",
+    "commit": "aa4c1d80d76f24f7f4c4ac3ffb06a3ebe3628268",
+    "gitOwner": "PaloAltoNetworks",
+    "gitRepo": "terraform-aws-vmseries-modules",
+    "path": "modules/nlb",
+    "archiveSha256": "d1f8addda811aa7a48837401f3bb3eda1903e3796a5a5f25280366499d4248d4",
+    "inputSha256": "5f82c802d38bc859631717d9a469259ec0a524ba45f8898c49d061ce001f1e70",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

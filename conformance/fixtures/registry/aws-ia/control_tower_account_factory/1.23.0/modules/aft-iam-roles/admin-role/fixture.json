@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/aws-ia/control_tower_account_factory/1.23.0/modules/aft-iam-roles/admin-role",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/aws-ia/control_tower_account_factory/aws/1.23.0",
+    "ref": "1.23.0",
+    "commit": "3531688103767a7d05e58a854fd957cf824cabd9",
+    "gitOwner": "aws-ia",
+    "gitRepo": "terraform-aws-control_tower_account_factory",
+    "path": "modules/aft-iam-roles/admin-role",
+    "archiveSha256": "69692e8ce464f39d96a87511e80599dd92e160e5c3d204fdff427ee0544e3db7",
+    "inputSha256": "a6cecadad884219828663ba376bced1eb8bdfdecf344f72caaab26d45941d491",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

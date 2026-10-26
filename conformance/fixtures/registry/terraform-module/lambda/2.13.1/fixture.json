@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-module/lambda/2.13.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-module/lambda/aws/2.13.1",
+    "ref": "2.13.1",
+    "commit": "d856bebf47f5e8ef3afe47933ac8cdeec660c3cb",
+    "gitOwner": "terraform-module",
+    "gitRepo": "terraform-aws-lambda",
+    "path": ".",
+    "archiveSha256": "6f7617473f96760b33728a9425b9988b1a1ff1992dcdf29fc65797ef1d36f391",
+    "inputSha256": "7939d2ed8a684148986545c5621e49abd9e312d9a20b1dc1a4684ffa2cef2c00",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

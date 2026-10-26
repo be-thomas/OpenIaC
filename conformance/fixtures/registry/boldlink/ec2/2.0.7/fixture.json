@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/ec2/2.0.7",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/ec2/aws/2.0.7",
+    "ref": "2.0.7",
+    "commit": "f91f3dc2e109573ef222ab505667fd294c862fb4",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-ec2",
+    "path": ".",
+    "archiveSha256": "a71c7c0d106345b604de2ac1c1813c6a65d343cdd033c7e39c9d6f502d2a1ab4",
+    "inputSha256": "31c1872e250706d02142394a7b2cb68818a74c4a713ae082bc7a29546557ddc2",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "template"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/dynamodb/0.37.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/dynamodb/aws/0.37.0",
+    "ref": "0.37.0",
+    "commit": "5ac050b789ecd7bd0935e46e9a01fe262c4efbc3",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-dynamodb",
+    "path": ".",
+    "archiveSha256": "7a0229162d9c963b975bd2c3f14d1e5fe150cd80eb5dce39a7cc24c97762556a",
+    "inputSha256": "8aaeae7affc67aa436c3783c0c7843693d80e6896b18ba49e53e7a18f5e557fc",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "null"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

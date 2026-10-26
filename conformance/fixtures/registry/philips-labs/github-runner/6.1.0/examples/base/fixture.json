@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/philips-labs/github-runner/6.1.0/examples/base",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/philips-labs/github-runner/aws/6.1.0",
+    "ref": "6.1.0",
+    "commit": "dfbaeed50cdfa12bf4847be417bbc5130ce72e34",
+    "gitOwner": "philips-labs",
+    "gitRepo": "terraform-aws-github-runner",
+    "path": "examples/base",
+    "archiveSha256": "d51d373679290fa85b7577e9d687025cc26a745c6522542bdec788c1fa12dd87",
+    "inputSha256": "33eac6d5ce5ab211e595ca108dbe362ce917c0b25a809ec061da1529dde30afb",
+    "licensePath": "LICENSE.md"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "functions",
+    "interpolation",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

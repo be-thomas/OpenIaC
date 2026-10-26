@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/telia-oss/loadbalancer/4.2.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/telia-oss/loadbalancer/aws/4.2.1",
+    "ref": "4.2.1",
+    "commit": "2aaaea1ccc44a91ada8a0276f84c41dba0686bdd",
+    "gitOwner": "telia-oss",
+    "gitRepo": "terraform-aws-loadbalancer",
+    "path": ".",
+    "archiveSha256": "81915ea22fffbf9f38241ad4f055b6290c4124c392b7fffaab5e9f18d3711401",
+    "inputSha256": "76ffe3be130d626f4c5fda4763f558c7cdf3b41369323e3bc74d3f5e4e4bb5f3",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

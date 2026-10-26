@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/eks-bootstrap/3.1.1/EKS-Blueprint/modules/aws-eks-managed-node-groups",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/eks-bootstrap/aws/3.1.1",
+    "ref": "3.1.1",
+    "commit": "d9b3e7211f6e9382396c164a35ed46b3060c0fa2",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-eks-bootstrap",
+    "path": "EKS-Blueprint/modules/aws-eks-managed-node-groups",
+    "archiveSha256": "684cc627c3d59f17711fb2ea67655b98897dc07dca952a8fb227c621105f7476",
+    "inputSha256": "a5dd4fff7bc41d8c989568982220d7e34471c7817addfb7524fd127d6067ab51",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/waf/1.2.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/waf/aws/1.2.0",
+    "ref": "1.2.0",
+    "commit": "a466bb8f5de878761342fca8f041f41a4346ad44",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-waf",
+    "path": ".",
+    "archiveSha256": "7d964b59d8756a877a6b72f6900114715f98d67f2212c353139d17db5a1b3431",
+    "inputSha256": "b36e6851d9673c8db213a68047fd9bd68dd25523f2c9b23188f616b299215709",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

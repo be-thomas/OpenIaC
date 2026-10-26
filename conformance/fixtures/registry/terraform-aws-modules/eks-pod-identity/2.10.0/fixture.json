@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/eks-pod-identity/2.10.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/eks-pod-identity/aws/2.10.0",
+    "ref": "2.10.0",
+    "commit": "f72040b99272c264e0340f44758219e0808a52a2",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-eks-pod-identity",
+    "path": ".",
+    "archiveSha256": "da506fc036d36292c901babcc3e5a2fc3d7fb98d8210da72e81ae8e8713edc99",
+    "inputSha256": "e8c9246172b43f739eab2d8344ef3afec9c2fcd6bd605eabc3eb68b86abe0fc6",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/efs/1.2.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/efs/aws/1.2.1",
+    "ref": "1.2.1",
+    "commit": "c4637718cd56a22cd1d3ddb6f8c37fb556bb3bf2",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-efs",
+    "path": ".",
+    "archiveSha256": "88acbc6ce7e2c289cd9b5962fcc45a95d1d133ccd3609d2e394524df026cb983",
+    "inputSha256": "d7856b13f96802b6928abaac78d5f143e28ba68efe9e38c7a841a41536e4e19e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

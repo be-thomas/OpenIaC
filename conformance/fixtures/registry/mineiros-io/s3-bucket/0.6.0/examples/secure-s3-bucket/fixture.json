@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "id": "registry/mineiros-io/s3-bucket/0.6.0/examples/secure-s3-bucket",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/mineiros-io/s3-bucket/aws/0.6.0",
+    "ref": "0.6.0",
+    "commit": "9fac52092a6621ab2a0742912d8313c15ba31c76",
+    "gitOwner": "mineiros-io",
+    "gitRepo": "terraform-aws-s3-bucket",
+    "path": "examples/secure-s3-bucket",
+    "archiveSha256": "bb12631f221f9ec2e075a47324903ab0d514533217e0d21db3744ba2c52cfebb",
+    "inputSha256": "f7f257cd13a6421905d89c4b2a674524a81b713cda5da8fc5e43749d3623e721",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "providers"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

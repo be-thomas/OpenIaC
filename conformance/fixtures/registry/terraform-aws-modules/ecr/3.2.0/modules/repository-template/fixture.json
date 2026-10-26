@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/ecr/3.2.0/modules/repository-template",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/ecr/aws/3.2.0",
+    "ref": "3.2.0",
+    "commit": "b6ef04d088cf91d5ba9505132e9ff7c9f847ed5d",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-ecr",
+    "path": "modules/repository-template",
+    "archiveSha256": "030d202d0f57510b0dd610006657d0eef243a13bbb5e7e501815cb25825fe727",
+    "inputSha256": "9e4db344ac7745a1b0fbbd9dff297cde39f23f25007ab8b6d4033ddd4e8f8403",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

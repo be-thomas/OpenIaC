@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/github-aws-runners/github-runner/8.0.0/modules/orchestration-providers/webhook/job-retry",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/github-aws-runners/github-runner/aws/8.0.0",
+    "ref": "8.0.0",
+    "commit": "38d0cb5d842d7c0bc887a7cbddfbd926b4063703",
+    "gitOwner": "github-aws-runners",
+    "gitRepo": "terraform-aws-github-runner",
+    "path": "modules/orchestration-providers/webhook/job-retry",
+    "archiveSha256": "6bf9e0bdb6a557aae674779cf84ebad97d46b147d9cc9db5938770339ece2f98",
+    "inputSha256": "0ee6e335aadc8e21a3311c75fed475996d3153fefa1f9d1b5b1c9623a0c1695c",
+    "licensePath": "LICENSE.md"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws",
+    "terraform"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

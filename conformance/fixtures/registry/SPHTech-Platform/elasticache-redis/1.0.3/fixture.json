@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/SPHTech-Platform/elasticache-redis/1.0.3",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/SPHTech-Platform/elasticache-redis/aws/1.0.3",
+    "ref": "1.0.3",
+    "commit": "b3fe39df759df5ffd7cceff0bd4ea8acd578897d",
+    "gitOwner": "SPHTech-Platform",
+    "gitRepo": "terraform-aws-elasticache-redis",
+    "path": ".",
+    "archiveSha256": "e58aa16ac4a7c1be0993f0ddfc4772409aa5ba6c4494602b7c5b99f10ba7987a",
+    "inputSha256": "b75dadf6a8c60c54d9526223ea9ce7818f08c71ff2b59c8249d06d74bfc242d0",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

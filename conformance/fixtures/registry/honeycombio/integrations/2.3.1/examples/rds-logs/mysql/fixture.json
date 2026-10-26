@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/honeycombio/integrations/2.3.1/examples/rds-logs/mysql",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/honeycombio/integrations/aws/2.3.1",
+    "ref": "2.3.1",
+    "commit": "a22f5bc0a8a4c110c61f69418393d3683cc03ee5",
+    "gitOwner": "honeycombio",
+    "gitRepo": "terraform-aws-integrations",
+    "path": "examples/rds-logs/mysql",
+    "archiveSha256": "5858b504b151c7194de18de77c4eedb7111cb033aa8d1f6babd5975ebcbcd834",
+    "inputSha256": "0e06f07033f2a3074a2fd6ff0eb640caf361fcb4d3c58f5c6cdd4fb1615fb2fd",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "random"
+  ],
+  "features": [
+    "data",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "resources",
+    "sensitive",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

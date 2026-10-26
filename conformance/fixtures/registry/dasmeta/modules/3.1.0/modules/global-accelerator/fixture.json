@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/dasmeta/modules/3.1.0/modules/global-accelerator",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/dasmeta/modules/aws/3.1.0",
+    "ref": "3.1.0",
+    "commit": "59418f31e4c576990ac8a9512677a5431c8bceb1",
+    "gitOwner": "dasmeta",
+    "gitRepo": "terraform-aws-modules",
+    "path": "modules/global-accelerator",
+    "archiveSha256": "91e88ba963f9745abbbc82eed5a276fae21145411f2cee2d21c71410fb3b6a3f",
+    "inputSha256": "2ca4cf7aaf9cc64c09ea8d32bcd5cbed3dee682b2bdd0c7e679a95c761b178d9",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "conditionals",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

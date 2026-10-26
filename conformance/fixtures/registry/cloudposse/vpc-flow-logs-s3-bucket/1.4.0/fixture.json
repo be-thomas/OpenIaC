@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/vpc-flow-logs-s3-bucket/1.4.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/vpc-flow-logs-s3-bucket/aws/1.4.0",
+    "ref": "1.4.0",
+    "commit": "32b537bde337700349bb57298027f13ff6f475e5",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-vpc-flow-logs-s3-bucket",
+    "path": ".",
+    "archiveSha256": "a8c41c8d489cc0672ec86616f28b130873508617687941cad87c7ef6c1508405",
+    "inputSha256": "9978d3afb977316729665ec731ea21bedeecb508dc7ecb57682404fb35a4b97a",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

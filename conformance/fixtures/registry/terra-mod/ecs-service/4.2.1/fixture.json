@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terra-mod/ecs-service/4.2.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terra-mod/ecs-service/aws/4.2.1",
+    "ref": "4.2.1",
+    "commit": "5b171b5af5ce52904da2d9caa96da334c3e721e5",
+    "gitOwner": "terra-mod",
+    "gitRepo": "terraform-aws-ecs-service",
+    "path": ".",
+    "archiveSha256": "2fec50a47b53a40432aa03923dd37072cfe3a3bd459e27ebd7eb7819a36e183b",
+    "inputSha256": "2810f0dbe3dd34f9e52077f2fc2c67110a1b20031ce7135e49e9f25388331f98",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "outputs",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/elb/4.0.3/modules/elb",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/elb/aws/4.0.3",
+    "ref": "4.0.3",
+    "commit": "3267e53700b96da3b02ed77d40eaee37a9ff646d",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-elb",
+    "path": "modules/elb",
+    "archiveSha256": "850e28f521b95bbbd1d8d3f919e7b2a8e73e6c7936e376bbf0d3de76bcf910dd",
+    "inputSha256": "5e7757fa05f6597ff89fe0580179bda2427b97996a50365791a1a042c07f6214",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

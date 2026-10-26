@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/squareops/eks-bootstrap/3.1.1/EKS-Blueprint/modules/irsa",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/squareops/eks-bootstrap/aws/3.1.1",
+    "ref": "3.1.1",
+    "commit": "d9b3e7211f6e9382396c164a35ed46b3060c0fa2",
+    "gitOwner": "squareops",
+    "gitRepo": "terraform-aws-eks-bootstrap",
+    "path": "EKS-Blueprint/modules/irsa",
+    "archiveSha256": "684cc627c3d59f17711fb2ea67655b98897dc07dca952a8fb227c621105f7476",
+    "inputSha256": "6d175e6b90f1dce6b236128714505991c50b969b534a5248485edc9c2771d22e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "kubernetes"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

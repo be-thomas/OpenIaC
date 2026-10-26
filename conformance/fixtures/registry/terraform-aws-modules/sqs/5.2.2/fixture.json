@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/sqs/5.2.2",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/sqs/aws/5.2.2",
+    "ref": "5.2.2",
+    "commit": "dd73a96c0155bc324dda5256f3e7a9ea2c710195",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-sqs",
+    "path": ".",
+    "archiveSha256": "b7cf6e1288314f035ab618b31408e9a96ddbf8ad6e14c41b164272203a7e5d0b",
+    "inputSha256": "63e5349c92b986ae73f0493fa44de63456422e46ca9f635425e8dc766aea8d0e",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

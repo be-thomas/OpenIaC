@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/s3/2.6.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/s3/aws/2.6.0",
+    "ref": "2.6.0",
+    "commit": "bce01b3168b524108ab11211606d26e51542ae95",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-s3",
+    "path": ".",
+    "archiveSha256": "6cebe20df6bee50ed52f9611adce684bd7190207b6927eeccc28e48d8940c28c",
+    "inputSha256": "97f779c84eb40e063fb82fa90332d9850acbe9e4241d2761b59f70944facebe9",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

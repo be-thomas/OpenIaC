@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/elasticache/1.11.2/modules/user-group",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/elasticache/aws/1.11.2",
+    "ref": "1.11.2",
+    "commit": "41a277b73b9d375a2856886ab8469fd3f8b6d0ef",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-elasticache",
+    "path": "modules/user-group",
+    "archiveSha256": "0dd16c86df50a647b2dd851f5ab9a3b1ff40058c6931499ff35d835c12d27513",
+    "inputSha256": "815a591f6ee0df4f547062096a8158433258c0030e9ab62c408d82e0e15e08da",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/trussworks/config/8.1.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/trussworks/config/aws/8.1.1",
+    "ref": "8.1.1",
+    "commit": "13902afe2077ef13c850bced932cb16e0be2545a",
+    "gitOwner": "trussworks",
+    "gitRepo": "terraform-aws-config",
+    "path": ".",
+    "archiveSha256": "c704bbbf77e74303a9d89532111a69ca31d17a73de481f96d1254b9aface8593",
+    "inputSha256": "274cb968fb2664eedabbb4ff03eebf109825c9864ae69b74c45a7d964be887cd",
+    "licensePath": "LICENSE"
+  },
+  "license": "BSD-3-Clause",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

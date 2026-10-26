@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/sns-lambda-notify-slack/0.9.3",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/sns-lambda-notify-slack/aws/0.9.3",
+    "ref": "0.9.3",
+    "commit": "b6836bfcea7ce5087ce6e721ff24b527d5bdc037",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-sns-lambda-notify-slack",
+    "path": ".",
+    "archiveSha256": "3e026187aa8aa203a0daee70b6e1fe52284f1721c05f8618388783cb20bb0845",
+    "inputSha256": "660661c3c4f2deaed012ee4f3814a83b20af020a85e06c139e9fcf3dde883273",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [],
+  "features": [
+    "conditionals",
+    "functions",
+    "heredoc",
+    "modules",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

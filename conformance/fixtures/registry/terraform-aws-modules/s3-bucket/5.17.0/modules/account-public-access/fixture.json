@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/s3-bucket/5.17.0/modules/account-public-access",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/5.17.0",
+    "ref": "5.17.0",
+    "commit": "9afa4fc8c8f1e0b3fd913474c1bef8d0c454b235",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-s3-bucket",
+    "path": "modules/account-public-access",
+    "archiveSha256": "40082ac6caa76b5fe1064381e3357d24dac0e4994280177782132948d59d734b",
+    "inputSha256": "aba93021dbbe12fff109b5ed6c561cc39a46231a105e23100b06e9aaf776a678",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "functions",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

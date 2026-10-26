@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/kinesis-stream/0.4.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/kinesis-stream/aws/0.4.0",
+    "ref": "0.4.0",
+    "commit": "10ab08bfa423080071920baf526e7c8a7f1df9e4",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-kinesis-stream",
+    "path": ".",
+    "archiveSha256": "e6eb6cd9468ae5a6cdcad27b3fb2102dc3a370014145029e22947ddfb15cbcc0",
+    "inputSha256": "183fd7012a66effc96db4e44f55e27a318e20aa51e42bc284738c1674e7b1735",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

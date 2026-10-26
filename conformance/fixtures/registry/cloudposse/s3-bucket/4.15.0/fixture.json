@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/s3-bucket/4.15.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/s3-bucket/aws/4.15.0",
+    "ref": "4.15.0",
+    "commit": "552c47e5654c408ad841981e1c8c6f253f801958",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-s3-bucket",
+    "path": ".",
+    "archiveSha256": "7bca961bec48d70f81f2e8bb4f0ca8535a4f9b9b64dfa2069b19d02c514c6ff5",
+    "inputSha256": "f00f6d811a9d1b88981829799fc9c4541880eb0db5c198749b610c32858ecec6",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "time"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "sensitive",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

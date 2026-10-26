@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/waf/1.18.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/waf/aws/1.18.1",
+    "ref": "1.18.1",
+    "commit": "77bc1e6dea6371420a165bced8b53c1a65784d04",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-waf",
+    "path": ".",
+    "archiveSha256": "707bacdfa315fcf6419179de0c96b8999bd4002ccb36bd053e0a3e5433ff105e",
+    "inputSha256": "96bf4ece98802c4537a1bd933ee1455cfd791f0d6442ea7004f7dc83efa80ce6",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

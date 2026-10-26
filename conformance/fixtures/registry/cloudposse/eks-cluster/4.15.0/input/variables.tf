@@ -1,0 +1,603 @@
+# tflint-ignore: terraform_unused_declarations
+variable "region" {
+
+  type        = string
+  description = "OBSOLETE (not needed): AWS Region"
+  default     = null
+}
+
+variable "subnet_ids" {
+  type        = list(string)
+  description = "A list of subnet IDs to launch the cluster in"
+}
+
+variable "associated_security_group_ids" {
+  type        = list(string)
+  default     = []
+  description = <<-EOT
+    A list of IDs of Security Groups to associate the cluster with.
+    These security groups will not be modified.
+    EOT
+}
+
+variable "cluster_depends_on" {
+  type        = any
+  description = <<-EOT
+    If provided, the EKS will depend on this object, and therefore not be created until this object is finalized.
+    This is useful if you want to ensure that the cluster is not created before some other condition is met, e.g. VPNs into the subnet are created.
+    EOT
+  default     = null
+}
+
+variable "create_eks_service_role" {
+  type        = bool
+  description = "Set `false` to use existing `eks_cluster_service_role_arn` instead of creating one"
+  default     = true
+}
+
+variable "eks_cluster_service_role_arn" {
+  type        = string
+  description = <<-EOT
+    The ARN of an IAM role for the EKS cluster to use that provides permissions
+    for the Kubernetes control plane to perform needed AWS API operations.
+    Required if `create_eks_service_role` is `false`, ignored otherwise.
+    EOT
+  default     = null
+}
+
+variable "eks_cluster_role_policy_arns" {
+  type        = list(string)
+  description = "List of policy ARNs to attach to the EKS cluster role this module creates in addition to the default ones"
+  default     = []
+  nullable    = false
+}
+
+
+variable "kubernetes_version" {
+  type        = string
+  description = "Desired Kubernetes master version. If you do not specify a value, the latest available version is used"
+  default     = "1.36"
+}
+
+variable "force_update_version" {
+  type        = bool
+  description = "Force version update by overriding upgrade-blocking readiness checks when updating a cluster"
+  default     = false
+}
+
+variable "oidc_provider_enabled" {
+  type        = bool
+  description = <<-EOT
+    Create an IAM OIDC identity provider for the cluster, then you can create IAM roles to associate with a
+    service account in the cluster, instead of using kiam or kube2iam. For more information,
+    see [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+    EOT
+  default     = false
+}
+
+variable "endpoint_private_access" {
+  type        = bool
+  description = "Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default to AWS EKS resource and it is false"
+  default     = false
+}
+
+variable "endpoint_public_access" {
+  type        = bool
+  description = "Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default to AWS EKS resource and it is true"
+  default     = true
+}
+
+variable "public_access_cidrs" {
+  type        = list(string)
+  description = "Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with 0.0.0.0/0."
+  default     = ["0.0.0.0/0"]
+}
+
+variable "service_ipv4_cidr" {
+  type        = string
+  description = <<-EOT
+    The CIDR block to assign Kubernetes service IP addresses from.
+    You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created.
+    EOT
+  default     = null
+}
+
+variable "kubernetes_network_ipv6_enabled" {
+  type        = bool
+  description = "Set true to use IPv6 addresses for Kubernetes pods and services"
+  default     = false
+}
+
+variable "enabled_cluster_log_types" {
+  type        = list(string)
+  description = "A list of the desired control plane logging to enable. For more information, see https://docs.aws.amazon.com/en_us/eks/latest/userguide/control-plane-logs.html. Possible values [`api`, `audit`, `authenticator`, `controllerManager`, `scheduler`]"
+  default     = []
+}
+
+variable "cluster_log_retention_period" {
+  type        = number
+  description = "Number of days to retain cluster logs. Requires `enabled_cluster_log_types` to be set. See https://docs.aws.amazon.com/en_us/eks/latest/userguide/control-plane-logs.html."
+  default     = 0
+}
+
+variable "cluster_encryption_config_enabled" {
+  type        = bool
+  description = "Set to `true` to enable Cluster Encryption Configuration"
+  default     = true
+}
+
+variable "cluster_encryption_config_kms_key_id" {
+  type        = string
+  description = "KMS Key ID to use for cluster encryption config"
+  default     = ""
+}
+
+variable "cluster_encryption_config_kms_key_enable_key_rotation" {
+  type        = bool
+  description = "Cluster Encryption Config KMS Key Resource argument - enable kms key rotation"
+  default     = true
+}
+
+variable "cluster_encryption_config_kms_key_deletion_window_in_days" {
+  type        = number
+  description = "Cluster Encryption Config KMS Key Resource argument - key deletion windows in days post destruction"
+  default     = 10
+}
+
+variable "cluster_encryption_config_kms_key_policy" {
+  type        = string
+  description = "Cluster Encryption Config KMS Key Resource argument - key policy"
+  default     = null
+}
+
+variable "cluster_encryption_config_resources" {
+  type        = list(any)
+  description = "Cluster Encryption Config Resources to encrypt, e.g. ['secrets']"
+  default     = ["secrets"]
+}
+
+variable "permissions_boundary" {
+  type        = string
+  description = "If provided, all IAM roles will be created with this permissions boundary attached"
+  default     = null
+}
+
+variable "cloudwatch_log_group_kms_key_id" {
+  type        = string
+  description = "If provided, the KMS Key ID to use to encrypt AWS CloudWatch logs"
+  default     = null
+}
+
+variable "cloudwatch_log_group_class" {
+  type        = string
+  description = "Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`"
+  default     = null
+}
+
+variable "addons" {
+  type = list(object({
+    addon_name           = string
+    addon_version        = optional(string, null)
+    configuration_values = optional(string, null)
+    # resolve_conflicts is deprecated, but we keep it for backwards compatibility
+    # and because if not declared, Terraform will silently ignore it.
+    resolve_conflicts           = optional(string, null)
+    resolve_conflicts_on_create = optional(string, null)
+    resolve_conflicts_on_update = optional(string, null)
+    service_account_role_arn    = optional(string, null)
+    preserve                    = optional(bool, null)
+    namespace                   = optional(string, null)
+    pod_identity_association    = optional(map(string), {})
+    create_timeout              = optional(string, null)
+    update_timeout              = optional(string, null)
+    delete_timeout              = optional(string, null)
+    additional_tags             = optional(map(string), {})
+  }))
+  description = <<-EOT
+    Manages [`aws_eks_addon`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) resources.
+    Note: `resolve_conflicts` is deprecated. If `resolve_conflicts` is set and
+    `resolve_conflicts_on_create` or `resolve_conflicts_on_update` is not set,
+    `resolve_conflicts` will be used instead. If `resolve_conflicts_on_create` is
+    not set and `resolve_conflicts` is `PRESERVE`, `resolve_conflicts_on_create`
+    will be set to `NONE`.
+    If `preserve` is `true`, the add-on's Kubernetes resources (e.g. the CoreDNS,
+    VPC CNI, or kube-proxy DaemonSets/Deployments) are left running when the
+    add-on is removed from Terraform management, rather than being deleted. This
+    is useful when handing an add-on off to another manager, such as EKS Auto Mode.
+    If `namespace` is set, the add-on's Kubernetes resources are created in that
+    namespace instead of the add-on's default namespace. Only supported by add-ons
+    that allow a configurable namespace.
+    If `additional_tags` are specified, they are added to the standard resource tags.
+    EOT
+  default     = []
+}
+
+variable "addons_depends_on" {
+  type        = any
+  description = <<-EOT
+    If provided, all addons will depend on this object, and therefore not be installed until this object is finalized.
+    This is useful if you want to ensure that addons are not applied before some other condition is met, e.g. node groups are created.
+    See [issue #170](https://github.com/cloudposse/terraform-aws-eks-cluster/issues/170) for more details.
+    EOT
+  default     = null
+}
+
+variable "bootstrap_self_managed_addons_enabled" {
+  description = "Manages bootstrap of default networking addons after cluster has been created. Must be false when Auto Mode is enabled. Changing this forces cluster recreation."
+  type        = bool
+  default     = null
+}
+
+variable "deletion_protection_enabled" {
+  description = "Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled."
+  type        = bool
+  default     = false
+}
+
+variable "auto_mode_compute_config" {
+  description = <<-EOT
+    EKS Auto Mode compute configuration. When enabled, AWS manages node
+    provisioning via managed Karpenter.
+  EOT
+  type = object({
+    enabled       = optional(bool, false)
+    node_pools    = optional(set(string), ["general-purpose", "system"])
+    node_role_arn = optional(string, null)
+  })
+  default  = {}
+  nullable = false
+}
+
+variable "control_plane_scaling_config" {
+  type = object({
+    tier = optional(string, "standard")
+  })
+  description = "The control plane scaling tier configuration. Available options are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide."
+  default     = null
+}
+
+variable "kube_api_server_config" {
+  type = object({
+    event_ttl = optional(string)
+    service_node_port_range = optional(object({
+      min_port = optional(number)
+      max_port = optional(number)
+    }))
+  })
+  description = <<-EOT
+    Configuration block for customizing the Kubernetes API server. Requires Kubernetes `1.31` or later.
+    `event_ttl` is how long the API server retains Kubernetes events, from `10m` to `60m` (default `60m`).
+    `service_node_port_range` bounds the ports available to NodePort services, from `10260` to `32767`
+    (default `min_port` `30000`, `max_port` `32767`); `min_port` must be less than or equal to `max_port`.
+    Removing this variable does not revert the cluster: AWS provides no reset operation and omitted fields
+    keep their current values, so return a parameter to its default by setting it to that default explicitly.
+    EOT
+  default     = null
+}
+
+variable "kube_controller_manager_config" {
+  type = object({
+    horizontal_pod_autoscaler_controller_config = optional(object({
+      horizontal_pod_autoscaler_sync_period = optional(string)
+    }))
+  })
+  description = <<-EOT
+    Configuration block for customizing the Kubernetes controller manager. Requires Kubernetes `1.31` or later.
+    `horizontal_pod_autoscaler_sync_period` is how often the Horizontal Pod Autoscaler controller evaluates
+    scaling decisions, from `10s` to `15s` (default `15s`). This parameter requires a Provisioned Control Plane,
+    so `control_plane_scaling_config.tier` must be `tier-xl` or higher; setting it on a `standard` tier cluster
+    fails. Once set to a non-default value, the cluster cannot return to the `standard` tier until the parameter
+    is set back to `15s`. Shortening the period reduces how many HorizontalPodAutoscaler objects the control
+    plane can reconcile on schedule, and AWS does not validate the period against your object count.
+    Removing this variable does not revert the cluster: AWS provides no reset operation and omitted fields
+    keep their current values, so return a parameter to its default by setting it to that default explicitly.
+    EOT
+  default     = null
+}
+
+variable "kube_scheduler_config" {
+  type = object({
+    node_resources_fit = optional(object({
+      scoring_strategy = optional(object({
+        type = optional(string)
+        resources = optional(list(object({
+          name   = string
+          weight = number
+        })))
+      }))
+    }))
+  })
+  description = <<-EOT
+    Configuration block for customizing the Kubernetes scheduler. Requires Kubernetes `1.31` or later.
+    `scoring_strategy.type` is either `LeastAllocated` (the default, which spreads pods across nodes) or
+    `MostAllocated` (which packs pods onto fewer nodes to reduce compute spend); the upstream Kubernetes
+    `RequestedToCapacityRatio` strategy is not supported. `resources` assigns each scored resource a relative
+    weight from `1` to `100` (default `cpu` `1` and `memory` `1`). Weights are relative rather than absolute,
+    and specifying `resources` scores only the resources you list, so omitting a resource excludes it from
+    scoring entirely rather than reducing its influence. Changing the strategy affects future scheduling only;
+    running pods are never relocated.
+    Removing this variable does not revert the cluster: AWS provides no reset operation and omitted fields
+    keep their current values, so return a parameter to its default by setting it to that default explicitly.
+    EOT
+  default     = null
+}
+
+variable "auto_mode_storage_config" {
+  description = <<-EOT
+    EKS Auto Mode storage configuration. When block_storage is enabled,
+    AWS manages EBS volumes via the ebs.csi.eks.amazonaws.com provisioner.
+  EOT
+  type = object({
+    block_storage = optional(object({
+      enabled = optional(bool, false)
+    }), {})
+  })
+  default  = {}
+  nullable = false
+}
+
+variable "auto_mode_elastic_load_balancing" {
+  description = <<-EOT
+    EKS Auto Mode elastic load balancing configuration. When enabled,
+    AWS manages ALB/NLB creation for Services and Ingress resources.
+  EOT
+  type = object({
+    enabled = optional(bool, false)
+  })
+  default  = {}
+  nullable = false
+}
+
+variable "capabilities" {
+  description = <<-EOT
+    Map of EKS Capabilities to enable on the cluster. Each key is the capability
+    name (must be unique within the cluster). Supported types: ACK, ARGOCD, KRO.
+
+    When `create_iam_role` is true (default) and `role_arn` is null, an IAM
+    role with a trust policy for `capabilities.eks.amazonaws.com` is
+    automatically created. Set `create_iam_role = false` and provide `role_arn`
+    when the calling module creates its own IAM roles (avoids plan-time unknowns).
+
+    The `configuration` block is only applicable to ARGOCD capabilities.
+    ACK and KRO do not currently support configuration.
+  EOT
+  type = map(object({
+    enabled                   = optional(bool, true)
+    type                      = string # ACK, ARGOCD, KRO
+    create_iam_role           = optional(bool, true)
+    role_arn                  = optional(string, null)
+    delete_propagation_policy = optional(string, "RETAIN")
+    configuration = optional(object({
+      argo_cd = optional(object({
+        namespace = optional(string, "argocd")
+        aws_idc = optional(object({
+          idc_instance_arn = string
+          idc_region       = optional(string, null)
+        }), null)
+        network_access = optional(object({
+          vpce_ids = optional(list(string), [])
+        }), null)
+        rbac_role_mapping = optional(list(object({
+          role = string # ADMIN, EDITOR, VIEWER
+          identity = list(object({
+            id   = string
+            type = string # SSO_USER, SSO_GROUP
+          }))
+        })), [])
+      }), null)
+    }), null)
+    create_timeout = optional(string, null)
+    update_timeout = optional(string, null)
+    delete_timeout = optional(string, null)
+  }))
+  default  = {}
+  nullable = false
+
+  validation {
+    condition = alltrue([
+      for k, v in var.capabilities : contains(["ACK", "ARGOCD", "KRO"], v.type)
+    ])
+    error_message = "Each capability type must be one of: ACK, ARGOCD, KRO."
+  }
+
+  validation {
+    condition = alltrue([
+      for k, v in var.capabilities :
+      v.configuration == null || v.type == "ARGOCD"
+    ])
+    error_message = "The configuration block is only supported for ARGOCD capabilities."
+  }
+
+  validation {
+    condition = alltrue([
+      for k, v in var.capabilities :
+      v.type != "ARGOCD" || !v.enabled || try(v.configuration.argo_cd.aws_idc.idc_instance_arn, null) != null
+    ])
+    error_message = "ARGOCD capabilities require configuration.argo_cd.aws_idc.idc_instance_arn. The AWS API requires AWS Identity Center configuration for Argo CD capabilities."
+  }
+}
+
+variable "upgrade_policy" {
+  type = object({
+    support_type = optional(string, null)
+  })
+  description = "Configuration block for the support policy to use for the cluster"
+  default     = null
+}
+
+variable "zonal_shift_config" {
+  type = object({
+    enabled = optional(bool, null)
+  })
+  description = "Configuration block with zonal shift configuration for the cluster"
+  default     = null
+}
+
+variable "cluster_attributes" {
+  type        = list(string)
+  description = "Override label module default cluster attributes"
+  default     = ["cluster"]
+}
+
+variable "access_config" {
+  type = object({
+    authentication_mode                         = optional(string, "API")
+    bootstrap_cluster_creator_admin_permissions = optional(bool, false)
+  })
+  description = "Access configuration for the EKS cluster."
+  default     = {}
+  nullable    = false
+
+  validation {
+    condition     = !contains(["CONFIG_MAP"], var.access_config.authentication_mode)
+    error_message = "The CONFIG_MAP authentication_mode is not supported."
+  }
+}
+
+variable "access_entry_map" {
+  type = map(object({
+    # key is principal_arn
+    user_name = optional(string)
+    # Cannot assign "system:*" groups to IAM users, use ClusterAdmin and Admin instead
+    kubernetes_groups = optional(list(string), [])
+    type              = optional(string, "STANDARD")
+    access_policy_associations = optional(map(object({
+      # key is policy_arn or policy_name
+      access_scope = optional(object({
+        type       = optional(string, "cluster")
+        namespaces = optional(list(string))
+      }), {}) # access_scope
+    })), {})  # access_policy_associations
+  }))         # access_entry_map
+  description = <<-EOT
+    Map of IAM Principal ARNs to access configuration.
+    Preferred over other inputs as this configuration remains stable
+    when elements are added or removed, but it requires that the Principal ARNs
+    and Policy ARNs are known at plan time.
+    Can be used along with other `access_*` inputs, but do not duplicate entries.
+    Map `access_policy_associations` keys are policy ARNs, policy
+    full name (AmazonEKSViewPolicy), or short name (View).
+    It is recommended to use the default `user_name` because the default includes
+    IAM role or user name and the session name for assumed roles.
+    As a special case in support of backwards compatibility, membership in the
+    `system:masters` group is is translated to an association with the ClusterAdmin policy.
+    In all other cases, including any `system:*` group in `kubernetes_groups` is prohibited.
+    EOT
+  default     = {}
+  nullable    = false
+}
+
+variable "access_entries" {
+  type = list(object({
+    principal_arn     = string
+    user_name         = optional(string, null)
+    kubernetes_groups = optional(list(string), null)
+  }))
+  description = <<-EOT
+    List of IAM principles to allow to access the EKS cluster.
+    It is recommended to use the default `user_name` because the default includes
+    the IAM role or user name and the session name for assumed roles.
+    Use when Principal ARN is not known at plan time.
+    EOT
+  default     = []
+  nullable    = false
+}
+
+variable "access_policy_associations" {
+  type = list(object({
+    principal_arn = string
+    policy_arn    = string
+    access_scope = optional(object({
+      type       = optional(string, "cluster")
+      namespaces = optional(list(string))
+    }), {})
+  }))
+  description = <<-EOT
+    List of AWS managed EKS access policies to associate with IAM principles.
+    Use when Principal ARN or Policy ARN is not known at plan time.
+    `policy_arn` can be the full ARN, the full name (AmazonEKSViewPolicy) or short name (View).
+    EOT
+  default     = []
+  nullable    = false
+}
+
+variable "access_entries_for_nodes" {
+  # We use a map instead of an object because if a user supplies
+  # an object with an unexpected key, Terraform simply ignores it,
+  # leaving us with no way to detect the error.
+  type        = map(list(string))
+  description = <<-EOT
+    Map of list of IAM roles for the EKS non-managed worker nodes.
+    The map key is the node type, either `EC2_LINUX` or `EC2_WINDOWS`,
+    and the list contains the IAM roles of the nodes of that type.
+    There is no need for or utility in creating Fargate access entries, as those
+    are always created automatically by AWS, just as with managed nodes.
+    Use when Principal ARN is not known at plan time.
+    EOT
+  default     = {}
+  nullable    = false
+  validation {
+    condition = length([for k in keys(var.access_entries_for_nodes) : k if !contains(["EC2_LINUX", "EC2_WINDOWS"], k)]) == 0
+    error_message = format(<<-EOS
+      The access_entries_for_nodes object can only contain the EC2_LINUX and EC2_WINDOWS attributes:
+      Keys "%s" not allowed.
+      EOS
+    , join("\", \"", [for k in keys(var.access_entries_for_nodes) : k if !contains(["EC2_LINUX", "EC2_WINDOWS"], k)]))
+  }
+  validation {
+    condition     = !(contains(keys(var.access_entries_for_nodes), "FARGATE_LINUX"))
+    error_message = <<-EOM
+      Access entries of type "FARGATE_LINUX" are not supported because they are
+      automatically created by AWS EKS and should not be managed by Terraform.
+      EOM
+  }
+}
+
+## Limited support for modifying the EKS-managed Security Group
+## In the future, even this limited support may be removed
+
+variable "managed_security_group_rules_enabled" {
+  type        = bool
+  description = "Flag to enable/disable the ingress and egress rules for the EKS managed Security Group"
+  default     = true
+}
+
+variable "allowed_security_group_ids" {
+  type        = list(string)
+  default     = []
+  description = <<-EOT
+    A list of IDs of Security Groups to allow access to the cluster.
+    EOT
+}
+
+variable "allowed_cidr_blocks" {
+  type        = list(string)
+  default     = []
+  description = <<-EOT
+    A list of IPv4 CIDRs to allow access to the cluster.
+    The length of this list must be known at "plan" time.
+    EOT
+}
+
+variable "custom_ingress_rules" {
+  type = list(object({
+    description              = string
+    from_port                = number
+    to_port                  = number
+    protocol                 = string
+    source_security_group_id = string
+  }))
+  default     = []
+  description = <<-EOT
+    A List of Objects, which are custom security group rules that
+    EOT
+}
+
+variable "remote_network_config" {
+  description = "Configuration block for the cluster remote network configuration"
+  type = object({
+    remote_node_networks_cidrs = list(string)
+    remote_pod_networks_cidrs  = optional(list(string))
+  })
+  default = null
+}

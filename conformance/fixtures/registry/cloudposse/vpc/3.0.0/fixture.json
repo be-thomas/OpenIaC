@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/vpc/3.0.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/vpc/aws/3.0.0",
+    "ref": "3.0.0",
+    "commit": "c71b3086e4e88f2c858d6f3bbaa8da54b8b9ec2a",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-vpc",
+    "path": ".",
+    "archiveSha256": "8f99e63789cb5f9be8bad58da41d30f194d184d7fd90f8e6fcd6bbc1b071223c",
+    "inputSha256": "d3a71a23cebbc70464de40bba1a8f052838e2fff96cea2637ddf014127f00ed6",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

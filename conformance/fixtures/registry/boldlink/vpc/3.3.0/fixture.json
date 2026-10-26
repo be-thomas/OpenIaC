@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/boldlink/vpc/3.3.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/boldlink/vpc/aws/3.3.0",
+    "ref": "3.3.0",
+    "commit": "561a85a3799674e6815969698a3b81da9aec3a1f",
+    "gitOwner": "boldlink",
+    "gitRepo": "terraform-aws-vpc",
+    "path": ".",
+    "archiveSha256": "a160ea695fcdff54fe6a63e07714a41f45ce7b882bc0b0c652ea0590b327cb53",
+    "inputSha256": "019685f416eab18404aa3a1f4a5458d2e87ecf658252b076a2e927de27211196",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

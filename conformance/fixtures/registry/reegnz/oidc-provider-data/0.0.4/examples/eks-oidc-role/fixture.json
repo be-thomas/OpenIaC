@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "registry/reegnz/oidc-provider-data/0.0.4/examples/eks-oidc-role",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/reegnz/oidc-provider-data/aws/0.0.4",
+    "ref": "0.0.4",
+    "commit": "01c6fbaf7fc5376c73a4733c1f6127c67b5d8f96",
+    "gitOwner": "reegnz",
+    "gitRepo": "terraform-aws-oidc-provider-data",
+    "path": "examples/eks-oidc-role",
+    "archiveSha256": "2da7f1a16f4446871b9174841432e1e588645afcd63a99a956500d6a32b4d2d7",
+    "inputSha256": "3f1fd8da6de59e90cb67489ed8150ec3632e4e3743b1bf0013c6e278d66795fd",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "data",
+    "interpolation",
+    "locals",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/emr/3.3.0",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/emr/aws/3.3.0",
+    "ref": "3.3.0",
+    "commit": "e26ebda0500b5c4b8bf2f839ed7bc2599d545f64",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-emr",
+    "path": ".",
+    "archiveSha256": "4d73c9f0f0dcdefaf844158fbe247e60cc0116fa65e5f64824cbb3588e3ca0f7",
+    "inputSha256": "393877a65fb373fed57cb2e9dd2eae135221ff93bda6cf14bd74658e74cf2e59",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

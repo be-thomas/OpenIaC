@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/terraform-aws-modules/fsx/1.3.2/modules/windows",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/fsx/aws/1.3.2",
+    "ref": "1.3.2",
+    "commit": "0b1bf1999b4bea432080e04af9fe50d4f2653acc",
+    "gitOwner": "terraform-aws-modules",
+    "gitRepo": "terraform-aws-fsx",
+    "path": "modules/windows",
+    "archiveSha256": "bcccf3121b249e12c6fdaa14c08d2e1a9bc3dc516385ab90828d275b500060ff",
+    "inputSha256": "2178744bc3230e548e98da2968cde5413ebfa232ed065838fbdfc4b35410bb47",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

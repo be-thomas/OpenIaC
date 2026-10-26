@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "registry/trussworks/s3-private-bucket/9.0.1",
+  "tier": "advanced",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/trussworks/s3-private-bucket/aws/9.0.1",
+    "ref": "9.0.1",
+    "commit": "93ba662a23085076f70f94af8d19132d11e2fbd8",
+    "gitOwner": "trussworks",
+    "gitRepo": "terraform-aws-s3-private-bucket",
+    "path": ".",
+    "archiveSha256": "5c336d05bbb8edcb2623afdeae145fa764ad7d938942ca51326ba561a73d2c6c",
+    "inputSha256": "b0edf0a73941353e8abf163c1afa991fc77d48425d123282f5d7db510b7cf86d",
+    "licensePath": "LICENSE"
+  },
+  "license": "BSD-3-Clause",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

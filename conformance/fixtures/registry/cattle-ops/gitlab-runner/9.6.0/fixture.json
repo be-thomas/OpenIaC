@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "id": "registry/cattle-ops/gitlab-runner/9.6.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cattle-ops/gitlab-runner/aws/9.6.0",
+    "ref": "9.6.0",
+    "commit": "942215a946f58410d6ef13e19d9464f7922b2c76",
+    "gitOwner": "cattle-ops",
+    "gitRepo": "terraform-aws-gitlab-runner",
+    "path": ".",
+    "archiveSha256": "b5b1804514b6aa6a78b12b0ebc3047bbd9a58369488dfd4d5301193b8ac3ec43",
+    "inputSha256": "93e2e0d5ae995256ce674b0037dc409fb8ec0b44cfc3abdb9fd026c5c998fc17",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "archive",
+    "aws",
+    "local",
+    "random",
+    "tls"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "dynamic",
+    "for_each",
+    "for_expressions",
+    "functions",
+    "heredoc",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

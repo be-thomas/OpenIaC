@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "registry/cloudposse/cloudtrail/0.24.0",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/cloudposse/cloudtrail/aws/0.24.0",
+    "ref": "0.24.0",
+    "commit": "7610c670673c06835accf54d665e5f710dac4b2f",
+    "gitOwner": "cloudposse",
+    "gitRepo": "terraform-aws-cloudtrail",
+    "path": ".",
+    "archiveSha256": "4759ab422d8b26f6228e74fa4e5ade65e563089222edf184edc00b1668ee6ebc",
+    "inputSha256": "5f4ad59f9dd400beb1f644f45b0c4024ceb034472c5e47e0f2983c3f6346f648",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "dynamic",
+    "for_each",
+    "functions",
+    "heredoc",
+    "modules",
+    "outputs",
+    "required_providers",
+    "resources",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

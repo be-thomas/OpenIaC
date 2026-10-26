@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "registry/tf-mod/rbac-role/1.1.2/examples/complete",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/tf-mod/rbac-role/aws/1.1.2",
+    "ref": "1.1.2",
+    "commit": "ecbe3820e4b9ce4595ea86eb7fc10d2ff41c79c8",
+    "gitOwner": "tf-mod",
+    "gitRepo": "terraform-aws-rbac-role",
+    "path": "examples/complete",
+    "archiveSha256": "b7c6a4c59396a9e0803f97ecdff65de2aeb1f389e93ce8b97bcce715b4c9d9fa",
+    "inputSha256": "f2aadfe7dc52a0053175c1e1c13b90032ab97f80d1a1dd23682b8980375118fe",
+    "licensePath": "LICENSE"
+  },
+  "license": "MIT",
+  "providers": [
+    "aws"
+  ],
+  "features": [
+    "modules",
+    "providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}

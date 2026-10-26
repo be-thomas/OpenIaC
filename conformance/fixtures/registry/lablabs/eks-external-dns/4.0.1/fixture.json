@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "registry/lablabs/eks-external-dns/4.0.1",
+  "tier": "modules",
+  "origin": "registry",
+  "source": {
+    "url": "https://registry.terraform.io/modules/lablabs/eks-external-dns/aws/4.0.1",
+    "ref": "4.0.1",
+    "commit": "83e4fd4f3824f11cb05800875de0078363b964bb",
+    "gitOwner": "lablabs",
+    "gitRepo": "terraform-aws-eks-external-dns",
+    "path": ".",
+    "archiveSha256": "8807c93fd397c93c75b77553cdc086a051a85eab368d133fc68ba075e01e47c9",
+    "inputSha256": "723e11d890279d68aaa99a8db0cc33726d5fc91b581780b5df23ca30162eeb1d",
+    "licensePath": "LICENSE"
+  },
+  "license": "Apache-2.0",
+  "providers": [
+    "aws",
+    "utils"
+  ],
+  "features": [
+    "conditionals",
+    "count",
+    "data",
+    "depends_on",
+    "for_each",
+    "functions",
+    "interpolation",
+    "locals",
+    "modules",
+    "moved",
+    "outputs",
+    "required_providers",
+    "terraform",
+    "variables"
+  ],
+  "targets": [
+    "cdk",
+    "pulumi"
+  ],
+  "support": "partial"
+}
