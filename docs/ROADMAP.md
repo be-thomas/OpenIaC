@@ -21,8 +21,8 @@ The compiler exists and does something real.
 
 | Scope | Detail |
 |:--|:--|
-| HCL parser | `resource`, `data`, `variable`, `locals`, `output`, `module`, `provider`, `depends_on` |
-| IR | Flat graph, typed values, JSON schema `0.1` |
+| HCL parser | Native HCL and `.tf.json`; every Terraform 1.0–1.17 top-level block is parsed or preserved |
+| IR | Flat graph, typed values, preserved blocks, `features` / `min_version`, JSON schema `0.2` ([reference](IR.md)) |
 | Ordering | Deterministic topological sort with cycle reporting |
 | Rewriting | References, templates, comments; boundary-safe |
 | Emitters | AWS CDK (L1/L2) and Pulumi (aws SDK) |
@@ -42,7 +42,7 @@ playground produces the same output as the CLI.
 | CI | Format, vet, test, native build, WASM build on every PR |
 | Pages | Playground deployed from `main` on every push |
 | Golden tests | Snapshot output for `examples/aws-web-app` in both targets |
-| Docs | Architecture, contributing, roadmap, README |
+| Docs | Architecture, IR reference, Terraform version support, contributing, roadmap, README |
 | Versioning | `openiac version` reads a single source of truth |
 
 ---
@@ -57,7 +57,7 @@ Make real modules convert without hand-editing.
 | `locals` | Inline when static, warn when computed | No unresolved `local.*` in output |
 | Functions | `jsonencode`, `file`, `cidrsubnet`, `lookup` | Supported subset documented |
 | More L2 mappings | `aws_iam_role` → `iam.Role`, `aws_lambda_function` → `lambda.Function` | Snapshot tests per construct |
-| Better warnings | Source file + line + suggested action | Warnings carry `file:line` |
+| Better warnings | Source file + line + suggested action | Warnings carry `file:line` and a stable `W_*` code |
 
 ---
 

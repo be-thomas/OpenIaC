@@ -47,6 +47,7 @@ func (e *Emitter) Emit(graph *ir.Graph, options emitters.Options) (*emitters.Res
 		resourceByID: make(map[string]*ir.Resource, len(graph.Resources)),
 		varIdents:    make(map[string]string, len(graph.Variables)),
 	}
+	emitters.WarnUnsupported(graph, r.warnings)
 
 	namer := emitutil.NewNamer()
 	for _, reserved := range []string{"pulumi", "aws", "config", "exports"} {
@@ -215,7 +216,25 @@ func (r *run) emitResources(body *strings.Builder, ordered []*ir.Resource, rewri
 func (r *run) renderProperties(resource *ir.Resource, mapping *mappings.PulumiMapping, rewriter *emitutil.RefRewriter) string {
 	var lines []string
 
+	// .tf.json leaves nested blocks as flat map/list attributes; recover the
+	// shape native HCL would have produced before rendering either one.
+	var schema map[string]mappings.BlockMap
+	if mapping != nil {
+		schema = mapping.Blocks
+	}
+	flatBlocks, consumed, conflicts := emitters.UnflattenBlocks(resource.Attributes, schema, resource.Blocks)
+	blocks := resource.Blocks
+	if len(flatBlocks) > 0 {
+		blocks = append(append([]ir.Block(nil), resource.Blocks...), flatBlocks...)
+	}
+	for _, name := range conflicts {
+		r.warnings.Addf("%s: %s is given as both a block and an attribute; the attribute is ignored", resource.ID, name)
+	}
+
 	for _, name := range sortedKeys(resource.Attributes) {
+		if consumed[name] {
+			continue
+		}
 		if name == "count" || name == "for_each" {
 			r.warnings.Addf("%s: %s is not supported yet; property skipped", resource.ID, name)
 			continue
@@ -230,7 +249,7 @@ func (r *run) renderProperties(resource *ir.Resource, mapping *mappings.PulumiMa
 		lines = append(lines, fmt.Sprintf("  %s: %s,", property, value))
 	}
 
-	order, grouped := emitters.GroupBlocks(resource.Blocks)
+	order, grouped := emitters.GroupBlocks(blocks)
 	for _, blockType := range order {
 		var blockMap *mappings.BlockMap
 		if mapping != nil {
@@ -290,7 +309,24 @@ func (r *run) renderBlockGroup(blocks []ir.Block, blockMap *mappings.BlockMap, r
 
 func (r *run) renderBlockObject(block ir.Block, blockMap *mappings.BlockMap, rewriter *emitutil.RefRewriter, context string) (string, bool) {
 	var parts []string
+
+	var schema map[string]mappings.BlockMap
+	if blockMap != nil {
+		schema = blockMap.Blocks
+	}
+	flatBlocks, consumed, conflicts := emitters.UnflattenBlocks(block.Attributes, schema, block.Blocks)
+	blocks := block.Blocks
+	if len(flatBlocks) > 0 {
+		blocks = append(append([]ir.Block(nil), block.Blocks...), flatBlocks...)
+	}
+	for _, name := range conflicts {
+		r.warnings.Addf("%s: %s is given as both a block and an attribute; the attribute is ignored", context, name)
+	}
+
 	for _, name := range sortedKeys(block.Attributes) {
+		if consumed[name] {
+			continue
+		}
 		property := emitutil.CamelCase(name)
 		if blockMap != nil {
 			if override, ok := blockMap.Properties[name]; ok {
@@ -300,7 +336,7 @@ func (r *run) renderBlockObject(block ir.Block, blockMap *mappings.BlockMap, rew
 		parts = append(parts, fmt.Sprintf("%s: %s", property, emitutil.RenderValue(block.Attributes[name], rewriter)))
 	}
 
-	order, grouped := emitters.GroupBlocks(block.Blocks)
+	order, grouped := emitters.GroupBlocks(blocks)
 	for _, nestedType := range order {
 		var nestedMap *mappings.BlockMap
 		if blockMap != nil {

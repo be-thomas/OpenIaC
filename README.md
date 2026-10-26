@@ -15,10 +15,10 @@ One parser. One IR. Zero lock-in.
 [![Status](https://img.shields.io/badge/status-alpha-fbbf24?style=for-the-badge)](#-timeline)
 [![PRs](https://img.shields.io/badge/PRs-welcome-34d399?style=for-the-badge)](#-contributing)
 
-[![Terraform](https://img.shields.io/badge/Terraform-HCL2-7B42BC?style=flat-square&logo=terraform&logoColor=white)](https://developer.hashicorp.com/terraform/language)
+[![Terraform](https://img.shields.io/badge/Terraform-1.0_%E2%80%93_1.17-7B42BC?style=flat-square&logo=terraform&logoColor=white)](docs/TERRAFORM-VERSIONS.md)
 [![AWS CDK](https://img.shields.io/badge/AWS_CDK-TypeScript-FF9900?style=flat-square&logo=amazonaws&logoColor=white)](https://aws.amazon.com/cdk/)
 [![Pulumi](https://img.shields.io/badge/Pulumi-TypeScript-8A3391?style=flat-square&logo=pulumi&logoColor=white)](https://www.pulumi.com/)
-[![IR](https://img.shields.io/badge/IR-schema_0.1-818cf8?style=flat-square)](docs/ARCHITECTURE.md#the-ir-contract)
+[![IR](https://img.shields.io/badge/IR-schema_0.2-818cf8?style=flat-square)](docs/IR.md)
 [![Made with Go](https://img.shields.io/badge/made_with-Go-00ADD8?style=flat-square&logo=go&logoColor=white)](https://go.dev)
 
 <br/>
@@ -27,7 +27,7 @@ One parser. One IR. Zero lock-in.
 
 <br/>
 
-[🚀 Playground](playground/) · [📦 Quick Start](#-quick-start) · [🗺️ Roadmap](docs/ROADMAP.md) · [🧠 How It Works](#-how-it-works) · [🧱 Architecture](docs/ARCHITECTURE.md) · [🧪 Conformance](docs/CONFORMANCE.md) · [🤝 Contribute](CONTRIBUTING.md)
+[🚀 Playground](playground/) · [📦 Quick Start](#-quick-start) · [🗺️ Roadmap](docs/ROADMAP.md) · [🧠 How It Works](#-how-it-works) · [🧱 Architecture](docs/ARCHITECTURE.md) · [📄 IR Reference](docs/IR.md) · [🧭 Version Support](docs/TERRAFORM-VERSIONS.md) · [🧪 Conformance](docs/CONFORMANCE.md) · [🤝 Contribute](CONTRIBUTING.md)
 
 </div>
 
@@ -160,14 +160,19 @@ Open `http://localhost:8080`, paste Terraform, get TypeScript. **No backend.**
 
 ## 🧠 How It Works
 
+Terraform **1.0–1.17** configuration parses in both syntaxes; conversion covers
+a documented subset of it. Anything outside that subset is preserved in the IR
+and reported as a coded warning, never silently dropped.
+
 ```text
 ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
 │  Terraform   │     │   Universal  │     │  Dependency  │     │   Native TS  │
 │     HCL      │ ──▶ │      IR      │ ──▶ │     DAG      │ ──▶ │   emitters   │
-│  .tf / .tfvars│     │  JSON-shaped │     │  topo-sorted │     │ CDK / Pulumi │
+│.tf / .tf.json│     │  JSON-shaped │     │  topo-sorted │     │ CDK / Pulumi │
 └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘
        ▲                    ▲                    ▲                     ▲
    hcl/v2 parser      resources+vars        Kahn's algorithm      JSON mappings
+    HCL + JSON         + preserved blocks
 ```
 
 <table>
@@ -179,7 +184,7 @@ Open `http://localhost:8080`, paste Terraform, get TypeScript. **No backend.**
 <tr>
 <td><b>Parse</b></td>
 <td><a href="pkg/parsers/hcl/"><code>pkg/parsers/hcl</code></a></td>
-<td>Reads <code>resource</code>, <code>data</code>, <code>variable</code>, <code>locals</code>, <code>output</code>, <code>module</code>, <code>provider</code> blocks into the IR.</td>
+<td>Reads native HCL and JSON (<code>.tf</code> and <code>.tf.json</code>) for every Terraform 1.0–1.17 top-level block. Constructs without a target mapping are preserved, never dropped — see <a href="docs/TERRAFORM-VERSIONS.md">version support</a>.</td>
 </tr>
 <tr>
 <td><b>Resolve</b></td>
@@ -302,7 +307,7 @@ Add it to [`pkg/mappings/aws.json`](pkg/mappings/aws.json), rebuild, done.
 
 ```json
 {
-  "version": "0.1",
+  "version": "0.2",
   "resources": [
     {
       "id": "aws_vpc.main",
@@ -311,9 +316,13 @@ Add it to [`pkg/mappings/aws.json`](pkg/mappings/aws.json), rebuild, done.
       "attributes": { "cidr_block": { "kind": "string", "literal": "10.0.0.0/16" } }
     }
   ],
-  "edges": [{ "from": "aws_vpc.main", "to": "aws_subnet.public", "kind": "reference" }]
+  "min_version": "1.0.0",
+  "edges": [{ "from": "aws_subnet.public", "to": "aws_vpc.main", "kind": "reference" }]
 }
 ```
+
+`from` depends on `to`. Every field, value kind and guarantee is documented in
+[docs/IR.md](docs/IR.md).
 
 </details>
 
@@ -356,7 +365,7 @@ See [docs/CONFORMANCE.md](docs/CONFORMANCE.md) for the L0–L4 oracle design and
 | Milestone | Date | Highlights | State |
 |:--|:--|:--|:--:|
 | **Foundation** | Oct 2026 | HCL parser · IR · DAG · CDK + Pulumi emitters · WASM playground | ✅ |
-| **v0.1 Public Alpha** | Nov 2026 | Docs · tests · CI · GitHub Pages playground | 🚧 |
+| **v0.1 Public Alpha** | Nov 2026 | Docs incl. [IR](docs/IR.md) & [version](docs/TERRAFORM-VERSIONS.md) references · tests · CI · GitHub Pages playground | 🚧 |
 | **v0.2 Depth** | Dec 2026 | Data sources · `locals` · richer L2 mappings | ⏳ |
 | **v0.3 Scale** | Q1 2027 | Modules · `count` / `for_each` · multi-file imports | ⏳ |
 | **v1.0 Stable** | Q2 2027 | CloudFormation + Terraform backends · plugin API | 🎯 |
@@ -383,11 +392,13 @@ OpenIaC/
 ├── internal/conformance/     Collector and conformance layers
 ├── pkg/
 │   ├── ir/               Universal graph + topological sort
-│   ├── parsers/hcl/      HCL2 → IR
+│   ├── parsers/hcl/      HCL2 and JSON → IR
+│   ├── tfversion/        Terraform language version detection
 │   ├── mappings/         Data-driven aws.json registry
 │   ├── emitutil/         Naming, rewriting, rendering
-│   ├── emitters/         aws-cdk/ + pulumi/
+│   ├── emitters/         aws-cdk/ + pulumi/ (+ shared warnings)
 │   └── engine/           Orchestration
+├── docs/                 Architecture, IR, versions, conformance, roadmap
 ├── wasm/                 js/wasm entry point
 ├── playground/           Monaco + WASM UI
 ├── examples/             Sample Terraform modules
