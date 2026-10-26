@@ -182,8 +182,10 @@ re-derived from the parsed features.
    `collection/sources.json`.
 2. Run the collector.
 3. Review `git status` and the new `fixture.json` files.
-4. Run `make conformance-verify` and `go test ./...`, then commit the fixtures
-   with the code that consumes them.
+4. Run `make conformance-status`, which rewrites `status.json`, `badge.json` and
+   the summary block in the README.
+5. Run `make conformance-verify` and `go test ./...`, then commit the fixtures,
+   the refreshed summary and the code that consumes them.
 
 Do not edit vendored Terraform files. If an upstream module needs a fix, add a
 note and wait for a new upstream revision. Hand-curated fixtures under a future

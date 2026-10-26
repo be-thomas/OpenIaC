@@ -31,6 +31,51 @@ Serve the playground locally:
 python3 -m http.server -d playground 8080
 ```
 
+### Running the playground
+
+The playground is static. `make wasm` writes `main.wasm` and `wasm_exec.js` into
+`playground/`, and any static file server can host that folder:
+
+```bash
+make wasm
+python3 -m http.server -d playground 8080   # http://localhost:8080
+```
+
+### Deploying the playground
+
+Production is served from a Cloudflare Worker, deployed by a maintainer from a
+machine with Wrangler installed. The Wrangler project is intentionally **not** in
+this repository: `deploy/` is git-ignored together with Wrangler's `.wrangler/`
+state and any `.dev.vars` secrets. A fresh clone therefore has no deploy folder,
+and nothing about the deployment is committed.
+
+To stand up an equivalent Worker yourself, create the project outside this
+repository and point it at the built playground:
+
+1. `npm install --save-dev wrangler` (Wrangler 4 or later).
+2. Add a `wrangler.jsonc` that serves `playground/` as static assets and routes
+   other requests through a script:
+
+   ```jsonc
+   {
+     "name": "openiac",
+     "main": "src/index.js",
+     "compatibility_date": "2026-10-26",
+     "assets": {
+       "directory": "/absolute/path/to/OpenIaC/playground",
+       "binding": "ASSETS"
+     },
+     "observability": { "enabled": true }
+   }
+   ```
+
+3. Add a `src/index.js` fetch handler that answers `GET /api/health` with
+   `Response.json({ status: "ok", service: "openiac" })` and otherwise returns
+   `env.ASSETS.fetch(request)`.
+4. Run `make wasm` in this repository, then `wrangler deploy` in the project.
+
+Deployment is manual. CI only builds the WebAssembly bundle and never deploys.
+
 ## The fastest contribution: a resource mapping
 
 You do **not** need Go to add AWS resource support.

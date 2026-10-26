@@ -40,7 +40,7 @@ playground produces the same output as the CLI.
 | Task | Exit criteria |
 |:--|:--|
 | CI | Format, vet, test, native build, WASM build on every PR |
-| Pages | Playground deployed from `main` on every push |
+| Hosting | Playground served from a Cloudflare Worker |
 | Golden tests | Snapshot output for `examples/aws-web-app` in both targets |
 | Docs | Architecture, IR reference, Terraform version support, contributing, roadmap, README |
 | Versioning | `openiac version` reads a single source of truth |

@@ -150,6 +150,26 @@ therefore fails verification instead of silently drifting.
 Provider, CloudFormation and Pulumi schemas are dependencies rather than source:
 they are pinned by lockfile and cached outside the tree.
 
+### Parse summary
+
+`openiac-conformance status` parses every fixture and writes three committed
+files: [`status.json`](../conformance/status.json) holds the corpus size, the
+parse counts and the minimum-version distribution,
+[`badge.json`](../conformance/badge.json) is the shields.io endpoint the README
+renders as a badge, and the chart between the `conformance:summary` markers in
+the [`README`](../README.md) is regenerated in place. CI runs `status -check`,
+so the summary cannot drift from the corpus without failing a pull request.
+
+```bash
+make conformance-status        # re-parse the corpus and rewrite all three
+make conformance-status-check  # fail when the committed summary is stale
+```
+
+The minimum version is the oldest Terraform release a fixture needs, derived
+from its `required_version` constraint and the language features it uses (see
+[TERRAFORM-VERSIONS.md](TERRAFORM-VERSIONS.md)); it measures parse coverage, not
+conversion completeness.
+
 ### Sources
 
 | Source | Access | License posture |
