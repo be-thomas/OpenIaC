@@ -60,11 +60,12 @@
       <div class="pane">
         <div class="pane-head">
           <span class="file-dot dot-green"></span>
-          <span class="file-name">index.ts</span>
+          <span class="file-name" id="output-file">index.ts</span>
           <span id="target-badge" class="lang-badge">AWS CDK</span>
           <span class="spacer"></span>
-          <button id="copy-button" class="icon-button" type="button" title="Copy TypeScript">Copy</button>
-          <button id="download-button" class="icon-button" type="button" title="Download TypeScript">↓</button>
+          <button id="ir-button" class="icon-button" type="button" aria-pressed="false" title="Inspect the universal IR (JSON)">IR</button>
+          <button id="copy-button" class="icon-button" type="button" title="Copy the output">Copy</button>
+          <button id="download-button" class="icon-button" type="button" title="Download the output">↓</button>
         </div>
         <div id="output-editor" class="editor"></div>
       </div>

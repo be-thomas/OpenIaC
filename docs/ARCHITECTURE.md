@@ -31,7 +31,7 @@ writing one package, not a new frontend.
 | [`pkg/emitters/awscdk`](../pkg/emitters/awscdk/) | `aws-cdk-lib` TypeScript, L1 and L2 constructs. |
 | [`pkg/emitters/pulumi`](../pkg/emitters/pulumi/) | `@pulumi/aws` TypeScript. |
 | [`pkg/engine`](../pkg/engine/) | Public API: parse, convert, marshal, target parsing. |
-| [`wasm`](../wasm/) + [`playground`](../playground/) | Browser build and UI. |
+| [`wasm`](../wasm/) + [`playground`](../playground/) | Browser build and UI. The WebAssembly module exposes `openiacTranspile` and `openiacIR`; the UI renders either the generated TypeScript or the IR JSON from the same graph. |
 
 ## The IR contract
 
