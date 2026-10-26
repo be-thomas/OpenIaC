@@ -139,6 +139,25 @@ from the Terraform Registry and 42 from GitHub seeds. Tiers: 20 `smoke`, 0
 into `smoke`, leaving `core` empty. The generated
 [`corpus.lock.json`](../conformance/corpus.lock.json) is authoritative.
 
+### Parse summary
+
+`openiac-conformance status` parses every fixture and writes two committed
+files: [`status.json`](../conformance/status.json) holds the corpus size, the
+parse counts and the minimum-version distribution, and
+[`badge.json`](../conformance/badge.json) is the shields.io endpoint the README
+renders as a badge. CI runs `status -check`, so the summary cannot drift from
+the corpus without failing a pull request.
+
+```bash
+make conformance-status        # re-parse the corpus and rewrite both files
+make conformance-status-check  # fail when the committed summary is stale
+```
+
+The minimum version is the oldest Terraform release a fixture needs, derived
+from its `required_version` constraint and the language features it uses (see
+[TERRAFORM-VERSIONS.md](TERRAFORM-VERSIONS.md)); it measures parse coverage, not
+conversion completeness.
+
 The smoke set is derived, not curated. The collector prefers feature-basic
 modules, then fills the remaining slots with the smallest other fixtures
 (falling back when fewer than 20 basic modules exist), breaking ties by fixture

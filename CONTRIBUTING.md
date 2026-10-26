@@ -31,6 +31,20 @@ Serve the playground locally:
 python3 -m http.server -d playground 8080
 ```
 
+### Deploying the playground
+
+The playground is served from a Cloudflare Worker. Its Wrangler project lives in
+a local `deploy/cloudflare/` folder that is ignored by git along with Wrangler's
+state and any `.dev.vars` secrets, so nothing about the deployment is committed.
+
+```bash
+make wasm
+cd deploy/cloudflare
+wrangler deploy
+```
+
+Deployment is manual; CI only builds the WebAssembly bundle.
+
 ## The fastest contribution: a resource mapping
 
 You do **not** need Go to add AWS resource support.

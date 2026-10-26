@@ -18,6 +18,7 @@ One parser. One IR. Zero lock-in.
 [![Terraform](https://img.shields.io/badge/Terraform-1.0_%E2%80%93_1.17-7B42BC?style=flat-square&logo=terraform&logoColor=white)](docs/TERRAFORM-VERSIONS.md)
 [![AWS CDK](https://img.shields.io/badge/AWS_CDK-TypeScript-FF9900?style=flat-square&logo=amazonaws&logoColor=white)](https://aws.amazon.com/cdk/)
 [![Pulumi](https://img.shields.io/badge/Pulumi-TypeScript-8A3391?style=flat-square&logo=pulumi&logoColor=white)](https://www.pulumi.com/)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://openiac.cwz.workers.dev)
 [![IR](https://img.shields.io/badge/IR-schema_0.2-818cf8?style=flat-square)](docs/IR.md)
 [![Made with Go](https://img.shields.io/badge/made_with-Go-00ADD8?style=flat-square&logo=go&logoColor=white)](https://go.dev)
 
@@ -27,7 +28,7 @@ One parser. One IR. Zero lock-in.
 
 <br/>
 
-[🚀 Playground](playground/) · [📦 Quick Start](#-quick-start) · [🗺️ Roadmap](docs/ROADMAP.md) · [🧠 How It Works](#-how-it-works) · [🧱 Architecture](docs/ARCHITECTURE.md) · [📄 IR Reference](docs/IR.md) · [🧭 Version Support](docs/TERRAFORM-VERSIONS.md) · [🧪 Conformance](docs/CONFORMANCE.md) · [🤝 Contribute](CONTRIBUTING.md)
+[🚀 Playground](https://openiac.cwz.workers.dev) · [📦 Quick Start](#-quick-start) · [🗺️ Roadmap](docs/ROADMAP.md) · [🧠 How It Works](#-how-it-works) · [🧱 Architecture](docs/ARCHITECTURE.md) · [📄 IR Reference](docs/IR.md) · [🧭 Version Support](docs/TERRAFORM-VERSIONS.md) · [🧪 Conformance](docs/CONFORMANCE.md) · [🤝 Contribute](CONTRIBUTING.md)
 
 </div>
 
@@ -337,10 +338,26 @@ commit, records the input-tree hash, carries the upstream license and is scanned
 for executables and credentials before it enters the tree. CI re-verifies the
 tree, its lock and the generated attribution on every pull request.
 
+[![conformance](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbe-thomas%2FOpenIaC%2Fmain%2Fconformance%2Fbadge.json&style=flat-square)](conformance/status.json)
+
+```mermaid
+xychart-beta
+    title "Fixtures by minimum Terraform version"
+    x-axis ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10", "1.11"]
+    y-axis "Fixtures" 0 --> 500
+    bar [477, 34, 4, 168, 1, 117, 15, 3, 6, 9, 6, 13]
+```
+
+Every one of the 853 modules parses into schema `0.2` IR. The chart groups each
+module by the oldest Terraform release its configuration needs; the exact
+distribution is in [`conformance/status.json`](conformance/status.json), which
+`make conformance-status` regenerates and CI checks.
+
 ```bash
 make conformance-inputs                 # refresh from configured sources
 make conformance-verify                 # check the committed tree and lock
 make conformance-lock                   # regenerate the lock and attribution
+make conformance-status                 # re-parse the corpus, refresh the summary
 cat conformance/corpus.lock.json        # aggregate counts and tree hash
 ```
 
@@ -365,7 +382,7 @@ See [docs/CONFORMANCE.md](docs/CONFORMANCE.md) for the L0–L4 oracle design and
 | Milestone | Date | Highlights | State |
 |:--|:--|:--|:--:|
 | **Foundation** | Oct 2026 | HCL parser · IR · DAG · CDK + Pulumi emitters · WASM playground | ✅ |
-| **v0.1 Public Alpha** | Nov 2026 | Docs incl. [IR](docs/IR.md) & [version](docs/TERRAFORM-VERSIONS.md) references · tests · CI · GitHub Pages playground | 🚧 |
+| **v0.1 Public Alpha** | Nov 2026 | Docs incl. [IR](docs/IR.md) & [version](docs/TERRAFORM-VERSIONS.md) references · tests · CI · Cloudflare Workers playground | 🚧 |
 | **v0.2 Depth** | Dec 2026 | Data sources · `locals` · richer L2 mappings | ⏳ |
 | **v0.3 Scale** | Q1 2027 | Modules · `count` / `for_each` · multi-file imports | ⏳ |
 | **v1.0 Stable** | Q2 2027 | CloudFormation + Terraform backends · plugin API | 🎯 |

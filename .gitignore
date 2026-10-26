@@ -21,6 +21,13 @@ playground/wasm_exec.js
 conformance/reports/
 .cache/
 
+# ---- Cloudflare deployment (local only) ----
+# The Wrangler project and its state live outside the repository.
+/deploy/
+.wrangler/
+.dev.vars
+.dev.vars.*
+
 # ---- Node ----
 node_modules/
 npm-debug.log*

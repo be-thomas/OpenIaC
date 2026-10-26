@@ -2,7 +2,9 @@
 package main
 
 import (
+	"bytes"
 	"context"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -12,6 +14,7 @@ import (
 	"syscall"
 
 	"github.com/be-thomas/openiac/internal/conformance/collect"
+	"github.com/be-thomas/openiac/internal/conformance/status"
 )
 
 func main() {
@@ -35,6 +38,11 @@ func main() {
 			fmt.Fprintln(os.Stderr, "openiac-conformance:", err)
 			os.Exit(1)
 		}
+	case "status":
+		if err := runStatus(os.Args[2:]); err != nil {
+			fmt.Fprintln(os.Stderr, "openiac-conformance:", err)
+			os.Exit(1)
+		}
 	case "-h", "--help", "help":
 		usage()
 	default:
@@ -45,7 +53,7 @@ func main() {
 }
 
 func usage() {
-	fmt.Fprint(os.Stderr, `usage: openiac-conformance <collect|verify|lock> [flags]
+	fmt.Fprint(os.Stderr, `usage: openiac-conformance <collect|verify|lock|status> [flags]
 
 collect downloads upstream modules and rewrites the fixture tree.
 
@@ -75,6 +83,15 @@ to the fixture tree and never uses the network.
   -out string           fixture tree (default conformance/fixtures)
   -lock string          lock file (default conformance/corpus.lock.json)
   -third-party string   attribution file (default THIRD_PARTY.md)
+
+status parses every fixture and rewrites the committed summary the README
+renders. It never uses the network.
+
+  -out string           fixture tree (default conformance/fixtures)
+  -lock string          lock file (default conformance/corpus.lock.json)
+  -status string        summary file (default conformance/status.json)
+  -badge string         shields.io endpoint file (default conformance/badge.json)
+  -check                report a stale summary instead of rewriting it
 `)
 }
 
@@ -172,6 +189,77 @@ func runLock(args []string) error {
 	fmt.Printf("lock: %d fixtures, %d files, %d bytes, tree %s\n",
 		l.FixtureCount, l.FileCount, l.TotalBytes, l.TreeSHA256)
 	return nil
+}
+
+func runStatus(args []string) error {
+	fs := flag.NewFlagSet("status", flag.ExitOnError)
+	out := fs.String("out", "conformance/fixtures", "fixture tree")
+	lockPath := fs.String("lock", "conformance/corpus.lock.json", "lock file")
+	statusPath := fs.String("status", "conformance/status.json", "summary file")
+	badgePath := fs.String("badge", "conformance/badge.json", "shields.io endpoint file")
+	check := fs.Bool("check", false, "report a stale summary instead of rewriting it")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+
+	report, err := status.Compute(*out, *lockPath)
+	if err != nil {
+		return err
+	}
+	statusJSON, err := marshalIndent(report)
+	if err != nil {
+		return err
+	}
+	badgeJSON, err := marshalIndent(report.Badge())
+	if err != nil {
+		return err
+	}
+
+	if *check {
+		var stale []string
+		for _, file := range []struct {
+			path string
+			want []byte
+		}{
+			{*statusPath, statusJSON},
+			{*badgePath, badgeJSON},
+		} {
+			got, err := os.ReadFile(file.path)
+			if err != nil {
+				stale = append(stale, file.path)
+				continue
+			}
+			if !bytes.Equal(got, file.want) {
+				stale = append(stale, file.path)
+			}
+		}
+		if len(stale) > 0 {
+			return fmt.Errorf("%s is stale: run `make conformance-status` and commit the result", strings.Join(stale, ", "))
+		}
+		fmt.Printf("status: %d/%d modules parse, summary current\n", report.Parse.Parsed, report.Parse.Modules)
+		return nil
+	}
+
+	if err := os.WriteFile(*statusPath, statusJSON, 0o644); err != nil {
+		return err
+	}
+	if err := os.WriteFile(*badgePath, badgeJSON, 0o644); err != nil {
+		return err
+	}
+	fmt.Printf("status: %d/%d modules parse\n", report.Parse.Parsed, report.Parse.Modules)
+	fmt.Println(report.Markdown())
+	fmt.Println(report.Mermaid())
+	return nil
+}
+
+// marshalIndent encodes a report the way the rest of the repository encodes
+// committed JSON: two-space indent and a trailing newline.
+func marshalIndent(v any) ([]byte, error) {
+	data, err := json.MarshalIndent(v, "", "  ")
+	if err != nil {
+		return nil, err
+	}
+	return append(data, '\n'), nil
 }
 
 func githubToken() string {

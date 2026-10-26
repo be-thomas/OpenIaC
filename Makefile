@@ -2,7 +2,7 @@ GO ?= go
 BIN := bin/openiac
 PLAYGROUND := playground
 
-.PHONY: all build test vet fmt tidy wasm playground clean hooks conformance-inputs conformance-verify conformance-lock
+.PHONY: all build test vet fmt tidy wasm playground clean hooks conformance-inputs conformance-verify conformance-lock conformance-status
 
 all: build
 
@@ -37,6 +37,14 @@ conformance-verify:
 # Regenerate the lock and attribution from the committed fixture tree.
 conformance-lock:
 	$(GO) run ./cmd/openiac-conformance lock
+
+# Parse the whole corpus and refresh the summary the README renders.
+conformance-status:
+	$(GO) run ./cmd/openiac-conformance status
+
+# Fail when the committed summary no longer matches the corpus.
+conformance-status-check:
+	$(GO) run ./cmd/openiac-conformance status -check
 
 # Build the browser playground. Copies wasm_exec.js from the local toolchain,
 # which lives in a different directory depending on the Go version.
