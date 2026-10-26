@@ -108,8 +108,10 @@ type Block struct {
 	// properties of a .tf.json document; native HCL always fills Attributes and
 	// Blocks.
 	Body *Value `json:"body,omitempty"`
-	// File is set for top-level blocks. Nested blocks inherit their parent's
-	// file and leave this empty.
+	// File and Line locate the block. Top-level and native nested blocks carry
+	// both. A block derived from a flat .tf.json body carries the enclosing
+	// file and no line, because JSON has no per-block position below the top
+	// level.
 	File string `json:"file,omitempty"`
 	Line int    `json:"line,omitempty"`
 }

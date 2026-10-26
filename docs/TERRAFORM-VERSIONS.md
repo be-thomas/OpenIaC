@@ -191,7 +191,9 @@ Two differences matter to consumers:
 - **Bodies below the top level are flat.** HCL exposes no block structure inside
   a JSON body, so an object property becomes a `map` value rather than a nested
   `Block`. `lifecycle`, `default_tags`, `provisioner` and friends therefore
-  appear in `attributes`, not `blocks`. Every consumer must accept both shapes.
+  appear in `attributes`, not `blocks`. An emitter that knows its schema calls
+  `emitters.UnflattenBlocks` to recover them, so both syntaxes produce the same
+  TypeScript; a block type no mapping declares stays a flat value.
 
 Expressions keep working: a JSON string containing `${…}` or `%{…}` becomes an
 `expr` value with its references collected, and is normalised to a quoted HCL

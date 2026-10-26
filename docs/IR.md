@@ -307,8 +307,10 @@ Rules:
 
 - **Only resources and data sources produce edges.** An output reading
   `aws_vpc.main.id` does not create an edge, because outputs are not ordered.
-- **An edge is only created when both ends are nodes.** `HasNode` filters
-  references to variables, locals and modules out of the resource graph.
+- **An edge is only created when both ends name a node.** `HasNode` recognises
+  resource and data source addresses and the `var.`, `local.` and `module.`
+  forms, so those edges are kept; a reference such as `aws.west` or
+  `path.module` is dropped.
 - **Duplicates and self-edges are dropped.** `AddEdge` is idempotent; add them in
   any order.
 - **Preserved blocks never create edges.** A `moved` or `import` block mentions
@@ -429,8 +431,10 @@ kind must treat it as "cannot convert" and warn, never as a literal.
 - **No imperative logic.** There are no conditionals or loops to render; a
   parser either resolves them or reports an expression.
 - **JSON bodies are flat below the top level.** HCL exposes no block structure in
-  a `.tf.json` body, so a nested block arrives as a `map` value. This is
-  documented rather than guessed.
+  a `.tf.json` body, so a nested block arrives as a `map` value. An emitter that
+  knows its block schema recovers the native shape with
+  `emitters.UnflattenBlocks`; otherwise the value stays flat. This is documented
+  rather than guessed.
 - **`line` is informational.** It is not stable across reformatting and must not
   be used for identity.
 

@@ -121,7 +121,14 @@
           "id": "attrGroupId"
         }
       },
-      "pulumi": { "module": "ec2", "class": "SecurityGroup" }
+      "pulumi": {
+        "module": "ec2",
+        "class": "SecurityGroup",
+        "blocks": {
+          "ingress": { "property": "ingress", "shape": "array" },
+          "egress": { "property": "egress", "shape": "array" }
+        }
+      }
     },
     "aws_internet_gateway": {
       "cdk": {

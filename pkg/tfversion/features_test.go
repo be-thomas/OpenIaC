@@ -169,6 +169,45 @@ func TestDetectActionEventsDoNotUseProvisionerOnFailure(t *testing.T) {
 	}
 }
 
+func TestDetectProviderRequirementsOnlyForVariablesAndLocals(t *testing.T) {
+	// configuration_aliases writes a provider address (aws.west), which has
+	// been valid since providers gained aliases. Only a variable or local in
+	// the requirement is the 1.17 feature.
+	aliased := &ir.Graph{
+		Version: ir.Version,
+		Terraform: &ir.Terraform{RequiredProviders: map[string]ir.Value{
+			"aws": {Kind: ir.KindMap, Fields: map[string]ir.Value{
+				"source": {Kind: ir.KindString, Literal: "hashicorp/aws"},
+				"configuration_aliases": {Kind: ir.KindList, Items: []ir.Value{
+					{Kind: ir.KindExpr, Expr: "aws.west", Refs: []string{"aws.west"}},
+				}},
+			}},
+		}},
+	}
+	if features := tfversion.Detect(aliased); contains(features, "provider_requirements_expressions") {
+		t.Errorf("features = %v, configuration_aliases must not fire the detector", features)
+	}
+	if _, min := tfversion.Analyze(aliased); min != tfversion.Baseline {
+		t.Errorf("min_version = %q, want %q", min, tfversion.Baseline)
+	}
+
+	withVariable := &ir.Graph{
+		Version: ir.Version,
+		Terraform: &ir.Terraform{RequiredProviders: map[string]ir.Value{
+			"aws": {Kind: ir.KindMap, Fields: map[string]ir.Value{
+				"version": {Kind: ir.KindExpr, Expr: "var.aws_version", Refs: []string{"var.aws_version"}},
+			}},
+		}},
+	}
+	features, min := tfversion.Analyze(withVariable)
+	if !contains(features, "provider_requirements_expressions") {
+		t.Errorf("features = %v, want provider_requirements_expressions", features)
+	}
+	if min != "1.17.0" {
+		t.Errorf("min_version = %q, want 1.17.0", min)
+	}
+}
+
 func contains(values []string, want string) bool {
 	for _, value := range values {
 		if value == want {

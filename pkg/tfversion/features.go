@@ -215,7 +215,7 @@ var registry = []feature{
 		description: "variables and locals in provider requirements",
 		detect: func(s *scan) bool {
 			for _, v := range s.requiredProviders {
-				if hasRefs(v) {
+				if hasVariableOrLocalRef(v) {
 					return true
 				}
 			}
@@ -476,17 +476,24 @@ func hasBlockType(blocks []ir.Block, blockType string) bool {
 	return false
 }
 
-func hasRefs(v ir.Value) bool {
-	if len(v.Refs) > 0 {
-		return true
+// hasVariableOrLocalRef reports whether a required_providers declaration reads
+// a variable or a local, which is what Terraform 1.17 added. Other references
+// are not a version signal: configuration_aliases writes a provider address
+// such as aws.west, and that form has been valid since providers gained
+// aliases.
+func hasVariableOrLocalRef(v ir.Value) bool {
+	for _, ref := range v.Refs {
+		if strings.HasPrefix(ref, "var.") || strings.HasPrefix(ref, "local.") {
+			return true
+		}
 	}
 	for _, item := range v.Items {
-		if hasRefs(item) {
+		if hasVariableOrLocalRef(item) {
 			return true
 		}
 	}
 	for _, field := range v.Fields {
-		if hasRefs(field) {
+		if hasVariableOrLocalRef(field) {
 			return true
 		}
 	}
