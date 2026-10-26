@@ -340,6 +340,7 @@ tree, its lock and the generated attribution on every pull request.
 
 [![conformance](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbe-thomas%2FOpenIaC%2Fmain%2Fconformance%2Fbadge.json&style=flat-square)](conformance/status.json)
 
+<!-- conformance:summary:start -->
 ```mermaid
 xychart-beta
     title "Fixtures by minimum Terraform version"
@@ -347,6 +348,7 @@ xychart-beta
     y-axis "Fixtures" 0 --> 500
     bar [477, 34, 4, 168, 1, 117, 15, 3, 6, 9, 6, 13]
 ```
+<!-- conformance:summary:end -->
 
 Every one of the 853 modules parses into schema `0.2` IR. The chart groups each
 module by the oldest Terraform release its configuration needs; the exact

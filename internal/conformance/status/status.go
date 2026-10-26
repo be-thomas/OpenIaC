@@ -3,8 +3,7 @@
 //
 // The report is committed as conformance/status.json and rendered in the
 // README, so a reader can see what the corpus actually proves without running
-// the corpus test. It is also the data source for the playground's
-// observability panel.
+// the corpus test. It stays small so the playground can serve it unchanged.
 package status
 
 import (
@@ -99,7 +98,7 @@ func Compute(fixturesDir, lockPath string) (Report, error) {
 		if err != nil {
 			report.Parse.Failed++
 			if len(report.Parse.Failures) < maxFailures {
-				report.Parse.Failures = append(report.Parse.Failures, fmt.Sprintf("%s: %v", trim(fixturesDir, dir), err))
+				report.Parse.Failures = append(report.Parse.Failures, fmt.Sprintf("%s: %v", filepath.ToSlash(trim(fixturesDir, dir)), err))
 			}
 			continue
 		}
@@ -269,4 +268,47 @@ func axisMax(max int) int {
 		step *= 10
 	}
 	return (max/step + 1) * step
+}
+
+// Section markers delimit the generated block in README.md.
+const (
+	SectionStart = "<!-- conformance:summary:start -->"
+	SectionEnd   = "<!-- conformance:summary:end -->"
+)
+
+// Section renders the generated README block, markers included and without a
+// trailing newline: the document keeps the one after the closing marker.
+func (r Report) Section() string {
+	return SectionStart + "\n" + r.Mermaid() + SectionEnd
+}
+
+// ExtractSection returns the marked block of document.
+func ExtractSection(document string) (string, error) {
+	start, end, err := sectionBounds(document)
+	if err != nil {
+		return "", err
+	}
+	return document[start:end], nil
+}
+
+// ReplaceSection returns document with its marked block replaced by section.
+func ReplaceSection(document, section string) (string, error) {
+	start, end, err := sectionBounds(document)
+	if err != nil {
+		return "", err
+	}
+	return document[:start] + section + document[end:], nil
+}
+
+// sectionBounds locates the marked block, markers included.
+func sectionBounds(document string) (int, int, error) {
+	start := strings.Index(document, SectionStart)
+	if start < 0 {
+		return 0, 0, fmt.Errorf("missing marker %s", SectionStart)
+	}
+	end := strings.Index(document[start:], SectionEnd)
+	if end < 0 {
+		return 0, 0, fmt.Errorf("missing marker %s after %s", SectionEnd, SectionStart)
+	}
+	return start, start + end + len(SectionEnd), nil
 }

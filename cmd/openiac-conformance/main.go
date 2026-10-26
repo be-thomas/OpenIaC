@@ -2,7 +2,6 @@
 package main
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"flag"
@@ -91,6 +90,7 @@ renders. It never uses the network.
   -lock string          lock file (default conformance/corpus.lock.json)
   -status string        summary file (default conformance/status.json)
   -badge string         shields.io endpoint file (default conformance/badge.json)
+  -readme string        file holding the generated summary block (default README.md)
   -check                report a stale summary instead of rewriting it
 `)
 }
@@ -197,6 +197,7 @@ func runStatus(args []string) error {
 	lockPath := fs.String("lock", "conformance/corpus.lock.json", "lock file")
 	statusPath := fs.String("status", "conformance/status.json", "summary file")
 	badgePath := fs.String("badge", "conformance/badge.json", "shields.io endpoint file")
+	readmePath := fs.String("readme", "README.md", "file holding the generated summary block")
 	check := fs.Bool("check", false, "report a stale summary instead of rewriting it")
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -214,6 +215,10 @@ func runStatus(args []string) error {
 	if err != nil {
 		return err
 	}
+	readme, err := os.ReadFile(*readmePath)
+	if err != nil {
+		return err
+	}
 
 	if *check {
 		var stale []string
@@ -225,13 +230,16 @@ func runStatus(args []string) error {
 			{*badgePath, badgeJSON},
 		} {
 			got, err := os.ReadFile(file.path)
-			if err != nil {
-				stale = append(stale, file.path)
-				continue
-			}
-			if !bytes.Equal(got, file.want) {
+			if err != nil || normalizeNewlines(string(got)) != normalizeNewlines(string(file.want)) {
 				stale = append(stale, file.path)
 			}
+		}
+		section, err := status.ExtractSection(string(readme))
+		if err != nil {
+			return fmt.Errorf("%s: %w", *readmePath, err)
+		}
+		if normalizeNewlines(section) != normalizeNewlines(report.Section()) {
+			stale = append(stale, *readmePath)
 		}
 		if len(stale) > 0 {
 			return fmt.Errorf("%s is stale: run `make conformance-status` and commit the result", strings.Join(stale, ", "))
@@ -240,16 +248,30 @@ func runStatus(args []string) error {
 		return nil
 	}
 
+	// Render the README block before touching any file, so a missing marker
+	// fails the run instead of leaving half the summary rewritten.
+	updated, err := status.ReplaceSection(string(readme), report.Section())
+	if err != nil {
+		return fmt.Errorf("%s: %w", *readmePath, err)
+	}
 	if err := os.WriteFile(*statusPath, statusJSON, 0o644); err != nil {
 		return err
 	}
 	if err := os.WriteFile(*badgePath, badgeJSON, 0o644); err != nil {
 		return err
 	}
+	if err := os.WriteFile(*readmePath, []byte(updated), 0o644); err != nil {
+		return err
+	}
 	fmt.Printf("status: %d/%d modules parse\n", report.Parse.Parsed, report.Parse.Modules)
 	fmt.Println(report.Markdown())
-	fmt.Println(report.Mermaid())
 	return nil
+}
+
+// normalizeNewlines keeps -check independent of the checkout's line endings:
+// Git for Windows hands out CRLF files for content stored as LF.
+func normalizeNewlines(s string) string {
+	return strings.ReplaceAll(s, "\r\n", "\n")
 }
 
 // marshalIndent encodes a report the way the rest of the repository encodes

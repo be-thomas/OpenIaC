@@ -1,0 +1,4 @@
+# Generated, byte-compared files stay LF on every platform so
+# `make conformance-status-check` behaves the same on Windows and Unix.
+conformance/*.json text eol=lf
+README.md text eol=lf

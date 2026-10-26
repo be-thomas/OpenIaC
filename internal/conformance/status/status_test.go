@@ -85,6 +85,53 @@ func TestMinorRowsAggregateAndSort(t *testing.T) {
 	}
 }
 
+func TestSectionRoundTrip(t *testing.T) {
+	report := status.Report{
+		Parse:       status.Parse{Modules: 2, Parsed: 2},
+		MinVersions: map[string]int{"1.0.0": 1, "1.5.0": 1},
+	}
+	header := "# Title\n\nIntro.\n\n"
+	footer := "\n\nTrailing prose.\n"
+	document := header + report.Section() + footer
+
+	section, err := status.ExtractSection(document)
+	if err != nil {
+		t.Fatalf("ExtractSection: %v", err)
+	}
+	if section != report.Section() {
+		t.Fatalf("ExtractSection = %q, want the generated section", section)
+	}
+
+	updated := status.Report{
+		Parse:       status.Parse{Modules: 2, Parsed: 2},
+		MinVersions: map[string]int{"1.0.0": 2},
+	}
+	replaced, err := status.ReplaceSection(document, updated.Section())
+	if err != nil {
+		t.Fatalf("ReplaceSection: %v", err)
+	}
+	if want := header + updated.Section() + footer; replaced != want {
+		t.Fatalf("ReplaceSection = %q, want %q", replaced, want)
+	}
+
+	again, err := status.ReplaceSection(replaced, updated.Section())
+	if err != nil {
+		t.Fatalf("ReplaceSection (second pass): %v", err)
+	}
+	if again != replaced {
+		t.Fatalf("ReplaceSection is not idempotent:\nfirst  %q\nsecond %q", replaced, again)
+	}
+}
+
+func TestSectionRejectsUnmarkedDocument(t *testing.T) {
+	if _, err := status.ExtractSection("# no markers here\n"); err == nil {
+		t.Error("ExtractSection accepted a document without markers")
+	}
+	if _, err := status.ReplaceSection(status.SectionStart+"\n", "replacement"); err == nil {
+		t.Error("ReplaceSection accepted a document with an unclosed block")
+	}
+}
+
 func writeModule(t *testing.T, fixtures, rel, content string) {
 	t.Helper()
 	dir := filepath.Join(fixtures, rel)

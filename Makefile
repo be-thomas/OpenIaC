@@ -2,7 +2,7 @@ GO ?= go
 BIN := bin/openiac
 PLAYGROUND := playground
 
-.PHONY: all build test vet fmt tidy wasm playground clean hooks conformance-inputs conformance-verify conformance-lock conformance-status
+.PHONY: all build test vet fmt tidy wasm playground clean hooks conformance-inputs conformance-verify conformance-lock conformance-status conformance-status-check
 
 all: build
 
