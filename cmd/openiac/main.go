@@ -11,11 +11,10 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/be-thomas/openiac/internal/buildinfo"
 	"github.com/be-thomas/openiac/pkg/emitters"
 	"github.com/be-thomas/openiac/pkg/engine"
 )
-
-const version = "0.1.0-dev"
 
 func main() {
 	os.Exit(run(os.Args[1:], os.Stdout, os.Stderr))
@@ -32,7 +31,7 @@ func run(args []string, stdout, stderr io.Writer) int {
 	case "ir":
 		return runIR(args[1:], stdout, stderr)
 	case "version", "--version", "-v":
-		fmt.Fprintf(stdout, "openiac %s\n", version)
+		fmt.Fprintf(stdout, "openiac %s\n", buildinfo.Version)
 		return 0
 	case "help", "--help", "-h":
 		usage(stdout)

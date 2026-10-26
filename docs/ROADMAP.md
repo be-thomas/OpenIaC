@@ -35,7 +35,7 @@ playground produces the same output as the CLI.
 
 ---
 
-## v0.1.1 — Release hardening · Nov 2026 🚧
+## v0.1.1 — Release hardening · Nov 2026 ✅
 
 | Task | Exit criteria |
 |:--|:--|

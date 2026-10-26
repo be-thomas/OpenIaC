@@ -113,6 +113,23 @@ make fmt && make vet && make test
 
 `gofmt -l .` should print nothing.
 
+## Golden output
+
+`pkg/engine/golden_test.go` snapshots `examples/aws-web-app` for both targets
+into `pkg/engine/testdata/golden/`. Any change to generated TypeScript, or to
+the warnings a target reports, fails the test. When a change is intended,
+refresh the snapshots, review the diff, and commit it with the code:
+
+```bash
+go test ./pkg/engine -run TestGoldenAwsWebApp -update
+```
+
+## Releasing a version
+
+The version is recorded once, in `internal/buildinfo/VERSION`, and embedded at
+build time. `go build`, `go run` and `make build` all report the same value, so
+a release only bumps that file.
+
 ## Code style
 
 - Standard Go. No frameworks.
