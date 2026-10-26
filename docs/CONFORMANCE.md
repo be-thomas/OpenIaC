@@ -382,6 +382,23 @@ One pinned image with:
 | `W_PROVIDER` | Non-AWS or aliased provider not converted |
 | `W_FUNCTION` | Unsupported HCL function |
 | `W_HEREDOC` | Heredoc left unchanged |
+| `W_PRESERVED_BLOCK` | A top-level block has no target mapping and was preserved (`moved`, `import`, `removed`, `check`, `ephemeral`, `action`, or an unknown type) |
+| `W_TERRAFORM_BACKEND` | `terraform.backend` was not converted |
+| `W_TERRAFORM_CLOUD` | `terraform.cloud` was not converted |
+| `W_TERRAFORM_PROVIDER_META` | `terraform.provider_meta` was not converted |
+| `W_CONDITION` | A `precondition` / `postcondition` was not converted |
+| `W_VARIABLE_VALIDATION` | A variable `validation` block was not converted |
+| `W_UNSUPPORTED_FIELD` | A typed node carries an attribute or nested block the IR does not model |
+
+Warnings added from schema `0.2` onward are emitted as `CODE: message`, with
+`file:line` taken from the IR's provenance so the text is portable. Codes are
+grouped and sorted where the same construct repeats, and `Warnings` dedupes
+identical text, so a fixture can assert an exact message.
+
+`W_PRESERVED_BLOCK` is the code that keeps `silent_drops` at zero for the
+Terraform 1.x language: a construct OpenIaC cannot convert always produces at
+least one warning. `required_version` alone never warns — it is metadata about
+the input, not a conversion gap.
 
 Warning codes must be stable, documented and asserted by fixtures. Codes may be
 added; changing or removing one is a breaking change.

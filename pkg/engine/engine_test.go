@@ -9,6 +9,7 @@ import (
 
 	"github.com/be-thomas/openiac/pkg/emitters"
 	"github.com/be-thomas/openiac/pkg/engine"
+	"github.com/be-thomas/openiac/pkg/ir"
 )
 
 const source = `
@@ -189,8 +190,8 @@ func TestMarshalIR(t *testing.T) {
 	if err := json.Unmarshal(data, &decoded); err != nil {
 		t.Fatalf("IR is not valid JSON: %v", err)
 	}
-	if decoded.Version != "0.1" {
-		t.Errorf("version = %q, want 0.1", decoded.Version)
+	if decoded.Version != ir.Version {
+		t.Errorf("version = %q, want %q", decoded.Version, ir.Version)
 	}
 	if len(decoded.Resources) != 2 || len(decoded.Edges) == 0 {
 		t.Errorf("resources=%d edges=%d", len(decoded.Resources), len(decoded.Edges))

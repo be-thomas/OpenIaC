@@ -5,7 +5,7 @@ target-agnostic graph, then renders that graph as TypeScript for AWS CDK or
 Pulumi.
 
 ```text
-.tf files
+.tf / .tf.json
    │
    ▼
 ┌────────────┐    ┌────────────┐    ┌────────────┐    ┌────────────┐
@@ -23,8 +23,9 @@ writing one package, not a new frontend.
 
 | Package | Responsibility |
 |:--|:--|
-| [`pkg/parsers/hcl`](../pkg/parsers/hcl/) | Reads native HCL syntax into the IR. The only package that knows Terraform exists. |
-| [`pkg/ir`](../pkg/ir/) | Graph types, edge bookkeeping, deterministic topological order, cycle reporting. |
+| [`pkg/parsers/hcl`](../pkg/parsers/hcl/) | Reads native HCL and JSON (`.tf` and `.tf.json`) into the IR. The only package that knows Terraform exists. |
+| [`pkg/ir`](../pkg/ir/) | Graph types, edge bookkeeping, deterministic topological order, cycle reporting. Contract documented in [IR.md](IR.md). |
+| [`pkg/tfversion`](../pkg/tfversion/) | Maps detected language features to `min_version`; parses `required_version` constraints. |
 | [`pkg/mappings`](../pkg/mappings/) | Embedded JSON registry describing target constructs per resource type. |
 | [`pkg/emitutil`](../pkg/emitutil/) | Naming, reference rewriting, value/template rendering shared by emitters. |
 | [`pkg/emitters/awscdk`](../pkg/emitters/awscdk/) | `aws-cdk-lib` TypeScript, L1 and L2 constructs. |
@@ -37,18 +38,31 @@ writing one package, not a new frontend.
 The IR is deliberately flat. It has no loops, conditionals or expressions the
 emitter must evaluate — those are either resolved or reported as a warning.
 
+Schema `0.2` is additive over `0.1`. The full reference — every field, value
+kind, guarantee and the extension policy — is in [IR.md](IR.md).
+
 ```go
 type Graph struct {
-    Version   string
-    Resources []*Resource   // managed resources and data sources
-    Variables []*Variable
-    Locals    []*Local
-    Outputs   []*Output
-    Modules   []*Module
-    Providers []*Provider
-    Edges     []Edge
+    Version    string
+    Terraform  *Terraform  // merged terraform block settings
+    Resources  []*Resource // managed resources and data sources
+    Variables  []*Variable
+    Locals     []*Local
+    Outputs    []*Output
+    Modules    []*Module
+    Providers  []*Provider
+    Preserved  []Block     // moved, import, removed, check, ephemeral, action, unknown
+    Features   []string    // detected Terraform language features
+    MinVersion string      // oldest Terraform release that accepts the input
+    Edges      []Edge
 }
 ```
+
+`Preserved` is how the parser accepts the whole Terraform 1.x language without a
+typed node per construct: anything OpenIaC cannot convert is kept in the graph so
+an emitter can warn about it, and never enters `Resources` (both emitters treat
+every entry there as a managed resource). See
+[TERRAFORM-VERSIONS.md](TERRAFORM-VERSIONS.md).
 
 ### Nodes
 
@@ -169,6 +183,9 @@ To add a target:
 2. Implement `Emit`: call `graph.Order()`, build identifiers, construct one
    `RefRewriter`, render each node.
 3. Collect every unsupported construct in `emitters.Warnings` — never drop it.
+   Call `emitters.WarnUnsupported(graph, warnings)` once, right after creating
+   the collector, so preserved blocks, unconverted `terraform` settings and
+   conditions are reported with their stable `W_*` codes.
 4. Register the target in `engine.NewEmitter` and `engine.ParseTargets`.
 
 ## Determinism

@@ -48,6 +48,7 @@ func (e *Emitter) Emit(graph *ir.Graph, options emitters.Options) (*emitters.Res
 		varIdents:    make(map[string]string, len(graph.Variables)),
 		usedModules:  make(map[string]bool),
 	}
+	emitters.WarnUnsupported(graph, r.warnings)
 
 	namer := emitutil.NewNamer()
 	for _, reserved := range []string{"cdk", "Construct", "Stack"} {

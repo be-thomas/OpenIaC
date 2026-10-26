@@ -5,10 +5,15 @@
 // in a target language. Nothing in the IR represents loops, conditionals or
 // other imperative logic — those are resolved by the parser before the graph is
 // built.
+//
+// Schema 0.2 is additive over 0.1: no existing field changed type or meaning.
+// Configuration the IR does not model is preserved rather than dropped, in
+// Graph.Preserved, in Terraform, or in each node's Attributes and Blocks. The
+// full contract is documented in docs/IR.md.
 package ir
 
 // Version is the schema version of the IR document.
-const Version = "0.1"
+const Version = "0.2"
 
 // Kind identifies what a node represents.
 type Kind string
@@ -28,13 +33,48 @@ const (
 type Graph struct {
 	Version   string      `json:"version"`
 	Source    string      `json:"source,omitempty"`
+	Terraform *Terraform  `json:"terraform,omitempty"`
 	Resources []*Resource `json:"resources"`
 	Variables []*Variable `json:"variables,omitempty"`
 	Locals    []*Local    `json:"locals,omitempty"`
 	Outputs   []*Output   `json:"outputs,omitempty"`
 	Modules   []*Module   `json:"modules,omitempty"`
 	Providers []*Provider `json:"providers,omitempty"`
-	Edges     []Edge      `json:"edges"`
+	// Preserved holds top-level configuration the IR has no typed node for:
+	// moved, import, removed, check, ephemeral, action, and any future or
+	// unrecognised block type. Preserved blocks carry no node identity and never
+	// appear in Resources, Order or Stats.
+	Preserved []Block `json:"preserved,omitempty"`
+	// Features lists the Terraform language features detected in the input, in
+	// sorted order. See package tfversion.
+	Features []string `json:"features,omitempty"`
+	// MinVersion is the oldest Terraform release that accepts this
+	// configuration, derived from Features and Terraform.RequiredVersion.
+	MinVersion string `json:"min_version,omitempty"`
+	Edges      []Edge `json:"edges"`
+}
+
+// Terraform is the merge of every terraform block in the module. Settings the
+// IR models are typed; everything else is kept in Attributes and Blocks so
+// nothing is lost.
+type Terraform struct {
+	RequiredVersion string `json:"required_version,omitempty"`
+	// RequiredProviders maps a provider local name (for example "aws") to its
+	// declaration: a map with source, version and configuration_aliases.
+	RequiredProviders map[string]Value `json:"required_providers,omitempty"`
+	Experiments       []string         `json:"experiments,omitempty"`
+	// Backend is the legacy state backend; Labels[0] is the backend type.
+	Backend *Block `json:"backend,omitempty"`
+	// Cloud is the HCP Terraform / Terraform Cloud integration block.
+	Cloud *Block `json:"cloud,omitempty"`
+	// ProviderMeta holds provider_meta blocks; Labels[0] is the provider name.
+	ProviderMeta []Block `json:"provider_meta,omitempty"`
+	// Attributes keeps terraform settings the IR does not model.
+	Attributes map[string]Value `json:"attributes,omitempty"`
+	// Blocks keeps nested terraform blocks the IR does not model.
+	Blocks []Block `json:"blocks,omitempty"`
+	File   string  `json:"file,omitempty"`
+	Line   int     `json:"line,omitempty"`
 }
 
 // Resource is a managed resource or data source.
@@ -57,13 +97,21 @@ type Resource struct {
 }
 
 // Block is a nested configuration block (for example a security group ingress
-// rule).
+// rule), or a preserved top-level construct that has no typed node.
 type Block struct {
 	Type       string           `json:"type"`
 	Labels     []string         `json:"labels,omitempty"`
 	Attributes map[string]Value `json:"attributes,omitempty"`
 	Blocks     []Block          `json:"blocks,omitempty"`
-	Line       int              `json:"line,omitempty"`
+	// Body preserves a JSON value the parser could not decompose into
+	// attributes and blocks. It is set only for unrecognised top-level
+	// properties of a .tf.json document; native HCL always fills Attributes and
+	// Blocks.
+	Body *Value `json:"body,omitempty"`
+	// File is set for top-level blocks. Nested blocks inherit their parent's
+	// file and leave this empty.
+	File string `json:"file,omitempty"`
+	Line int    `json:"line,omitempty"`
 }
 
 // Variable is a declared input variable.
@@ -73,12 +121,26 @@ type Variable struct {
 	Default     *Value `json:"default,omitempty"`
 	Description string `json:"description,omitempty"`
 	Sensitive   bool   `json:"sensitive,omitempty"`
+	// Nullable is Terraform 1.1+. Nil means the argument was not set.
+	Nullable *bool `json:"nullable,omitempty"`
+	// Ephemeral is Terraform 1.10+.
+	Ephemeral bool `json:"ephemeral,omitempty"`
+	// Deprecated is the deprecation message, Terraform 1.15+.
+	Deprecated string `json:"deprecated,omitempty"`
+	// Attributes keeps variable settings the IR does not model.
+	Attributes map[string]Value `json:"attributes,omitempty"`
+	// Blocks keeps nested blocks such as validation.
+	Blocks []Block `json:"blocks,omitempty"`
+	File   string  `json:"file,omitempty"`
+	Line   int     `json:"line,omitempty"`
 }
 
 // Local is a named local value.
 type Local struct {
 	Name  string `json:"name"`
 	Value Value  `json:"value"`
+	File  string `json:"file,omitempty"`
+	Line  int    `json:"line,omitempty"`
 }
 
 // Output is a declared output value.
@@ -87,6 +149,18 @@ type Output struct {
 	Value       Value  `json:"value"`
 	Description string `json:"description,omitempty"`
 	Sensitive   bool   `json:"sensitive,omitempty"`
+	// Type is the output type constraint, Terraform 1.15+.
+	Type string `json:"type,omitempty"`
+	// Ephemeral is Terraform 1.10+.
+	Ephemeral bool `json:"ephemeral,omitempty"`
+	// Deprecated is the deprecation message, Terraform 1.15+.
+	Deprecated string `json:"deprecated,omitempty"`
+	// Attributes keeps output settings the IR does not model.
+	Attributes map[string]Value `json:"attributes,omitempty"`
+	// Blocks keeps nested blocks such as precondition and postcondition.
+	Blocks []Block `json:"blocks,omitempty"`
+	File   string  `json:"file,omitempty"`
+	Line   int     `json:"line,omitempty"`
 }
 
 // Module is a module call. OpenIaC does not yet expand modules; the call is
@@ -97,6 +171,8 @@ type Module struct {
 	Version    string           `json:"version,omitempty"`
 	Attributes map[string]Value `json:"attributes,omitempty"`
 	Blocks     []Block          `json:"blocks,omitempty"`
+	File       string           `json:"file,omitempty"`
+	Line       int              `json:"line,omitempty"`
 }
 
 // Provider is a provider configuration block.
@@ -104,6 +180,9 @@ type Provider struct {
 	Name       string           `json:"name"`
 	Alias      string           `json:"alias,omitempty"`
 	Attributes map[string]Value `json:"attributes,omitempty"`
+	Blocks     []Block          `json:"blocks,omitempty"`
+	File       string           `json:"file,omitempty"`
+	Line       int              `json:"line,omitempty"`
 }
 
 // ValueKind describes how a Value is stored.

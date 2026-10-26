@@ -47,6 +47,7 @@ func (e *Emitter) Emit(graph *ir.Graph, options emitters.Options) (*emitters.Res
 		resourceByID: make(map[string]*ir.Resource, len(graph.Resources)),
 		varIdents:    make(map[string]string, len(graph.Variables)),
 	}
+	emitters.WarnUnsupported(graph, r.warnings)
 
 	namer := emitutil.NewNamer()
 	for _, reserved := range []string{"pulumi", "aws", "config", "exports"} {
