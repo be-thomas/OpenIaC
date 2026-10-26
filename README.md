@@ -356,7 +356,7 @@ Every one of the 853 modules parses into schema `0.2` IR and produces non-empty
 AWS CDK and Pulumi TypeScript. The last two rows are the honest part: only 27
 and 31 of them convert with no warnings at all, because an unmapped resource or
 an unsupported block is reported rather than dropped. Exact counts, including
-each module's minimum Terraform version, are in
+the distribution of each module's minimum Terraform version, are in
 [`conformance/status.json`](conformance/status.json), which
 `make conformance-status` regenerates and CI checks.
 

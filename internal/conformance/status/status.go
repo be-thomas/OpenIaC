@@ -159,12 +159,27 @@ func Compute(fixturesDir, lockPath string) (Report, error) {
 	return report, nil
 }
 
-// addFailure records a capped, repository-relative failure message.
+// addFailure records a capped failure message with the fixture path relative to
+// the fixtures root. The error itself usually quotes the paths it was given, so
+// they are trimmed too: an absolute -out would otherwise put a checkout-specific
+// path in the committed report and make -check depend on where the tree lives.
 func addFailure(failures *[]string, root, dir string, err error) {
 	if len(*failures) >= maxFailures {
 		return
 	}
-	*failures = append(*failures, fmt.Sprintf("%s: %v", filepath.ToSlash(trim(root, dir)), err))
+	*failures = append(*failures, fmt.Sprintf("%s: %s", filepath.ToSlash(trim(root, dir)), relativize(err.Error(), root)))
+}
+
+// relativize drops the fixtures root from a message. Both separator forms are
+// handled so the report stays portable across platforms.
+func relativize(message, root string) string {
+	if root == "" {
+		return message
+	}
+	for _, prefix := range []string{filepath.ToSlash(root) + "/", root + string(filepath.Separator)} {
+		message = strings.ReplaceAll(message, prefix, "")
+	}
+	return message
 }
 
 // hasContent reports whether an emitter produced any non-empty file. An emitter
@@ -275,11 +290,23 @@ func share(count, total int) string {
 }
 
 // percent rounds to the nearest whole percentage so 27/853 reads as 3%, not 0%.
+// A partial result is clamped to 1–99: rounding 852/853 to 100% would print a
+// full bar beside a failed module, and 1/853 must not read as nothing at all.
 func percent(count, total int) int {
-	if total <= 0 {
+	if count <= 0 || total <= 0 {
 		return 0
 	}
-	return (count*100 + total/2) / total
+	if count >= total {
+		return 100
+	}
+	pct := (count*100 + total/2) / total
+	if pct < 1 {
+		return 1
+	}
+	if pct > 99 {
+		return 99
+	}
+	return pct
 }
 
 // headline states the result in one sentence above the table.
