@@ -36,6 +36,7 @@ type irResponse struct {
 	Error     string `json:"error,omitempty"`
 	IR        string `json:"ir,omitempty"`
 	Resources int    `json:"resources,omitempty"`
+	Data      int    `json:"data,omitempty"`
 	Variables int    `json:"variables,omitempty"`
 	Outputs   int    `json:"outputs,omitempty"`
 	Edges     int    `json:"edges,omitempty"`
@@ -111,11 +112,12 @@ func parseIR(_ js.Value, args []js.Value) any {
 		return encode(irResponse{Error: err.Error()})
 	}
 
-	resources, _, variables, outputs, edges := graph.Stats()
+	resources, dataSources, variables, outputs, edges := graph.Stats()
 	return encode(irResponse{
 		OK:        true,
 		IR:        string(data),
 		Resources: resources,
+		Data:      dataSources,
 		Variables: variables,
 		Outputs:   outputs,
 		Edges:     edges,

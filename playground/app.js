@@ -55,6 +55,11 @@
       if (Date.now() > deadline) throw new Error('WebAssembly runtime did not start.');
       await new Promise((resolve) => setTimeout(resolve, 25));
     }
+    // The converter and the IR toggle read separate exports, so a build with
+    // only the first would leave the pane showing the other view's result.
+    if (typeof window.openiacIR !== 'function') {
+      throw new Error('This WebAssembly build predates the IR view. Run `make wasm` and reload the page.');
+    }
   }
 
   /* ---------------- monaco setup ---------------- */
@@ -189,6 +194,15 @@
     return state.target === 'cdk' ? 'AWS CDK' : 'Pulumi';
   }
 
+  // Shared by both views so the numbers describe the same graph. Data sources
+  // only appear when the input has them, which keeps the common case short.
+  function statsLine(result) {
+    const parts = [`${result.resources || 0} resources`];
+    if (result.data) parts.push(`${result.data} data`);
+    parts.push(`${result.variables || 0} vars`, `${result.outputs || 0} outputs`, `${result.edges || 0} edges`);
+    return parts.join(' · ');
+  }
+
   // The output pane shows either generated TypeScript or the IR, so the editor
   // language, file name and download name follow the active view.
   function updateOutputLanguage() {
@@ -248,17 +262,15 @@
     const warnings = result.warnings || [];
     renderWarnings(warnings);
 
-    const stats = [
-      `${result.resources || 0} resources`,
-      `${result.variables || 0} vars`,
-      `${result.outputs || 0} outputs`,
-      `${result.edges || 0} edges`,
-    ].join(' · ');
+    const stats = statsLine(result);
     setStatus('ok', `Converted to ${targetLabel()}.`, `${stats} · ${warnings.length} warnings`);
   }
 
   function convertIR(source) {
-    if (typeof window.openiacIR !== 'function') return;
+    if (typeof window.openiacIR !== 'function') {
+      fail(new Error('This WebAssembly build has no IR export. Run `make wasm` and reload the page.'));
+      return;
+    }
 
     let result;
     try {
@@ -282,12 +294,7 @@
     state.output.setValue(result.ir || '');
     renderWarnings([]);
 
-    const stats = [
-      `${result.resources || 0} resources`,
-      `${result.variables || 0} vars`,
-      `${result.outputs || 0} outputs`,
-      `${result.edges || 0} edges`,
-    ].join(' · ');
+    const stats = statsLine(result);
     setStatus('ok', 'Generated the universal IR.', schema ? `${stats} · schema ${schema}` : stats);
   }
 
