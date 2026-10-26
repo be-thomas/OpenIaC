@@ -29,8 +29,22 @@ type file struct {
 	Content string `json:"content"`
 }
 
+// irResponse carries the parsed graph as JSON text, so the playground can show
+// the IR without importing a TypeScript emitter.
+type irResponse struct {
+	OK        bool   `json:"ok"`
+	Error     string `json:"error,omitempty"`
+	IR        string `json:"ir,omitempty"`
+	Resources int    `json:"resources,omitempty"`
+	Data      int    `json:"data,omitempty"`
+	Variables int    `json:"variables,omitempty"`
+	Outputs   int    `json:"outputs,omitempty"`
+	Edges     int    `json:"edges,omitempty"`
+}
+
 func main() {
 	js.Global().Set("openiacTranspile", js.FuncOf(transpile))
+	js.Global().Set("openiacIR", js.FuncOf(parseIR))
 	<-make(chan struct{})
 }
 
@@ -80,7 +94,37 @@ func transpile(_ js.Value, args []js.Value) any {
 	return encode(out)
 }
 
-func encode(value response) string {
+// parseIR(source) returns the JSON IR for source as a string field, using the
+// same parser and schema version the CLI prints with `openiac ir`.
+func parseIR(_ js.Value, args []js.Value) any {
+	if len(args) == 0 || args[0].Type() != js.TypeString {
+		return encode(irResponse{Error: "missing HCL source"})
+	}
+	graph, err := engine.ParseSource(args[0].String(), "playground.tf")
+	if err != nil {
+		return encode(irResponse{Error: err.Error()})
+	}
+	if graph == nil {
+		return encode(irResponse{Error: "no graph produced"})
+	}
+	data, err := engine.MarshalIR(graph)
+	if err != nil {
+		return encode(irResponse{Error: err.Error()})
+	}
+
+	resources, dataSources, variables, outputs, edges := graph.Stats()
+	return encode(irResponse{
+		OK:        true,
+		IR:        string(data),
+		Resources: resources,
+		Data:      dataSources,
+		Variables: variables,
+		Outputs:   outputs,
+		Edges:     edges,
+	})
+}
+
+func encode(value any) string {
 	data, err := json.Marshal(value)
 	if err != nil {
 		return `{"ok":false,"error":"failed to encode response"}`

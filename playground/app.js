@@ -6,6 +6,8 @@
 
   const state = {
     target: 'cdk',
+    view: 'code',
+    monaco: null,
     input: null,
     output: null,
     debounce: 0,
@@ -52,6 +54,11 @@
     while (typeof window.openiacTranspile !== 'function') {
       if (Date.now() > deadline) throw new Error('WebAssembly runtime did not start.');
       await new Promise((resolve) => setTimeout(resolve, 25));
+    }
+    // The converter and the IR toggle read separate exports, so a build with
+    // only the first would leave the pane showing the other view's result.
+    if (typeof window.openiacIR !== 'function') {
+      throw new Error('This WebAssembly build predates the IR view. Run `make wasm` and reload the page.');
     }
   }
 
@@ -140,6 +147,7 @@
   }
 
   function createEditors(monaco) {
+    state.monaco = monaco;
     const common = {
       theme: 'openiac',
       automaticLayout: true,
@@ -182,8 +190,42 @@
 
   /* ---------------- conversion ---------------- */
 
+  function targetLabel() {
+    return state.target === 'cdk' ? 'AWS CDK' : 'Pulumi';
+  }
+
+  // Shared by both views so the numbers describe the same graph. Data sources
+  // only appear when the input has them, which keeps the common case short.
+  function statsLine(result) {
+    const parts = [`${result.resources || 0} resources`];
+    if (result.data) parts.push(`${result.data} data`);
+    parts.push(`${result.variables || 0} vars`, `${result.outputs || 0} outputs`, `${result.edges || 0} edges`);
+    return parts.join(' · ');
+  }
+
+  // The output pane shows either generated TypeScript or the IR, so the editor
+  // language, file name and download name follow the active view.
+  function updateOutputLanguage() {
+    const model = state.output && state.output.getModel();
+    if (!model) return;
+    state.monaco.editor.setModelLanguage(model, state.view === 'ir' ? 'json' : 'typescript');
+  }
+
+  function setView(view) {
+    state.view = view;
+    const irButton = $('ir-button');
+    irButton.classList.toggle('is-active', view === 'ir');
+    irButton.setAttribute('aria-pressed', view === 'ir' ? 'true' : 'false');
+    irButton.title = view === 'ir' ? 'Back to the generated TypeScript' : 'Show the universal IR (JSON) both emitters share';
+    $('ir-button-label').textContent = view === 'ir' ? 'Hide IR' : 'View IR';
+    $('output-file').textContent = view === 'ir' ? 'ir.json' : 'index.ts';
+    $('target-badge').textContent = view === 'ir' ? 'IR' : targetLabel();
+    updateOutputLanguage();
+    convert();
+  }
+
   function convert() {
-    if (!state.input || typeof window.openiacTranspile !== 'function') return;
+    if (!state.input) return;
 
     const source = state.input.getValue();
     if (!source.trim()) {
@@ -192,6 +234,13 @@
       setStatus('ok', 'Waiting for Terraform input.', '');
       return;
     }
+
+    if (state.view === 'ir') {
+      convertIR(source);
+      return;
+    }
+
+    if (typeof window.openiacTranspile !== 'function') return;
 
     let result;
     try {
@@ -213,20 +262,50 @@
     const warnings = result.warnings || [];
     renderWarnings(warnings);
 
-    const stats = [
-      `${result.resources || 0} resources`,
-      `${result.variables || 0} vars`,
-      `${result.outputs || 0} outputs`,
-      `${result.edges || 0} edges`,
-    ].join(' · ');
-    setStatus('ok', `Converted to ${state.target === 'cdk' ? 'AWS CDK' : 'Pulumi'}.`, `${stats} · ${warnings.length} warnings`);
+    const stats = statsLine(result);
+    setStatus('ok', `Converted to ${targetLabel()}.`, `${stats} · ${warnings.length} warnings`);
+  }
+
+  function convertIR(source) {
+    if (typeof window.openiacIR !== 'function') {
+      fail(new Error('This WebAssembly build has no IR export. Run `make wasm` and reload the page.'));
+      return;
+    }
+
+    let result;
+    try {
+      result = JSON.parse(window.openiacIR(source));
+    } catch (error) {
+      fail(error);
+      return;
+    }
+    if (!result.ok) {
+      fail(new Error(result.error || 'IR generation failed.'));
+      return;
+    }
+
+    let schema = '';
+    try {
+      schema = JSON.parse(result.ir).version || '';
+    } catch (_) {
+      schema = '';
+    }
+
+    state.output.setValue(result.ir || '');
+    renderWarnings([]);
+
+    const stats = statsLine(result);
+    setStatus('ok', 'Generated the universal IR.', schema ? `${stats} · schema ${schema}` : stats);
   }
 
   function fail(error) {
     console.error(error);
-    state.output.setValue(`// OpenIaC could not convert this input.\n// ${String(error.message || error).replace(/\n/g, '\n// ')}`);
+    const message = String(error.message || error);
+    state.output.setValue(state.view === 'ir'
+      ? JSON.stringify({ error: message }, null, 2)
+      : `// OpenIaC could not convert this input.\n// ${message.replace(/\n/g, '\n// ')}`);
     renderWarnings([]);
-    setStatus('error', String(error.message || error), '');
+    setStatus('error', message, '');
   }
 
   function setStatus(kind, text, stats) {
@@ -262,9 +341,14 @@
         document.querySelectorAll('.segment').forEach((other) => {
           other.classList.toggle('is-active', other === button);
         });
-        $('target-badge').textContent = state.target === 'cdk' ? 'AWS CDK' : 'Pulumi';
-        convert();
+        setView('code');
       });
+    });
+
+    // The IR stays hidden until this button is pressed, then toggles back to
+    // the generated TypeScript.
+    $('ir-button').addEventListener('click', () => {
+      setView(state.view === 'ir' ? 'code' : 'ir');
     });
 
     $('run-button').addEventListener('click', convert);
@@ -283,11 +367,12 @@
     $('download-button').addEventListener('click', () => {
       const text = state.output.getValue();
       if (!text) return;
-      const blob = new Blob([text], { type: 'text/typescript' });
+      const ir = state.view === 'ir';
+      const blob = new Blob([text], { type: ir ? 'application/json' : 'text/typescript' });
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.href = url;
-      anchor.download = `openiac-${state.target}.ts`;
+      anchor.download = ir ? 'openiac.ir.json' : `openiac-${state.target}.ts`;
       anchor.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     });

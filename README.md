@@ -18,7 +18,7 @@ One parser. One IR. Zero lock-in.
 [![Terraform](https://img.shields.io/badge/Terraform-1.0_%E2%80%93_1.17-7B42BC?style=flat-square&logo=terraform&logoColor=white)](docs/TERRAFORM-VERSIONS.md)
 [![AWS CDK](https://img.shields.io/badge/AWS_CDK-TypeScript-FF9900?style=flat-square&logo=amazonaws&logoColor=white)](https://aws.amazon.com/cdk/)
 [![Pulumi](https://img.shields.io/badge/Pulumi-TypeScript-8A3391?style=flat-square&logo=pulumi&logoColor=white)](https://www.pulumi.com/)
-[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://openiac.cwz.workers.dev)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://openiac.codewithzeal.com)
 [![IR](https://img.shields.io/badge/IR-schema_0.2-818cf8?style=flat-square)](docs/IR.md)
 [![Made with Go](https://img.shields.io/badge/made_with-Go-00ADD8?style=flat-square&logo=go&logoColor=white)](https://go.dev)
 
@@ -28,7 +28,25 @@ One parser. One IR. Zero lock-in.
 
 <br/>
 
-[🚀 Playground](https://openiac.cwz.workers.dev) · [📦 Quick Start](#-quick-start) · [🗺️ Roadmap](docs/ROADMAP.md) · [🧠 How It Works](#-how-it-works) · [🧱 Architecture](docs/ARCHITECTURE.md) · [📄 IR Reference](docs/IR.md) · [🧭 Version Support](docs/TERRAFORM-VERSIONS.md) · [🧪 Conformance](docs/CONFORMANCE.md) · [🤝 Contribute](CONTRIBUTING.md)
+[🚀 Live demo · open beta](https://openiac.codewithzeal.com) · [📦 Quick Start](#-quick-start) · [🗺️ Roadmap](docs/ROADMAP.md) · [🧠 How It Works](#-how-it-works) · [🧱 Architecture](docs/ARCHITECTURE.md) · [📄 IR Reference](docs/IR.md) · [🧭 Version Support](docs/TERRAFORM-VERSIONS.md) · [🧪 Conformance](docs/CONFORMANCE.md) · [🤝 Contribute](CONTRIBUTING.md)
+
+<br/>
+
+### ⚡ Open beta — try it right now
+
+[![Try the live playground](https://img.shields.io/badge/%E2%96%B6%20TRY%20THE%20LIVE%20PLAYGROUND-OPEN%20BETA-22d3ee?style=for-the-badge&logo=cloudflare&logoColor=0b0f17)](https://openiac.codewithzeal.com)
+[![Runs in your browser](https://img.shields.io/badge/WASM-runs_in_your_browser-654FF0?style=for-the-badge&logo=webassembly&logoColor=white)](https://openiac.codewithzeal.com)
+[![No install](https://img.shields.io/badge/no_install-no_signup-34d399?style=for-the-badge)](https://openiac.codewithzeal.com)
+
+<a href="https://openiac.codewithzeal.com">
+  <img src="docs/assets/playground.png" alt="OpenIaC playground converting Terraform HCL to AWS CDK TypeScript in the browser" width="100%" />
+</a>
+
+<sub>No install, no account, nothing leaves your tab.</sub>
+
+<br/><br/>
+
+<a href="https://openiac.codewithzeal.com"><b>▶ Click here to get open beta access</b></a>
 
 </div>
 
@@ -150,12 +168,17 @@ const mainVpc = new aws.ec2.Vpc("mainVpc", {
 
 ### 🖥️ Browser playground
 
+Live at **[openiac.codewithzeal.com](https://openiac.codewithzeal.com)** — open
+beta, no account. To run it yourself:
+
 ```bash
 make wasm                                        # builds main.wasm + wasm_exec.js
 python3 -m http.server -d playground 8080        # serve it
 ```
 
 Open `http://localhost:8080`, paste Terraform, get TypeScript. **No backend.**
+Press **View IR** in the output pane to inspect the intermediate representation
+both emitters share; **Hide IR** returns to the generated TypeScript.
 
 ---
 
