@@ -45,6 +45,10 @@ playground produces the same output as the CLI.
 | Docs | Architecture, IR reference, Terraform version support, contributing, roadmap, README |
 | Versioning | `openiac version` reads a single source of truth |
 
+The work is in place; the milestone stays in progress until the release is cut.
+`internal/buildinfo/VERSION` keeps a `-dev` suffix and no `v0.1.1` tag exists
+yet, so nothing reports this milestone as shipped.
+
 ---
 
 ## v0.2 — Depth · Dec 2026 ⏳
