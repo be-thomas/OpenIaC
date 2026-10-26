@@ -1,5 +1,5 @@
-// Package status summarises how the parser handles the committed conformance
-// corpus.
+// Package status summarises how the parser and emitters handle the committed
+// conformance corpus.
 //
 // The report is committed as conformance/status.json and rendered in the
 // README, so a reader can see what the corpus actually proves without running
@@ -13,20 +13,23 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
-	"strconv"
 	"strings"
 
+	"github.com/be-thomas/openiac/pkg/emitters"
+	"github.com/be-thomas/openiac/pkg/engine"
 	hclparser "github.com/be-thomas/openiac/pkg/parsers/hcl"
 )
 
-// Schema is the report format version.
-const Schema = 1
+// Schema is the report format version. Version 2 added the emit counts.
+const Schema = 2
 
-// Report is the committed snapshot of corpus size and parse results.
+// Report is the committed snapshot of corpus size, parse results and what each
+// emitter produced.
 type Report struct {
 	Schema      int            `json:"schema"`
 	Corpus      Corpus         `json:"corpus"`
 	Parse       Parse          `json:"parse"`
+	Emit        Emit           `json:"emit"`
 	MinVersions map[string]int `json:"min_versions"`
 }
 
@@ -43,6 +46,24 @@ type Parse struct {
 	Modules  int      `json:"modules"`
 	Parsed   int      `json:"parsed"`
 	Failed   int      `json:"failed"`
+	Failures []string `json:"failures,omitempty"`
+}
+
+// Emit counts what each emitter produced for the modules that parsed.
+type Emit struct {
+	CDK    EmitTarget `json:"cdk"`
+	Pulumi EmitTarget `json:"pulumi"`
+}
+
+// EmitTarget is one emitter's result over the corpus. Emitted and Failed
+// partition Modules, and Clean is a subset of Emitted: a module can compile but
+// still need a human, which is what a warning means.
+type EmitTarget struct {
+	Modules  int      `json:"modules"`
+	Emitted  int      `json:"emitted"`
+	Failed   int      `json:"failed"`
+	Clean    int      `json:"clean"`
+	Warnings int      `json:"warnings"`
 	Failures []string `json:"failures,omitempty"`
 }
 
@@ -68,8 +89,9 @@ type lock struct {
 	TreeSHA256   string `json:"treeSha256"`
 }
 
-// Compute parses every fixture input under fixturesDir. It reads the lock for
-// the aggregate sizes but never writes anything.
+// Compute parses every fixture input under fixturesDir and runs both emitters
+// over every graph that parsed. It reads the lock for the aggregate sizes but
+// never writes anything.
 func Compute(fixturesDir, lockPath string) (Report, error) {
 	report := Report{Schema: Schema, MinVersions: map[string]int{}}
 
@@ -93,19 +115,67 @@ func Compute(fixturesDir, lockPath string) (Report, error) {
 		return report, err
 	}
 	report.Parse.Modules = len(inputs)
+
+	targets := []struct {
+		target engine.Target
+		stats  *EmitTarget
+	}{
+		{engine.TargetCDK, &report.Emit.CDK},
+		{engine.TargetPulumi, &report.Emit.Pulumi},
+	}
+
 	for _, dir := range inputs {
 		graph, err := hclparser.ParseDir(dir)
 		if err != nil {
 			report.Parse.Failed++
-			if len(report.Parse.Failures) < maxFailures {
-				report.Parse.Failures = append(report.Parse.Failures, fmt.Sprintf("%s: %v", filepath.ToSlash(trim(fixturesDir, dir)), err))
-			}
+			addFailure(&report.Parse.Failures, fixturesDir, dir, err)
 			continue
 		}
 		report.Parse.Parsed++
 		report.MinVersions[graph.MinVersion]++
+
+		for _, t := range targets {
+			t.stats.Modules++
+			results, err := engine.Convert(graph, []engine.Target{t.target}, emitters.Options{})
+			if err == nil && len(results) == 0 {
+				err = fmt.Errorf("%s emitter returned no result", t.target)
+			}
+			if err == nil && !hasContent(results[0].Files) {
+				err = fmt.Errorf("%s emitter produced no files", t.target)
+			}
+			if err != nil {
+				t.stats.Failed++
+				addFailure(&t.stats.Failures, fixturesDir, dir, err)
+				continue
+			}
+			t.stats.Emitted++
+			warnings := results[0].Warnings
+			t.stats.Warnings += len(warnings)
+			if len(warnings) == 0 {
+				t.stats.Clean++
+			}
+		}
 	}
 	return report, nil
+}
+
+// addFailure records a capped, repository-relative failure message.
+func addFailure(failures *[]string, root, dir string, err error) {
+	if len(*failures) >= maxFailures {
+		return
+	}
+	*failures = append(*failures, fmt.Sprintf("%s: %v", filepath.ToSlash(trim(root, dir)), err))
+}
+
+// hasContent reports whether an emitter produced any non-empty file. An emitter
+// that "succeeds" with nothing to show has not converted the module.
+func hasContent(files []emitters.File) bool {
+	for _, file := range files {
+		if len(file.Content) > 0 {
+			return true
+		}
+	}
+	return false
 }
 
 // fixtureInputs lists every fixture module root in deterministic order.
@@ -146,128 +216,83 @@ func (r Report) Badge() Badge {
 		Message:       fmt.Sprintf("%d / %d modules", r.Parse.Parsed, r.Parse.Modules),
 		Color:         "brightgreen",
 	}
-	if r.Parse.Failed > 0 {
+	if r.Parse.Failed > 0 || r.Emit.CDK.Failed > 0 || r.Emit.Pulumi.Failed > 0 {
 		badge.Color = "red"
 	}
 	return badge
 }
 
-// VersionRows returns the minimum Terraform versions present, oldest first,
-// with the fixture count for each.
-func (r Report) VersionRows() []VersionCount {
-	return sortedRows(r.MinVersions)
+// Total is the denominator for every outcome: a module that fails before an
+// emitter runs still counts against it.
+func (r Report) Total() int {
+	return r.Parse.Modules
 }
 
-// MinorRows aggregates the distribution by MAJOR.MINOR, which is the
-// resolution that reads well in a chart: patch releases come from individual
-// modules' required_version pins, not from language differences.
-func (r Report) MinorRows() []VersionCount {
-	counts := make(map[string]int, len(r.MinVersions))
-	for version, count := range r.MinVersions {
-		counts[minor(version)] += count
+// Outcome is one row of the generated summary.
+type Outcome struct {
+	Label string
+	Count int
+}
+
+// Outcomes lists what the corpus proves in pipeline order: the module reached
+// the IR, then each emitter, then whether that output still needed a human. The
+// same module counts in several rows, so the rows are not a partition.
+func (r Report) Outcomes() []Outcome {
+	return []Outcome{
+		{"Parsed to the universal IR", r.Parse.Parsed},
+		{"IR → AWS CDK TypeScript", r.Emit.CDK.Emitted},
+		{"IR → Pulumi TypeScript", r.Emit.Pulumi.Emitted},
+		{"IR → AWS CDK, no warnings", r.Emit.CDK.Clean},
+		{"IR → Pulumi, no warnings", r.Emit.Pulumi.Clean},
 	}
-	return sortedRows(counts)
 }
 
-func sortedRows(counts map[string]int) []VersionCount {
-	rows := make([]VersionCount, 0, len(counts))
-	for version, count := range counts {
-		rows = append(rows, VersionCount{Version: version, Fixtures: count})
-	}
-	sort.Slice(rows, func(i, j int) bool { return lessVersion(rows[i].Version, rows[j].Version) })
-	return rows
-}
-
-// minor reduces "1.10.2" to "1.10".
-func minor(version string) string {
-	parts := strings.Split(version, ".")
-	if len(parts) < 2 {
-		return version
-	}
-	return parts[0] + "." + parts[1]
-}
-
-// VersionCount is one row of the minimum-version distribution.
-type VersionCount struct {
-	Version  string
-	Fixtures int
-}
-
-// lessVersion orders dotted version strings numerically, then as text so the
-// order is total even for unexpected values.
-func lessVersion(a, b string) bool {
-	as := strings.Split(a, ".")
-	bs := strings.Split(b, ".")
-	for i := 0; i < len(as) && i < len(bs); i++ {
-		an, aerr := strconv.Atoi(as[i])
-		bn, berr := strconv.Atoi(bs[i])
-		if aerr == nil && berr == nil {
-			if an != bn {
-				return an < bn
-			}
-			continue
-		}
-		if as[i] != bs[i] {
-			return as[i] < bs[i]
-		}
-	}
-	return len(as) < len(bs)
-}
-
-// Markdown renders the distribution as a table with inline bars, for the README
-// and for `openiac-conformance status`.
+// Markdown renders the outcomes as a table with inline bars, for the README and
+// for `openiac-conformance status`.
 func (r Report) Markdown() string {
+	total := r.Total()
 	var b strings.Builder
-	b.WriteString("| Minimum Terraform | Fixtures | Share |\n")
+	b.WriteString("| Outcome | Modules | Share |\n")
 	b.WriteString("|:--|--:|:--|\n")
-	total := r.Parse.Parsed
-	for _, row := range r.MinorRows() {
-		share := 0
-		if total > 0 {
-			share = row.Fixtures * 100 / total
-		}
-		bar := strings.Repeat("█", share/2)
-		if bar == "" && row.Fixtures > 0 {
-			bar = "▏"
-		}
-		fmt.Fprintf(&b, "| `%s` | %d | %s %d%% |\n", row.Version, row.Fixtures, bar, share)
+	for _, row := range r.Outcomes() {
+		fmt.Fprintf(&b, "| %s | %d | %s |\n", row.Label, row.Count, share(row.Count, total))
 	}
 	return b.String()
 }
 
-// Mermaid renders the distribution as a GitHub-renderable bar chart.
-func (r Report) Mermaid() string {
-	rows := r.MinorRows()
-	labels := make([]string, 0, len(rows))
-	bars := make([]string, 0, len(rows))
-	max := 0
-	for _, row := range rows {
-		labels = append(labels, fmt.Sprintf("%q", row.Version))
-		bars = append(bars, fmt.Sprintf("%d", row.Fixtures))
-		if row.Fixtures > max {
-			max = row.Fixtures
-		}
+// share is the percentage with a bar whose length is the percentage: 20 cells
+// for 100%, at least one for any non-zero count.
+func share(count, total int) string {
+	if count <= 0 || total <= 0 {
+		return "0%"
 	}
-	var b strings.Builder
-	b.WriteString("```mermaid\nxychart-beta\n")
-	b.WriteString("    title \"Fixtures by minimum Terraform version\"\n")
-	fmt.Fprintf(&b, "    x-axis [%s]\n", strings.Join(labels, ", "))
-	fmt.Fprintf(&b, "    y-axis \"Fixtures\" 0 --> %d\n", axisMax(max))
-	fmt.Fprintf(&b, "    bar [%s]\n", strings.Join(bars, ", "))
-	b.WriteString("```\n")
-	return b.String()
+	pct := percent(count, total)
+	cells := pct / 5
+	if cells == 0 {
+		return fmt.Sprintf("▏ %d%%", pct)
+	}
+	return fmt.Sprintf("%s %d%%", strings.Repeat("█", cells), pct)
 }
 
-// axisMax rounds the chart's y-axis up to a readable bound.
-func axisMax(max int) int {
-	if max <= 0 {
-		return 10
+// percent rounds to the nearest whole percentage so 27/853 reads as 3%, not 0%.
+func percent(count, total int) int {
+	if total <= 0 {
+		return 0
 	}
-	step := 10
-	for step*10 < max {
-		step *= 10
+	return (count*100 + total/2) / total
+}
+
+// headline states the result in one sentence above the table.
+func (r Report) headline() string {
+	total := r.Total()
+	if total == 0 {
+		return "_The corpus is empty._"
 	}
-	return (max/step + 1) * step
+	if r.Parse.Parsed == total && r.Emit.CDK.Emitted == total && r.Emit.Pulumi.Emitted == total {
+		return fmt.Sprintf("**%d / %d modules — 100%% — reach the IR and emit both AWS CDK and Pulumi TypeScript.**", total, total)
+	}
+	return fmt.Sprintf("**%d / %d modules reach the IR, %d / %d reach AWS CDK and %d / %d reach Pulumi.**",
+		r.Parse.Parsed, total, r.Emit.CDK.Emitted, total, r.Emit.Pulumi.Emitted, total)
 }
 
 // Section markers delimit the generated block in README.md.
@@ -279,7 +304,7 @@ const (
 // Section renders the generated README block, markers included and without a
 // trailing newline: the document keeps the one after the closing marker.
 func (r Report) Section() string {
-	return SectionStart + "\n" + r.Mermaid() + SectionEnd
+	return SectionStart + "\n" + r.headline() + "\n\n" + r.Markdown() + SectionEnd
 }
 
 // ExtractSection returns the marked block of document.

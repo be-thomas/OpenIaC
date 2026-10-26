@@ -341,18 +341,23 @@ tree, its lock and the generated attribution on every pull request.
 [![conformance](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbe-thomas%2FOpenIaC%2Fmain%2Fconformance%2Fbadge.json&style=flat-square)](conformance/status.json)
 
 <!-- conformance:summary:start -->
-```mermaid
-xychart-beta
-    title "Fixtures by minimum Terraform version"
-    x-axis ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10", "1.11"]
-    y-axis "Fixtures" 0 --> 500
-    bar [477, 34, 4, 168, 1, 117, 15, 3, 6, 9, 6, 13]
-```
+**853 / 853 modules — 100% — reach the IR and emit both AWS CDK and Pulumi TypeScript.**
+
+| Outcome | Modules | Share |
+|:--|--:|:--|
+| Parsed to the universal IR | 853 | ████████████████████ 100% |
+| IR → AWS CDK TypeScript | 853 | ████████████████████ 100% |
+| IR → Pulumi TypeScript | 853 | ████████████████████ 100% |
+| IR → AWS CDK, no warnings | 27 | ▏ 3% |
+| IR → Pulumi, no warnings | 31 | ▏ 4% |
 <!-- conformance:summary:end -->
 
-Every one of the 853 modules parses into schema `0.2` IR. The chart groups each
-module by the oldest Terraform release its configuration needs; the exact
-distribution is in [`conformance/status.json`](conformance/status.json), which
+Every one of the 853 modules parses into schema `0.2` IR and produces non-empty
+AWS CDK and Pulumi TypeScript. The last two rows are the honest part: only 27
+and 31 of them convert with no warnings at all, because an unmapped resource or
+an unsupported block is reported rather than dropped. Exact counts, including
+each module's minimum Terraform version, are in
+[`conformance/status.json`](conformance/status.json), which
 `make conformance-status` regenerates and CI checks.
 
 ```bash

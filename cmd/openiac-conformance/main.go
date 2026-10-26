@@ -244,7 +244,8 @@ func runStatus(args []string) error {
 		if len(stale) > 0 {
 			return fmt.Errorf("%s is stale: run `make conformance-status` and commit the result", strings.Join(stale, ", "))
 		}
-		fmt.Printf("status: %d/%d modules parse, summary current\n", report.Parse.Parsed, report.Parse.Modules)
+		fmt.Printf("status: %d/%d modules parse, %d/%d emit CDK, %d/%d emit Pulumi, summary current\n",
+			report.Parse.Parsed, report.Parse.Modules, report.Emit.CDK.Emitted, report.Emit.CDK.Modules, report.Emit.Pulumi.Emitted, report.Emit.Pulumi.Modules)
 		return nil
 	}
 
@@ -263,7 +264,8 @@ func runStatus(args []string) error {
 	if err := os.WriteFile(*readmePath, []byte(updated), 0o644); err != nil {
 		return err
 	}
-	fmt.Printf("status: %d/%d modules parse\n", report.Parse.Parsed, report.Parse.Modules)
+	fmt.Printf("status: %d/%d modules parse, %d/%d emit CDK, %d/%d emit Pulumi\n",
+		report.Parse.Parsed, report.Parse.Modules, report.Emit.CDK.Emitted, report.Emit.CDK.Modules, report.Emit.Pulumi.Emitted, report.Emit.Pulumi.Modules)
 	fmt.Println(report.Markdown())
 	return nil
 }

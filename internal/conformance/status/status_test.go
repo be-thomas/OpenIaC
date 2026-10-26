@@ -25,6 +25,14 @@ func TestComputeCountsParsedModules(t *testing.T) {
 	if report.Parse.Modules != 1 || report.Parse.Parsed != 1 || report.Parse.Failed != 0 {
 		t.Fatalf("parse = %+v, want 1/1 with no failures", report.Parse)
 	}
+	for name, target := range map[string]status.EmitTarget{"cdk": report.Emit.CDK, "pulumi": report.Emit.Pulumi} {
+		if target.Modules != 1 || target.Emitted != 1 || target.Failed != 0 {
+			t.Errorf("%s emit = %+v, want 1/1 with no failures", name, target)
+		}
+		if target.Clean != 1 || target.Warnings != 0 {
+			t.Errorf("%s clean = %d with %d warnings, want a warning-free module", name, target.Clean, target.Warnings)
+		}
+	}
 	if got := report.MinVersions["1.0.0"]; got != 1 {
 		t.Errorf("min_versions[1.0.0] = %d, want 1 (%v)", got, report.MinVersions)
 	}
@@ -33,6 +41,33 @@ func TestComputeCountsParsedModules(t *testing.T) {
 	}
 	if got := report.Badge(); got.Message != "1 / 1 modules" || got.Color != "brightgreen" {
 		t.Errorf("badge = %+v, want 1 / 1 modules in brightgreen", got)
+	}
+}
+
+// A module that emits with a warning still counts as emitted, but not as clean:
+// the warning is what tells a reader a human is needed.
+func TestComputeSeparatesEmittedFromClean(t *testing.T) {
+	root := t.TempDir()
+	fixtures := filepath.Join(root, "fixtures")
+	writeModule(t, fixtures, "registry/aws/scaled/1.0.0/input", `resource "aws_instance" "web" {
+  count         = 2
+  ami           = "ami-0123456789abcdef0"
+  instance_type = "t3.micro"
+}
+`)
+	lock := writeLock(t, root, `{"fixtureCount":1,"fileCount":1,"totalBytes":1,"treeSha256":"abc"}`)
+
+	report, err := status.Compute(fixtures, lock)
+	if err != nil {
+		t.Fatalf("Compute: %v", err)
+	}
+	for name, target := range map[string]status.EmitTarget{"cdk": report.Emit.CDK, "pulumi": report.Emit.Pulumi} {
+		if target.Emitted != 1 {
+			t.Fatalf("%s emitted = %d, want 1", name, target.Emitted)
+		}
+		if target.Clean != 0 || target.Warnings == 0 {
+			t.Errorf("%s clean = %d with %d warnings, want a warned module", name, target.Clean, target.Warnings)
+		}
 	}
 }
 
@@ -52,42 +87,94 @@ func TestComputeReportsFailures(t *testing.T) {
 	if len(report.Parse.Failures) != 1 || !strings.Contains(report.Parse.Failures[0], "broken/1.0.0/input") {
 		t.Errorf("failures = %v, want the fixture path", report.Parse.Failures)
 	}
+	// A module that never parsed was never handed to an emitter.
+	if report.Emit.CDK.Modules != 0 || report.Emit.Pulumi.Modules != 0 {
+		t.Errorf("emit = %+v, want no attempts for an unparsed module", report.Emit)
+	}
 	if got := report.Badge().Color; got != "red" {
 		t.Errorf("badge color = %q, want red", got)
 	}
 }
 
-func TestMinorRowsAggregateAndSort(t *testing.T) {
+func TestBadgeIsRedWhenAnEmitterFails(t *testing.T) {
 	report := status.Report{
-		Parse: status.Parse{Modules: 6, Parsed: 6},
-		MinVersions: map[string]int{
-			"1.10.0": 2,
-			"1.9.0":  1,
-			"1.0.0":  3,
+		Parse: status.Parse{Modules: 3, Parsed: 3},
+		Emit:  status.Emit{CDK: status.EmitTarget{Modules: 3, Emitted: 2, Failed: 1}},
+	}
+	if got := report.Badge().Color; got != "red" {
+		t.Errorf("badge color = %q, want red", got)
+	}
+}
+
+func TestOutcomesRenderPipelineOrder(t *testing.T) {
+	report := status.Report{
+		Parse: status.Parse{Modules: 100, Parsed: 100},
+		Emit: status.Emit{
+			CDK:    status.EmitTarget{Modules: 100, Emitted: 98, Failed: 2, Clean: 25, Warnings: 300},
+			Pulumi: status.EmitTarget{Modules: 100, Emitted: 100, Clean: 2, Warnings: 120},
 		},
 	}
-	rows := report.MinorRows()
-	want := []status.VersionCount{{Version: "1.0", Fixtures: 3}, {Version: "1.9", Fixtures: 1}, {Version: "1.10", Fixtures: 2}}
-	if len(rows) != len(want) {
-		t.Fatalf("rows = %v, want %v", rows, want)
+	want := []status.Outcome{
+		{Label: "Parsed to the universal IR", Count: 100},
+		{Label: "IR → AWS CDK TypeScript", Count: 98},
+		{Label: "IR → Pulumi TypeScript", Count: 100},
+		{Label: "IR → AWS CDK, no warnings", Count: 25},
+		{Label: "IR → Pulumi, no warnings", Count: 2},
+	}
+	got := report.Outcomes()
+	if len(got) != len(want) {
+		t.Fatalf("outcomes = %v, want %v", got, want)
 	}
 	for i := range want {
-		if rows[i] != want[i] {
-			t.Fatalf("rows = %v, want %v", rows, want)
+		if got[i] != want[i] {
+			t.Fatalf("outcomes = %v, want %v", got, want)
 		}
 	}
 
-	chart := report.Mermaid()
-	for _, token := range []string{`x-axis ["1.0", "1.9", "1.10"]`, "bar [3, 1, 2]", "y-axis \"Fixtures\" 0 --> 10"} {
-		if !strings.Contains(chart, token) {
-			t.Errorf("chart missing %q:\n%s", token, chart)
+	table := report.Markdown()
+	for _, row := range []string{
+		"| Parsed to the universal IR | 100 | ████████████████████ 100% |",
+		"| IR → AWS CDK TypeScript | 98 | ███████████████████ 98% |",
+		"| IR → AWS CDK, no warnings | 25 | █████ 25% |",
+		"| IR → Pulumi, no warnings | 2 | ▏ 2% |",
+	} {
+		if !strings.Contains(table, row) {
+			t.Errorf("table missing %q:\n%s", row, table)
 		}
+	}
+	if strings.Contains(table, "Terraform") {
+		t.Errorf("table still describes the version distribution:\n%s", table)
+	}
+}
+
+func TestSectionHeadline(t *testing.T) {
+	full := status.Report{
+		Parse: status.Parse{Modules: 2, Parsed: 2},
+		Emit: status.Emit{
+			CDK:    status.EmitTarget{Modules: 2, Emitted: 2},
+			Pulumi: status.EmitTarget{Modules: 2, Emitted: 2},
+		},
+	}
+	if want := "**2 / 2 modules — 100% — reach the IR and emit both AWS CDK and Pulumi TypeScript.**"; !strings.Contains(full.Section(), want) {
+		t.Errorf("section missing %q:\n%s", want, full.Section())
+	}
+
+	partial := status.Report{
+		Parse: status.Parse{Modules: 4, Parsed: 3},
+		Emit: status.Emit{
+			CDK:    status.EmitTarget{Modules: 3, Emitted: 2},
+			Pulumi: status.EmitTarget{Modules: 3, Emitted: 3},
+		},
+	}
+	if want := "**3 / 4 modules reach the IR, 2 / 4 reach AWS CDK and 3 / 4 reach Pulumi.**"; !strings.Contains(partial.Section(), want) {
+		t.Errorf("section missing %q:\n%s", want, partial.Section())
 	}
 }
 
 func TestSectionRoundTrip(t *testing.T) {
 	report := status.Report{
 		Parse:       status.Parse{Modules: 2, Parsed: 2},
+		Emit:        status.Emit{CDK: status.EmitTarget{Modules: 2, Emitted: 2}, Pulumi: status.EmitTarget{Modules: 2, Emitted: 2}},
 		MinVersions: map[string]int{"1.0.0": 1, "1.5.0": 1},
 	}
 	header := "# Title\n\nIntro.\n\n"
@@ -101,10 +188,13 @@ func TestSectionRoundTrip(t *testing.T) {
 	if section != report.Section() {
 		t.Fatalf("ExtractSection = %q, want the generated section", section)
 	}
+	if !strings.HasSuffix(section, status.SectionEnd) {
+		t.Errorf("section does not end with the closing marker:\n%s", section)
+	}
 
 	updated := status.Report{
-		Parse:       status.Parse{Modules: 2, Parsed: 2},
-		MinVersions: map[string]int{"1.0.0": 2},
+		Parse: status.Parse{Modules: 2, Parsed: 2},
+		Emit:  status.Emit{CDK: status.EmitTarget{Modules: 2, Emitted: 1}, Pulumi: status.EmitTarget{Modules: 2, Emitted: 2}},
 	}
 	replaced, err := status.ReplaceSection(document, updated.Section())
 	if err != nil {
