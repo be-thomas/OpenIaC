@@ -279,10 +279,56 @@ a { color: inherit; }
   border-color: rgba(34, 211, 238, 0.45);
 }
 
-.icon-button.is-active {
-  color: var(--accent);
-  border-color: rgba(34, 211, 238, 0.55);
-  background: rgba(34, 211, 238, 0.14);
+/* The IR toggle is the one thing in this bar that changes what the pane
+   shows, so it gets the accent treatment instead of the muted icon-button. */
+.ir-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 4px;
+  padding: 6px 13px;
+  border: 1px solid rgba(129, 140, 248, 0.5);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.18), rgba(129, 140, 248, 0.24));
+  color: #d6fbff;
+  font: 700 12px var(--sans);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  animation: ir-glow 2.8s ease-in-out infinite;
+  transition: color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.ir-button:hover {
+  color: #ecfeff;
+  border-color: rgba(34, 211, 238, 0.8);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.3);
+}
+
+.ir-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ir-button.is-active {
+  color: #06121a;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 2px 18px rgba(34, 211, 238, 0.4);
+  animation: none;
+}
+
+.ir-button-icon {
+  font: 700 11px var(--mono);
+  opacity: 0.85;
+}
+
+@keyframes ir-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.26); }
+  50% { box-shadow: 0 0 16px 2px rgba(34, 211, 238, 0.26); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ir-button { animation: none; }
 }
 
 .editor {
@@ -418,4 +464,11 @@ a { color: inherit; }
   }
   .hero { margin-top: 0; }
   .status-stats { display: none; }
+}
+
+@media (max-width: 640px) {
+  /* Keep the pane header on one line: the glyph still marks the toggle. */
+  #ir-button-label { display: none; }
+  .ir-button { padding: 5px 9px; }
+  .icon-button { padding: 4px 7px; }
 }

@@ -202,6 +202,8 @@
     const irButton = $('ir-button');
     irButton.classList.toggle('is-active', view === 'ir');
     irButton.setAttribute('aria-pressed', view === 'ir' ? 'true' : 'false');
+    irButton.title = view === 'ir' ? 'Back to the generated TypeScript' : 'Show the universal IR (JSON) both emitters share';
+    $('ir-button-label').textContent = view === 'ir' ? 'Hide IR' : 'View IR';
     $('output-file').textContent = view === 'ir' ? 'ir.json' : 'index.ts';
     $('target-badge').textContent = view === 'ir' ? 'IR' : targetLabel();
     updateOutputLanguage();

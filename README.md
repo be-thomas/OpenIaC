@@ -173,8 +173,8 @@ python3 -m http.server -d playground 8080        # serve it
 ```
 
 Open `http://localhost:8080`, paste Terraform, get TypeScript. **No backend.**
-Press **IR** in the output pane to inspect the intermediate representation both
-emitters share; the button hides it again.
+Press **View IR** in the output pane to inspect the intermediate representation
+both emitters share; **Hide IR** returns to the generated TypeScript.
 
 ---
 
