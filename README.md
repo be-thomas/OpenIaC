@@ -42,7 +42,11 @@ One parser. One IR. Zero lock-in.
   <img src="docs/assets/playground.png" alt="OpenIaC playground converting Terraform HCL to AWS CDK TypeScript in the browser" width="100%" />
 </a>
 
-<sub><b>↑ Click the image to open the playground.</b> No install, no account, nothing leaves your tab.</sub>
+<sub>No install, no account, nothing leaves your tab.</sub>
+
+<br/><br/>
+
+<a href="https://openiac.codewithzeal.com"><b>▶ Click here to get open beta access</b></a>
 
 </div>
 
